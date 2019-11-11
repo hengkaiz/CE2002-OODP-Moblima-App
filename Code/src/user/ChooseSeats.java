@@ -1,11 +1,15 @@
 package user;
 
-
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
+import Cinema.seatPlan;
+
 
 public class ChooseSeats {
 	
-	public int[][] seats = new int[7][7];
+	List<List<String>> seats = new ArrayList<List<String>>();
+	
 	public boolean taken;
 	
 	public void initializeSeats() {

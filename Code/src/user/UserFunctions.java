@@ -1,5 +1,10 @@
 package user;
 
-public class UserFunctions {
+public class UserFunctions extends User{
+	
+	public BookingDetails getBookingHistory() {
+		
+	}
+	
 
 }
