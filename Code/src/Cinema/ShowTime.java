@@ -6,24 +6,17 @@ import java.util.ArrayList;
 public class ShowTime implements Comparable<ShowTime>{
     private int timing;
     private Movie movie;
-    private int cinemaNum;
-    private String cinemaType;
-    //private ArrayList<seatPlan> seatPlan;
+    private seatPlan seatplan;
 
-    public ShowTime(int t, Movie m, int cn, String ct){
+    public ShowTime(int t, Movie m){
         timing = t;
         movie = m;
-        cinemaNum = cn;
-        cinemaType = ct;
+        seatplan = new seatPlan();
     }
 
-    public int getTiming(){ return timing; } //return movie timing
+    public int getTiming(){ return timing; } //return timing
 
     public Movie getMovie(){ return movie; } // return movie name
-
-    public int getCinemaNum(){ return cinemaNum; } // return cinema number
-
-    public String getCinemaType(){ return cinemaType; } // return cinema type
 
     //compare the different parameters to sort by time, movie, etc..
     public int compareTo(ShowTime o) {
