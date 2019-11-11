@@ -1,5 +1,9 @@
 package Booking;
 
+import java.util.ArrayList;
+
+import Cinema.ShowTime;
+
 public class BookingDetails {
 	private String moviegoerName; 
 	private int mobileNumber;
