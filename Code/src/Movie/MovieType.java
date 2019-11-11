@@ -1,13 +1,12 @@
 package Movie;
 
 public enum MovieType{
-    COMING_SOON("Coming Soon"),
-    PREVIEW("Preview"),
-    NOW_SHOWING("Now Showing"),
-    END_OF_SHOWING("End of Showing");
+    TWO_DIMENSION("2D"),
+    THREE_DIMENSION("3D"),
+    BLOCKBUSTER("Blockbuster");
 
-    private String type;
+    private String name;
     MovieType(String s) {
-        this.type = s;
+        this.name = s;
     }
 }
