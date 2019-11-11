@@ -1,5 +1,6 @@
 package user;
 
-public class UserDatabase {
+public class UserDatabase extends User {
+	
 
 }

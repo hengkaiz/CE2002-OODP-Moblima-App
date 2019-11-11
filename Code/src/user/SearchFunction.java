@@ -1,5 +1,7 @@
 package user;
 
-public class SearchFunction {
+public interface SearchFunction {
+	
+	public void SearchResults(); 
 
 }
