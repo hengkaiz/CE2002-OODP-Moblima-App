@@ -1,15 +1,16 @@
 package Cinema;
+import Movie.Movie;
 
 import java.util.ArrayList;
 
 public class ShowTime implements Comparable<ShowTime>{
     private int timing;
-    private String movie;
+    private Movie movie;
     private int cinemaNum;
     private String cinemaType;
     //private ArrayList<seatPlan> seatPlan;
 
-    public ShowTime(int t, String m, int cn, String ct){
+    public ShowTime(int t, Movie m, int cn, String ct){
         timing = t;
         movie = m;
         cinemaNum = cn;
@@ -18,7 +19,7 @@ public class ShowTime implements Comparable<ShowTime>{
 
     public int getTiming(){ return timing; } //return movie timing
 
-    public String getMovie(){ return movie; } // return movie name
+    public Movie getMovie(){ return movie; } // return movie name
 
     public int getCinemaNum(){ return cinemaNum; } // return cinema number
 
