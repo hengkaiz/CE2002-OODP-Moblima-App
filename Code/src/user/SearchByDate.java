@@ -1,8 +1,6 @@
 package user;
 import java.util.ArrayList;
 import java.util.Scanner;
-
-
 import Database.DataBase;
 import Movies.Movie;
 import Movies.MovieDatabase;
@@ -39,6 +37,13 @@ public class SearchByDate implements SearchFunction {
 
 	@Override
 	public void SearchResults() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void SearchResults(String movie) {
 		// TODO Auto-generated method stub
 		
 	}
