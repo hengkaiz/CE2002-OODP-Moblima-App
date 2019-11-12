@@ -7,6 +7,7 @@ public class ShowTime implements Comparable<ShowTime>{
     private int timing;
     private Movie movie;
     private int cinemaNum;
+    private String cinemaType;
     private seatPlan seatplan;
     private Calendar date;
     private MovieFormat movieformat;
