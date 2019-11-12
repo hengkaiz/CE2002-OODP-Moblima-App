@@ -1,5 +1,5 @@
 package Cinema;
-import Movie.Movie;
+import Movies.Movie;
 import Database.getDate;
 
 import java.util.Calendar;
@@ -8,6 +8,7 @@ public class ShowTime implements Comparable<ShowTime>{
     private int timing;
     private Movie movie;
     private int cinemaNum;
+    private String cinemaType;
     private seatPlan seatplan;
     private Calendar date;
 
@@ -25,7 +26,7 @@ public class ShowTime implements Comparable<ShowTime>{
 
     public Calendar getDate(){ return date; } //return date
 
-    public String getMovie(){ return movie.getTitle(); } // return movie name
+    public String getMovie(){ return movie.getMovieTitle(); } // return movie name
 
     //compare the different showtimes by timing, need to add function to search in the same cinema
     public int compareTo(ShowTime o) {
