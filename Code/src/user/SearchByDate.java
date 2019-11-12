@@ -2,17 +2,18 @@ package user;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import Showtime;
-import Database
+
+import Database.DataBase;
 
 public class SearchByDate implements SearchFunction {
 	private int date;
 	private String movie;
 	
 	
-	public void SearchResults(int date) {
+	public void searchbydate() {
 		//creates object dateList
-		ArrayList<Database> dateList = new ArrayList<>();
+		ArrayList<DataBase> dateList = new ArrayList<>();
+		
 		
 		//prints out date list
 		for(int i = 0; i < dateList.size(); i++) {

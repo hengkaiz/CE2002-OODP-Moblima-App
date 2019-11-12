@@ -2,32 +2,36 @@ package user;
 import Movie.Movie;
 import java.util.ArrayList;
 import java.util.Scanner;
-import Database;
+import Database.DataBase;
+import Movies.MovieDatabase;
+import Cinema.ShowTime;
 
-public class SearchByMovie implements SearchFunctions{
-	private Movie movie;
-	private <ArrayLists> movieList;
+public class SearchByMovie implements SearchFunction{
 	
-	public void SearchResults(String movie) {
+	public void searchbymovie() {
 		//creates object movieList
-		ArrayList<Database> movieList = new ArrayList<>();
+		
+		Movie[] movieList = MovieDatabase.getMovieList();
 		
 		// prints out movie list
-        for(int i = 0; i < movieList.size(); i++) {
-            System.out.println(i+1, ".", movieList.get(i).getMovie());
-		} 
+		System.out.println(movieList);
         
-        System.out.println("Please select movie based on index");
+        //set selMovie as the input user selected
+        System.out.println("Please select movie");
         Scanner sc = new Scanner(System.in);
-        int sel = sc.nextInt();
+        String selMovie = sc.nextLine();
         
-        //set movieSelected as the input user selected
-        String movieSelected =  Database.get(sel-1).getMovie();
         
         //searches through BookingDatabase, compareTo returns timing
-        Database.searchByMovie(movieSelected);
+        DataBase.searchByMovie(selMovie);
         
        }
+
+	@Override
+	public void SearchResults() {
+		// TODO Auto-generated method stub
+		
+	}
 		
 	
 
