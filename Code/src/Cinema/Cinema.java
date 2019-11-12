@@ -3,6 +3,7 @@ package Cinema;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+
 public class Cinema extends Cineplex{
     private String type;
     private int code;

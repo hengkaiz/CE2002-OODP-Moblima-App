@@ -1,7 +1,7 @@
 package Database;
 
 import Cinema.ShowTime;
-import Movie.Movie;
+import Movies.Movie;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -64,5 +64,11 @@ public class DataBase{
     public ArrayList<ShowTime> searchByDate(int date){
         return sortDate(date);
     }
-
+    public void addShowTime(ShowTime s) {
+    	showtimelist.add(s);
+    }
+    public ArrayList<ShowTime> getShowTimes(){
+    	return showtimelist;
+    }
+ 
 }
