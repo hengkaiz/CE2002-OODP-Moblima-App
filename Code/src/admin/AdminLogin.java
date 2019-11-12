@@ -1,5 +1,6 @@
 package admin;
 
+import java.util.ArrayList;
 public class AdminLogin extends AdminAccount {
 	// temp class as a pseudo admin account to check against the admin database
 
@@ -10,8 +11,9 @@ public class AdminLogin extends AdminAccount {
 		super(id,password);
 	}*/
 	public boolean checkDatabase(AdminAccount temp) {
-		for(int i=0; i < len(AdminDatabase.getAdmins()); i++) {
-			if(temp.getID() == AdminDatabase.getAdmins()[i].getID() && temp.getPassword() == AdminDatabase.getAdmins().getPassword()){ 
+		AdminDatabase admindatabase = new AdminDatabase();
+		for(int i=0; i < admindatabase.size(); i++) {
+			if(temp.getID() == admindatabase.getAdminList()[i].getID() && temp.getPassword() == admindatabase.getAdminList().getPassword()){ 
 				//account exists
 				return true;
 			}
