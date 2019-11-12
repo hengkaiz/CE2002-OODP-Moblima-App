@@ -30,25 +30,13 @@ public class Movie {
 	private ArrayList<Review> reviewList;
 	private Status movieStatus;
 	
-    public Movie(String movieTitle, String movieSynopsis, Status movieStatus) {
-		this.movieTitle = movieTitle;
-		this.movieSynopsis = movieSynopsis;
-		this.movieOverallRating = -1;
-		this.reviewList = null;
-		this.movieStatus = movieStatus;
-	}
-
-	public Movie createMovie() {
-		String movieTitle;
-		String movieSynopsis;
-		Status movieStatus=null;
-		
+	public Movie() {
 		System.out.println("Enter movie title: ");
 		Scanner sc = new Scanner(System.in);
-		movieTitle = sc.nextLine();
+		this.movieTitle = sc.nextLine();
 		
 		System.out.println("Enter movie synopsis: ");
-		movieSynopsis = sc.nextLine();
+		this.movieSynopsis = sc.nextLine();
 		
 		System.out.println("Choose movie status: ");
 		//System.out.println("1. Now Showing");
@@ -65,29 +53,35 @@ public class Movie {
 		Status[] statusList = Status.values();			//create array with all the Status
 		for(Status status : statusList) {				//go through array until find the one equal to user input
 			if(status.ordinal()==statusChoice-1){
-				movieStatus = status;
+				this.movieStatus = status;
 			}
 		}
 		
-		Movie m= new Movie(movieTitle, movieSynopsis, movieStatus);
-		
-		m.movieCast = new ArrayList<String>();
-		
-		System.out.println("Add cast for the movie one by one. Enter END to stop adding cast members.");
+		this.movieCast = new ArrayList<String>();
+		System.out.println("Add cast for the movie one by one. Key in END to stop adding cast members.");
 		String castMember = sc.nextLine();
 		while(castMember!="END") {
-			m.addMovieCast(castMember);
+			this.addMovieCast(castMember);
 			castMember = sc.nextLine();
 		}
 		
-		m.movieDirector = new ArrayList<String>();
+		this.movieDirector = new ArrayList<String>();
+		System.out.println("Add director for the movie one by one. Key in END to stop adding directors.");
 		String director = sc.nextLine();
 		while(director!="END") {
-			m.addMovieDirector(director);
+			this.addMovieDirector(director);
 			director = sc.nextLine();
 		}
-		
-		return m;
+	}
+	
+    public Movie(String movieTitle, String movieSynopsis, Status movieStatus) {
+		this.movieTitle = movieTitle;
+		this.movieSynopsis = movieSynopsis;
+		this.movieCast = null;
+		this.movieDirector = null;
+		this.movieOverallRating = -1;
+		this.reviewList = null;
+		this.movieStatus = movieStatus;
 	}
     
 	public String getMovieTitle() {
@@ -96,6 +90,7 @@ public class Movie {
 	public void setMovieTitle(String movieTitle) {
 		this.movieTitle = movieTitle;
 	}
+	
 	public String getMovieSynopsis() {
 		return movieSynopsis;
 	}
@@ -106,7 +101,6 @@ public class Movie {
 	public void addMovieCast(String movieCast) {
 		this.movieCast.add(movieCast);
 	}
-	
 	public String toStringMovieCast() {
 		String castString = String.join(", ", this.movieCast);
 		return castString;
@@ -115,7 +109,6 @@ public class Movie {
 	public void addMovieDirector(String movieDirector) {
 		this.movieDirector.add(movieDirector);
 	}
-	
 	public String toStringMovieDirector() {
 		String directorString = String.join(", ", this.movieDirector);
 		return directorString;
@@ -132,12 +125,12 @@ public class Movie {
 	public void setMovieOverallRating(float movieOverallRating) {
 		this.movieOverallRating = movieOverallRating;
 	}
-//	public Review[] getReviewList() {
-//		return reviewList;
-//	}
-	public void addReviewList(Review[] reviewList) {
-		this.reviewList = reviewList;
+	
+	public void addReview() {
+		Review r = new Review();
+		this.reviewList.add(r);
 	}
+	
 	public Status getStatus() {
 		return movieStatus;
 	}

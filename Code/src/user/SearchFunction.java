@@ -4,4 +4,6 @@ public interface SearchFunction {
 	
 	public void SearchResults(String movie);
 
+	void SearchResults();
+
 }
