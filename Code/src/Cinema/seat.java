@@ -1,22 +1,26 @@
 package Cinema;
 
+import Booking.BookingDetails;
+
 public class seat {
     private boolean assigned = false;
-    private int customerId;
+    private int customer_id;
 
-    public seat(int c){ customerId = c; }
+    public seat(){
+        customer_id = 0;
+    }
 
-    public int getCustomerId(){ return customerId; }
+    public int getCustomerId(){ return customer_id; }
 
     public boolean isOccupied() { return assigned; }
 
-    public void assign(int c){
-        customerId = c;
+    public void assign(int b){
+        customer_id = b;
         assigned = true;
     }
 
     public void unAssign(){
         assigned = false;
-        customerId = 0;
+        customer_id = 0;
     }
 }

@@ -2,6 +2,6 @@ package user;
 
 public interface SearchFunction {
 	
-	public void SearchResults(); 
+	public void SearchResults(String movie);
 
 }
