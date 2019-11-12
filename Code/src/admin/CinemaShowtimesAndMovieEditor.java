@@ -1,5 +1,6 @@
 package admin;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 import Cinema.*;
 import Database.*;
@@ -104,8 +105,9 @@ public class CinemaShowtimesAndMovieEditor {
 			System.out.println("Showtime not available!");
 		}
 	}
-	public boolean checkShowtimes(ShowTime s) {
-		//Showtime[] showtimes =  ?????
+	public boolean checkShowtimes(DataBase db) {
+		ArrayList<ShowTime> stdb = db.getShowTimes();
+		
 		for(int i=0; i < len(ShowtimeDatabase.getShowtimes()); i++) {
 			if(s.getTiming() == ShowtimeDatabase.getShowtimes()[i].getTiming() && s.getMovie() == ShowtimeDatabase.getShowtimes()[i].getMovie() && s.getCinemaNum() == ShowtimeDatabase.getShowtimes()[i].getCinemaNum() && s.getCinemaType() == ShowtimeDatabase.getShowtimes()[i].getCinemaType()) {// && s.getSeatPlan() == ShowtimeDatabase.getShowtimes()[i].getSeatPlan()) {
 				//found showtime match
