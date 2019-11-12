@@ -36,11 +36,19 @@ public class BookingDetails {
 		return emailAddress;
 	}
 	
+	public int getID() {
+		return transactionID;
+	}
+	
 	public int getshowtime() {
 		return showtime;
 	}
 	
-	public double getbaseticketPrice() {
+	public int getseatNumber() { 
+		return seatNumber;
+	}
+	
+	public double getticketPrice() {
 		return ticketPrice;
 	}
 

@@ -131,6 +131,13 @@ public class Movie {
 		this.reviewList.add(r);
 	}
 	
+	public void printReviewList() {
+		for (Review review : reviewList) {
+			System.out.println(review.toStringRating());
+			System.out.println(review.toStringReview());
+		}
+	}
+
 	public Status getStatus() {
 		return movieStatus;
 	}

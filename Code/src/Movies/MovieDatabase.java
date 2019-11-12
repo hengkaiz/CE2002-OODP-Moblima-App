@@ -4,8 +4,7 @@ import java.util.ArrayList;
 
 public class MovieDatabase {
 	private ArrayList<Movie> movieList;
-
-	public MovieDatabase(){}
+	
 
 	public void addMovieToDB(){
 		Movie m = new Movie();
@@ -19,13 +18,12 @@ public class MovieDatabase {
 		System.out.println("Cast: "			+ movie.toStringMovieCast());
 		System.out.println("Director: "		+ movie.toStringMovieDirector());
 		System.out.println("Overall Rating: " + movie.getMovieOverallRating());
-		//System.out.println("Reviews: " 		+ movie.getReviewList());
+		System.out.println("Reviews: " 		+ movie.getReviewList());
 	}
-
-	//return an array of movie titles
+	
 	public ArrayList<String> getMovieTitlesList(){
 		ArrayList <String> titlesOnly = new ArrayList<String>();
-
+		
 		for (Movie movie: movieList)
 			titlesOnly.add(movie.getMovieTitle());
 		
