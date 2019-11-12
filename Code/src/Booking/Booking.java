@@ -2,16 +2,13 @@ package Booking;
 
 import java.util.ArrayList;
 
-import Cinema.seat;
-import Cinema.seatPlan.*;
+import Cinema.*;
 
 public class Booking {
-	private int seatNumber;
-	private double ticketPrice;
+	private String seatNumber;
 	
-	public void getSeat(){
-		//return the seatplan ??
-		//return seatPlan;
+	public seatPlan getSeat(){
+		return Cinema.seatPlan();
 	}
 	
 	public double getPrice(){
