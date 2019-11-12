@@ -55,6 +55,11 @@ public class MovieListingEditor {
 		m.setOverallRating(sc.nextFloat());
 		
 		System.out.println("Choose status for " + m.getMovieTitle() + " :");
+		MovieStatus status;
+		int i = 1;
+		for(status : MovieStatus.values()) {
+			System.out.println(i + ". " + status);
+		}
 		System.out.println("1. Now Showing ");
 		System.out.println("2. Coming Soon ");
 		System.out.println("3. Preview ");
