@@ -27,7 +27,7 @@ public class Movie {
 	private ArrayList<String> movieCast;
 	private ArrayList<String> movieDirector;
 	private float movieOverallRating;
-	private Review[] reviewList;
+	private ArrayList<Review> reviewList;
 	private Status movieStatus;
 	
     public Movie(String movieTitle, String movieSynopsis, Status movieStatus) {
@@ -106,9 +106,19 @@ public class Movie {
 	public void addMovieCast(String movieCast) {
 		this.movieCast.add(movieCast);
 	}
+	
+	public String toStringMovieCast() {
+		String castString = String.join(", ", this.movieCast);
+		return castString;
+	}
 
 	public void addMovieDirector(String movieDirector) {
 		this.movieDirector.add(movieDirector);
+	}
+	
+	public String toStringMovieDirector() {
+		String directorString = String.join(", ", this.movieDirector);
+		return directorString;
 	}
 	
 	public float getMovieOverallRating() {
@@ -122,10 +132,10 @@ public class Movie {
 	public void setMovieOverallRating(float movieOverallRating) {
 		this.movieOverallRating = movieOverallRating;
 	}
-	public Review[] getReviewList() {
-		return reviewList;
-	}
-	public void setReviewList(Review[] reviewList) {
+//	public Review[] getReviewList() {
+//		return reviewList;
+//	}
+	public void addReviewList(Review[] reviewList) {
 		this.reviewList = reviewList;
 	}
 	public Status getStatus() {
