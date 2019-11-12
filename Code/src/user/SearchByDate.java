@@ -1,50 +1,39 @@
 package user;
+
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Scanner;
-import Database.DataBase;
-import Movies.Movie;
-import Movies.MovieDatabase;
+import Cinema.ShowTime;
+import Database.*;
 
 public class SearchByDate implements SearchFunction {
-	private int date;
-	private String movie;
-	
-	
-	public void searchbydate() {
-		//prints date
-        System.out.println("Please select date");
-        Scanner sc = new Scanner(System.in);
-        int selDate = sc.nextInt();
-		System.out.println("Here are the timeslots for:"  + selDate);
+	private Calendar date;
+	private Calendar copydate;
+	private ArrayList<ShowTime> showtimes;
+
+	public void searchResult() {
+		Scanner sc = new Scanner(System.in);
+		int choice;
+		String output;
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM");
+
+		//gets the date
+		getDate d = new getDate();
+		copydate.set(d.getYear(),d.getMonth(),d.getDay());
+		date.set(d.getYear(),d.getMonth(),d.getDay());
+
+		//prints out dates of next 5 days
+		for(int i=0; i<5; i++) {
+			copydate.add(Calendar.DAY_OF_MONTH, i);
+			output = sdf.format(copydate.getTime()); //converts it to dd/MM format
+			System.out.printf("%d. %s\n", i+1, output);
+		}
+		choice = sc.nextInt() -1;
+
+		date.add(Calendar.DAY_OF_MONTH, choice);
+		output = sdf.format(date.getTime());
 		DataBase db = new DataBase();
-		
-        db.searchByTiming(selDate);
-        		
-        //print timeslots for that date
-
-        
-        //set selMovie as the input user selected
-        System.out.println("Please select timing");
-        int selTiming = sc.nextInt();
-        
-        
-        //searches through BookingDatabase, compareTo returns timing
-        
-        db.searchByTiming(selTiming);
-        
-       }
-
-
-	@Override
-	public void SearchResults() {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	@Override
-	public void SearchResults(String movie) {
-		// TODO Auto-generated method stub
-		
+		showtimes = db.searchByDate(output); //get an array of showtime with on that date
 	}
 }

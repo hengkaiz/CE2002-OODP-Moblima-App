@@ -1,6 +1,8 @@
 package Cinema;
 import Movies.Movie;
 import Database.getDate;
+
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class ShowTime implements Comparable<ShowTime>{
@@ -16,46 +18,58 @@ public class ShowTime implements Comparable<ShowTime>{
         timing = t;
         movie = m;
         getDate d = new getDate();
-        date.set(d.getYear(), d.getMonth(), d.getDay() + noOfDaysFromCurrent); //year, month date
+        date.set(d.getYear(), d.getMonth(), d.getDay()); //year, month, date
+		date.add(Calendar.DAY_OF_MONTH, noOfDaysFromCurrent); //add future movies
         cinemaNum = c;
         seatplan = new seatPlan();
         movieformat = f;
     }
     public ShowTime(){}
 
-    public int getCinemaNum() {
-		return cinemaNum;
-	}
 	public void setCinemaNum(int cinemaNum) {
 		this.cinemaNum = cinemaNum;
 	}
-	public seatPlan getSeatplan() {
-		return seatplan;
+
+    public int getCinemaNum() {
+		return cinemaNum;
 	}
+
 	public void setSeatplan(seatPlan seatplan) {
 		this.seatplan = seatplan;
 	}
-	public void setTiming(int timing) {
-		this.timing = timing;
+
+	public seatPlan getSeatplan() {
+		return seatplan;
 	}
+
 	public void setMovie(Movie movie) {
 		this.movie = movie;
 	}
-	public void setDate(Calendar date) {
-		this.date = date;
+
+	public String getMovie(){ return movie.getMovieTitle(); } // return movie name
+
+	public void setTiming(int timing) {
+		this.timing = timing;
 	}
+
 	public int getTiming(){ return timing; } //return timing
 
-    public Calendar getDate(){ return date; } //return date
+    public String getDate(){ //return date in dd/MM format
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM");
+		String d = sdf.format(date.getTime());
+		return d;
+	}
 
-    public String getMovie(){ return movie.getMovieTitle(); } // return movie name
+
 
     public MovieFormat getMovieformat() {
 		return movieformat;
 	}
+
 	public void setMovieformat(MovieFormat movieformat) {
 		this.movieformat = movieformat;
 	}
+
 	//compare the different showtimes by timing, need to add function to search in the same cinema
     public int compareTo(ShowTime o) {
         int compareTiming = ((ShowTime) o).timing;

@@ -17,7 +17,7 @@ public class getDate {
     }
 
     public int getDay(){
-        return date.get(Calendar.DATE);
+        return date.get(Calendar.DAY_OF_MONTH);
     }
 
 

@@ -23,10 +23,10 @@ public class DataBase{
         return copylist;
     }
 
-    private ArrayList<ShowTime> sortTiming(int timing){
+    private ArrayList<ShowTime> sortDate(String date){
         copylist = new ArrayList<ShowTime>();
         for (ShowTime st: showtimelist){
-            if (st.getTiming() == timing){
+            if (st.getDate() == date){
                 copylist.add(st);
             }
         }
@@ -35,6 +35,10 @@ public class DataBase{
 
     public ArrayList<ShowTime> searchByMovie(String title){
         return sortMovies(title);
+    }
+
+    public ArrayList<ShowTime> searchByDate(String date){
+        return sortDate(date);
     }
 
 }
