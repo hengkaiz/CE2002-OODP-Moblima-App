@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 
 import Database.DataBase;
+import Movies.Movie;
+import Movies.MovieDatabase;
 
 public class SearchByDate implements SearchFunction {
 	private int date;
@@ -11,24 +13,28 @@ public class SearchByDate implements SearchFunction {
 	
 	
 	public void searchbydate() {
-		//creates object dateList
-		ArrayList<DataBase> dateList = new ArrayList<>();
-		
-		
-		//prints out date list
-		for(int i = 0; i < dateList.size(); i++) {
-            System.out.println(i+1, ".", dateList.get(i).getDate());
-		} 
-        
-        System.out.println("Please select dates based on index");
+		//prints date
+        System.out.println("Please select date");
         Scanner sc = new Scanner(System.in);
-        int sel = sc.nextInt();
+        String selDate = sc.nextLine();
         
-        //set movieSelected as the input user selected. *need to change movie 
-        int dateSelected =  Database.get(sel-1).getDate();
+        
+		Movie[] movieList;
+		MovieDatabase md = new MovieDatabase();
+		movieList = md.getMovieList();
+		
+		// prints timeslots for that date
+		System.out.println(movieList);
+        
+        //set selMovie as the input user selected
+        System.out.println("Please select movie");
+        Scanner sc = new Scanner(System.in);
+        String selMovie = sc.nextLine();
+        
         
         //searches through BookingDatabase, compareTo returns timing
-        Database.searchByDate(dateSelected);
-                
-	}
+        DataBase db = new DataBase();
+        db.searchByMovie(selMovie);
+        
+       }
 }

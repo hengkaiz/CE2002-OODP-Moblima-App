@@ -7,6 +7,8 @@ public class MainFunction {
 	public static void main(String[] args) {
 		
 		DataBase db = new DataBase();
+		SearchByMovie sm = new SearchByMovie();
+		sm.searchbymovie();
 		
 		
 	}

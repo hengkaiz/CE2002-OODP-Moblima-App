@@ -1,5 +1,6 @@
 package user;
 import Movies.Movie;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 import Database.DataBase;
