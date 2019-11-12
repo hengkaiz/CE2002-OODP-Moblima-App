@@ -18,4 +18,8 @@ public class Movie {
         this.agelimit = agelimit;
         this.runtime = runtime;
     }
+
+    public String getTitle(){
+        return title;
+    }
 }
