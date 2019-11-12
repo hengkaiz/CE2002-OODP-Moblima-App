@@ -1,6 +1,7 @@
 package admin;
 
 import java.util.Scanner;
+import Movie.*;
 public class MovieListingEditor {
 	
 	Scanner sc = new Scanner(System.in);
