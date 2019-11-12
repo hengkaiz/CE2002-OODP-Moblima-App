@@ -1,18 +1,21 @@
 package Cinema;
 import Movie.Movie;
+import Database.getDate;
 
-import java.util.ArrayList;
+import java.util.Calendar;
 
 public class ShowTime implements Comparable<ShowTime>{
     private int timing;
     private Movie movie;
     private int cinemaNum;
     private seatPlan seatplan;
-    private int date;
+    private Calendar date;
 
-    public ShowTime(int t, Movie m, int c){
+    public ShowTime(int t, Movie m, int noOfDaysFromCurrent, int c){
         timing = t;
         movie = m;
+        getDate d = new getDate();
+        date.set(d.getYear(), d.getMonth(), d.getDay() + noOfDaysFromCurrent); //year, month date
         cinemaNum = c;
         seatplan = new seatPlan();
     }
@@ -20,7 +23,7 @@ public class ShowTime implements Comparable<ShowTime>{
 
     public int getTiming(){ return timing; } //return timing
 
-    public int getDate(){ return date; } //return date
+    public Calendar getDate(){ return date; } //return date
 
     public String getMovie(){ return movie.getTitle(); } // return movie name
 
