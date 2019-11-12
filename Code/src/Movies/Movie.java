@@ -1,5 +1,9 @@
 package Movies;
 
+import java.util.ArrayList;
+
+import Movie.MovieReview;
+
 public class Movie {
 	enum Status{
 		NOW_SHOWING, COMMING_SOON, PREVIEW, ENDING_SOON;
@@ -11,6 +15,21 @@ public class Movie {
 	private float movieOverallRating;
 	private Review[] reviewList;
 	private Status movieStatus;
+	
+	
+	
+	
+    public Movie(String movieTitle, String movieSynopsis, String movieCast, String movieDirector,
+			float movieOverallRating, Review[] reviewList, Status movieStatus) {
+		this.movieTitle = movieTitle;
+		this.movieSynopsis = movieSynopsis;
+		this.movieCast = movieCast;
+		this.movieDirector = movieDirector;
+		this.movieOverallRating = movieOverallRating;
+		this.reviewList = reviewList;
+		this.movieStatus = movieStatus;
+	}
+
 	
 	public String getMovieTitle() {
 		return movieTitle;
