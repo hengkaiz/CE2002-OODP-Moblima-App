@@ -12,8 +12,7 @@ public class BookingApp {
 		String name = sc.nextLine();
 		
 		bd.getBookingDetails(name);
-		
-		
+			
 	}
 
 }
