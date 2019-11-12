@@ -8,22 +8,24 @@ public class BookingDatabase {
 	 private ArrayList<BookingDetails> copybook;
 	 
 	 public BookingDatabase() {
-		 BookingDetails bk = new BookingDetails("heop", 555, "h", 7, 9, 17, 17.8);
+		 BookingDetails bk = new BookingDetails("hope", 987654321, "hopesishu", 7, 1900, 17, 8.00);
 		 BookingDetailsList.add(bk);
 	 }
 	 
-	 private void getBookingDetails(String name) { 
+	 //name, mobile, email, ID, showtime, seatno, price
+	 public void getBookingDetails(String name) { 
 		 copybook = new ArrayList<BookingDetails>();
 		 for (BookingDetails details: BookingDetailsList) {
 			 if (details.getmoviegoerName().equals(name)) {
-				 //System.out.println(details.getbaseticketPrice());
-				 System.out.println(details.getemailAddress());
-				 System.out.println(details.getmobileNumber());
-				 System.out.println(details.getmoviegoerName());
-				 System.out.println(details.getshowtime());
-				 //copybook.add(details.getmobileNumber());
-				 
+				 System.out.println("Name: " + details.getmoviegoerName());
+				 System.out.println("Mobile number: " + details.getmobileNumber());
+				 System.out.println("Email address: " + details.getemailAddress());
+				 System.out.println("Transaction ID: " + details.getID());
+				 System.out.println("Showtime: " + details.getshowtime());
+				 System.out.println("Seat Number: " + details.getseatNumber());
+				 System.out.println("Ticket price: " + details.getticketPrice());
 			 }
+			 System.out.println("Sorry! No booking is done under your name.");
 		 }
 	 }
 }
