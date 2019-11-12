@@ -16,6 +16,7 @@ public class Booking {
 	
 	public double getPrice(){
 		//get ticket price from database?
+		return 0;
 	}
 	
 	public void updateBookingDatabase() {
