@@ -1,5 +1,6 @@
 package user;
 import Movie.Movie;
+
 import java.util.ArrayList;
 
 public class SearchByMovie implements SearchFunctions{

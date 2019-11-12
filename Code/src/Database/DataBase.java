@@ -1,7 +1,6 @@
 package Database;
 
 import Cinema.ShowTime;
-import Movie.Movie;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;

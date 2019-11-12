@@ -3,19 +3,23 @@ package Booking;
 import java.util.ArrayList;
 
 import Cinema.*;
+import Movies.*;
 
 public class Booking {
-	private String seatNumber;
 	
-	public seatPlan getSeat(){
-		return Cinema.seatPlan();
+	public void getSeatPlan(){
+		//prints out the current seat plan for the user to choose seats
+		seatPlan seatplan = new seatPlan();
+		seatplan.printSeats();
 	}
 	
 	public double getPrice(){
 		//get ticket price from database?
+		
 	}
 	
 	public void updateBookingDatabase() {
-		//update the booking database?	
+		//update the booking database
+		
 	}
 }

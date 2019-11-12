@@ -12,6 +12,7 @@ public class BookingDetails {
 	private int showtime;
 	private int seatNumber;
 	private double ticketPrice;
+	//private 
 	
 	public BookingDetails(String name, int mobile, String email, int ID, int st, int seatno, double price) {
 		moviegoerName = name;
@@ -39,7 +40,7 @@ public class BookingDetails {
 		return showtime;
 	}
 	
-	public double getticketPrice() {
+	public double getbaseticketPrice() {
 		return ticketPrice;
 	}
 
