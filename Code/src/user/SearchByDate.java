@@ -19,9 +19,8 @@ public class SearchByDate implements SearchFunction {
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM");
 
 		//gets the date
-		getDate d = new getDate();
-		copydate.set(d.getYear(),d.getMonth(),d.getDay());
-		date.set(d.getYear(),d.getMonth(),d.getDay());
+		copydate = Calendar.getInstance();
+		date = Calendar.getInstance();
 
 		//prints out dates of next 5 days
 		for(int i=0; i<5; i++) {

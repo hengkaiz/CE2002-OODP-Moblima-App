@@ -1,6 +1,5 @@
 package Cinema;
 import Movies.Movie;
-import Database.getDate;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -17,8 +16,7 @@ public class ShowTime implements Comparable<ShowTime>{
     public ShowTime(int t, Movie m, int noOfDaysFromCurrent, int c, MovieFormat f){
         timing = t;
         movie = m;
-        getDate d = new getDate();
-        date.set(d.getYear(), d.getMonth(), d.getDay()); //year, month, date
+        date = Calendar.getInstance(); //year, month, date
 		date.add(Calendar.DAY_OF_MONTH, noOfDaysFromCurrent); //add future movies
         cinemaNum = c;
         seatplan = new seatPlan();

@@ -17,7 +17,6 @@ public class CinemaShowtimesAndMovieEditor {
 		
 		//System.out.println("Enter Movie Title: ");
 		//s.setMovie(sc.nextLine());
-		//getDate d = new getDate();
 		//System.out.println(date.);.
 		
 		System.out.println("Enter Cinema Number: ");

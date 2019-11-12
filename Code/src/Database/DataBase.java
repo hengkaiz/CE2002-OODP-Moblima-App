@@ -13,7 +13,7 @@ public class DataBase{
 
     public DataBase(){ }
 
-    private ArrayList<ShowTime> sortMovies(String title){
+    private ArrayList<ShowTime> sortMovies(String title){ //return showtimes for chosen movie
         copylist = new ArrayList<ShowTime>();
         for (ShowTime st: showtimelist){
             if (st.getMovie() == title){
@@ -23,7 +23,7 @@ public class DataBase{
         return copylist;
     }
 
-    private ArrayList<ShowTime> sortDate(String date){
+    private ArrayList<ShowTime> sortDate(String date){ //return showtimes for chosen dates
         copylist = new ArrayList<ShowTime>();
         for (ShowTime st: showtimelist){
             if (st.getDate() == date){
@@ -33,11 +33,11 @@ public class DataBase{
         return copylist;
     }
 
-    public ArrayList<ShowTime> searchByMovie(String title){
+    public ArrayList<ShowTime> searchByMovie(String title){ //search movie by title
         return sortMovies(title);
     }
 
-    public ArrayList<ShowTime> searchByDate(String date){
+    public ArrayList<ShowTime> searchByDate(String date){//search movie by date in format dd/MM
         return sortDate(date);
     }
 
