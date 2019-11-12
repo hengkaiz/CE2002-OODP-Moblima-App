@@ -105,8 +105,20 @@ public class CinemaShowtimesAndMovieEditor {
 			System.out.println("Showtime not available!");
 		}
 	}
-	public boolean checkShowtimes(DataBase db) {
+	public boolean checkShowtimes(DataBase db, ShowTime s) {
 		ArrayList<ShowTime> stdb = db.getShowTimes();
+		for(int i=0; i<stdb.size(); i++) {
+			if(s.equals(stdb.get(i))) {
+				//found showtime match
+				return true;
+			}
+		}
+		//no match found
+		return false;
+		
+		/*for(int i=0; i<stdb.size(); i++) {
+			if(s.getTiming() == stdb.get(i).getTiming() && s.getMovie() == stdb.get(i).getMovie() && s.getCinemaNum() == stdb.get(i).getCinemaNum() && s.getCinemaType() == ShowtimeDatabase.getShowtimes()[i].getCinemaType()) {// && s.getSeatPlan() == ShowtimeDatabase.getShowtimes()[i].getSeatPlan()) {
+		}
 		
 		for(int i=0; i < len(ShowtimeDatabase.getShowtimes()); i++) {
 			if(s.getTiming() == ShowtimeDatabase.getShowtimes()[i].getTiming() && s.getMovie() == ShowtimeDatabase.getShowtimes()[i].getMovie() && s.getCinemaNum() == ShowtimeDatabase.getShowtimes()[i].getCinemaNum() && s.getCinemaType() == ShowtimeDatabase.getShowtimes()[i].getCinemaType()) {// && s.getSeatPlan() == ShowtimeDatabase.getShowtimes()[i].getSeatPlan()) {
@@ -115,6 +127,6 @@ public class CinemaShowtimesAndMovieEditor {
 			}
 		}
 		//no match found
-		return false;
+		return false;*/
 	}
 }
