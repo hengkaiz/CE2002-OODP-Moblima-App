@@ -4,14 +4,20 @@ import java.util.ArrayList;
 
 public class SearchByMovie implements SearchFunctions{
 	private Movie movie;
-
+	private <ArrayLists> movieList;
 	
 	public void SearchResults(String movie) {
-		for (int i=0; i<len(Movie); i++) {
-			if (movie = Movie[i].title) {
+		//creates object movieList
+		List<Movie> movieList = new ArrayList<>();
+		
+		// prints out movie list
+        for(int i = 0; i < movieList.size(); i++) {
+            System.out.println(movieList.get(i).getMovie());
+		}  
+		
 				
-			}
 		}
-	}
+		
+	
 
 }
