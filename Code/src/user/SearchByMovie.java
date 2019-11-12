@@ -1,5 +1,5 @@
 package user;
-import Movie.Movie;
+import Movies.Movie;
 import java.util.ArrayList;
 import java.util.Scanner;
 import Database.DataBase;
@@ -8,10 +8,13 @@ import Cinema.ShowTime;
 
 public class SearchByMovie implements SearchFunction{
 	
+	
+	
 	public void searchbymovie() {
 		//creates object movieList
-		
-		Movie[] movieList = MovieDatabase.getMovieList();
+		Movie[] movieList;
+		MovieDatabase md = new MovieDatabase();
+		movieList = md.getMovieList();
 		
 		// prints out movie list
 		System.out.println(movieList);
@@ -23,7 +26,8 @@ public class SearchByMovie implements SearchFunction{
         
         
         //searches through BookingDatabase, compareTo returns timing
-        DataBase.searchByMovie(selMovie);
+        DataBase db = new DataBase();
+        db.searchByMovie(selMovie);
         
        }
 
