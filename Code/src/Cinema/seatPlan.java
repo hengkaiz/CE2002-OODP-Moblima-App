@@ -1,5 +1,7 @@
 package Cinema;
 
+//import Booking.BookingDetails;
+
 import java.util.ArrayList;
 
 public class seatPlan {
@@ -15,17 +17,17 @@ public class seatPlan {
         }
         for (int i=0;i<rows;i++){
             for (int j=0;j<columns;j++){
-                seat.get(i).add(new seat(0));
+                seat.get(i).add(new seat());
             }
         }
     }
 
-    public void assignSeat(int r, int c, int customer_id){
+    public void assignSeat(int r, int c, int d){
         if(seat.get(r).get(c).isOccupied() == true){
             System.out.println("Seat already assigned to a customer.");
             return;
         }
-        seat.get(r).get(c).assign(customer_id);
+        seat.get(r).get(c).assign(d);
         numEmptySeat--;
         System.out.println("Seat Assigned!");
     }

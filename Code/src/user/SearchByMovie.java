@@ -1,23 +1,48 @@
 package user;
+<<<<<<< HEAD
 import Movie.Movie;
 
 import java.util.ArrayList;
+=======
+import Movies.Movie;
+>>>>>>> branch 'Master' of https://github.com/hengkaiz/moblima.git
 
-public class SearchByMovie implements SearchFunctions{
-	private Movie movie;
-	private <ArrayLists> movieList;
+import java.util.ArrayList;
+import java.util.Scanner;
+import Database.DataBase;
+import Movies.MovieDatabase;
+import Cinema.ShowTime;
+
+public class SearchByMovie implements SearchFunction{
 	
-	public void SearchResults(String movie) {
+	
+	
+	public void searchbymovie() {
 		//creates object movieList
-		List<Movie> movieList = new ArrayList<>();
+		Movie[] movieList;
+		MovieDatabase md = new MovieDatabase();
+		movieList = md.getMovieList();
 		
 		// prints out movie list
-        for(int i = 0; i < movieList.size(); i++) {
-            System.out.println(movieList.get(i).getMovie());
-		}  
+		System.out.println(movieList);
+        
+        //set selMovie as the input user selected
+        System.out.println("Please select movie");
+        Scanner sc = new Scanner(System.in);
+        String selMovie = sc.nextLine();
+        
+        
+        //searches through BookingDatabase, compareTo returns timing
+        DataBase db = new DataBase();
+        db.searchByMovie(selMovie);
+        
+       }
+
+	@Override
+	public void SearchResults() {
+		// TODO Auto-generated method stub
 		
-				
-		}
+	}
 		
 	
 

@@ -4,7 +4,7 @@ import java.util.Date;
 public class MovieReview {
     private String review;
     private int rating;
-    //private Date date;
+    //private getDate date;
     //private User author;
 
     public MovieReview(String review, int rating){
