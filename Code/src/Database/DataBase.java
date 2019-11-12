@@ -1,6 +1,7 @@
 package Database;
 
 import Cinema.ShowTime;
+import Movie.Movie;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -12,13 +13,13 @@ public class DataBase{
 
     public DataBase(){
         Movie m = new Movie("penisland", "penis", "in my ass", "R21", 122);
-        showtimelist.add(new ShowTime(1330, m, 0, 3));
+        showtimelist.add(new ShowTime(1330, m, 3));
         Movie mm = new Movie("penisland2", "penis", "in my ass", "R21", 122);
-        showtimelist.add(new ShowTime(1330, mm, 1, 3));
+        showtimelist.add(new ShowTime(1330, mm, 3));
         Movie mmmm = new Movie("penisland3", "penis", "in my ass", "R21", 122);
-        showtimelist.add(new ShowTime(1330, mmmm, 0,2));
+        showtimelist.add(new ShowTime(1330, mmmm, 2));
         Movie mmmm1 = new Movie("penisland1", "penis", "in my ass", "R21", 122);
-        showtimelist.add(new ShowTime(1330, mmmm1, 2,1));
+        showtimelist.add(new ShowTime(1330, mmmm1, 1));
     }
 
     private ArrayList<ShowTime> sortMovies(String title){
@@ -41,11 +42,12 @@ public class DataBase{
         return copylist;
     }
 
-    private ArrayList<ShowTime> sortDate(int noOfDaysFromCurrent){
+    private ArrayList<ShowTime> sortDate(int date){
         copylist = new ArrayList<ShowTime>();
         for (ShowTime st: showtimelist){
-            if (st.getDate().compareTo()){
-                copylist.add(st);
+            if (st.getDate() == date){
+            	
+                copylist.add(st.getTiming());
             }
         }
         return copylist;

@@ -16,25 +16,30 @@ public class SearchByDate implements SearchFunction {
 		//prints date
         System.out.println("Please select date");
         Scanner sc = new Scanner(System.in);
-        String selDate = sc.nextLine();
-        
-        
-		Movie[] movieList;
-		MovieDatabase md = new MovieDatabase();
-		movieList = md.getMovieList();
+        int selDate = sc.nextInt();
+		System.out.println("Here are the timeslots for:"  + selDate);
+		DataBase db = new DataBase();
 		
-		// prints timeslots for that date
-		System.out.println(movieList);
+        db.searchByTiming(selDate);
+        		
+        //print timeslots for that date
+
         
         //set selMovie as the input user selected
-        System.out.println("Please select movie");
-        Scanner sc = new Scanner(System.in);
-        String selMovie = sc.nextLine();
+        System.out.println("Please select timing");
+        int selTiming = sc.nextInt();
         
         
         //searches through BookingDatabase, compareTo returns timing
-        DataBase db = new DataBase();
-        db.searchByMovie(selMovie);
+        
+        db.searchByTiming(selTiming);
         
        }
+
+
+	@Override
+	public void SearchResults() {
+		// TODO Auto-generated method stub
+		
+	}
 }
