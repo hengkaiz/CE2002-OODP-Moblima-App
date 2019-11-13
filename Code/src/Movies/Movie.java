@@ -83,6 +83,14 @@ public class Movie {
 	public void addMovieCast(String movieCast) {
 		this.movieCast.add(movieCast);
 	}
+	public void removeMovieCast(String movieCast) {
+		if(this.movieCast.remove(movieCast)) {
+			System.out.println("Cast removed");
+		}
+		else {
+			System.out.println("Cast does not exist");
+		}
+	}
 	public String toStringMovieCast() {
 		String castString = String.join(", ", this.movieCast);
 		return castString;
@@ -90,6 +98,14 @@ public class Movie {
 
 	public void addMovieDirector(String movieDirector) {
 		this.movieDirector.add(movieDirector);
+	}
+	public void removeMovieDirector(String movieDirector) {
+		if(this.movieDirector.remove(movieDirector)) {
+			System.out.println("Director removed");
+		}
+		else {
+			System.out.println("Director does not exist");
+		}
 	}
 	public String toStringMovieDirector() {
 		String directorString = String.join(", ", this.movieDirector);
