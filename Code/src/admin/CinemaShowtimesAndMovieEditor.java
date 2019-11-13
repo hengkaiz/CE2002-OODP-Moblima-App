@@ -124,6 +124,7 @@ public class CinemaShowtimesAndMovieEditor {
 					System.out.println("Timing changed for " + s.getMovie());
 					break;
 				case 2: //change cinema number
+					
 					break;
 				case 3: //change movie format
 					break;

@@ -50,7 +50,7 @@ public class MovieListingEditor {
 					String cast = null; 
 					
 					System.out.println("Current Cast List:");
-					selectedMovie.toStringMovieCast(); //prints the current cast list
+					System.out.println(selectedMovie.toStringMovieCast()); //prints the current cast list
 					System.out.println("1. Add Cast Member");
 					System.out.println("2. Remove Cast Member");
 					
@@ -80,7 +80,7 @@ public class MovieListingEditor {
 					String director = null;
 					
 					System.out.println("Current Director List:");
-					selectedMovie.toStringMovieDirector(); //prints the current director list
+					System.out.println(selectedMovie.toStringMovieDirector()); //prints the current director list
 					System.out.println("1. Add Director");
 					System.out.println("2. Remove Director");
 					
