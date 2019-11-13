@@ -6,6 +6,12 @@
       <directory url="file://$PROJECT_DIR$/Code/src/Database" includeSubdirectories="true" />
       <directory url="file://$PROJECT_DIR$/Code/src/Movies" includeSubdirectories="true" />
       <directory url="file://$PROJECT_DIR$/Code/src/user" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/Code/src/Booking" includeSubdirectories="true" />
+      <file url="file://$PROJECT_DIR$/Code/src/Cinema/Cinema.java" />
+      <file url="file://$PROJECT_DIR$/Code/src/Cinema/Cineplex.java" />
+      <file url="file://$PROJECT_DIR$/Code/src/Cinema/seat.java" />
+      <file url="file://$PROJECT_DIR$/Code/src/Cinema/seatPlan.java" />
+      <file url="file://$PROJECT_DIR$/Code/src/Cinema/ShowTime.java" />
     </excludeFromCompile>
   </component>
 </project>

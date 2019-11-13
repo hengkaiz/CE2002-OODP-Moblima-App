@@ -1,29 +1,49 @@
 package admin;
 
+import java.util.ArrayList;
 import java.util.Scanner;
+import Cinema.*;
+import Database.*;
+import Movies.*;
+
 public class CinemaShowtimesAndMovieEditor {
 
 	Scanner sc = new Scanner(System.in);
-	
 	public void createCinemaShowtimesAndMovie() {
-		Showtime s = new Showtime();
+		ShowTime s = new ShowTime();
 		
 		System.out.println("Enter Timing:");
 		s.setTiming(sc.nextInt());
 		
-		System.out.println("Enter Movie Title: ");
-		s.setMovie(sc.nextLine());
+		//System.out.println("Enter Movie Title: ");
+		//s.setMovie(sc.nextLine());
+		//System.out.println(date.);.
 		
 		System.out.println("Enter Cinema Number: ");
 		s.setCinemaNum(sc.nextInt());
 		
-		System.out.println("Enter Cinema Type: ");
-		s.setCinemaType(sc.nextLine());
+		System.out.println("Choose Movie Format: ");
+		int i = 1;
+		for(MovieFormat mf : MovieFormat.values()) {
+			System.out.println(i + ". " + mf.name());
+			//System.out.println(i + ". " + status);
+			i++;
+		}
+		int movieFormatChoice = sc.nextInt();
+		MovieFormat movieFormat=null;
+		for(MovieFormat mf : MovieFormat.values()) {				//go through array until find the one equal to user input
+			if(mf.ordinal() == movieFormatChoice-1){
+				movieFormat = mf;
+			}
+		}
+		s.setMovieformat(movieFormat);
+		/*System.out.println("Enter Cinema Type: ");
+		s.setCinemaType(sc.nextLine());*/
 		
 		//should just enter an empty seat plan for the booking class to update whenever
 		//s.setSeatPlan();
 	}
-	public void updateCinemaShowtimesAndMovie(Showtime s) {
+	public void updateCinemaShowtimesAndMovie(ShowTime s) {
 		if(checkShowtimes(s)) { //valid showtime
 			int showtimeChoice = 0;
 			do {
@@ -73,7 +93,7 @@ public class CinemaShowtimesAndMovieEditor {
 
 		}
 	}
-	public void removeCinemaShowtimesAndMovie(Showtime s) {
+	public void removeCinemaShowtimesAndMovie(ShowTime s) {
 		if(checkShowtimes(s)) { //valid showtime
 			String movieTitle = s.getMovie();
 			int timing = s.getTiming();
@@ -84,8 +104,21 @@ public class CinemaShowtimesAndMovieEditor {
 			System.out.println("Showtime not available!");
 		}
 	}
-	public boolean checkShowtimes(Showtime s) {
-		//Showtime[] showtimes =  ?????
+	public boolean checkShowtimes(DataBase db, ShowTime s) {
+		ArrayList<ShowTime> stdb = db.getShowTimes();
+		for(int i=0; i<stdb.size(); i++) {
+			if(s.equals(stdb.get(i))) {
+				//found showtime match
+				return true;
+			}
+		}
+		//no match found
+		return false;
+		
+		/*for(int i=0; i<stdb.size(); i++) {
+			if(s.getTiming() == stdb.get(i).getTiming() && s.getMovie() == stdb.get(i).getMovie() && s.getCinemaNum() == stdb.get(i).getCinemaNum() && s.getCinemaType() == ShowtimeDatabase.getShowtimes()[i].getCinemaType()) {// && s.getSeatPlan() == ShowtimeDatabase.getShowtimes()[i].getSeatPlan()) {
+		}
+		
 		for(int i=0; i < len(ShowtimeDatabase.getShowtimes()); i++) {
 			if(s.getTiming() == ShowtimeDatabase.getShowtimes()[i].getTiming() && s.getMovie() == ShowtimeDatabase.getShowtimes()[i].getMovie() && s.getCinemaNum() == ShowtimeDatabase.getShowtimes()[i].getCinemaNum() && s.getCinemaType() == ShowtimeDatabase.getShowtimes()[i].getCinemaType()) {// && s.getSeatPlan() == ShowtimeDatabase.getShowtimes()[i].getSeatPlan()) {
 				//found showtime match
@@ -93,6 +126,6 @@ public class CinemaShowtimesAndMovieEditor {
 			}
 		}
 		//no match found
-		return false;
+		return false;*/
 	}
 }

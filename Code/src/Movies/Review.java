@@ -49,4 +49,11 @@ public class Review {
 	public void setReviewContent(String reviewContent) {
 		this.reviewContent = reviewContent;
 	}
+
+	public String toStringRating() {
+		return "Rated " + this.rating + " out of 10 by: " + this.reviewer; 
+	}
+	public String toStringReview() {
+		return  "Review: " + this.reviewContent;
+	}
 }
