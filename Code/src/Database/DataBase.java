@@ -41,4 +41,23 @@ public class DataBase{
         return sortDate(date);
     }
 
+    public ArrayList<ShowTime> getShowTimes(){
+    	return showtimelist;
+    }
+    
+    public void addSTToDB(ShowTime st) {
+    	showtimelist.add(st);
+    }
+    public void removeSTToDB(ShowTime st) {
+    	if(showtimelist.remove(st)) {
+    		st = null;			
+    		System.out.println("ShowTime removed");
+		}
+		else {
+			System.out.println("ShowTime does not exist");
+		}
+    }
+    /*public void updateDB(ShowTime st) {
+    	
+    }*/
 }

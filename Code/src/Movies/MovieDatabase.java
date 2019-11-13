@@ -1,16 +1,31 @@
 package Movies;
 import java.util.ArrayList;
-
+import java.util.Scanner;
 
 public class MovieDatabase {
 	private ArrayList<Movie> movieList;
 	
-
+	Scanner sc = new Scanner(System.in);
+	
+	public MovieDatabase() {
+		movieList=new ArrayList<Movie>();
+	}
+	
 	public void addMovieToDB(){
 		Movie m = new Movie();
 		this.movieList.add(m);
 	}
-	//public void removeMovieFromDB(){
+	public void removeMovieFromDB(){
+		System.out.println("Which movie do you want to remove?");
+		int i=1;
+		for (Movie movie : movieList) {
+			System.out.println(i + ". " + movie.getMovieTitle());
+			i++;
+		}
+		int choice = sc.nextInt();
+		
+		movieList.remove(choice-1);
+	}
 	
 	public void getMovieDetails(Movie movie){
 		System.out.println("Title: "		+ movie.getMovieTitle());
@@ -19,7 +34,7 @@ public class MovieDatabase {
 		System.out.println("Director: "		+ movie.toStringMovieDirector());
 		System.out.println("Overall Rating: " + movie.getMovieOverallRating());
 		System.out.println("Reviews: " );
-		movie.printReviewList();
+		movie.printReviewList(3);
 	}
 	
 	public ArrayList<String> getMovieTitlesList(){
@@ -30,30 +45,9 @@ public class MovieDatabase {
 		
 		return titlesOnly;
 	}
-	
-}
 
-//package Movie;
-//
-//import java.util.ArrayList;
-//import java.util.Scanner;
-//
-//public class MovieDatabase {
-//    private ArrayList<Movie> movielist;
-//
-//    public MovieDatabase(){
-//        movielist = new ArrayList<Movie>();
-//    }
-//
-//    
-//        Scanner sc = new Scanner(System.in);
-//        String title = sc.nextLine();
-//        String type = sc.nextLine();
-//        String status = sc.nextLine();
-//        String agelimit = sc.nextLine();
-//        int runtime = sc.nextInt();
-//        movielist.add(new Movie(title, type, status, agelimit, runtime));
-//    }
-//
-//
-//}
+	public ArrayList<Movie> getMovies(){
+		return movieList;
+	}
+
+}

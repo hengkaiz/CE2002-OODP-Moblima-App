@@ -1,9 +1,6 @@
 package user;
 
-import Booking.*;
 import Cinema.ShowTime;
-
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class UserFunctions{
@@ -14,7 +11,7 @@ public class UserFunctions{
 		login_user = udb.searchByName(name);
 		//code in exception here if username not found
 
-		if (login_user.getPassword() != password){
+		if (!login_user.getPassword().contentEquals(password)){
 			return false;
 		}
 		return true;
@@ -27,8 +24,12 @@ public class UserFunctions{
 	public void chooseSeats(ShowTime st) {
 		Scanner sc = new Scanner(System.in);
 		ChooseSeats cs = new ChooseSeats(st);
+<<<<<<< HEAD
 		BookingDatabase bk = new BookingDatabase();
 		
+=======
+		//BookingDatabase bk = new BookingDatabase();
+>>>>>>> branch 'Master' of https://github.com/hengkaiz/moblima.git
 		cs.printSeats();
 		System.out.print("Select row: ");
 		int row = sc.nextInt();
@@ -36,6 +37,6 @@ public class UserFunctions{
 		int col = sc.nextInt();
 		cs.selectSeat(row, col, login_user.getName()); //need to add exception choosing a taken seat
 
-		bk.addNewBooking(login_user.getName(), st, row, col);
+		//bk.addNewBooking(login_user.getName(), st, row, col);
 	}
 }
