@@ -1,8 +1,8 @@
 package Cinema;
-import Movies.Movie;
-
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+
+import movies.Movie;
 
 public class ShowTime implements Comparable<ShowTime>{
     private int timing;
@@ -31,7 +31,11 @@ public class ShowTime implements Comparable<ShowTime>{
     public int getCinemaNum() {
 		return cinemaNum;
 	}
-
+    
+	public String getCinemaType() {
+		return cinemaType;
+	}
+	
 	public void setSeatplan(SeatPlan seatplan) {
 		this.seatplan = seatplan;
 	}
@@ -52,13 +56,15 @@ public class ShowTime implements Comparable<ShowTime>{
 
 	public int getTiming(){ return timing; } //return timing
 
-    public String getDate(){ //return date in dd/MM format
+    public String toStringGetDate(){ //return date in dd/MM format
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM");
 		String d = sdf.format(date.getTime());
 		return d;
 	}
 
-
+    public Calendar getDate(){
+		return date;
+	}
 
     public MovieFormat getMovieformat() {
 		return movieformat;

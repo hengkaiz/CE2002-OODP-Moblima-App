@@ -1,4 +1,4 @@
-package Movies;
+package movies;
 
 public enum MovieStatus {
     COMING_SOON("Coming Soon"),

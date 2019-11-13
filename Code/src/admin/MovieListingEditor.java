@@ -1,8 +1,10 @@
 package admin;
 
 import java.util.Scanner;
+
+import movies.*;
+
 import java.util.ArrayList;
-import Movies.*;
 public class MovieListingEditor {
 	
 	Scanner sc = new Scanner(System.in);

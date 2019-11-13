@@ -2,7 +2,7 @@ package user;
 
 import Cinema.ShowTime;
 import Database.DataBase;
-import Movies.MovieDatabase;
+import movies.MovieDatabase;
 
 import java.util.ArrayList;
 

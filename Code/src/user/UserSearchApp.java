@@ -1,7 +1,7 @@
 package user;
 
 import Cinema.ShowTime;
-import Movies.MovieDatabase;
+import movies.MovieDatabase;
 
 import java.util.ArrayList;
 import java.util.Scanner;

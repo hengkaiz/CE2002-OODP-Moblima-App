@@ -1,4 +1,4 @@
-package Movies;
+package movies;
 
 import java.util.Scanner;
 
@@ -11,13 +11,14 @@ public class Review {
 	public Review() {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter your name: ");
-		String reviewer=sc.nextLine();
+		String reviewer = sc.nextLine();
 		
-		System.out.println("Enter a rating out of 10: ");
-		double rating=sc.nextDouble();
+		System.out.println("Enter a rating out of 5: ");
+		double rating = sc.nextDouble();
 		
 		System.out.println("Enter your review: ");
-		String reviewContent=sc.nextLine();
+		String reviewContent = sc.nextLine();
+		reviewContent = sc.nextLine();
 		
 		this.reviewer = reviewer;
 		this.rating = rating;
@@ -51,7 +52,7 @@ public class Review {
 	}
 
 	public String toStringRating() {
-		return "Rated " + this.rating + " out of 10 by: " + this.reviewer; 
+		return "Rated " + this.rating + " out of 5 by: " + this.reviewer; 
 	}
 	public String toStringReview() {
 		return  "Review: " + this.reviewContent;

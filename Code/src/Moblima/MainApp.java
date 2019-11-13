@@ -2,9 +2,9 @@ package Moblima;
 import Booking.Booking;
 import Booking.BookingDatabase;
 import Database.*;
+import movies.*;
 import user.*;
 import Cinema.*;
-import Movies.*;
 
 import java.util.ArrayList;
 import java.util.Scanner;
