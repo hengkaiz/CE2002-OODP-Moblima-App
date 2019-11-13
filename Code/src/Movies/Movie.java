@@ -21,11 +21,6 @@ public class Movie {
 		this.movieSynopsis = sc.nextLine();
 		
 		System.out.println("Choose movie status: ");
-		//System.out.println("1. Now Showing");
-		//System.out.println("2. Coming Soon");
-		//System.out.println("3. Preview");
-		//System.out.println("4. End of Showing");
-		
 		int i = 1;
 		for(MovieStatus status : MovieStatus.values()) {
 			System.out.println(i + ". " + status.getName());
