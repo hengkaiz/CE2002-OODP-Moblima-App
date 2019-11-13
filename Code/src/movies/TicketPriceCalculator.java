@@ -1,4 +1,4 @@
-package Movies;
+package movies;
 import java.time.LocalDate;
 
 import Cinema.MovieFormat;

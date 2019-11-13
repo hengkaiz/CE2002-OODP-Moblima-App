@@ -1,8 +1,8 @@
 package Cinema;
-import Movies.Movie;
-
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+
+import movies.Movie;
 
 public class ShowTime implements Comparable<ShowTime>{
     private int timing;

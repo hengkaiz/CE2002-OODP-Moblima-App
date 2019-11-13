@@ -1,4 +1,4 @@
-package Movies;
+package movies;
 
 import java.util.Scanner;
 import java.util.ArrayList;
@@ -11,8 +11,11 @@ public class Movie {
 	private float movieOverallRating;
 	private ArrayList<Review> reviewList;
 	private MovieStatus movieStatus;
+	private int totalSales;
+	//private 
 	
 	public Movie() {
+		System.out.println("Creating new movie...");
 		System.out.println("Enter movie title: ");
 		Scanner sc = new Scanner(System.in);
 		this.movieTitle = sc.nextLine();
@@ -34,21 +37,27 @@ public class Movie {
 			}
 		}
 		
+		this.movieCast = null;
+		this.movieDirector = null;
+		this.movieOverallRating = -1;
+		this.reviewList = new ArrayList<Review>();
+		
 		this.movieCast = new ArrayList<String>();
-		System.out.println("Add cast for the movie one by one. Key in END to stop adding cast members.");
-		String castMember = sc.nextLine();
-		while(castMember!="END") {
-			this.addMovieCast(castMember);
+		System.out.println("Add cast for the movie one by one. Key in -1 to stop adding cast members.");
+		String castMember=null;
+		while(!castMember.equals("-1")) {
+			this.addMovieDirector(castMember);
 			castMember = sc.nextLine();
 		}
 		
 		this.movieDirector = new ArrayList<String>();
-		System.out.println("Add director for the movie one by one. Key in END to stop adding directors.");
+		System.out.println("Add director for the movie one by one. Key in -1 to stop adding directors.");
 		String director = sc.nextLine();
-		while(director!="END") {
+		while(!director.equals("-1")) {
 			this.addMovieDirector(director);
 			director = sc.nextLine();
 		}
+		System.out.println("Movie created.");
 	}
 	
     public Movie(String movieTitle, String movieSynopsis, MovieStatus movieStatus) {
@@ -108,30 +117,54 @@ public class Movie {
 	}
 	
 	public float getMovieOverallRating() {
-		if (this.movieOverallRating==-1) {
-			System.out.println("There are no reviews for this movie yet.");
-			return -1;
-		}
-		else 
 			return movieOverallRating;
 	}
 	public void setMovieOverallRating(float movieOverallRating) {
 		this.movieOverallRating = movieOverallRating;
 	}
+	public void updateOverallRating() {
+		if (reviewList.size()>1) {
+			float sum=0;
+			for(Review review : reviewList) {
+				sum+=review.getRating();
+			}
+			this.movieOverallRating = sum/((float)this.reviewList.size());
+		}
+		else
+			this.movieOverallRating = -1;
+	}
+	public void printMovieOverallRating() {
+		if (this.movieOverallRating==-1) {
+			System.out.println("There are not enough ratings yet.");
+		}
+		else {
+			System.out.printf("%.2f", this.movieOverallRating);
+			System.out.println();
+		}
+	}
+	
 	
 	public void addReview() {
 		Review r = new Review();
 		this.reviewList.add(r);
+		updateOverallRating();
 	}
 	
 	public void printReviewList(int numberOfReviews) {
+		if (reviewList==null) {
+			System.out.println("There are no reviews yet.");
+			return;
+		}
 		int i=0;
 		for (Review review : reviewList) {
+			if (review==null)
+				return;
 			System.out.println(review.toStringRating());
 			System.out.println(review.toStringReview());
+			System.out.println();
 			i++;
 			if (i == numberOfReviews)
-				break;
+				return;
 		}
 	}
 
@@ -141,5 +174,26 @@ public class Movie {
 	public void setStatus(MovieStatus movieStatus) {
 		this.movieStatus = movieStatus;
 	}
+
+	public int getTotalSales() {
+		return totalSales;
+	}
+
+	public void setTotalSales(int totalSales) {
+		this.totalSales = totalSales;
+	}
+	
+	
+//	public static void main(String[] args) {
+//		Movie m = new Movie();
+//		m.addReview();
+//		m.printMovieOverallRating();
+//		m.addReview();
+//		m.printMovieOverallRating();
+//		m.addReview();
+//		m.printMovieOverallRating();
+//		m.printReviewList(2);
+//	}
 }
+
 

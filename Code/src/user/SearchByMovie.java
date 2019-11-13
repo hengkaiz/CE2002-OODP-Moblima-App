@@ -1,15 +1,13 @@
 package user;
 
-import Movies.*;
-
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 import Database.*;
+import movies.*;
 import Cinema.*;
-import Movies.*;
 
 
 public class SearchByMovie extends DataBase implements SearchFunction{
