@@ -24,6 +24,9 @@ public class AdminApp {
 				System.out.println(list.get(i).getID());
 				System.out.println(list.get(i).getPassword());
 			}
+			System.out.println("enter new password");
+			hk.setPassword(sc.nextLine());
+			System.out.println(hk.getPassword());
 		}
 	}
 

@@ -21,6 +21,7 @@ public class AdminDatabase {
 	}
 	public void removeAdmin(AdminAccount admin) {
 		if(adminList.remove(admin)) {
+			admin = null;
 			System.out.println("removed");
 		}
 		else {
