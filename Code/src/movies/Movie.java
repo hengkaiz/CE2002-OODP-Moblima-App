@@ -12,7 +12,7 @@ public class Movie {
 	private ArrayList<Review> reviewList;
 	private MovieStatus movieStatus;
 	private int totalSales;
-	//private 
+	private AgeRating ageRating;
 	
 	public Movie() {
 		System.out.println("Creating new movie...");
@@ -57,7 +57,26 @@ public class Movie {
 			this.addMovieDirector(director);
 			director = sc.nextLine();
 		}
+		
+		System.out.println("Enter total sales: ");
+		this.totalSales = sc.nextInt();
+		
+		System.out.println("Choose age rating: ");
+		int j = 1;
+		for(AgeRating ageRating : AgeRating.values()) {
+			System.out.println(j + ". " + ageRating.getName());
+			j++;
+		}
+		int ratingChoice = sc.nextInt();
+		AgeRating[] ageRatingList = AgeRating.values();			//create array with all the ageRating
+		for(AgeRating ageRating : ageRatingList) {				//go through array until find the one equal to user input
+			if(ageRating.ordinal()==ratingChoice-1){
+				this.ageRating = ageRating;
+			}
+		}
+		
 		System.out.println("Movie created.");
+		
 	}
 	
     public Movie(String movieTitle, String movieSynopsis, MovieStatus movieStatus) {
@@ -181,6 +200,14 @@ public class Movie {
 
 	public void setTotalSales(int totalSales) {
 		this.totalSales = totalSales;
+	}
+
+	public AgeRating getAgeRating() {
+		return ageRating;
+	}
+
+	public void setAgeRating(AgeRating ageRating) {
+		this.ageRating = ageRating;
 	}
 	
 	
