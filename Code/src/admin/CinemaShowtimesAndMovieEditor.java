@@ -40,7 +40,7 @@ public class CinemaShowtimesAndMovieEditor {
 		/*System.out.println("Enter Cinema Type: ");
 		s.setCinemaType(sc.nextLine());*/
 		
-		//should just enter an empty seat plan for the booking class to update whenever
+		//should just enter an empty Seat plan for the booking class to update whenever
 		//s.setSeatPlan();
 	}
 	public void updateCinemaShowtimesAndMovie(ShowTime s) {

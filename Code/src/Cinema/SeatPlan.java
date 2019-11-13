@@ -4,30 +4,34 @@ package Cinema;
 
 import java.util.ArrayList;
 
-public class seatPlan {
+public class SeatPlan {
     public static int rows = 8;
     public static int columns = 10;
     private int numEmptySeat = rows*columns;
-    private ArrayList<ArrayList<seat>> seat;
+    private ArrayList<ArrayList<Seat>> seat;
 
-    public seatPlan(){
-        seat = new ArrayList<ArrayList<seat>>();
+    public SeatPlan(){
+        seat = new ArrayList<ArrayList<Seat>>();
         for(int i = 0; i < rows; i++)  {
-            seat.add(new ArrayList<seat>());
+            seat.add(new ArrayList<Seat>());
         }
         for (int i=0;i<rows;i++){
             for (int j=0;j<columns;j++){
-                seat.get(i).add(new seat());
+                seat.get(i).add(new Seat());
             }
         }
     }
 
-    public void assignSeat(int r, int c, int d){
+    public boolean checkSeat(int r, int c){
         if(seat.get(r).get(c).isOccupied() == true){
             System.out.println("Seat already assigned to a customer.");
-            return;
+            return false;
         }
-        seat.get(r).get(c).assign(d);
+        return true;
+    }
+
+    public void assignSeat(int r, int c, String name){
+        seat.get(r).get(c).assign(name);
         numEmptySeat--;
         System.out.println("Seat Assigned!");
     }

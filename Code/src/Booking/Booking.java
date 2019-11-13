@@ -1,15 +1,12 @@
 package Booking;
 
-import java.util.ArrayList;
-
 import Cinema.*;
-import Movies.*;
 
 public class Booking {
 	
 	public void getSeatPlan(){
-		//prints out the current seat plan for the user to choose seats
-		seatPlan seatplan = new seatPlan();
+		//prints out the current Seat plan for the user to choose seats
+		SeatPlan seatplan = new SeatPlan();
 		seatplan.printSeats();
 	}
 	
@@ -22,4 +19,6 @@ public class Booking {
 		//update the booking database
 		
 	}
+
+	public
 }
