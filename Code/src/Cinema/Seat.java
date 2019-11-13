@@ -1,7 +1,5 @@
 package Cinema;
 
-import Booking.BookingDetails;
-
 public class Seat {
     private boolean assigned = false;
     private String customer_name;

@@ -2,7 +2,7 @@ package admin;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.lang.Enum;
+//import java.lang.Enum;
 import Cinema.*;
 import Database.*;
 import Movies.*;
@@ -58,9 +58,9 @@ public class CinemaShowtimesAndMovieEditor {
 				System.out.println("1. Timing of " + s.getMovie()); //change timing of that movie
 				System.out.println("2. Movie shown at " + s.getTiming()); //change movie shown at that timing
 				System.out.println("3. Cinema Number of " + s.getMovie() + " shown at " + s.getTiming()); //change cinemaNum
-				System.out.println("4. Cinema Type of " + s.getMovie() + " shown at " + s.getTiming()); //change cinemaType
-				System.out.println("5. Movie Format of " + s.getMovie() + " shown at " + s.getTiming());
-				System.out.println("6. Exit");
+				//System.out.println("4. Cinema Type of " + s.getMovie() + " shown at " + s.getTiming()); //change cinemaType
+				System.out.println("4. Movie Format of " + s.getMovie() + " shown at " + s.getTiming());
+				System.out.println("5. Exit");
 				
 				showtimeChoice = sc.nextInt();
 				switch(showtimeChoice) {
@@ -71,11 +71,10 @@ public class CinemaShowtimesAndMovieEditor {
 					break;
 				case 2: //change movie
 					int i=0;
-					MovieStatus status = null;
 					//give list of movies currently showing/preview
 					System.out.println("Movies currently available for showing: ");
 					for(i=0; i < msdb.size(); i++) {
-						if(msdb.get(i).getStatus()==Status.NOW_SHOWING || msdb.get(i).getStatus()==Status.PREVIEW) {
+						if(msdb.get(i).getStatus()==MovieStatus.NOW_SHOWING || msdb.get(i).getStatus()==MovieStatus.PREVIEW) {
 							System.out.println((i+1) + ". " + msdb.get(i).getMovieTitle());
 						}
 						//System.out.println((i+1) + ". " + msdb.get(i));
@@ -98,7 +97,7 @@ public class CinemaShowtimesAndMovieEditor {
 					s.setCinemaType(sc.nextLine());
 					System.out.println(s.getMovie() + " now showing at " + s.getTiming() + " in " + s.getCinemaType());
 					break;*/
-				case 5: //change movie format
+				case 4: //change movie format
 					System.out.println("Change movie format of " + s.getMovie() + " to:");
 					i = 1;
 					for(MovieFormat mf : MovieFormat.values()) {
@@ -116,13 +115,14 @@ public class CinemaShowtimesAndMovieEditor {
 					s.setMovieformat(movieFormat);
 					System.out.println(s.getMovie() + " is now showing in " + s.getMovieformat());
 					break;
-				case 6: //exit
+				case 5: //exit
 					return;
 				default: 
 					break;
 				}
 			} while(showtimeChoice != 5);
 		}
+		//db.updateDB(s);
 	}
 	public void removeCinemaShowtimesAndMovie(ShowTime s) {
 		if(checkShowtimes(s)) { //valid showtime
