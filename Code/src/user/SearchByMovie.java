@@ -1,40 +1,44 @@
 package user;
-
-import Movies.*;
 import java.util.ArrayList;
+import Movies.Movie;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-import Database.*;
-import Cinema.*;
-import Movies.*;
-
+import Database.DataBase;
+import Movies.MovieDatabase;
+import Cinema.ShowTime;
 
 public class SearchByMovie implements SearchFunction{
-	private ArrayList<String> movieList = new ArrayList<String>();
-	private ArrayList<ShowTime> showtimes;
-
-	public void searchResult() {
-		//gets an array of movie titles from movie database
-		int selMovie;
-		String movietitle;
-		Scanner sc = new Scanner(System.in);
-		MovieDatabase mb = new MovieDatabase();
-		movieList = mb.getMovieTitlesList();
-
+	
+	
+	
+	public void searchbymovie() {
+		//creates object movieList
+		Movie[] movieList;
+		MovieDatabase md = new MovieDatabase();
+		movieList = md.getMovieList();
+		
 		// prints out movie list
-		for (int i=0; i<movieList.size();i++){
-			System.out.printf("%d: %s", i+1, movieList.get(i));
-		}
-
+		System.out.println(movieList);
+        
         //set selMovie as the input user selected
         System.out.println("Please select movie");
-		selMovie = sc.nextInt();
-        movietitle = movieList.get(selMovie-1);
-
+        Scanner sc = new Scanner(System.in);
+        String selMovie = sc.nextLine();
+        
+        
         //searches through BookingDatabase, compareTo returns timing
         DataBase db = new DataBase();
-
-        showtimes = db.searchByMovie(movietitle);
+        db.searchByMovie(selMovie);
+        
        }
+
+	@Override
+	public void SearchResults() {
+		// TODO Auto-generated method stub
+		
+	}
+		
+	
+
 }

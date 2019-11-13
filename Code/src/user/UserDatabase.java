@@ -20,5 +20,14 @@ public class UserDatabase{
     public User searchByName(String name){ //search username
         return sortNames(name);
     }
+    
+    public boolean checkExistingID(String name) {
+    	for (User user: userlist){
+            if (user.getUsername() == name){
+                return false;
+            }
+        }
+        return true;
+    }
 
 }
