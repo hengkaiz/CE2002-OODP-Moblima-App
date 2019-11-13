@@ -6,6 +6,26 @@ public class User {
 	private String name;
 	private String email;
 	private int mobile;
+	private int age;
+
+	public User(String username, String password, String name, int age, String email, int mobile){
+		this.username = username;
+		this.password = password;
+		this.name = name;
+		this.email = email;
+		this.mobile = mobile;
+		this.age = age;
+	}
+
+	User(){};
+
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
 
 	public String getUsername() {
 		return username;
