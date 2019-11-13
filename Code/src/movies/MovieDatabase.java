@@ -70,16 +70,16 @@ public class MovieDatabase {
 	public ArrayList<Movie> getMovies(){
 		return movieList;
 	}
-	public static void main(String[] args) {
-		MovieDatabase mdb = new MovieDatabase();
-		mdb.addMovieToDB();
-		mdb.printMovieDetails();
-		System.out.println(mdb.getMovieTitlesList());
-		mdb.addMovieToDB();
-		mdb.printMovieDetails();
-		System.out.println(mdb.getMovieTitlesList());
-		mdb.removeMovieFromDB();
-		mdb.printMovieDetails();
-		System.out.println(mdb.getMovieTitlesList());
-	}
+//	public static void main(String[] args) {
+//		MovieDatabase mdb = new MovieDatabase();
+//		mdb.addMovieToDB();
+//		mdb.printMovieDetails();
+//		System.out.println(mdb.getMovieTitlesList());
+//		mdb.addMovieToDB();
+//		mdb.printMovieDetails();
+//		System.out.println(mdb.getMovieTitlesList());
+//		mdb.removeMovieFromDB();
+//		mdb.printMovieDetails();
+//		System.out.println(mdb.getMovieTitlesList());
+//	}
 }
