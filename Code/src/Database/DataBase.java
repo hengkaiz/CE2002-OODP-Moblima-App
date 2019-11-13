@@ -41,4 +41,22 @@ public class DataBase{
         return sortDate(date);
     }
 
+    public ArrayList<ShowTime> getShowTimes(){
+    	return showtimelist;
+    }
+    
+    public void addST(ShowTime st) {
+    	showtimelist.add(st);
+    }
+    public void removeST(ShowTime st) {
+    	if(showtimelist.remove(st)) {
+    		System.out.println("removed");
+		}
+		else {
+			System.out.println("Admin account does not exist");
+		}
+    }
+    public void updateDB(ShowTime st) {
+    	
+    }
 }
