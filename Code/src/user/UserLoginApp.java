@@ -3,7 +3,6 @@ package user;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import user.UserAccount;
 import user.UserDatabase;
 import user.UserFunctions;
 import user.User;
@@ -42,25 +41,34 @@ public class UserLoginApp {
 			String dID = sc.nextLine();
 			boolean result2 = db.checkExistingID(dID);
 			if (result2) { //username does not exist
-				System.out.println("enter desired password");
-				String dPassword = sc.nextLine();
-				System.out.println("please retype your password");
-				String dPassword2 = sc.nextLine();
-				if (dPassword != dPassword2) {
-					System.out.println("the passwords do not match, please try again");
+				db.addUser();
 				}
-				else {
 					
-				}
+					/*newUser.setUsername(dID);
+					newUser.setPassword(dPassword);
+					System.out.println("enter your name");
+					String name = sc.nextLine();
+					System.out.println("enter your email");
+					String email = sc.nextLine();
+					System.out.println("enter your mobile");
+					int mobile = sc.nextInt();
+					System.out.println("enter your age");
+					int age = sc.nextInt();
+					
+					newUser.setName(name);
+					newUser.setEmail(email);
+					newUser.setMobile(mobile);
+					newUser.setAge(age);*/
+					
 					//add account into database
-				}
 					
-			}
+			
 			else {
 				System.out.println("Sorry, username is already taken, please use another username");
 			}
 				
-				CreateAccount newAcc = new CreateAccount
 		}
-		//add exception
+	}
 }
+		//add exception
+

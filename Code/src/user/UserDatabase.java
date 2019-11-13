@@ -29,7 +29,7 @@ public class UserDatabase{
     
     public boolean checkExistingID(String name) {
     	for (User user: userlist){
-            if (user.getUsername() == name){
+            if (user.getUsername().contentEquals(name)){
                 return false;
             }
         }
@@ -42,18 +42,25 @@ public class UserDatabase{
         String un = sc.nextLine();
         System.out.print("Enter Password: ");
         String pw = sc.nextLine();
-        System.out.print("Enter Full Name: ");
-        String fn = sc.nextLine();
-        System.out.print("Enter Age: ");
-        int age = sc.nextInt();
-        sc.nextLine();
-        System.out.print("Enter Email: ");
-        String em = sc.nextLine();
-        System.out.print("Enter Phone Number: ");
-        int mn = sc.nextInt();
+		System.out.println("please retype your password");
+		String pw2 = sc.nextLine();
+		if (pw != pw2) {
+			System.out.println("the passwords do not match, please try again");
+		}
+		else {
+	        System.out.print("Enter Full Name: ");
+	        String fn = sc.nextLine();
+	        System.out.print("Enter Age: ");
+	        int age = sc.nextInt();
+	        sc.nextLine();
+	        System.out.print("Enter Email: ");
+	        String em = sc.nextLine();
+	        System.out.print("Enter Phone Number: ");
+	        int mn = sc.nextInt();
 
-        userlist.add(new User(un, pw, fn, age, em ,mn));
-        System.out.println("\nAccount added!");
+	        userlist.add(new User(un, pw, fn, age, em ,mn));
+	        System.out.println("\nAccount added!");
+		}
     }
 
     public boolean delUser(){
