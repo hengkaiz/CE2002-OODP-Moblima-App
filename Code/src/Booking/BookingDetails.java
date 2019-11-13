@@ -12,8 +12,8 @@ public class BookingDetails {
 	private int showtime;
 	private int seatNumber;
 	private double ticketPrice;
-	//private 
-	
+
+	 //name, mobile, email, ID, showtime, seatno, price	
 	public BookingDetails(String name, int mobile, String email, int ID, int st, int seatno, double price) {
 		moviegoerName = name;
 		mobileNumber = mobile;
@@ -24,6 +24,7 @@ public class BookingDetails {
 		ticketPrice = price;
 	}
 	
+	//getting functions
 	public String getmoviegoerName() {
 		return moviegoerName;
 	}
@@ -52,4 +53,32 @@ public class BookingDetails {
 		return ticketPrice;
 	}
 
+	//setting functions
+	public void setmoviegoerName() {
+		this.moviegoerName = moviegoerName;
+	}
+	
+	public void settmobileNumber() {
+		this.mobileNumber = mobileNumber;
+	}
+	
+	public void setemailAddress() {
+		this.emailAddress = emailAddress;
+	}
+	
+	public void setID() {
+		this.transactionID = transactionID;
+	}
+	
+	public void setshowtime() {
+		this.showtime = showtime;
+	}
+	
+	public void setseatNumber() { 
+		this.seatNumber = seatNumber;
+	}
+	
+	public void setticketPrice() {
+		this.ticketPrice = ticketPrice;
+	}
 }

@@ -25,7 +25,9 @@ public class BookingDatabase {
 				 System.out.println("Seat Number: " + details.getseatNumber());
 				 System.out.println("Ticket price: " + details.getticketPrice());
 			 }
-			 System.out.println("Sorry! No booking is done under your name.");
+			 
+			 else 
+				 System.out.println("Sorry! No booking is done under your name.");
 		 }
 	 }
 }
