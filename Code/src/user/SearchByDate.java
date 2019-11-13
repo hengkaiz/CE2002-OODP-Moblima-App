@@ -35,7 +35,7 @@ public class SearchByDate extends DataBase implements SearchFunction {
 
 		date.add(Calendar.DAY_OF_MONTH, choice);
 		output = sdf.format(date.getTime());
-		showtimes = super.searchByDate(output); //get an array of showtime with on that date
+		showtimes = super.searchByDate(output); //get an array of showtime on that date
 	}
 
 	public ArrayList<ShowTime> searchApp(MovieDatabase mb) {

@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class ChooseSeats{
 	private ShowTime st;
 
-	private ChooseSeats(ShowTime st){
+	public ChooseSeats(ShowTime st){
 		this.st = st;
 	}
 
@@ -17,14 +17,15 @@ public class ChooseSeats{
 
 	private void selectSeat(int row, int col, String username){
 		if (st.getSeatplan().checkSeat(row, col) == false){// seat taken
-			//add exception here
+			//add exception here if seat is taken
 		}
 		else{
 			st.getSeatplan().assignSeat(row, col, username);
 		}
 	}
 
-	public void chooseSeats(String ID) {
+	public int[] chooseSeats(String ID) {
+		System.out.println("---Choosing Seat---");
 		Scanner sc = new Scanner(System.in);
 		//BookingDatabase bk = new BookingDatabase();
 		printSeats();
@@ -32,6 +33,10 @@ public class ChooseSeats{
 		int row = sc.nextInt();
 		System.out.print("Select column: "); //need to add exception for choosing the wrong seats
 		int col = sc.nextInt();
-		selectSeat(row, col, ID); //need to add exception choosing a taken seat
+		selectSeat(row, col, ID);
+		//need to add exception choosing a taken seat
+
+		int [] seat = {row, col};
+		return seat;
 	}
 }
