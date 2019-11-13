@@ -122,6 +122,7 @@ public class CinemaShowtimesAndMovieEditor {
 				}
 			} while(showtimeChoice != 5);
 		}
+		//db.updateDB(s);
 	}
 	public void removeCinemaShowtimesAndMovie(ShowTime s) {
 		if(checkShowtimes(s)) { //valid showtime
