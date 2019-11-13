@@ -45,4 +45,9 @@ public class MovieDatabase {
 		
 		return titlesOnly;
 	}
+
+	public ArrayList<Movie> getMovies(){
+		return movieList;
+	}
+
 }
