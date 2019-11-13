@@ -5,8 +5,8 @@ import java.util.Scanner;
 
 import user.UserAccount;
 import user.UserDatabase;
-import user.UserLogin;
 import user.UserFunctions;
+import user.User;
 
 public class UserLoginApp {
 
@@ -42,7 +42,19 @@ public class UserLoginApp {
 			String dID = sc.nextLine();
 			boolean result2 = db.checkExistingID(dID);
 			if (result2) { //username does not exist
-				
+				System.out.println("enter desired password");
+				String dPassword = sc.nextLine();
+				System.out.println("please retype your password");
+				String dPassword2 = sc.nextLine();
+				if (dPassword != dPassword2) {
+					System.out.println("the passwords do not match, please try again");
+				}
+				else {
+					
+				}
+					//add account into database
+				}
+					
 			}
 			else {
 				System.out.println("Sorry, username is already taken, please use another username");
