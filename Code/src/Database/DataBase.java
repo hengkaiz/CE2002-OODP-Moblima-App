@@ -45,18 +45,19 @@ public class DataBase{
     	return showtimelist;
     }
     
-    public void addST(ShowTime st) {
+    public void addSTToDB(ShowTime st) {
     	showtimelist.add(st);
     }
-    public void removeST(ShowTime st) {
+    public void removeSTToDB(ShowTime st) {
     	if(showtimelist.remove(st)) {
-    		System.out.println("removed");
+    		st = null;			
+    		System.out.println("ShowTime removed");
 		}
 		else {
-			System.out.println("Admin account does not exist");
+			System.out.println("ShowTime does not exist");
 		}
     }
-    public void updateDB(ShowTime st) {
+    /*public void updateDB(ShowTime st) {
     	
-    }
+    }*/
 }

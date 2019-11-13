@@ -1,8 +1,13 @@
 package Movies;
 
-public class Date {
+import java.util.Calendar;
+
+public class Date{
 	private boolean isHoliday;
 	private boolean isWeekend;
+	
+	
+	
 	
 	public boolean isHoliday() {
 		return isHoliday;
