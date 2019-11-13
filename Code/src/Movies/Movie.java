@@ -113,10 +113,14 @@ public class Movie {
 		this.reviewList.add(r);
 	}
 	
-	public void printReviewList() {
+	public void printReviewList(int numberOfReviews) {
+		int i=0;
 		for (Review review : reviewList) {
 			System.out.println(review.toStringRating());
 			System.out.println(review.toStringReview());
+			i++;
+			if (i == numberOfReviews)
+				break;
 		}
 	}
 
