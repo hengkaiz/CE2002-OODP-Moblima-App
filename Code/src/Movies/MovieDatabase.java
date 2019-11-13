@@ -3,18 +3,21 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class MovieDatabase {
-	private ArrayList<Movie> movieList;
+	private ArrayList<Movie> movieList = new ArrayList<Movie>();;
 	
 	Scanner sc = new Scanner(System.in);
 	
-	public MovieDatabase() {
-		movieList=new ArrayList<Movie>();
+	public MovieDatabase(){}
+
+	public ArrayList<Movie> getMovieList() {
+		return movieList;
 	}
-	
+
 	public void addMovieToDB(){
 		Movie m = new Movie();
 		this.movieList.add(m);
 	}
+
 	public void removeMovieFromDB(){
 		System.out.println("Which movie do you want to remove?");
 		int i=1;
@@ -41,8 +44,8 @@ public class MovieDatabase {
 		ArrayList <String> titlesOnly = new ArrayList<String>();
 		
 		for (Movie movie: movieList)
-			titlesOnly.add(movie.getMovieTitle());
-		
+			if(movie.getStatus().getName().contentEquals("Now Showing"))
+				titlesOnly.add(movie.getMovieTitle());
 		return titlesOnly;
 	}
 

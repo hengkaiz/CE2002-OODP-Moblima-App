@@ -10,9 +10,9 @@ public class Holiday {
 	
 	public void addHoliday() {
 		System.out.println("Choose month: ");
-		for (int month=1; month<13; month++) {
-			
-			
+		for (int month = 1; month < 13; month++) {
+
+
+		}
 	}
-	
 }

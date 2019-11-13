@@ -1,74 +1,78 @@
 package user;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
-import user.UserDatabase;
-import user.UserFunctions;
-import user.User;
+public class UserLoginApp extends UserDatabase{
+	private User login_user;
 
-public class UserLoginApp {
+	//checking username and password entered
+	private boolean loginCheck(String name, String password){
+		login_user = super.searchByName(name);
+		//code in exception here if username not found
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		UserDatabase db = new UserDatabase();
-		Scanner sc = new Scanner(System.in);
-		System.out.println("1. Login");
-		System.out.println("2. Create Account");
-		System.out.println("Please enter your choice");
-		int sel = sc.nextInt();
-		
-		if (sel == 1) {		
-			System.out.println("enter id");
-			String ID = sc.nextLine();
-			System.out.println("enter password");
-			String Password = sc.nextLine();
-			UserFunctions temp = new UserFunctions();
-			boolean result = temp.login(ID, Password);
-			if(result) {
-				System.out.println("Welcome," + db.searchByName(ID));
-				// return true;remove main func next time, login successful
-				}
-			else {
-				System.out.println("Sorry, account does not exist. Would you like to create an account instead?");
-			}
-				
-			}
-		
-		
-		if (sel == 2) {			
-			System.out.println("enter desired id");
-			String dID = sc.nextLine();
-			boolean result2 = db.checkExistingID(dID);
-			if (result2) { //username does not exist
-				db.addUser();
-				}
-					
-					/*newUser.setUsername(dID);
-					newUser.setPassword(dPassword);
-					System.out.println("enter your name");
-					String name = sc.nextLine();
-					System.out.println("enter your email");
-					String email = sc.nextLine();
-					System.out.println("enter your mobile");
-					int mobile = sc.nextInt();
-					System.out.println("enter your age");
-					int age = sc.nextInt();
-					
-					newUser.setName(name);
-					newUser.setEmail(email);
-					newUser.setMobile(mobile);
-					newUser.setAge(age);*/
-					
-					//add account into database
-					
-			
-			else {
-				System.out.println("Sorry, username is already taken, please use another username");
-			}
-				
+		if (!login_user.getPassword().contentEquals(password)){
+			return false;
 		}
+		return true;
+	}
+
+	public String UserLogin() {
+		Scanner sc = new Scanner(System.in);
+		boolean exit = false;
+		int sel;
+
+		while (!exit) {
+			System.out.println("---USER---");
+			System.out.println("1. Login");
+			System.out.println("2. Create Account");
+			System.out.println("3. Return");
+			System.out.print("Please enter your choice: ");
+			sel = sc.nextInt();
+			System.out.println();
+			sc.nextLine(); //clear the buffer
+
+			switch (sel) {
+				case 1: //login
+					System.out.print("Enter ID: ");
+					String ID = sc.nextLine();
+					System.out.print("Enter password: ");
+					String Password = sc.nextLine();
+
+					if (loginCheck(ID, Password)) {
+						System.out.println("Welcome, " + ID + "\n");
+						return ID;
+					}
+					//System.out.println("Sorry, account does not exist. Would you like to create an account instead?");
+					//exception for wrong password or wrong username
+					break;
+
+				case 2: //create new account
+					System.out.print("Enter desired ID: ");
+					String dID = sc.nextLine();
+					boolean result2 = super.checkExistingID(dID);
+					if (result2) { //username does not exist
+						System.out.print("Enter desired Password: ");
+						String dPassword = sc.nextLine();
+						System.out.print("Please retype your Password: ");
+						String dPassword2 = sc.nextLine();
+						if (!dPassword.contentEquals(dPassword2)) {
+							System.out.println("The passwords do not match, please try again!");
+						}
+						//exception for mismatch password
+						super.addUser(dID, dPassword2);
+						System.out.println("Welcome, " + dID + "\n");
+						return dID;
+						//add account into database
+					}
+					//exception if username already exist
+					//System.out.println("Sorry, username is already taken, please use another username");
+					break;
+
+				case 3:
+					exit = true;
+					break;
+			}
+		}
+		return "";
 	}
 }
-		//add exception
-

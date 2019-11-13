@@ -36,31 +36,21 @@ public class UserDatabase{
         return true;
     }
 
-    public void addUser(){
+    public void addUser(String un, String pw){
         Scanner sc = new Scanner(System.in);
-        System.out.print("Enter Username: ");
-        String un = sc.nextLine();
-        System.out.print("Enter Password: ");
-        String pw = sc.nextLine();
-		System.out.println("please retype your password");
-		String pw2 = sc.nextLine();
-		if (pw != pw2) {
-			System.out.println("the passwords do not match, please try again");
-		}
-		else {
-	        System.out.print("Enter Full Name: ");
-	        String fn = sc.nextLine();
-	        System.out.print("Enter Age: ");
-	        int age = sc.nextInt();
-	        sc.nextLine();
-	        System.out.print("Enter Email: ");
-	        String em = sc.nextLine();
-	        System.out.print("Enter Phone Number: ");
-	        int mn = sc.nextInt();
+        System.out.println("\n--Update personal information---");
+        System.out.print("Enter Full Name: ");
+        String fn = sc.nextLine();
+        System.out.print("Enter Age: ");
+        int age = sc.nextInt();
+        sc.nextLine();
+        System.out.print("Enter Email: ");
+        String em = sc.nextLine();
+        System.out.print("Enter Phone Number: ");
+        int mn = sc.nextInt();
 
-	        userlist.add(new User(un, pw, fn, age, em ,mn));
-	        System.out.println("\nAccount added!");
-		}
+        userlist.add(new User(un, pw, fn, age, em ,mn));
+        System.out.println("\nAccount added!\n");
     }
 
     public boolean delUser(){

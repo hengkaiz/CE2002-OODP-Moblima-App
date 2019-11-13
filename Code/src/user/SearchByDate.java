@@ -6,11 +6,13 @@ import java.util.Calendar;
 import java.util.Scanner;
 import Cinema.ShowTime;
 import Database.*;
+import Movies.MovieDatabase;
 
-public class SearchByDate implements SearchFunction {
+public class SearchByDate extends DataBase implements SearchFunction {
 	private Calendar date;
 	private Calendar copydate;
 	private ArrayList<ShowTime> showtimes;
+	private MovieDatabase mb;
 
 	public void searchResult() {
 		Scanner sc = new Scanner(System.in);
@@ -23,8 +25,9 @@ public class SearchByDate implements SearchFunction {
 		date = Calendar.getInstance();
 
 		//prints out dates of next 5 days
+		System.out.println("Select Date:");
 		for(int i=0; i<5; i++) {
-			copydate.add(Calendar.DAY_OF_MONTH, i);
+			copydate.add(Calendar.DAY_OF_MONTH, 1);
 			output = sdf.format(copydate.getTime()); //converts it to dd/MM format
 			System.out.printf("%d. %s\n", i+1, output);
 		}
@@ -32,7 +35,14 @@ public class SearchByDate implements SearchFunction {
 
 		date.add(Calendar.DAY_OF_MONTH, choice);
 		output = sdf.format(date.getTime());
-		DataBase db = new DataBase();
-		showtimes = db.searchByDate(output); //get an array of showtime with on that date
+		showtimes = super.searchByDate(output); //get an array of showtime with on that date
+	}
+
+	public ArrayList<ShowTime> searchApp(MovieDatabase mb) {
+		System.out.println("---Search By Movie---");
+		this.mb = mb;
+		searchResult(); //get show time for that date
+
+		return showtimes;
 	}
 }

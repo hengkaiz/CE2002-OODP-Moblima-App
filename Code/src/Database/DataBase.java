@@ -11,7 +11,9 @@ public class DataBase{
     private ArrayList<ShowTime> showtimelist = new ArrayList<ShowTime>();
     private ArrayList<ShowTime> copylist;
 
-    public DataBase(){ }
+    public DataBase(){
+
+    }
 
     private ArrayList<ShowTime> sortMovies(String title){ //return showtimes for chosen movie
         copylist = new ArrayList<ShowTime>();
