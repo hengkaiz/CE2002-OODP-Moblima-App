@@ -24,7 +24,12 @@ public class UserFunctions{
 	public void chooseSeats(ShowTime st) {
 		Scanner sc = new Scanner(System.in);
 		ChooseSeats cs = new ChooseSeats(st);
+<<<<<<< HEAD
+		BookingDatabase bk = new BookingDatabase();
+		
+=======
 		//BookingDatabase bk = new BookingDatabase();
+>>>>>>> branch 'Master' of https://github.com/hengkaiz/moblima.git
 		cs.printSeats();
 		System.out.print("Select row: ");
 		int row = sc.nextInt();

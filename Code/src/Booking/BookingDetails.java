@@ -1,29 +1,29 @@
 package Booking;
 
 import java.util.ArrayList;
-
-import Cinema.ShowTime;
+import Cinema.*;
 
 public class BookingDetails {
 	private String moviegoerName; 
 	private int mobileNumber;
 	private String emailAddress;
-	private int transactionID;
-	private int showtime;
-	private int seatNumber;
+	ShowTime showtime;
+	private int seatRow;
+	private int seatCol;
 	private double ticketPrice;
-	//private 
-	
-	public BookingDetails(String name, int mobile, String email, int ID, int st, int seatno, double price) {
+
+	 //name, mobile, email, ID, showtime, seatno, price	
+	public BookingDetails(String name, int mobile, String email, ShowTime st, int r, int c, double price) {
 		moviegoerName = name;
 		mobileNumber = mobile;
 		emailAddress = email;
-		transactionID = ID;
 		showtime = st;
-		seatNumber = seatno;
+		seatRow = r;
+		seatCol = c;
 		ticketPrice = price;
 	}
 	
+	//getting functions
 	public String getmoviegoerName() {
 		return moviegoerName;
 	}
@@ -36,20 +36,48 @@ public class BookingDetails {
 		return emailAddress;
 	}
 	
-	public int getID() {
-		return transactionID;
-	}
-	
-	public int getshowtime() {
+	public ShowTime getshowtime() {
 		return showtime;
 	}
 	
-	public int getseatNumber() { 
-		return seatNumber;
+	public int getseatRow() { 
+		return seatRow;
+	}
+	
+	public int getseatCol() {
+		return seatCol;
 	}
 	
 	public double getticketPrice() {
 		return ticketPrice;
 	}
 
+	//setting functions
+	public void setmoviegoerName(String moviegoerName) {
+		this.moviegoerName = moviegoerName;
+	}
+	
+	public void settmobileNumber(int mobileNumber) {
+		this.mobileNumber = mobileNumber;
+	}
+	
+	public void setemailAddress(String emailAddress) {
+		this.emailAddress = emailAddress;
+	}
+
+	public void setshowtime(ShowTime st) {
+		this.showtime = showtime;
+	}
+	
+	public void setseatRow(int r) {
+		this.seatRow = r;
+	}
+	
+	public void setseatCol(int c) {
+		this.seatCol = c;
+	}
+	
+	public void setticketPrice(double ticketPrice) {
+		this.ticketPrice = ticketPrice;
+	}
 }

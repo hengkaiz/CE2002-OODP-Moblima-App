@@ -11,9 +11,7 @@ public class BookingApp {
 		System.out.println("Enter name: ");
 		String name = sc.nextLine();
 		
-		bd.getBookingDetails(name);
-		
-		
+		bd.getBookingDetails(name);	
 	}
 
 }
