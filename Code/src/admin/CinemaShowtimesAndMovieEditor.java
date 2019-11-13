@@ -2,6 +2,7 @@ package admin;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.lang.Enum;
 import Cinema.*;
 import Database.*;
 import Movies.*;
@@ -9,6 +10,12 @@ import Movies.*;
 public class CinemaShowtimesAndMovieEditor {
 
 	Scanner sc = new Scanner(System.in);
+	//ShowTime s = null;
+	DataBase db = new DataBase();
+	ArrayList<ShowTime> stdb = db.getShowTimes();
+	MovieDatabase mdb = new MovieDatabase();
+	ArrayList<Movie> msdb = mdb.getMovies();
+	
 	public void createCinemaShowtimesAndMovie() {
 		ShowTime s = new ShowTime();
 		
@@ -52,7 +59,8 @@ public class CinemaShowtimesAndMovieEditor {
 				System.out.println("2. Movie shown at " + s.getTiming()); //change movie shown at that timing
 				System.out.println("3. Cinema Number of " + s.getMovie() + " shown at " + s.getTiming()); //change cinemaNum
 				System.out.println("4. Cinema Type of " + s.getMovie() + " shown at " + s.getTiming()); //change cinemaType
-				System.out.println("5. Exit");
+				System.out.println("5. Movie Format of " + s.getMovie() + " shown at " + s.getTiming());
+				System.out.println("6. Exit");
 				
 				showtimeChoice = sc.nextInt();
 				switch(showtimeChoice) {
@@ -62,14 +70,20 @@ public class CinemaShowtimesAndMovieEditor {
 					System.out.println("Timing changed for " + s.getMovie());
 					break;
 				case 2: //change movie
+					int i=0;
+					MovieStatus status = null;
+					//give list of movies currently showing/preview
 					System.out.println("Movies currently available for showing: ");
-					for(int i=0; i < len(MovieDatabase.getMovies()); i++) {
-						System.out.println((i+1) + ". " + MovieDatabase.getMovies()[i].getMovieTitle());
+					for(i=0; i < msdb.size(); i++) {
+						if(msdb.get(i).getStatus()==Status.NOW_SHOWING || msdb.get(i).getStatus()==Status.PREVIEW) {
+							System.out.println((i+1) + ". " + msdb.get(i).getMovieTitle());
+						}
+						//System.out.println((i+1) + ". " + msdb.get(i));
 					}
 					System.out.println("Enter choice for new movie showing at " + s.getTiming());
 					//no error checking for user input of choice of movie
-					int newMovieChoice = sc.nextInt();
-					s.setMovie(MoviesDatabase.getMovies()[newMovieChoice - 1].getMovieTitle());
+					//int newMovieChoice = sc.nextInt();
+					s.setMovie(msdb.get(sc.nextInt()-1));
 					System.out.println(s.getMovie() + " now showing at " + s.getTiming());
 					break;
 				case 3: //change cinema num
@@ -79,18 +93,35 @@ public class CinemaShowtimesAndMovieEditor {
 					s.setCinemaNum(sc.nextInt());
 					System.out.println(s.getMovie() + " now showing at " + s.getTiming() + " in cinema number " + s.getCinemaNum());
 					break;
-				case 4: //change cinema type
+				/*case 4: //change cinema type
 					System.out.println("Enter new cinema type to show " + s.getMovie() + " at " + s.getTiming());
 					s.setCinemaType(sc.nextLine());
 					System.out.println(s.getMovie() + " now showing at " + s.getTiming() + " in " + s.getCinemaType());
+					break;*/
+				case 5: //change movie format
+					System.out.println("Change movie format of " + s.getMovie() + " to:");
+					i = 1;
+					for(MovieFormat mf : MovieFormat.values()) {
+						System.out.println(i + ". " + mf.name());
+						//System.out.println(i + ". " + status);
+						i++;
+					}
+					int movieFormatChoice = sc.nextInt();
+					MovieFormat movieFormat=null;
+					for(MovieFormat mf : MovieFormat.values()) {				//go through array until find the one equal to user input
+						if(mf.ordinal() == movieFormatChoice-1){
+							movieFormat = mf;
+						}
+					}
+					s.setMovieformat(movieFormat);
+					System.out.println(s.getMovie() + " is now showing in " + s.getMovieformat());
 					break;
-				case 5: //exit
+				case 6: //exit
 					return;
 				default: 
 					break;
 				}
 			} while(showtimeChoice != 5);
-
 		}
 	}
 	public void removeCinemaShowtimesAndMovie(ShowTime s) {
@@ -104,8 +135,7 @@ public class CinemaShowtimesAndMovieEditor {
 			System.out.println("Showtime not available!");
 		}
 	}
-	public boolean checkShowtimes(DataBase db, ShowTime s) {
-		ArrayList<ShowTime> stdb = db.getShowTimes();
+	public boolean checkShowtimes(ShowTime s) {
 		for(int i=0; i<stdb.size(); i++) {
 			if(s.equals(stdb.get(i))) {
 				//found showtime match
