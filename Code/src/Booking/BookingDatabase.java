@@ -28,5 +28,7 @@ public class BookingDatabase {
 			 System.out.println("Sorry! No booking is done under your name.");
 		 }
 	 }
+
+	 public void addNewBooking(String name, ShowTime st, int row, int col){}
 }
 
