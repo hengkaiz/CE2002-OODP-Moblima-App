@@ -1,26 +1,25 @@
 package Booking;
 
 import java.util.ArrayList;
-
-import Cinema.ShowTime;
+import Cinema.*;
 
 public class BookingDetails {
 	private String moviegoerName; 
 	private int mobileNumber;
 	private String emailAddress;
-	private int transactionID;
-	private int showtime;
-	private int seatNumber;
+	ShowTime showtime;
+	private int seatRow;
+	private int seatCol;
 	private double ticketPrice;
 
 	 //name, mobile, email, ID, showtime, seatno, price	
-	public BookingDetails(String name, int mobile, String email, int ID, int st, int seatno, double price) {
+	public BookingDetails(String name, int mobile, String email, ShowTime st, int r, int c, double price) {
 		moviegoerName = name;
 		mobileNumber = mobile;
 		emailAddress = email;
-		transactionID = ID;
 		showtime = st;
-		seatNumber = seatno;
+		seatRow = r;
+		seatCol = c;
 		ticketPrice = price;
 	}
 	
@@ -37,16 +36,16 @@ public class BookingDetails {
 		return emailAddress;
 	}
 	
-	public int getID() {
-		return transactionID;
-	}
-	
-	public int getshowtime() {
+	public ShowTime getshowtime() {
 		return showtime;
 	}
 	
-	public int getseatNumber() { 
-		return seatNumber;
+	public int getseatRow() { 
+		return seatRow;
+	}
+	
+	public int getseatCol() {
+		return seatCol;
 	}
 	
 	public double getticketPrice() {
@@ -54,31 +53,31 @@ public class BookingDetails {
 	}
 
 	//setting functions
-	public void setmoviegoerName() {
+	public void setmoviegoerName(String moviegoerName) {
 		this.moviegoerName = moviegoerName;
 	}
 	
-	public void settmobileNumber() {
+	public void settmobileNumber(int mobileNumber) {
 		this.mobileNumber = mobileNumber;
 	}
 	
-	public void setemailAddress() {
+	public void setemailAddress(String emailAddress) {
 		this.emailAddress = emailAddress;
 	}
-	
-	public void setID() {
-		this.transactionID = transactionID;
-	}
-	
-	public void setshowtime() {
+
+	public void setshowtime(ShowTime st) {
 		this.showtime = showtime;
 	}
 	
-	public void setseatNumber() { 
-		this.seatNumber = seatNumber;
+	public void setseatRow(int r) {
+		this.seatRow = r;
 	}
 	
-	public void setticketPrice() {
+	public void setseatCol(int c) {
+		this.seatCol = c;
+	}
+	
+	public void setticketPrice(double ticketPrice) {
 		this.ticketPrice = ticketPrice;
 	}
 }

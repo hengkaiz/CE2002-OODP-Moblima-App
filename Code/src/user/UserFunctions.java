@@ -24,10 +24,11 @@ public class UserFunctions{
 		return loginCheck(name, password);
 	}
 
-	public void chooeSeats(ShowTime st) {
+	public void chooseSeats(ShowTime st) {
 		Scanner sc = new Scanner(System.in);
 		ChooseSeats cs = new ChooseSeats(st);
 		BookingDatabase bk = new BookingDatabase();
+		
 		cs.printSeats();
 		System.out.print("Select row: ");
 		int row = sc.nextInt();
