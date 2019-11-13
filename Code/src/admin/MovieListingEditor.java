@@ -1,82 +1,35 @@
 package admin;
 
 import java.util.Scanner;
-import Movie.*;
+import java.util.ArrayList;
+import Movies.*;
 public class MovieListingEditor {
 	
 	Scanner sc = new Scanner(System.in);
-	/*enum Status{
-		NOW_SHOWING, COMING_SOON, PREVIEW, ENDING_SOON;
-	}
-	private Status status;
-	private String movie;
+	MovieDatabase movieDatabase = new MovieDatabase();
+	ArrayList<Movie> mdb = movieDatabase.getMovies();
+	Movie selectedMovie = null;
 	
-	Movie selectedMovie; //create movie ref
-	public Status getStatus() {
-		return status;
-	}
-	public void setStatus(Status status) {
-		this.status = status;
-	}*/
 	public void createMovieListing() { //creating a new Movie object
-		Movie m = new Movie(); //create new movie object
-		
-		System.out.println("Enter Movie Title: ");
-		m.setMovieTitle(sc.nextLine());
-		
-		System.out.println("Enter Movie Sypnosis: ");
-		m.setMovieSypnosis(sc.nextLine());
-		
-		System.out.println("Enter Movie Cast: (-1 to exit)");
-		String cast = null; 
-		String[] castList; //array to store cast list
-		int i = 0; //marker for array index
-		cast = sc.nextLine();
-		while(cast != "-1") {
-			castList[i] = cast;
-			i++;
-			cast = sc.nextLine();
-		}
-		m.setMovieCast(castList);
-		
-		System.out.println("Enter Movie Director: (-1 to exit)");
-		String director = null;
-		String[] dirList;
-		i = 0;
-		director = sc.nextLine();
-		while(director != "-1") {
-			dirList[i] = director;
-			i++;
-			director = sc.nextLine();
-		}
-		m.setMovieDirector(dirList);
-		
-		System.out.println("Enter Movie Overall Rating: ");
-		m.setOverallRating(sc.nextFloat());
-		
-		System.out.println("Choose status for " + m.getMovieTitle() + " :");
-		MovieStatus status;
-		int i = 1;
-		for(status : MovieStatus.values()) {
-			System.out.println(i + ". " + status);
-		}
-		System.out.println("1. Now Showing ");
-		System.out.println("2. Coming Soon ");
-		System.out.println("3. Preview ");
-		System.out.println("4. Ending Soon ");
-		m.setMovieStatus(sc.nextInt());
-		
-		System.out.println(m.getMovieTitle() + " created!");
-		MovieDatabase.updateMovieDatabase(m); //update movie database
+		movieDatabase.addMovieToDB();
 	}
-	public void updateMovieListing(Movie m) {
-		//selectedMovie = m;
-		if(this.checkMovie(m)) { //valid movie entry
+	public void updateMovieListing() {
+		//getting movie to update
+		System.out.println("Which Movie do you want to update?");
+		int i=0;
+		for(i=0; i<mdb.size(); i++) {
+			System.out.println((i+1) + ". " + mdb.get(i).getMovieTitle());
+		}
+		int updateMovieChoice = sc.nextInt();
+		selectedMovie = mdb.get(updateMovieChoice-1);
+		
+		//selection of update
+		if(checkMovie(selectedMovie)) { //valid movie entry
 			int updateChoice = 0;
 			do {
 				//updating of movie title not allowed
-				System.out.println("What would you like to update for " + m.getMovieTitle());
-				System.out.println("1. Update Movie Sypnosis");
+				System.out.println("What would you like to update for " + selectedMovie.getMovieTitle());
+				System.out.println("1. Update Movie Synopsis");
 				System.out.println("2. Update Movie Cast");
 				System.out.println("3. Update Movie Director");
 				System.out.println("4. Update Movie Overall Rating");
@@ -85,94 +38,66 @@ public class MovieListingEditor {
 				
 				updateChoice = sc.nextInt();
 				switch(updateChoice) {
-				case 1: //update movie sypnosis
-					System.out.println("Enter new Movie Sypnosis: ");
-					m.setMovieSypnosis(sc.nextLine());
-					System.out.println(m.getMovieTitle() + " Sypnosis updated");
+				case 1: //update movie synopsis
+					System.out.println("Enter new Movie Synopsis: ");
+					selectedMovie.setMovieSynopsis(sc.nextLine());
+					System.out.println(selectedMovie.getMovieTitle() + " Synopsis updated");
 					break;
 				case 2: //update movie cast
 					int castChoice = 0;
-					int x = 0;
 					String cast = null; 
-					String[] castList; //array to store cast list
 					
 					System.out.println("Current Cast List:");
-					for (int i=0; i < len(m.getMovieCast()); i++) {
-						System.out.println(m.getMovieCast()[i]);
-					}
+					selectedMovie.toStringMovieCast(); //prints the current cast list
 					System.out.println("1. Add Cast Member");
 					System.out.println("2. Remove Cast Member");
+					
 					castChoice = sc.nextInt();
 					switch(castChoice) {
 					case 1: //add cast member
-						System.out.println("Enter Cast Member to add: (-1 to exit)");
-						castList = null; //clear array before using
-						cast = sc.nextLine();
-						x = 0; //reset x
-						while(cast != "-1") {
-							castList[x] = cast;
-							x++;
+						do {
+							System.out.println("Enter Cast Member to add: (-1 to exit)");
 							cast = sc.nextLine();
-						}
-						m.addMovieCast(castList);
-						System.out.println("Cast added for " + m.getMovieTitle());
+							selectedMovie.addMovieCast(cast);
+						} while(cast != "-1");
+						System.out.println("Cast added");
 						break;
-					case 2: //remove cast member						
-						System.out.println("Enter Cast Member to remove: (-1 to exit)");
-						castList = null; //clear array before using
-						cast = sc.nextLine();
-						x = 0; //reset x
-						while(cast != "-1") {
-							castList[x] = cast;
-							x++;
+					case 2: //remove cast member
+						do {
+							System.out.println("Enter Cast Member to remove: (-1 to exit)");
 							cast = sc.nextLine();
-						}
-						m.removeMovieCast(castList);
-						System.out.println("Cast removed for " + m.getMovieTitle());
+							selectedMovie.removeMovieCast(cast);
+						} while(cast != "-1");
 						break;
 					default:
 						break;
 					}
 					break;
 				case 3: //update movie director
-					int dirChoice = 0;
-					int j = 0;
-					String dir = null; 
-					String[] dirList; //array to store cast list
+					int directorChoice = 0;
+					String director = null;
 					
-					System.out.println("Current Cast List:");
-					for (int i=0; i < len(m.getMovieDirector()); i++) {
-						System.out.println(m.getMovieDirector()[i]);
-					}
+					System.out.println("Current Director List:");
+					selectedMovie.toStringMovieDirector(); //prints the current director list
 					System.out.println("1. Add Director");
 					System.out.println("2. Remove Director");
-					dirChoice = sc.nextInt();
-					switch(dirChoice) {
+					
+					directorChoice = sc.nextInt();
+					switch(directorChoice) {
 					case 1: //add director
-						System.out.println("Enter Director to add: (-1 to exit)");
-						dirList = null; //clear array before using
-						dir = sc.nextLine();
-						j = 0; //reset j
-						while(dir != "-1") {
-							dirList[j] = dir;
-							j++;
-							dir = sc.nextLine();
-						}
-						m.addMovieDirector(dirList);
-						System.out.println("Director added for " + m.getMovieTitle());
+						do {
+							System.out.println("Enter Director to add: (-1 to exit)");
+							director = sc.nextLine();
+							selectedMovie.addMovieDirector(director);
+						} while(director != "-1");
+						System.out.println("Director added");
 						break;
-					case 2: //remove director					
-						System.out.println("Enter Director to remove: (-1 to exit)");
-						dirList = null; //clear array before using
-						dir = sc.nextLine();
-						j = 0; //reset j
-						while(dir != "-1") {
-							dirList[x] = dir;
-							j++;
-							dir = sc.nextLine();
-						}
-						m.removeMovieDirector(dirList);
-						System.out.println("Director removed for " + m.getMovieTitle());
+					case 2: //remove director
+						do {
+							System.out.println("Enter Director to remove: (-1 to exit)");
+							director = sc.nextLine();
+							selectedMovie.removeMovieDirector(director);
+						} while(director != "-1");
 						break;
 					default:
 						break;
@@ -180,17 +105,23 @@ public class MovieListingEditor {
 					break;
 				case 4: //update movie overall rating
 					System.out.println("Enter new Movie Overall Rating: ");
-					m.setMovieOverallRating(sc.nextFloat());
-					System.out.println(m.getMovieTitle() + " Overall Rating updated");
+					selectedMovie.setMovieOverallRating(sc.nextFloat());
+					System.out.println(selectedMovie.getMovieTitle() + " Overall Rating updated");
 					break;
 				case 5: //update movie status
-					System.out.println("Choose new status for " + m.getMovieTitle() + " :");
-					System.out.println("1. Now Showing ");
-					System.out.println("2. Coming Soon ");
-					System.out.println("3. Preview ");
-					System.out.println("4. Ending Soon ");
-					m.setMovieStatus(sc.nextInt());
-					System.out.println(m.getMovieTitle() + " Status updated");
+					System.out.println("Choose new status for " + selectedMovie.getMovieTitle() + " :");
+					i=1;
+					for(MovieStatus status : MovieStatus.values()) {
+						System.out.println(i + ". " + status.getName());
+						i++;
+					}
+					int statusChoice = sc.nextInt();
+					for(MovieStatus status : MovieStatus.values()) {				//go through array until find the one equal to user input
+						if(status.ordinal()==statusChoice-1){
+							selectedMovie.setStatus(status);
+						}
+					}
+					System.out.println("Movie Status updsted");
 					break;
 				case 6: //exit out of function
 					System.out.println("Exiting");
@@ -205,25 +136,15 @@ public class MovieListingEditor {
 			return;
 		}
 	}
-	public void removeMovieListing(Movie m) {
-		if(this.checkMovie(m)) { //valid movie entry
-			String movieTitle = m.getMovieTitle();
-			m = null;		
-			System.out.println(movieTitle + " removed!");
-		}
-		else { //invalid movie entry
-			System.out.println("Movie not available!");
-		}
+	public void removeMovieListing() {
+		movieDatabase.removeMovieFromDB();
 	}
 	public boolean checkMovie(Movie m) {
-		//Movie[] movieDatabase =  ?????
-		for(int i=0; i < len(MovieDatabase.getMovies()); i++) {
-			if(m.getMovieTitle() == Movie[i].getMovieTitle() && m.getMovieSypnosis() == Movie[i].getMovieSypnosis() && m.getMovieCast() == Movie[i].getMovieCast() && m.getMovieDirector() == Movie[i].getMovieDirector() && m.getMovieOverallRating() == Movie[i].getMovieOverallRating() && m.getMovieStatus() == Movie[i].getMovieStatus()) {
-				//found movie match
+		for(int i=0; i < mdb.size(); i++) {
+			if(selectedMovie.equals(mdb.get(i))) {
 				return true;
 			}
 		}
-		//no match found
 		return false;
 	}
 }
