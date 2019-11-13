@@ -49,6 +49,9 @@ public class MovieDatabase {
 		System.out.println("Synopsis: "		+ chosenMovie.getMovieSynopsis());
 		System.out.println("Cast: "			+ chosenMovie.toStringMovieCast());
 		System.out.println("Director: "		+ chosenMovie.toStringMovieDirector());
+		System.out.println("Status: "		+ chosenMovie.getStatus().getName());
+		System.out.println("Total Sales: "	+ chosenMovie.getTotalSales());
+		System.out.println("Age Rating: "	+ chosenMovie.getAgeRating().getName());
 		System.out.print("Overall Rating: " );
 		chosenMovie.printMovieOverallRating();
 		System.out.print("Reviews: " );
@@ -67,16 +70,16 @@ public class MovieDatabase {
 	public ArrayList<Movie> getMovies(){
 		return movieList;
 	}
-//	public static void main(String[] args) {
-//		MovieDatabase mdb = new MovieDatabase();
-//		mdb.addMovieToDB();
-//		mdb.printMovieDetails();
-//		System.out.println(mdb.getMovieTitlesList());
-//		mdb.addMovieToDB();
-//		mdb.printMovieDetails();
-//		System.out.println(mdb.getMovieTitlesList());
-//		mdb.removeMovieFromDB();
-//		mdb.printMovieDetails();
-//		System.out.println(mdb.getMovieTitlesList());
-//	}
+	public static void main(String[] args) {
+		MovieDatabase mdb = new MovieDatabase();
+		mdb.addMovieToDB();
+		mdb.printMovieDetails();
+		System.out.println(mdb.getMovieTitlesList());
+		mdb.addMovieToDB();
+		mdb.printMovieDetails();
+		System.out.println(mdb.getMovieTitlesList());
+		mdb.removeMovieFromDB();
+		mdb.printMovieDetails();
+		System.out.println(mdb.getMovieTitlesList());
+	}
 }

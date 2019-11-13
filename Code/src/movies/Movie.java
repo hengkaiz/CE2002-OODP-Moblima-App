@@ -37,16 +37,16 @@ public class Movie {
 			}
 		}
 		
-		this.movieCast = null;
-		this.movieDirector = null;
 		this.movieOverallRating = -1;
 		this.reviewList = new ArrayList<Review>();
 		
 		this.movieCast = new ArrayList<String>();
 		System.out.println("Add cast for the movie one by one. Key in -1 to stop adding cast members.");
-		String castMember=null;
+		
+		String castMember=sc.nextLine();
+		castMember=sc.nextLine();
 		while(!castMember.equals("-1")) {
-			this.addMovieDirector(castMember);
+			this.addMovieCast(castMember);
 			castMember = sc.nextLine();
 		}
 		
@@ -64,7 +64,7 @@ public class Movie {
 		System.out.println("Choose age rating: ");
 		int j = 1;
 		for(AgeRating ageRating : AgeRating.values()) {
-			System.out.println(j + ". " + ageRating.getName());
+			System.out.println(j + ". " + ageRating + " " +ageRating.getName());
 			j++;
 		}
 		int ratingChoice = sc.nextInt();
@@ -170,7 +170,7 @@ public class Movie {
 	}
 	
 	public void printReviewList(int numberOfReviews) {
-		if (reviewList==null) {
+		if (reviewList.size()==0) {
 			System.out.println("There are no reviews yet.");
 			return;
 		}
