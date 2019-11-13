@@ -28,7 +28,7 @@ public class DataBase{
     private ArrayList<ShowTime> sortDate(String date){ //return showtimes for chosen dates
         copylist = new ArrayList<ShowTime>();
         for (ShowTime st: showtimelist){
-            if (st.getDate() == date){
+            if (st.toStringGetDate() == date){
                 copylist.add(st);
             }
         }

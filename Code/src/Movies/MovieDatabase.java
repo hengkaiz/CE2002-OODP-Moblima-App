@@ -3,11 +3,13 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class MovieDatabase {
-	private ArrayList<Movie> movieList = new ArrayList<Movie>();;
+	private ArrayList<Movie> movieList;
 	
 	Scanner sc = new Scanner(System.in);
 	
-	public MovieDatabase(){}
+	public MovieDatabase(){
+		this.movieList = new ArrayList<Movie>();
+	}
 
 	public ArrayList<Movie> getMovieList() {
 		return movieList;
