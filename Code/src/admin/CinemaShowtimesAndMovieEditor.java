@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.lang.Object;
 import cinema.*;
-import database.*;
 import movies.*;
 
 public class CinemaShowtimesAndMovieEditor {

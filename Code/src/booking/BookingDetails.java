@@ -1,60 +1,56 @@
 package booking;
 
 import cinema.*;
+import user.*;
+import movies.*;
+
 
 public class BookingDetails {
 	private String moviegoerName; 
 	private int mobileNumber;
 	private String emailAddress;
 	ShowTime showtime;
-	private int seatRow;
-	private int seatCol;
 	private double ticketPrice;
 	private String username;
+	private int[] Seat;
 
 	 //name, mobile, email, ID, showtime, seatno, price	
-	public BookingDetails(String user, String name, int mobile, String email, ShowTime st, int r, int c, double price) {
-		username = user;
-		moviegoerName = name;
-		mobileNumber = mobile;
-		emailAddress = email;
-		showtime = st;
-		seatRow = r;
-		seatCol = c;
-		ticketPrice = price;
+	public BookingDetails(String username, ShowTime st, int[] seat, TicketPriceCalculator calculator) {
+		//username = user;
+		//moviegoerName = name;
+		//mobileNumber = mobile;
+		//emailAddress = email;
+		//showtime = st;
+		//ticketPrice = price;
 	}
 	
 	//getting functions
 	public String getuserName() {
-		return username;
+		return this.username;
 	}
 	
 	public String getmoviegoerName() {
-		return moviegoerName;
+		return this.moviegoerName;
 	}
 	
 	public int getmobileNumber() {
-		return mobileNumber;
+		return this.mobileNumber;
 	}
 	
 	public String getemailAddress() {
-		return emailAddress;
+		return this.emailAddress;
 	}
 	
-	public ShowTime getshowtime() {
-		return showtime;
-	}
-	
-	public int getseatRow() { 
-		return seatRow;
-	}
-	
-	public int getseatCol() {
-		return seatCol;
+	public ShowTime getshowtime(ShowTime st) {
+		return st;
 	}
 	
 	public double getticketPrice() {
 		return ticketPrice;
+	}
+	
+	public int[] getSeat(int[] seat) {
+		return seat;
 	}
 
 	//setting functions
@@ -75,18 +71,15 @@ public class BookingDetails {
 	}
 
 	public void setshowtime(ShowTime st) {
-		this.showtime = showtime;
-	}
-	
-	public void setseatRow(int r) {
-		this.seatRow = r;
-	}
-	
-	public void setseatCol(int c) {
-		this.seatCol = c;
+		this.showtime = st;
 	}
 	
 	public void setticketPrice(double ticketPrice) {
 		this.ticketPrice = ticketPrice;
+	}
+	
+	public void setSeat(int[] seat) {
+		this.Seat = seat; 
+		
 	}
 }

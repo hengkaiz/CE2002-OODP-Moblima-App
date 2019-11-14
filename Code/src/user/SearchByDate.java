@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Scanner;
 import cinema.ShowTime;
-import database.*;
+import cinema.ShowTimeDatabase;
 import movies.MovieDatabase;
 
 public class SearchByDate extends ShowTimeDatabase implements SearchFunction {

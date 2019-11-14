@@ -1,7 +1,7 @@
 package booking;
 import cinema.*;
-import user.*;
 import movies.*;
+import user.*;
 
 import java.util.ArrayList;
 
@@ -13,8 +13,7 @@ public class BookingDatabase extends UserDatabase{
 
 	 }
 	 
-	 //username, name, mobile, email, ID, showtime, seatno, price
-	 public void getBookingDetails(String username) { 
+	 public void getBookingDetails(User user, String username, ShowTime st, int[] seat) { 
 		 copybook = new ArrayList<BookingDetails>();
 		 
 		 if (BookingDetailsList.size() == 0)
@@ -26,9 +25,8 @@ public class BookingDatabase extends UserDatabase{
 				 System.out.println("Name: " + details.getmoviegoerName());
 				 System.out.println("Mobile number: " + details.getmobileNumber());
 				 System.out.println("Email address: " + details.getemailAddress());
-				 System.out.println("Showtime: " + details.getshowtime());
-				 System.out.println("Seat Row: " + details.getseatRow());
-				 System.out.println("Seat Column: " + details.getseatCol());
+				 System.out.println("Showtime: " + details.getshowtime(st));
+				 System.out.println("Seats chosen: " + details.getSeat(seat));
 				 System.out.println("Ticket price: " + details.getticketPrice());
 			 }
 			 
@@ -37,37 +35,35 @@ public class BookingDatabase extends UserDatabase{
 		 }
 	 }
 	 
-	 //username, name, mobile, email, showtime, seatrow, seatcol, price
-	 public void addNewBooking(String username, ShowTime st, int row, int col){
+	 //user database, username, user, tpc, st, holiday, seat
+	 public void addNewBooking(UserDatabase udb, String username, TicketPriceCalculator calculator, 
+	 ShowTime st, HolidayDatabase holiday, int[] seat){
+		 
 		 String email = null;
 		 int mobile = 0;
 		 double price = 0;	
 		 String name = null;
 		 
-		 ArrayList<User> userlist = new ArrayList<User>();
-		 BookingDetails deets = new BookingDetails(username, name, mobile, email, st, row, col, price);
-		 TicketPriceCalculator calc = new TicketPriceCalculator();
-		 HolidayDatabase hols = new HolidayDatabase();
+		 BookingDetails details = new BookingDetails(username, st, seat, calculator);
 		 
-		 for (User usr: userlist) {
+		 for (User usr:udb.getUserList()) {
 			 if (usr.getUsername().equals(username)) {
 				 email = usr.getEmail();
 				 mobile = usr.getMobile();
-				 price = calc.calculatePrice(usr, st, hols);
+				 price = calculator.calculatePrice(usr, st, holiday);
 				 name = usr.getName();
 			 }	 
 		 }
 		 
-		 deets.setmoviegoerName(name); 
-		 deets.setshowtime(st);
-		 deets.setemailAddress(email);
-		 deets.setmobileNumber(mobile);
-		 deets.setshowtime(st);
-		 deets.setseatRow(row);
-		 deets.setseatCol(col);
-		 deets.setticketPrice(price);
+		 details.setmoviegoerName(name); 
+		 details.setshowtime(st);
+		 details.setemailAddress(email);
+		 details.setmobileNumber(mobile);
+		 details.setshowtime(st);
+		 details.setSeat(seat);
+		 details.setticketPrice(price);
 		 
-		 BookingDetailsList.add(deets);
+		 BookingDetailsList.add(details);
 	 }
 }
 

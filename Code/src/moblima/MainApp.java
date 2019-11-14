@@ -1,6 +1,5 @@
 package moblima;
 import booking.BookingDatabase;
-import database.*;
 import movies.*;
 import user.*;
 import cinema.*;
@@ -20,6 +19,8 @@ public class MainApp {
         UserDatabase udb = new UserDatabase();
         MovieDatabase mdb = new MovieDatabase();
         BookingDatabase bdb = new BookingDatabase();
+        HolidayDatabase hdb = new HolidayDatabase();
+        
 
         //initializing all the classes
         UserLoginApp userLoginApp = new UserLoginApp();
@@ -72,11 +73,14 @@ public class MainApp {
                 case 4:
                     //selecting the seat
                     int[] seat = new int[2];
+                    TicketPriceCalculator tpc = new TicketPriceCalculator();
                     ChooseSeats chooseSeats = new ChooseSeats(copyOfSelShowTime, db);
+                    User user;
                     seat = chooseSeats.chooseSeats(username);
 
                     //add to booking database
-                    bdb.addNewBooking(username, copyOfSelShowTime, seat[0], seat[1]);
+               	    //user database, username, user, tpc, st, holiday, seat
+                    bdb.addNewBooking(udb, username, user, tpc, copyOfSelShowTime, hdb, seat);
 
                     break;
                 case 5:

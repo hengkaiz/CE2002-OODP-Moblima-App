@@ -1,14 +1,14 @@
 package movies;
 import java.util.ArrayList;
+import java.io.*;
 import java.util.List;
 import java.util.Scanner;
 
-public class MovieDatabase {
-	private ArrayList<Movie> movieList = new ArrayList<Movie>();;
-	
-	Scanner sc = new Scanner(System.in);
+public class MovieDatabase implements Serializable{
+	private ArrayList<Movie> movieList;
 	
 	public MovieDatabase(){ //existing movie list
+		this.movieList = new ArrayList<Movie>();
 		movieList.add(new Movie("Charlie's Angel", "Sypnosis: Charlie's Angels have always provided security and investigative skills to private clients. Now the Townsend Agency has expanded internationally with the smartest and most highly trained women from all over the globe — multiple teams of Angels guided by multiple Bosleys, completing the toughest missions around the world. When a young systems engineer blows the whistle on a dangerous technology, these Angels are called into action, putting their lives on the line to protect people.", MovieStatus.COMING_SOON));
 		movieList.add(new Movie("Terminator: Dark Fate", "Sypnosis:In Mexico City, a newly modified liquid Terminator -- the Rev-9 model -- arrives from the future to kill a young factory worker named Dani Ramos. Also sent back in time is Grace, a hybrid cyborg human who must protect Ramos from the seemingly indestructible robotic assassin. But the two women soon find some much-needed help from a pair of unexpected allies -- seasoned warrior Sarah Connor and the T-800 Terminator.", MovieStatus.NOW_SHOWING));
 		movieList.add(new Movie("Gemini Man", "Sypnosis:Henry Brogan is an elite 51-year-old assassin who's ready to call it quits after completing his 72nd job. His plans get turned upside down when he becomes the target of a mysterious operative who can seemingly predict his every move. To his horror, Brogan soon learns that the man who's trying to kill him is a younger, faster, cloned version of himself.", MovieStatus.NOW_SHOWING));
@@ -20,6 +20,10 @@ public class MovieDatabase {
 		movieList.add(new Movie("Last Christmas", "Sypnosis: Nothing seems to go right for young Kate, a frustrated Londoner who works as an elf in a year-round Christmas shop. But things soon take a turn for the better when she meets Tom -- a handsome charmer who seems too good to be true. As the city transforms into the most wonderful time of the year, Tom and Kate's growing attraction turns into the best gift of all -- a Yuletide romance.", MovieStatus.COMING_SOON));
 		movieList.add(new Movie("IT 2", "Sypnosis: Defeated by members of the Losers' Club, the evil clown Pennywise returns 27 years later to terrorize the town of Derry, Maine, once again. Now adults, the childhood friends have long since gone their separate ways. But when people start disappearing, Mike Hanlon calls the others home for one final stand. Damaged by scars from the past, the united Losers must conquer their deepest fears to destroy the shape-shifting Pennywise -- now more powerful than ever.", MovieStatus.END_OF_SHOWING));
 	}
+	
+//	public MovieDatabase(){
+//		this.movieList = new ArrayList<Movie>();
+//	}
 
 	public ArrayList<Movie> getMovieList() {
 		return movieList;
@@ -31,6 +35,9 @@ public class MovieDatabase {
 	}
 
 	public void removeMovieFromDB(){
+<<<<<<< HEAD
+=======
+		Scanner sc = new Scanner(System.in);
 		System.out.println("Which movie do you want to remove?");
 		int i=1;
 		for (Movie movie : movieList) {
@@ -38,11 +45,27 @@ public class MovieDatabase {
 			i++;
 		}
 		int choice = sc.nextInt();
+>>>>>>> branch 'Master' of https://github.com/hengkaiz/moblima.git
 		
-		movieList.remove(choice-1);
+		try {
+			System.out.println("Which movie do you want to remove?");
+			int i=1;
+			for (Movie movie : movieList) {
+				System.out.println(i + ". " + movie.getMovieTitle());
+				i++;
+			}
+			int choice = sc.nextInt();
+			
+			movieList.remove(choice-1);
+		} catch (Exception e) {
+			
+		}
 	}
 	
+	
+	
 	public void printMovieDetails(){
+		Scanner sc = new Scanner(System.in);
 		System.out.println("Which movie do you want to know more about?");
 		int i=1;
 		for (Movie movie : movieList) {
@@ -83,6 +106,7 @@ public class MovieDatabase {
 	}
 	
 	public void printTop5() {
+		Scanner sc = new Scanner(System.in);
 		System.out.println("Print top 5 movies by?");
 		System.out.println("1. By Overall Rating");
 		System.out.println("2. By Ticket Sales");
@@ -125,7 +149,6 @@ public class MovieDatabase {
 			return movieList.subList(0, num);
 	}
 	//comment
-	//comment
 	
 //	public static void main(String[] args) {
 //		MovieDatabase mdb = new MovieDatabase();
@@ -159,5 +182,4 @@ public class MovieDatabase {
 //		mdb.printTop5();
 //		mdb.printTop5();
 //	}
-}	//comment
-//comment
+}

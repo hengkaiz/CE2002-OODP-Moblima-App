@@ -1,6 +1,7 @@
 package cinema;
+import java.io.Serializable;
 
-public class Seat {
+public class Seat implements Serializable {
     private boolean assigned = false;
     private String customer_name;
 

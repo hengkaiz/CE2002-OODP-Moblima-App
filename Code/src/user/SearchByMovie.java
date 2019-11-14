@@ -3,7 +3,7 @@ package user;
 import java.util.ArrayList;
 
 import java.util.Scanner;
-import database.*;
+
 import movies.*;
 import cinema.*;
 
