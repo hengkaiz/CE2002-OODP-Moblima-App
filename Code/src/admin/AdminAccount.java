@@ -1,8 +1,9 @@
 package admin;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class AdminAccount {
+public class AdminAccount implements Serializable {
 	private String id;
 	private String password;
 	

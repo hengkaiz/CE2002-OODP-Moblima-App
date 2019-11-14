@@ -170,10 +170,26 @@ public class SaveAndLoadDB {
 //		mdbcopy = fff2.loadMovieDB();
 //		mdbcopy.printMovieDetails();
 //		System.out.println(mdbcopy.getMovieTitlesList());
-		ShowTimeDatabase stdb = new ShowTimeDatabase();
-		ShowTimeDatabase stdbcopy = null;
-		fff2.saveShowTimeDB(stdb);
-		stdbcopy = fff2.loadShowTimeDB();
-		System.out.println(stdbcopy.getShowTimes());
+		
+		
+//		ShowTimeDatabase stdb = new ShowTimeDatabase();
+//		ShowTimeDatabase stdbcopy = null;
+//		fff2.saveShowTimeDB(stdb);
+//		stdbcopy = fff2.loadShowTimeDB();
+//		System.out.println(stdbcopy.getShowTimes());
+		
+//		AdminDatabase adb = new AdminDatabase();
+//		AdminDatabase adbcopy = null;
+//		fff2.saveAdminDB(adb);
+//		adbcopy = fff2.loadAdminDB();
+//		System.out.println(adbcopy.getAdminList());
+		
+		UserDatabase udb = new UserDatabase();
+		UserDatabase udbcopy = new UserDatabase();
+		fff2.saveUserDB(udb);
+		udbcopy = fff2.loadUserDB();
+		System.out.println(udbcopy.getUserList());
+		
+		
 	}
 }

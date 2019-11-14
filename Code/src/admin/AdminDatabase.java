@@ -1,7 +1,8 @@
 package admin;
 
+import java.io.Serializable;
 import java.util.ArrayList;
-public class AdminDatabase {
+public class AdminDatabase implements Serializable{
 	
 	//private static ArrayList<AdminAccount> adminList;
 	private ArrayList<AdminAccount> adminList = new ArrayList<AdminAccount>();
