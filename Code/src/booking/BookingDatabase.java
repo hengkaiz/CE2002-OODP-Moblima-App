@@ -2,7 +2,6 @@ package booking;
 import cinema.*;
 import movies.*;
 import user.*;
-import database.*;
 
 import java.util.ArrayList;
 
@@ -37,7 +36,7 @@ public class BookingDatabase extends UserDatabase{
 	 }
 	 
 	 //user database, username, user, tpc, st, holiday, seat
-	 public void addNewBooking(UserDatabase udb, String username, User user, TicketPriceCalculator calculator, 
+	 public void addNewBooking(UserDatabase udb, String username, TicketPriceCalculator calculator, 
 	 ShowTime st, HolidayDatabase holiday, int[] seat){
 		 
 		 String email = null;
@@ -45,7 +44,7 @@ public class BookingDatabase extends UserDatabase{
 		 double price = 0;	
 		 String name = null;
 		 
-		 BookingDetails details = new BookingDetails(user, st, seat, calculator);
+		 BookingDetails details = new BookingDetails(username, st, seat, calculator);
 		 
 		 for (User usr:udb.getUserList()) {
 			 if (usr.getUsername().equals(username)) {

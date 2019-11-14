@@ -3,7 +3,7 @@ package booking;
 import cinema.*;
 import user.*;
 import movies.*;
-import database.*;
+
 
 public class BookingDetails {
 	private String moviegoerName; 
@@ -15,7 +15,7 @@ public class BookingDetails {
 	private int[] Seat;
 
 	 //name, mobile, email, ID, showtime, seatno, price	
-	public BookingDetails(User user, ShowTime st, int[] seat, TicketPriceCalculator calculator) {
+	public BookingDetails(String username, ShowTime st, int[] seat, TicketPriceCalculator calculator) {
 		//username = user;
 		//moviegoerName = name;
 		//mobileNumber = mobile;

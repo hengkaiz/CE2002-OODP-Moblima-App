@@ -3,7 +3,7 @@ package booking;
 import cinema.*;
 import movies.*;
 import user.*;
-import database.*;
+
 import java.util.Scanner;
 
 public class BookingApp{
