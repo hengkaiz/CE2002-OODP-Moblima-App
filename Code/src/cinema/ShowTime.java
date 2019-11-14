@@ -9,9 +9,7 @@ import movies.Movie;
 public class ShowTime implements Comparable<ShowTime>, Serializable{
     private int timing;
     private Movie movie;
-    private Cinema cinema;
-    private int cinemaNum;
-    private CinemaType cinemaType;
+    private Cinema assignedCinema;
     private SeatPlan seatplan;
     private Calendar date;
     private MovieFormat movieformat;
@@ -21,23 +19,17 @@ public class ShowTime implements Comparable<ShowTime>, Serializable{
         movie = m;
         date = Calendar.getInstance(); //year, month, date
 		date.add(Calendar.DAY_OF_MONTH, noOfDaysFromCurrent); //add future movies
-        //cinema.setCode(c);
         seatplan = new SeatPlan();
         movieformat = f;
     }
     public ShowTime(){}
 
-
-	public void setCinemaNum(int cinemaNum) {
-		this.cinemaNum = cinemaNum;
-	}
-
     public int getCinemaNum() {
-		return cinemaNum;
+		return this.assignedCinema.getCinemaNumber();
 	}
     
 	public String getCinemaType() {
-		return cinemaType.getName();
+		return this.assignedCinema.getType();
 	}
 
 	
@@ -53,13 +45,17 @@ public class ShowTime implements Comparable<ShowTime>, Serializable{
 		this.movie = movie;
 	}
 
-	public String getMovie(){ return movie.getMovieTitle(); } // return movie name
+	public String getMovie(){ 
+		return movie.getMovieTitle(); 
+	} // return movie name
 
 	public void setTiming(int timing) {
 		this.timing = timing;
 	}
 
-	public int getTiming(){ return timing; } //return timing
+	public int getTiming(){
+		return timing;
+	} //return timing
 	
 	public String timeToString() {
 		String fourDigits = String.format("%04d", this.timing);

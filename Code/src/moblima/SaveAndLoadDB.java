@@ -14,35 +14,86 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
-
-
 //initialize the databases here
 public class SaveAndLoadDB {
 
-    public void saveShowTimeDB(ShowTimeDatabase stdb) {
+    public void saveShowTimeDB(ShowTimeDatabase stdb, int cineplexNumber) {
 		try {
-			FileOutputStream fos = new FileOutputStream("ShowTimeDB.txt");
-		    ObjectOutputStream oos = new ObjectOutputStream(fos);
-		    oos.writeObject(stdb);
-		    oos.close();
-		    fos.close();
-		    System.out.println("ShowTime DB Serialized and saved");
+			switch (cineplexNumber){
+				case 1: 
+					FileOutputStream fos = new FileOutputStream("ShowTimeDB1.txt");
+				    ObjectOutputStream oos = new ObjectOutputStream(fos);
+				    oos.writeObject(stdb);
+				    oos.close();
+				    fos.close();
+				    System.out.println("ShowTime DB Serialized and saved");
+				    break;
+				case 2:
+					FileOutputStream fos2 = new FileOutputStream("ShowTimeDB2.txt");
+				    ObjectOutputStream oos2 = new ObjectOutputStream(fos2);
+				    oos2.writeObject(stdb);
+				    oos2.close();
+				    fos2.close();
+				    System.out.println("ShowTime DB Serialized and saved");
+				    break;
+				case 3:
+					FileOutputStream fos3 = new FileOutputStream("ShowTimeDB3.txt");
+				    ObjectOutputStream oos3 = new ObjectOutputStream(fos3);
+				    oos3.writeObject(stdb);
+				    oos3.close();
+				    fos3.close();
+				    System.out.println("ShowTime DB Serialized and saved");
+				    break;
+			}
+//			FileOutputStream fos = new FileOutputStream("ShowTimeDB.txt");
+//		    ObjectOutputStream oos = new ObjectOutputStream(fos);
+//		    oos.writeObject(stdb);
+//		    oos.close();
+//		    fos.close();
+//		    System.out.println("ShowTime DB Serialized and saved");
 		}
 		catch(IOException ie) {
 			System.out.println("Saving error occurred " + ie);
 		}
     }
     
-    public ShowTimeDatabase loadShowTimeDB() {
+    public ShowTimeDatabase loadShowTimeDB(int cineplexNum) {
         try {
-			FileInputStream fis = new FileInputStream("ShowTimeDB.txt");
-			ObjectInputStream ois = new ObjectInputStream(fis);
-
-			ShowTimeDatabase stdb = (ShowTimeDatabase) ois.readObject();
-			ois.close();
-			fis.close();
-			System.out.println("ShowTime DB Deserialized and loaded");
-	        return stdb;
+			switch (cineplexNum){
+			case 1: 
+				FileInputStream fis = new FileInputStream("ShowTimeDB1.txt");
+				ObjectInputStream ois = new ObjectInputStream(fis);
+				ShowTimeDatabase stdb = (ShowTimeDatabase) ois.readObject();
+				ois.close();
+				fis.close();
+				System.out.println("ShowTime DB Deserialized and loaded");
+		        return stdb;
+			case 2:
+				FileInputStream fis2 = new FileInputStream("ShowTimeDB2.txt");
+				ObjectInputStream ois2 = new ObjectInputStream(fis2);
+				ShowTimeDatabase stdb2 = (ShowTimeDatabase) ois2.readObject();
+				ois2.close();
+				fis2.close();
+				System.out.println("ShowTime DB Deserialized and loaded");
+		        return stdb2;
+			case 3:
+				FileInputStream fis3 = new FileInputStream("ShowTimeDB3.txt");
+				ObjectInputStream ois3 = new ObjectInputStream(fis3);
+				ShowTimeDatabase stdb3 = (ShowTimeDatabase) ois3.readObject();
+				ois3.close();
+				fis3.close();
+				System.out.println("ShowTime DB Deserialized and loaded");
+		        return stdb3;
+			}
+//			FileInputStream fis = new FileInputStream("ShowTimeDB.txt");
+//			ObjectInputStream ois = new ObjectInputStream(fis);
+//
+//			ShowTimeDatabase stdb = (ShowTimeDatabase) ois.readObject();
+//			ois.close();
+//			fis.close();
+//			System.out.println("ShowTime DB Deserialized and loaded");
+//	        return stdb;
+		        
 			
 		} catch (FileNotFoundException e) {
 			System.out.println("File not found");
