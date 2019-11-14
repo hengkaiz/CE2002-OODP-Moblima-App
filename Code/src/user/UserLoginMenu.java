@@ -2,7 +2,6 @@ package user;
 
 import moblima.MenuTemplate;
 
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class UserLoginMenu extends MenuTemplate {
@@ -19,7 +18,7 @@ public class UserLoginMenu extends MenuTemplate {
         String Password = null;
         String username;
         boolean loop = true;
-        while (loop)
+        while (loop) {
 	        try {
 		        System.out.print("Enter ID: ");
 		        ID = sc.nextLine();
@@ -28,10 +27,10 @@ public class UserLoginMenu extends MenuTemplate {
 		        Password = sc.nextLine();
 		        loop = false;
 	        }
-	        catch (InputMismatchException e) {
+	        catch (Exception e) {
 	        	System.out.println("Invalid ID/Password. Try Again");
 	        }
-        
+        }
         nextMenu = this;
 
         username = userLoginApp.loginCheck(ID, Password);
