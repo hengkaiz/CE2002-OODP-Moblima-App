@@ -47,7 +47,7 @@ public class BookingDatabase extends UserDatabase{
 		 ArrayList<User> userlist = new ArrayList<User>();
 		 BookingDetails deets = new BookingDetails(username, name, mobile, email, st, row, col, price);
 		 TicketPriceCalculator calc = new TicketPriceCalculator();
-		 Holiday hols = new Holiday();
+		 HolidayDatabase hols = new HolidayDatabase();
 		 
 		 for (User usr: userlist) {
 			 if (usr.getUsername().equals(username)) {

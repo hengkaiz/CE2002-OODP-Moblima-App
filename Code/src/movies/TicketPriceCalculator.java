@@ -34,7 +34,7 @@ public class TicketPriceCalculator {
 			return false;
 	}
 	
-	public double calculatePrice(User user, ShowTime showtime, Holiday holiday) {
+	public double calculatePrice(User user, ShowTime showtime, HolidayDatabase holiday) {
 		double price=basePrice;
 		
 		if (getAgeGroup(user.getAge()) == AgeGroup.CHILD || getAgeGroup(user.getAge()) == AgeGroup.SENIOR)

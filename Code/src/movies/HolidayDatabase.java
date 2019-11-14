@@ -5,7 +5,7 @@ import java.time.YearMonth;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Holiday {
+public class HolidayDatabase {
 	private ArrayList<LocalDate> holidays = new ArrayList<LocalDate>();
 	
 	public ArrayList<LocalDate> getHolidays() {
