@@ -8,7 +8,7 @@ public class Review {
 	//date
 	private String reviewContent;
 	
-	public Review() throws Exception {
+	public Review() {
 		String reviewer = null;
 		double rating = 0;
 		String reviewContent = null;
@@ -21,8 +21,10 @@ public class Review {
 			
 			System.out.println("Enter a rating out of 5: ");
 			rating = sc.nextDouble();
-			if (rating <0 | rating>5) {
-				throw new Exception();
+			while (rating <0 | rating>5) {
+				System.out.println("Error in input. Try again.");
+				System.out.println("Enter a rating out of 5: ");
+				rating = sc.nextDouble();
 			}
 			
 			System.out.println("Enter your review: ");
