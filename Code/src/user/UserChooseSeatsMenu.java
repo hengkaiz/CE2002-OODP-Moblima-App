@@ -34,7 +34,6 @@ public class UserChooseSeatsMenu extends MenuTemplate{
         switch(sel){
             case 1: //get movie details
                 userChooseSeatsApp.printSeats();
-                nextMenu = new MainMenu();
                 break;
 
             case 2: //choose seats

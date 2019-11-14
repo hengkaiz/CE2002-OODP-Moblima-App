@@ -61,6 +61,8 @@ public class UserChooseSeatsApp {
 		//need to add exception choosing a taken seat
 
 		int [] seat = {row, col};
+
+		saveAndLoadDB.saveShowTimeDB(stdb);
 		return seat;
 	}
 }
