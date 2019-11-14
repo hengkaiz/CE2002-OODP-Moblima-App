@@ -20,6 +20,7 @@ public class AdminApp {
 		ConfigureApp cssApp = new ConfigureApp();
 		TicketPriceCalculator tcc = new TicketPriceCalculator();
 		HolidayDatabase hdb = new HolidayDatabase();
+		MovieDatabase mdb = new MovieDatabase();
 		
 		Scanner sc = new Scanner(System.in);
 
@@ -45,7 +46,7 @@ public class AdminApp {
 					cssApp.configure(css,tcc,hdb,ss);
 					break;
 				case 4: //list top 5s
-					
+					mdb.printTop5();
 					break;
 				case 5: //exit
 					break;

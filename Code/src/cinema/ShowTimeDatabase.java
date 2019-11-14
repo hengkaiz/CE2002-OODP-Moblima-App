@@ -101,7 +101,7 @@ public class ShowTimeDatabase extends MovieDatabase implements Serializable{
         showtimelist.add(new ShowTime(2200, super.getMovies().get(6), 5, 8, MovieFormat.BLOCKBUSTER));
         showtimelist.add(new ShowTime(1100, super.getMovies().get(7), 5, 9, MovieFormat.TWO_DIMENSION));
         showtimelist.add(new ShowTime(2200, super.getMovies().get(7), 5, 2, MovieFormat.TWO_DIMENSION));
-
+        showtimelist.add(new ShowTime(2200, super.getMovies().get(7), 5, 2, MovieFormat.TWO_DIMENSION));
     }
 
     private ArrayList<ShowTime> sortMovies(String title){ //return showtimes for chosen movie
