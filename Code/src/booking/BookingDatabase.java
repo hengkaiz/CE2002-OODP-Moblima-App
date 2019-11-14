@@ -35,7 +35,7 @@ public class BookingDatabase extends UserDatabase{
 		 }
 	 }
 	 
-	 //user database, username, user, tpc, st, holiday, seat
+	 //user database, username, tpc, st, holiday, seat
 	 public void addNewBooking(UserDatabase udb, String username, TicketPriceCalculator calculator, 
 	 ShowTime st, HolidayDatabase holiday, int[] seat){
 		 
