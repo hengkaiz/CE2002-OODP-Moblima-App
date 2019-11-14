@@ -78,6 +78,7 @@ public class MovieDatabase {
 	}
 
 	public ArrayList<Movie> getMovies(){
+		
 		return movieList;
 	}
 	

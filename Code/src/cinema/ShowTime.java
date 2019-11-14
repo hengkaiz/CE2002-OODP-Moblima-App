@@ -56,7 +56,12 @@ public class ShowTime implements Comparable<ShowTime>{
 	}
 
 	public int getTiming(){ return timing; } //return timing
-
+	
+	public String timeToString() {
+		String fourDigits = String.format("%04d", this.timing);
+		return fourDigits;
+	}
+	
     public String toStringGetDate(){ //return date in dd/MM format
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM");
 		String d = sdf.format(date.getTime());

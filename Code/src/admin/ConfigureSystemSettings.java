@@ -117,4 +117,9 @@ public class ConfigureSystemSettings {
 			}
 		}while(updateChoice != 3);
 	}
+	
+	public void resetSettings(SystemSettings ss, TicketPriceCalculator ticketPrice) {
+		ss.initTicketPrice(ticketPrice);
+		System.out.println("resetted");
+	}
 }

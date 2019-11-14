@@ -9,4 +9,7 @@ public enum MovieFormat {
     MovieFormat(String s) {
         this.name = s;
     }
+	public String getName() {
+		return name;
+	}  
 }

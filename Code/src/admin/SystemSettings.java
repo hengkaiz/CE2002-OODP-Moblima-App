@@ -1,6 +1,7 @@
 package admin;
 
 import movies.*;
+import java.lang.Object;
 public class SystemSettings {
 
 	/*public SystemSettings() {
