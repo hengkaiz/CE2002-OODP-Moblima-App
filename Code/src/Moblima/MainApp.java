@@ -17,7 +17,7 @@ public class MainApp {
         ShowTime copyOfSelShowTime = null;
 
         // importing the different database
-        DataBase db = new DataBase();
+        ShowTimeDatabase db = new ShowTimeDatabase();
         UserDatabase udb = new UserDatabase();
         MovieDatabase mdb = new MovieDatabase();
         BookingDatabase bdb = new BookingDatabase();

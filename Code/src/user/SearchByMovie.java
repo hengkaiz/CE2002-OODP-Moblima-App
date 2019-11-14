@@ -10,11 +10,11 @@ import movies.*;
 import Cinema.*;
 
 
-public class SearchByMovie extends DataBase implements SearchFunction{
+public class SearchByMovie extends ShowTimeDatabase implements SearchFunction{
 	private ArrayList<String> movieList = new ArrayList<String>();
 	private ArrayList<ShowTime> showtimes;
 	private MovieDatabase mb;
-	private DataBase db;
+	private ShowTimeDatabase db;
 
 	public void searchResult() {
 		//gets an array of movie titles from movie database
