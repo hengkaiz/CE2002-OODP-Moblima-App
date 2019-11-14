@@ -1,8 +1,9 @@
 package movies;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
-public class Review {
+public class Review implements Serializable{
 	private String reviewer;
 	private double rating;
 	//date
@@ -66,7 +67,4 @@ public class Review {
 	public String toStringReview() {
 		return  "Review: " + this.reviewContent;
 	}
-}//comment
-//comment
-//comment	//comment
-//comment
+}

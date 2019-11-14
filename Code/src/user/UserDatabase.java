@@ -1,10 +1,11 @@
 package user;
 
 import java.util.ArrayList;
+import java.io.Serializable;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class UserDatabase{
+public class UserDatabase implements Serializable{
     private ArrayList<User> userlist = new ArrayList<User>();
     private ArrayList<User> copylist;
 
@@ -12,6 +13,7 @@ public class UserDatabase{
         User u1 = new User("hk", "123", "hk1", 3, "email", 123);
         userlist.add(u1);
         User u2 = new User("hk2", "1235", "hk1", 140, "email", 123);
+        userlist.add(u2);
     }
 
     private User sortNames(String name){
