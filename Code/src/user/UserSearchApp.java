@@ -5,6 +5,7 @@ import movies.MovieDatabase;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.io.*;
 
 public class UserSearchApp {
     public ShowTime showtimelist(MovieDatabase mdb) {
@@ -31,8 +32,17 @@ public class UserSearchApp {
                     break;
 
                 case 1: //search by movie page
-                    SearchByMovie searchByMovie = new SearchByMovie();
-                    copyOfShowTime = searchByMovie.searchApp(mdb);
+                	boolean loop = true;
+                	while (loop) {
+						try {
+							SearchByMovie searchByMovie = new SearchByMovie();
+		                    copyOfShowTime = searchByMovie.searchApp(mdb);
+		                    loop = false;
+						} catch (Exception e) {
+							// TODO Auto-generated catch block
+							System.out.println("Invalid input for movie. Try Again.");
+						}
+                	}
                     if (copyOfShowTime == null){//return to main page
                         page_choice = 0;
                         break;
@@ -45,21 +55,40 @@ public class UserSearchApp {
                     }
                     System.out.println("-1 to return");
                     System.out.print("Please enter your choice: ");
-                    sel = sc.nextInt();
-                    System.out.println();
-                    sc.nextLine(); //clear the buffer
-
-                    if(sel == -1){
-                        page_choice = 1;
-                        break;
-                    }
-                    selected_st = copyOfShowTime.get(sel-1);
+                    boolean loop2 = true;
+					do {
+                    try {
+						sel = sc.nextInt();
+	                    System.out.println();
+	                    sc.nextLine(); //clear the buffer
+	
+	                    if(sel == -1){
+	                        page_choice = 1;
+	                        break;
+	                    }
+	                    selected_st = copyOfShowTime.get(sel-1);
+	                    loop2 = false;
+					} catch (Exception e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					} while (loop2);
                     page_choice = 99; //exit app
                     break;
 
                 case 3: //search by time main page
-                    SearchByDate searchByDate = new SearchByDate();
-                    copyOfShowTime = searchByDate.searchApp(mdb);
+                	boolean loop1 = true;
+                	do {
+					try {
+						SearchByDate searchByDate = new SearchByDate();
+	                    copyOfShowTime = searchByDate.searchApp(mdb);
+	                    loop1 = false;
+					} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+					}
+                	} while (loop1);
+                	
                     if (copyOfShowTime == null){//return to main page
                         page_choice = 0;
                         break;
@@ -73,15 +102,24 @@ public class UserSearchApp {
 
                     System.out.println("-1 to return");
                     System.out.print("Please enter your choice: ");
-                    sel = sc.nextInt();
-                    System.out.println();
-                    sc.nextLine(); //clear the buffer
-
-                    if(sel == -1){
-                        page_choice = 1;
-                        break;
-                    }
-                    selected_st = copyOfShowTime.get(sel-1);
+                    boolean loop3 = true;
+                    do {
+					try {
+						sel = sc.nextInt();
+	                    System.out.println();
+	                    sc.nextLine(); //clear the buffer
+	
+	                    if(sel == -1){
+	                        page_choice = 1;
+	                        break;
+	                    }
+	                    selected_st = copyOfShowTime.get(sel-1);
+	                    loop3 = false;
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+                    } while (loop3);
                     page_choice = 99; //exit app
                     break;
 
