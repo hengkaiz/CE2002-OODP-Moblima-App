@@ -28,6 +28,7 @@ public class BookingDatabase extends UserDatabase{
 				 System.out.println("Showtime: " + details.getshowtime(st));
 				 System.out.println("Seats chosen: " + details.getSeat(seat));
 				 System.out.println("Ticket price: " + details.getticketPrice());
+				 System.out.println("Transaction ID: " + details.getTID());
 			 }
 			 
 			 else 
@@ -37,13 +38,14 @@ public class BookingDatabase extends UserDatabase{
 	 
 	 //user database, username, tpc, st, holiday, seat
 	 public void addNewBooking(UserDatabase udb, String username, TicketPriceCalculator calculator, 
-	 ShowTime st, HolidayDatabase holiday, int[] seat){
+	 ShowTime st, HolidayDatabase holiday, int[] seat, Cinema cinema){
 		 
 		 String email = null;
 		 int mobile = 0;
 		 double price = 0;	
 		 String name = null;
 		 
+		 Transaction TID = new Transaction();			 
 		 BookingDetails details = new BookingDetails(username, st, seat, calculator);
 		 
 		 for (User usr:udb.getUserList()) {
@@ -53,6 +55,9 @@ public class BookingDatabase extends UserDatabase{
 				 price = calculator.calculatePrice(usr, st, holiday);
 				 name = usr.getName();
 			 }	 
+			 
+			 else
+				 System.out.println("User is not in database!");
 		 }
 		 
 		 details.setmoviegoerName(name); 
@@ -62,6 +67,7 @@ public class BookingDatabase extends UserDatabase{
 		 details.setshowtime(st);
 		 details.setSeat(seat);
 		 details.setticketPrice(price);
+		 details.setTID(TID.makeTID(username, cinema));
 		 
 		 BookingDetailsList.add(details);
 	 }
