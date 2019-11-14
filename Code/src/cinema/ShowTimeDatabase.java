@@ -1,4 +1,4 @@
-package database;
+package cinema;
 
 import cinema.MovieFormat;
 import cinema.ShowTime;

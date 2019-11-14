@@ -1,6 +1,5 @@
 package moblima;
 import booking.BookingDatabase;
-import database.*;
 import movies.*;
 import user.*;
 import cinema.*;
