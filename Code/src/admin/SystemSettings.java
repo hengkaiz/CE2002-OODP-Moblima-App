@@ -18,7 +18,7 @@ public class SystemSettings {
 		initialPrices.setWeekendOrPHSurcharge(2.00);
 		initialPrices.setAgeDiscount(2.00);
 		initialPrices.setPlatinumSurcharge(5.00);
-		initialPrices.setPlatinumSurcharge(4.00);
+		initialPrices.setGoldClassSurcharge(4.00);
 		initialPrices.setThreeDimensionMovieSurcharge(3.00);
 		initialPrices.setBlockbusterMovieSurcharge(2.00);
 	}

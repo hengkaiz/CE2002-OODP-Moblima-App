@@ -2,7 +2,6 @@ package admin;
 
 import java.util.Scanner;
 import cinema.*;
-import database.*;
 import movies.*;
 
 public class ConfigureApp {
