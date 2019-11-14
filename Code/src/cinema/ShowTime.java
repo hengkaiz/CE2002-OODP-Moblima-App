@@ -9,8 +9,8 @@ public class ShowTime implements Comparable<ShowTime>, Serializable{
     private int timing;
     private Movie movie;
     private Cinema cinema;
-    private int cinemaNum;
-    private CinemaType cinemaType;
+//    private int cinemaNum;
+//    private CinemaType cinemaType;
     private SeatPlan seatplan;
     private Calendar date;
     private MovieFormat movieformat;

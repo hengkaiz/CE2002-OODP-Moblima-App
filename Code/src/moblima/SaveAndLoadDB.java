@@ -3,6 +3,9 @@ package moblima;
 import cinema.ShowTimeDatabase;
 import movies.MovieDatabase;
 import user.UserDatabase;
+import admin.AdminDatabase;
+import movies.HolidayDatabase;
+import booking.BookingDatabase;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -11,7 +14,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
-import admin.AdminDatabase;
+
 
 //initialize the databases here
 public class SaveAndLoadDB {
@@ -162,10 +165,52 @@ public class SaveAndLoadDB {
         return null;
 	}
 	
-	public static void main(String[] args) {
+	public void saveHolidayDB(HolidayDatabase hdb) {
+		try {
+			FileOutputStream fos = new FileOutputStream("HolidayDB.txt");
+		    ObjectOutputStream oos = new ObjectOutputStream(fos);
+		    oos.writeObject(hdb);
+		    oos.close();
+		    fos.close();
+		    System.out.println("HolidayDB Serialized and saved");
+		}
+		catch(IOException ie) {
+			System.out.println("Saving error occurred " + ie);
+		}
+	}
+	
+	public HolidayDatabase loadHolidayDB() {
+        try {
+			FileInputStream fis = new FileInputStream("HolidayDB.txt");
+			ObjectInputStream ois = new ObjectInputStream(fis);
+
+			HolidayDatabase hdb = (HolidayDatabase) ois.readObject();
+			ois.close();
+			fis.close();
+			System.out.println("HolidayDB Deserialized and loaded");
+	        return hdb;
+		} catch (FileNotFoundException e) {
+			System.out.println("File not found");
+			
+		} catch (ClassNotFoundException e) {
+			System.out.println("Class not found");
+			
+		} catch (IOException e) {
+			System.out.println("Loading error occurred");
+		}
+        return null;
+	}
+	
+	
+	
+	
+	
+	
+	
+//	public static void main(String[] args) {
 //		MovieDatabase mdb = new MovieDatabase();
 //		MovieDatabase mdbcopy = null;
-		SaveAndLoadDB fff2 = new SaveAndLoadDB();
+//		SaveAndLoadDB fff2 = new SaveAndLoadDB();
 //		fff2.saveMovieDB(mdb);
 //		mdbcopy = fff2.loadMovieDB();
 //		mdbcopy.printMovieDetails();
@@ -184,12 +229,12 @@ public class SaveAndLoadDB {
 //		adbcopy = fff2.loadAdminDB();
 //		System.out.println(adbcopy.getAdminList());
 		
-		UserDatabase udb = new UserDatabase();
-		UserDatabase udbcopy = new UserDatabase();
-		fff2.saveUserDB(udb);
-		udbcopy = fff2.loadUserDB();
-		System.out.println(udbcopy.getUserList());
+//		UserDatabase udb = new UserDatabase();
+//		UserDatabase udbcopy = new UserDatabase();
+//		fff2.saveUserDB(udb);
+//		udbcopy = fff2.loadUserDB();
+//		System.out.println(udbcopy.getUserList());
 		
 		
-	}
+//	}
 }

@@ -3,15 +3,16 @@ package cinema;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Cinema extends Cineplex{
+public class Cinema {
     private CinemaType type;
     private int code;
-    private ArrayList<ShowTime> showtime;
+    private int cinemaNumber;
+    private String ofCinemaCode;
+    private String ofCineplexName;
 
-    public Cinema(CinemaType type, int code){
+    public Cinema(CinemaType type, int cinemaNumber){
         this.type = type;
-        this.code = code;
-        this.showtime = new ArrayList<ShowTime>();
+        this.cinemaNumber = cinemaNumber;
     }
 
     public String getType(){
@@ -29,14 +30,6 @@ public class Cinema extends Cineplex{
     public void setCode(int code) {
         this.code = code;
     }
-
-    public ArrayList<ShowTime> getShowtime() {
-        return showtime;
-    }
-
-    public void addShowTime(){
-        Scanner sc = new Scanner(System.in);
-        int time = sc.nextInt();
-
-    }
+    
+//    public void
 }
