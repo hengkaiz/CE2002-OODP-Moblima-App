@@ -9,7 +9,7 @@ public class AdminLogin {
 
 	//private AdminAccount temp;
 	
-	Scanner sc = new Scanner(System.in);
+	
 	
     /*public boolean equals(Object obj) { 
   	    // checking if both the object references are  
@@ -59,6 +59,7 @@ public class AdminLogin {
 
 	public boolean login(AdminDatabase db) {
 		//AdminDatabase db = new AdminDatabase();
+		Scanner sc = new Scanner(System.in);
 		AdminAccount temp = new AdminAccount();
 		System.out.println("enter id");
 		String ID = sc.nextLine();
