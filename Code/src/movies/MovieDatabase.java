@@ -35,7 +35,6 @@ public class MovieDatabase implements Serializable{
 	}
 
 	public void removeMovieFromDB(){
-
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Which movie do you want to remove?");
 		int i=1;
@@ -43,21 +42,9 @@ public class MovieDatabase implements Serializable{
 			System.out.println(i + ". " + movie.getMovieTitle());
 			i++;
 		}
-		try {
-			int choice = sc.nextInt();
-			System.out.println("Which movie do you want to remove?");
-			int i=1;
-			for (Movie movie : movieList) {
-				System.out.println(i + ". " + movie.getMovieTitle());
-				i++;
-			}
-			int choice = sc.nextInt();
-			
-			movieList.remove(choice-1);
-		} catch (Exception e) {
-			System.out.println("Error in input. Try again.");
-			
-		}
+		int choice = sc.nextInt();
+
+		movieList.remove(choice-1);
 	}
 	
 	
@@ -99,7 +86,6 @@ public class MovieDatabase implements Serializable{
 	}
 
 	public ArrayList<Movie> getMovies(){
-		
 		return movieList;
 	}
 	

@@ -19,7 +19,7 @@ public class Review {
 			
 		System.out.println("Enter a rating out of 5: ");
 		rating = sc.nextDouble();
-		while (rating <0 | rating>5) {
+		while (rating <0 || rating>5) {
 			System.out.println("Error in input. Try again.");
 			System.out.println("Enter a rating out of 5: ");
 			rating = sc.nextDouble();
