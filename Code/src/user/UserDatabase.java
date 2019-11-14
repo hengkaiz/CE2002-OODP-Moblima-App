@@ -1,6 +1,7 @@
 package user;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class UserDatabase{
@@ -38,27 +39,45 @@ public class UserDatabase{
 
     public void addUser(String un, String pw){
         Scanner sc = new Scanner(System.in);
-        System.out.println("\n---Update personal information---");
-        System.out.print("Enter Full Name: ");
-        String fn = sc.nextLine();
-        System.out.print("Enter Age: ");
-        int age = sc.nextInt();
-        sc.nextLine();
-        System.out.print("Enter Email: ");
-        String em = sc.nextLine();
-        System.out.print("Enter Phone Number: ");
-        int mn = sc.nextInt();
+        boolean loop = true;
+        do {
+        try {
+			System.out.println("\n---Update personal information---");
+			System.out.print("Enter Full Name: ");
+			String fn = sc.nextLine();
+			System.out.print("Enter Age: ");
+			int age = sc.nextInt();
+			sc.nextLine();
+			System.out.print("Enter Email: ");
+			String em = sc.nextLine();
+			System.out.print("Enter Phone Number: ");
+			int mn = sc.nextInt();
 
-        userlist.add(new User(un, pw, fn, age, em ,mn));
-        System.out.println("\nAccount added! ");
+			userlist.add(new User(un, pw, fn, age, em ,mn));
+			System.out.println("\nAccount added! ");
+			loop = false;
+		} catch (InputMismatchException e) {
+			System.out.println("Error in input. Try again.");
+		}
+        } while (loop);
     }
 
     public boolean delUser(){
         Scanner sc = new Scanner(System.in);
-        System.out.print("Enter Username: ");
-        String un = sc.nextLine();
-        System.out.print("Enter Password: ");
-        String pw = sc.nextLine();
+        String un = null;
+		String pw = null;
+		boolean loop1 = true;
+		do {
+		try {
+			System.out.print("Enter Username: ");
+			un = sc.nextLine();
+			System.out.print("Enter Password: ");
+			pw = sc.nextLine();
+			loop1 = false;
+		} catch (InputMismatchException e) {
+			System.out.println("Error in input. Try again.");
+		}
+		} while (loop1);
         User del_acc;
         del_acc = searchByName(un);
 
@@ -68,7 +87,7 @@ public class UserDatabase{
         for (int i=0;i<userlist.size();i++){
             if (del_acc.getUsername() == userlist.get(i).getUsername()){
                 userlist.remove(i);
-                System.out.println("Account is remove!");
+                System.out.println("Account is removed!");
                 break;
             }
         }
