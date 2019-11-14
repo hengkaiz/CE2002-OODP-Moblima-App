@@ -30,7 +30,7 @@ public class UserCreateMenu extends MenuTemplate{
                 userLoginApp.addUser(dID, dPassword2);
                 System.out.print("Welcome, " + dID + "\n");
 
-                nextMenu = new UserSearchMenu(this);
+                nextMenu = new UserSearchMenu(super.previousMenu);
             }
 
             return nextMenu.run();

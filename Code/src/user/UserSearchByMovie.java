@@ -77,7 +77,7 @@ public class UserSearchByMovie extends ShowTimeDatabase implements UserSearchFun
 			}
 			movieListLong = mb.getMovies();
 			loop2 = false;
-			
+
 		} catch (Exception e) {
 			System.out.println("Invalid Selection. Try Again.");
 		}

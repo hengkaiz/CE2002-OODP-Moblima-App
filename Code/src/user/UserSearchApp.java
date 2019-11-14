@@ -27,6 +27,8 @@ public class UserSearchApp {
         UserSearchByMovie searchByMovie = new UserSearchByMovie();
         copyOfShowTime = searchByMovie.searchApp(mdb);
 
+        if (copyOfShowTime == null) return null;//return to search menu
+
         System.out.printf("\nShow times for %s\n", copyOfShowTime.get(0).getMovie());
         for (int i = 0; i < copyOfShowTime.size(); i++) {
             System.out.printf("%d. %s - %d\n", i + 1, copyOfShowTime.get(i).toStringGetDate(), copyOfShowTime.get(i).getTiming());
