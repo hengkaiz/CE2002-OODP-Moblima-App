@@ -5,7 +5,7 @@ import movies.MovieDatabase;
 
 import java.util.ArrayList;
 
-public interface SearchFunction {
+public interface UserSearchFunction {
 	public void searchResult();
 
 	public ArrayList<ShowTime> searchApp(MovieDatabase mb);

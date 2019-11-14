@@ -74,9 +74,9 @@ public class MainApp {
                     //selecting the seat
                     int[] seat = new int[2];
                     TicketPriceCalculator tpc = new TicketPriceCalculator();
-                    ChooseSeats chooseSeats = new ChooseSeats(copyOfSelShowTime, db);
+                    UserChooseSeatsApp userChooseSeatsApp = new UserChooseSeatsApp(copyOfSelShowTime, db);
                     User user;
-                    seat = chooseSeats.chooseSeats(username);
+                    seat = userChooseSeatsApp.chooseSeats(username);
 
                     //add to booking database
                     bdb.addNewBooking(udb, username, tpc, copyOfSelShowTime, hdb, seat);
