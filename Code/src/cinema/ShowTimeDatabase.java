@@ -1,12 +1,13 @@
 package cinema;
 
+import java.io.Serializable;
 import cinema.MovieFormat;
 import cinema.ShowTime;
 import movies.*;
 
 import java.util.ArrayList;
 
-public class ShowTimeDatabase extends MovieDatabase{
+public class ShowTimeDatabase extends MovieDatabase implements Serializable{
     private ArrayList<ShowTime> showtimelist = new ArrayList<ShowTime>();
     private ArrayList<ShowTime> copylist;
 

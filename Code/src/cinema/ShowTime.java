@@ -1,10 +1,11 @@
 package cinema;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.io.Serializable;
 
 import movies.Movie;
 
-public class ShowTime implements Comparable<ShowTime>{
+public class ShowTime implements Comparable<ShowTime>, Serializable{
     private int timing;
     private Movie movie;
     private Cinema cinema;
