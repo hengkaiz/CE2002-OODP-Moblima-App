@@ -17,7 +17,7 @@ public class UserSearchByMovie extends ShowTimeDatabase implements UserSearchFun
 	public void searchResult() {
 		//gets an array of movie titles from movie database
 		int selMovie;
-		String movietitle;
+		String movietitle = null;
 		Scanner sc = new Scanner(System.in);
 		movieList = mb.getMovieTitlesList();
 
@@ -29,9 +29,13 @@ public class UserSearchByMovie extends ShowTimeDatabase implements UserSearchFun
 		System.out.println("-1 to return");
         //set selMovie as the input user selected
         System.out.print("Please select movie: ");
-		selMovie = sc.nextInt();
-		if (selMovie == -1) return;
-        movietitle = movieList.get(selMovie-1);
+		try {
+			selMovie = sc.nextInt();
+			if (selMovie == -1) return;
+			movietitle = movieList.get(selMovie-1);
+		} catch (Exception e) {
+			System.out.println("Invalid Selection. Try Again.");
+		}
 
         //searches through BookingDatabase, compareTo returns timing
         showtimes = super.searchByMovie(movietitle);
@@ -47,7 +51,7 @@ public class UserSearchByMovie extends ShowTimeDatabase implements UserSearchFun
 	
 	public Movie returnMovie(MovieDatabase mb) {
 		//gets an array of movie titles from movie database
-		int selMovie;
+		int selMovie = 0;
 		ArrayList<Movie> movieListLong = new ArrayList<Movie>();
 		Scanner sc = new Scanner(System.in);
 		movieList = mb.getMovieTitlesList();
@@ -60,12 +64,16 @@ public class UserSearchByMovie extends ShowTimeDatabase implements UserSearchFun
 		System.out.println("-1 to return");
         //set selMovie as the input user selected
         System.out.print("Please select movie: ");
-		selMovie = sc.nextInt();
-		if (selMovie == -1) {
-			return null;
+		try {
+			selMovie = sc.nextInt();
+			if (selMovie == -1) {
+				return null;
+			}
+			movieListLong = mb.getMovies();
+			
+		} catch (Exception e) {
+			System.out.println("Invalid Selection. Try Again.");
 		}
-        movieListLong = mb.getMovies();
-        return movieListLong.get(selMovie-1);
-        
+		return movieListLong.get(selMovie-1);
 	}
 }
