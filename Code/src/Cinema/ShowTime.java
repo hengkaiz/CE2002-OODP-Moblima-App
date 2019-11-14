@@ -7,7 +7,7 @@ import movies.Movie;
 public class ShowTime implements Comparable<ShowTime>{
     private int timing;
     private Movie movie;
-    private Cinema cinema; 
+    private Cinema cinema;
     private int cinemaNum;
     private CinemaType cinemaType;
     private SeatPlan seatplan;
@@ -19,7 +19,7 @@ public class ShowTime implements Comparable<ShowTime>{
         movie = m;
         date = Calendar.getInstance(); //year, month, date
 		date.add(Calendar.DAY_OF_MONTH, noOfDaysFromCurrent); //add future movies
-        cinema.setCode(c);
+        //cinema.setCode(c);
         seatplan = new SeatPlan();
         movieformat = f;
     }

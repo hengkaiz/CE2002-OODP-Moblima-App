@@ -13,6 +13,11 @@ public class DataBase extends MovieDatabase{
     private ArrayList<ShowTime> copylist;
 
     public DataBase(){
+        showtimelist.add(new ShowTime(1200, super.getMovies().get(0), 0, 6, MovieFormat.TWO_DIMENSION));
+        showtimelist.add(new ShowTime(1500, super.getMovies().get(0), 0, 5, MovieFormat.TWO_DIMENSION));
+        showtimelist.add(new ShowTime(1800, super.getMovies().get(0), 0, 3, MovieFormat.THREE_DIMENSION));
+        showtimelist.add(new ShowTime(1200, super.getMovies().get(1), 0, 2, MovieFormat.TWO_DIMENSION));
+        showtimelist.add(new ShowTime(1800, super.getMovies().get(1), 0, 4, MovieFormat.TWO_DIMENSION));
         showtimelist.add(new ShowTime(1200, super.getMovies().get(0), 1, 6, MovieFormat.TWO_DIMENSION));
         showtimelist.add(new ShowTime(1500, super.getMovies().get(0), 1, 5, MovieFormat.TWO_DIMENSION));
         showtimelist.add(new ShowTime(1800, super.getMovies().get(0), 1, 3, MovieFormat.THREE_DIMENSION));
@@ -25,8 +30,8 @@ public class DataBase extends MovieDatabase{
         showtimelist.add(new ShowTime(1100, super.getMovies().get(3), 1, 1, MovieFormat.TWO_DIMENSION));
         showtimelist.add(new ShowTime(1400, super.getMovies().get(3), 1, 6, MovieFormat.TWO_DIMENSION));
         showtimelist.add(new ShowTime(1700, super.getMovies().get(3), 1, 2, MovieFormat.TWO_DIMENSION));
-        showtimelist.add(new ShowTime(2400, super.getMovies().get(4), 100, 0, MovieFormat.TWO_DIMENSION));
-        showtimelist.add(new ShowTime(2400, super.getMovies().get(5), 100, 0, MovieFormat.TWO_DIMENSION));
+        showtimelist.add(new ShowTime(2400, super.getMovies().get(4), 1, 0, MovieFormat.TWO_DIMENSION));
+        showtimelist.add(new ShowTime(2400, super.getMovies().get(5), 1, 0, MovieFormat.TWO_DIMENSION));
         showtimelist.add(new ShowTime(1300, super.getMovies().get(6), 1, 3, MovieFormat.BLOCKBUSTER));
         showtimelist.add(new ShowTime(1600, super.getMovies().get(6), 1, 7, MovieFormat.BLOCKBUSTER));
         showtimelist.add(new ShowTime(2100, super.getMovies().get(6), 1, 8, MovieFormat.BLOCKBUSTER));
@@ -44,8 +49,8 @@ public class DataBase extends MovieDatabase{
         showtimelist.add(new ShowTime(1100, super.getMovies().get(3), 2, 1, MovieFormat.TWO_DIMENSION));
         showtimelist.add(new ShowTime(1400, super.getMovies().get(3), 2, 6, MovieFormat.TWO_DIMENSION));
         showtimelist.add(new ShowTime(1700, super.getMovies().get(3), 2, 2, MovieFormat.TWO_DIMENSION));
-        showtimelist.add(new ShowTime(2400, super.getMovies().get(8), 100, 0, MovieFormat.TWO_DIMENSION));
-        showtimelist.add(new ShowTime(2400, super.getMovies().get(9), 100, 0, MovieFormat.TWO_DIMENSION));
+        showtimelist.add(new ShowTime(2400, super.getMovies().get(8), 1, 0, MovieFormat.TWO_DIMENSION));
+        showtimelist.add(new ShowTime(2400, super.getMovies().get(9), 1, 0, MovieFormat.TWO_DIMENSION));
         showtimelist.add(new ShowTime(1300, super.getMovies().get(6), 2, 3, MovieFormat.BLOCKBUSTER));
         showtimelist.add(new ShowTime(1600, super.getMovies().get(6), 2, 7, MovieFormat.BLOCKBUSTER));
         showtimelist.add(new ShowTime(2200, super.getMovies().get(6), 2, 8, MovieFormat.BLOCKBUSTER));
@@ -118,7 +123,7 @@ public class DataBase extends MovieDatabase{
     private ArrayList<ShowTime> sortDate(String date){ //return showtimes for chosen dates
         copylist = new ArrayList<ShowTime>();
         for (ShowTime st: showtimelist){
-            if (st.toStringGetDate() == date){
+            if (st.toStringGetDate().contentEquals(date)){
                 copylist.add(st);
             }
         }

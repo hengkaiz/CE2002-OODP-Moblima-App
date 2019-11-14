@@ -11,7 +11,7 @@ import movies.MovieDatabase;
 public class SearchByDate extends DataBase implements SearchFunction {
 	private Calendar date;
 	private Calendar copydate;
-	private ArrayList<ShowTime> showtimes;
+	private ArrayList<ShowTime> showtimes = null;
 	private MovieDatabase mb;
 
 	public void searchResult() {
@@ -27,19 +27,22 @@ public class SearchByDate extends DataBase implements SearchFunction {
 		//prints out dates of next 5 days
 		System.out.println("Select Date:");
 		for(int i=0; i<5; i++) {
-			copydate.add(Calendar.DAY_OF_MONTH, 1);
 			output = sdf.format(copydate.getTime()); //converts it to dd/MM format
 			System.out.printf("%d. %s\n", i+1, output);
+			copydate.add(Calendar.DAY_OF_MONTH, 1);
 		}
-		choice = sc.nextInt() -1;
+		System.out.println("-1 to return");
+		System.out.print("Please select Date: ");
+		choice = sc.nextInt();
 
-		date.add(Calendar.DAY_OF_MONTH, choice);
+		if (choice == -1) return;
+		date.add(Calendar.DAY_OF_MONTH, choice-1);
 		output = sdf.format(date.getTime());
 		showtimes = super.searchByDate(output); //get an array of showtime on that date
 	}
 
 	public ArrayList<ShowTime> searchApp(MovieDatabase mb) {
-		System.out.println("---Search By Movie---");
+		System.out.println("---Search By Date---");
 		this.mb = mb;
 		searchResult(); //get show time for that date
 

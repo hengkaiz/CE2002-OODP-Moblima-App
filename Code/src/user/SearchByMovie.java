@@ -12,7 +12,7 @@ import Cinema.*;
 
 public class SearchByMovie extends DataBase implements SearchFunction{
 	private ArrayList<String> movieList = new ArrayList<String>();
-	private ArrayList<ShowTime> showtimes;
+	private ArrayList<ShowTime> showtimes = null;
 	private MovieDatabase mb;
 	private DataBase db;
 
@@ -28,10 +28,11 @@ public class SearchByMovie extends DataBase implements SearchFunction{
 		for (int i=0; i<movieList.size();i++){
 			System.out.printf("%d: %s\n", i+1, movieList.get(i));
 		}
-
+		System.out.println("-1 to return");
         //set selMovie as the input user selected
         System.out.print("Please select movie: ");
 		selMovie = sc.nextInt();
+		if (selMovie == -1) return;
         movietitle = movieList.get(selMovie-1);
 
         //searches through BookingDatabase, compareTo returns timing

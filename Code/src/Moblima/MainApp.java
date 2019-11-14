@@ -17,10 +17,10 @@ public class MainApp {
         ShowTime copyOfSelShowTime = null;
 
         // importing the different database
-        DataBase db = new DataBase();
         UserDatabase udb = new UserDatabase();
         MovieDatabase mdb = new MovieDatabase();
         BookingDatabase bdb = new BookingDatabase();
+        DataBase db = new DataBase();
 
         //initializing all the classes
         UserLoginApp userLoginApp = new UserLoginApp();
@@ -67,6 +67,8 @@ public class MainApp {
                 case 3: //search showtime by movie or time and selecting the showtime
                     copyOfSelShowTime = userSearchApp.showtimelist(mdb);
                     if(copyOfSelShowTime != null) page_choice = 4;
+                    else page_choice = 2;
+                    break;
 
                 case 4:
                     //selecting the seat

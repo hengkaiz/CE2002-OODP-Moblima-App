@@ -13,8 +13,8 @@ public class ChooseSeats{
 	public ChooseSeats(ShowTime st, DataBase db){
 		this.copyOfdb = db;
 		int n =0;
-		for (ShowTime s: db.getShowTimes()){
-			if (s == st) break;
+		for (ShowTime s: copyOfdb.getShowTimes()){
+			if (s.getDate() == st.getDate() && s.getMovie() == st.getMovie() && s.getTiming() == st.getTiming() && s.) break;
 			n++;
 		}
 		st_no = n;
