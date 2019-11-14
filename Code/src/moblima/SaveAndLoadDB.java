@@ -84,7 +84,7 @@ public class SaveAndLoadDB {
 			System.out.println("Class not found");
 			
 		} catch (IOException e) {
-			System.out.println("Loading error occurred");
+			System.out.println("Loading error occurred" + e);
 		}
         return null;
 	}
