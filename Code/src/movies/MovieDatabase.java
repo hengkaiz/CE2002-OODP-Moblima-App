@@ -61,9 +61,11 @@ public class MovieDatabase {
 	public ArrayList<String> getMovieTitlesList(){
 		ArrayList <String> titlesOnly = new ArrayList<String>();
 		
-		for (Movie movie: movieList)
-			if(movie.getStatus().getName().contentEquals("Now Showing"))
+		for (Movie movie: movieList) {
+			if(movie.getStatus().getName().contentEquals("Now Showing") || movie.getStatus().getName().contentEquals("Preview")) {
 				titlesOnly.add(movie.getMovieTitle());
+			}
+		}
 		return titlesOnly;
 	}
 
