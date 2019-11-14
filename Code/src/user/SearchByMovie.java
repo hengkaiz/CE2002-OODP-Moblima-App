@@ -44,4 +44,28 @@ public class SearchByMovie extends ShowTimeDatabase implements SearchFunction{
 
 		return showtimes;
 	}
+	
+	public Movie returnMovie(MovieDatabase mb) {
+		//gets an array of movie titles from movie database
+		int selMovie;
+		ArrayList<Movie> movieListLong = new ArrayList<Movie>();
+		Scanner sc = new Scanner(System.in);
+		movieList = mb.getMovieTitlesList();
+
+		// prints out movie list
+		System.out.println("Currently Showing:");
+		for (int i=0; i<movieList.size();i++){
+			System.out.printf("%d: %s\n", i+1, movieList.get(i));
+		}
+		System.out.println("-1 to return");
+        //set selMovie as the input user selected
+        System.out.print("Please select movie: ");
+		selMovie = sc.nextInt();
+		if (selMovie == -1) {
+			return null;
+		}
+        movieListLong = mb.getMovies();
+        return movieListLong.get(selMovie-1);
+        
+	}
 }
