@@ -4,24 +4,19 @@ import java.util.ArrayList;
 import admin.AdminDatabase;
 import java.util.Scanner;
 
-public class AdminLogin extends AdminAccount {
-	//pseudo admin account to check against the admin database
-	public AdminLogin() {
-		super();
+public class AdminLogin {
+
+	private AdminAccount temp;
+	
+	Scanner sc = new Scanner(System.in);
+	public void login() {
+		
+		System.out.println("enter id");
+		String ID = sc.nextLine();
+		System.out.println("enter password");
+		String Password = sc.nextLine();
+		temp.
 	}
-	public AdminLogin(String id, String password) {
-		super(id,password);
-	}
-	public boolean checkDatabase(AdminDatabase db) {
-		ArrayList<AdminAccount> adminList = db.getAdminList();
-		for(int i=0; i < adminList.size(); i++) {
-			
-			if((this.getID()).equals(adminList.get(i).getID()) && (this.getPassword()).equals(adminList.get(i).getPassword())){ 
-				//account exists
-				return true;
-			}
-		}
-		//account does not exist
-		return false;
-	}	
+
+	
 }

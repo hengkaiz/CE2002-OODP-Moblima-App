@@ -1,5 +1,7 @@
 package admin;
 
+import java.util.ArrayList;
+
 public class AdminAccount {
 	private String id;
 	private String password;
@@ -24,4 +26,16 @@ public class AdminAccount {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	public boolean checkDatabase(AdminDatabase db) {
+		ArrayList<AdminAccount> adminList = db.getAdminList();
+		for(int i=0; i < adminList.size(); i++) {
+			
+			if((this.getID()).equals(adminList.get(i).getID()) && (this.getPassword()).equals(adminList.get(i).getPassword())){ 
+				//account exists
+				return true;
+			}
+		}
+		//account does not exist
+		return false;
+	}	
 }

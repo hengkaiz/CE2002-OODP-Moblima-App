@@ -10,14 +10,21 @@ public class AdminApp {
 		// TODO Auto-generated method stub
 		AdminDatabase db = new AdminDatabase();
 		Scanner sc = new Scanner(System.in);
-		System.out.println("enter id");
-		String ID = sc.nextLine();
-		System.out.println("enter password");
-		String Password = sc.nextLine();
+
 		AdminLogin temp = new AdminLogin(ID, Password);
 		boolean result = temp.checkDatabase(db);
 		if(result) {
-			AdminAccount hk = new AdminAccount("hk", "002");
+			
+			System.out.println("What would you like to do?");
+			System.out.println("1. Edit Showtimes");
+			System.out.println("2. Edit Movies");
+			System.out.println("3. Configure system settings");
+			System.out.println("4. List Top 5");
+			
+			
+			
+			
+			/*AdminAccount hk = new AdminAccount("hk", "002");
 			db.addAdmin(hk);
 			ArrayList<AdminAccount> list = db.getAdminList();
 			for(int i=0; i<list.size(); i++) {
@@ -26,7 +33,7 @@ public class AdminApp {
 			}
 			System.out.println("enter new password");
 			hk.setPassword(sc.nextLine());
-			System.out.println(hk.getPassword());
+			System.out.println(hk.getPassword());*/
 		}
 	}
 
