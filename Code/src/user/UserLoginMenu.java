@@ -14,12 +14,20 @@ public class UserLoginMenu extends MenuTemplate {
     public MenuTemplate run(){
         Scanner sc = new Scanner(System.in);
         UserLoginApp userLoginApp = new UserLoginApp();
-
-        System.out.print("Enter ID: ");
-        String ID = sc.nextLine();
-        System.out.print("Enter password: ");
-        String Password = sc.nextLine();
-
+        boolean loop = true;
+        while (loop)
+	        try {
+		        System.out.print("Enter ID: ");
+		        String ID = sc.nextLine();
+		        
+		        System.out.print("Enter password: ");
+		        String Password = sc.nextLine();
+		        loop = false;
+	        }
+	        catch (Exception e) {
+	        	System.out.println("Invalid ID/Password. Try Again");
+	        }
+        
         nextMenu = this;
 
         if (userLoginApp.loginCheck(ID, Password)) {
