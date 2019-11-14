@@ -9,7 +9,13 @@ import movies.Movie;
 public class ShowTime implements Comparable<ShowTime>, Serializable{
     private int timing;
     private Movie movie;
+<<<<<<< HEAD
     private Cinema assignedCinema;
+=======
+    private Cinema cinema;
+    private int cinemaNum;
+    private CinemaType cinemaType;
+>>>>>>> branch 'Master' of https://github.com/hengkaiz/moblima.git
     private SeatPlan seatplan;
     private Calendar date;
     private MovieFormat movieformat;
@@ -24,6 +30,14 @@ public class ShowTime implements Comparable<ShowTime>, Serializable{
     }
     public ShowTime(){}
 
+<<<<<<< HEAD
+=======
+
+	public void setCinemaNum(int cinemaNum) {
+		this.cinemaNum = cinemaNum;
+	}
+
+>>>>>>> branch 'Master' of https://github.com/hengkaiz/moblima.git
     public int getCinemaNum() {
 		return this.assignedCinema.getCinemaNumber();
 	}
@@ -31,6 +45,7 @@ public class ShowTime implements Comparable<ShowTime>, Serializable{
 	public String getCinemaType() {
 		return this.assignedCinema.getType();
 	}
+
 	
 	public void setSeatplan(SeatPlan seatplan) {
 		this.seatplan = seatplan;

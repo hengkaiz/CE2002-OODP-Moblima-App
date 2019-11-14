@@ -11,7 +11,7 @@ public abstract class MenuTemplate {
     public MenuTemplate(){}
 
     public MenuTemplate returnPrevious(){
-        if (previousMenu != null) return previousMenu;
+        if (previousMenu != null) return previousMenu.run();
         else return this;
     }
 

@@ -44,13 +44,14 @@ public class TicketPriceCalculator {
 		
 		if (isBookingDateAWeekend(localDate) || holiday.isHoliday(localDate))
 			price+=weekendOrPHSurcharge;
-			
+
+
 		if (showtime.getCinemaType().equals("Platinum") )
 			price+= platinumSurcharge;
 		
 		if (showtime.getCinemaType().equals("Gold Class"))
 			price+= goldClassSurcharge;
-		
+
 		if (showtime.getMovieformat() == MovieFormat.BLOCKBUSTER)
 			price+= blockbusterMovieSurcharge;
 		

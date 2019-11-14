@@ -14,10 +14,10 @@ public class UserSearchMenu extends MenuTemplate {
         super(previousMenu);
     }
 
-    public MenuTemplate run(){
+    public MenuTemplate run() {
         Scanner sc = new Scanner(System.in);
         ShowTime copyOfSelShowTime;
-        int sel;
+        int sel = 0;
 
         System.out.println("---Search Show times---");
         System.out.println("1. By Movie");
@@ -25,8 +25,18 @@ public class UserSearchMenu extends MenuTemplate {
         System.out.println("3. Top 5 Movies");
         System.out.println("4. Return");
         System.out.print("Please enter your choice: ");
-        sel = sc.nextInt();
-
+        boolean loop = true;
+        do {
+        try {
+			sel = sc.nextInt();
+			if (sel<0 || sel>4) {
+				throw new Exception("Error, Input Choice Only From 1-4");
+			}
+			loop =false;
+		} catch (Exception e) {
+			System.out.println("Invalid Choice. Try Again.");
+		}
+        } while (loop);
         UserSearchApp userSearchApp = new UserSearchApp();
 
         nextMenu = this;

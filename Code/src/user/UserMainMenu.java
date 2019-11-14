@@ -1,6 +1,7 @@
 package user;
 
 import moblima.MenuTemplate;
+import user.UserSearchByMovie;
 import java.util.Scanner;
 import movies.*;
 
@@ -23,7 +24,18 @@ public class UserMainMenu extends MenuTemplate {
         System.out.println("3. Leave Reviews");
         System.out.println("4. Return");
         System.out.print("Please enter your choice: ");
-        sel = sc.nextInt();
+        boolean loop = true;
+        do {
+        try {
+			sel = sc.nextInt();
+			if (sel<0 || sel>4) {
+				throw new Exception();
+			}
+			loop = false;
+		} catch (Exception e) {
+			System.out.println("Selection Invalid. Try Again.");
+		}
+        } while (loop);
         System.out.println();
         sc.nextLine(); //clear the buffer
 
@@ -33,11 +45,10 @@ public class UserMainMenu extends MenuTemplate {
                 nextMenu = new UserLoginMenu(this);
                 break;
             case 2: //create account menu
-                nextMenu = new UserCreateMenu(this);
                 break;
             case 3: //user leave reviews
-            	//Movie mt = UserSearchByMovie.returnMovie(mdb/*main database*/);
-            	//mt.addReview();
+            	Movie mt = UserSearchByMovie.returnMovie(mdb/*main database*/);
+            	mt.addReview();
 
                 break;
             case 4: //return

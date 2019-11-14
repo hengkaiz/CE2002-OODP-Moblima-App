@@ -17,21 +17,29 @@ public class UserCreateMenu extends MenuTemplate{
             UserLoginApp userLoginApp = new UserLoginApp();
 
             System.out.print("Enter desired ID: ");
-            String dID = sc.nextLine();
-            if(userLoginApp.checkID(dID)){ //username does not exist
-                System.out.print("Enter desired Password: ");
-                String dPassword = sc.nextLine();
-                System.out.print("Please retype your Password: ");
-                String dPassword2 = sc.nextLine();
-                if (!dPassword.contentEquals(dPassword2)) {
-                    System.out.println("The passwords do not match, please try again!");
-                }
+            boolean loop = true;
+            do {
+            try {
+				String dID = sc.nextLine();
+				if(userLoginApp.checkID(dID)){ //username does not exist
+				    System.out.print("Enter desired Password: ");
+				    String dPassword = sc.nextLine();
+				    System.out.print("Please retype your Password: ");
+				    String dPassword2 = sc.nextLine();
+				    if (!dPassword.contentEquals(dPassword2)) {
+				        throw new Exception("The passwords do not match, please try again!");
+				    }
 
-                userLoginApp.addUser(dID, dPassword2);
-                System.out.print("Welcome, " + dID + "\n");
+				    userLoginApp.addUser(dID, dPassword2);
+				    System.out.print("Welcome, " + dID + "\n");
 
-                nextMenu = new UserSearchMenu(this);
-            }
+				    nextMenu = new UserSearchMenu(super.previousMenu);
+				    loop = false;
+				}
+			} catch (Exception e) {
+				System.out.println("Input Error. Try Again.");
+			}
+            } while (loop);
 
             return nextMenu.run();
         }
