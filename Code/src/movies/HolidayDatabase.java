@@ -65,6 +65,10 @@ public class HolidayDatabase {
 	}
 	
 	public void printHolidays() {
+		if(holidays.size() == 0) {
+			System.out.println("There are no current holidays in the system");
+			return;
+		}
 		System.out.println("These are the current holidays in the system: ");
 		int i=1;
 		for (LocalDate date : holidays) {

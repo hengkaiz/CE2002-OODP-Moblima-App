@@ -10,7 +10,6 @@ public class MovieListingEditor {
 	Scanner sc = new Scanner(System.in);
 	MovieDatabase movieDatabase = new MovieDatabase();
 	ArrayList<Movie> mdb = movieDatabase.getMovies();
-	ArrayList<String> mtdb = movieDatabase.getMovieTitlesList();
 	Movie selectedMovie = null;
 	
 	public void createMovieListing() { //creating a new Movie object
@@ -149,6 +148,7 @@ public class MovieListingEditor {
 		}*/
 	}
 	public void removeMovieListing() { //remove by setting status to "END_OFSHOWING"		
+		ArrayList<String> mtdb = movieDatabase.getMovieTitlesList();
 		System.out.println("Do you want to delete from database or remove from user view?");
 		System.out.println("1. Delete from database ");
 		System.out.println("2. Remove from user view (marking movie as \"End of Showing\")");
@@ -160,11 +160,12 @@ public class MovieListingEditor {
 		}
 		if(choice == 2) {
 			//choosing movie to remove
-			System.out.println("Which Movie do you want to remove?");
+			System.out.println("Movies currently in user view:");
 			int i=0;
 			for(i=0; i<mtdb.size(); i++) {
 				System.out.println((i+1) + ". " + mtdb.get(i));
 			}
+			System.out.println("Which Movie do you want to remove?");
 			int updateMovieChoice = sc.nextInt();
 			String title = mtdb.get(updateMovieChoice-1);
 			for(i=0; i<mdb.size(); i++) {

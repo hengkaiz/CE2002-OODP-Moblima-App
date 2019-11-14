@@ -19,6 +19,7 @@ public class ConfigureSystemSettings {
 		int updateChoice=0;
 		do {
 			//print current prices
+			System.out.println("-----Current Prices----");
 			System.out.println("Current base price: " + ticketPrice.getBasePrice());
 			System.out.println("Current price offsets: ");
 			System.out.println("1. Weekend/PH Surcharge: " + ticketPrice.getWeekendOrPHSurcharge());
@@ -29,6 +30,7 @@ public class ConfigureSystemSettings {
 			System.out.println("6. Blockbuster Surcharge: " + ticketPrice.getBlockbusterMovieSurcharge());
 			
 			//choose which to update
+			System.out.println();
 			System.out.println("What would you like to update?");
 			System.out.println("1. Change Base Price");
 			System.out.println("2. Change Weekend/PH Surcharge");
