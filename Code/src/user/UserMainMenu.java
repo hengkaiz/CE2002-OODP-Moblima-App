@@ -28,7 +28,7 @@ public class UserMainMenu extends MenuTemplate {
         do {
         try {
 			sel = sc.nextInt();
-			if (sel<0 | sel>4) {
+			if (sel<0 || sel>4) {
 				throw new Exception();
 			}
 			loop = false;

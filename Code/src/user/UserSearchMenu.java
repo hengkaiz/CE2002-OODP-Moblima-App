@@ -29,7 +29,7 @@ public class UserSearchMenu extends MenuTemplate {
         do {
         try {
 			sel = sc.nextInt();
-			if (sel<0 | sel>4) {
+			if (sel<0 || sel>4) {
 				throw new Exception("Error, Input Choice Only From 1-4");
 			}
 			loop =false;
