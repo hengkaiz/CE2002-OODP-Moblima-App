@@ -1,10 +1,12 @@
 package user;
 
+import booking.BookingMenu;
 import cinema.ShowTime;
 import moblima.MainMenu;
 import moblima.MenuTemplate;
 import movies.TicketPriceCalculator;
 
+import java.awt.print.Book;
 import java.util.Scanner;
 
 public class UserChooseSeatsMenu extends MenuTemplate{
@@ -50,8 +52,7 @@ public class UserChooseSeatsMenu extends MenuTemplate{
             case 2: //choose seats
                 TicketPriceCalculator tpc = new TicketPriceCalculator();
                 int[] seat = userChooseSeatsApp.chooseSeats(super.getUsername());
-                System.out.println("Ticket Booked!");
-                nextMenu = new MainMenu();
+                nextMenu = new BookingMenu(this);
                 break;
 
             case 3:

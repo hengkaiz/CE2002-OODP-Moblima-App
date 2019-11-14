@@ -16,7 +16,7 @@ public class UserMainMenu extends MenuTemplate {
 
     public MenuTemplate run() {
         Scanner sc = new Scanner(System.in);
-        int sel;
+        int sel = 0;
 
         System.out.println("---User Menu---");
         System.out.println("1. Login");
