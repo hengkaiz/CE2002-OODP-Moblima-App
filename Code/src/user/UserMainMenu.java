@@ -3,6 +3,7 @@ package user;
 import moblima.MenuTemplate;
 import user.SearchByMovie;
 import java.util.Scanner;
+import movies.*;
 
 import cinema.ShowTime;
 
@@ -34,10 +35,8 @@ public class UserMainMenu extends MenuTemplate {
             case 2: //create account menu
                 break;
             case 3: //user leave reviews
-            	String mt = null;
-            	mt = SearchByMovie.returnMovieName(mdb);
-            	
-                
+            	Movie mt = SearchByMovie.returnMovie(mdb/*main database*/);
+            	mt.addReview();
 
                 break;
             case 4: //return
