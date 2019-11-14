@@ -25,7 +25,7 @@ public class MovieDatabase implements Serializable{
 //		this.movieList = new ArrayList<Movie>();
 //	}
 
-	public ArrayList<Movie> getMovieList() {
+	public ArrayList<Movie> getMovies() {
 		return movieList;
 	}
 
@@ -98,11 +98,6 @@ public class MovieDatabase implements Serializable{
 			}
 		}
 		return titlesOnly;
-	}
-
-	public ArrayList<Movie> getMovies(){
-		
-		return movieList;
 	}
 	
 	public void printTop5() {
