@@ -4,6 +4,7 @@ import cinema.ShowTime;
 import movies.MovieDatabase;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.io.*;
 
@@ -38,7 +39,7 @@ public class UserSearchApp {
 							SearchByMovie searchByMovie = new SearchByMovie();
 		                    copyOfShowTime = searchByMovie.searchApp(mdb);
 		                    loop = false;
-						} catch (Exception e) {
+						} catch (IndexOutOfBoundsException | InputMismatchException e) {
 							// TODO Auto-generated catch block
 							System.out.println("Invalid input for movie. Try Again.");
 						}
@@ -69,8 +70,7 @@ public class UserSearchApp {
 	                    selected_st = copyOfShowTime.get(sel-1);
 	                    loop2 = false;
 					} catch (Exception e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
+						System.out.println("Selection error. Try again.");
 					}
 					} while (loop2);
                     page_choice = 99; //exit app
@@ -83,9 +83,8 @@ public class UserSearchApp {
 						SearchByDate searchByDate = new SearchByDate();
 	                    copyOfShowTime = searchByDate.searchApp(mdb);
 	                    loop1 = false;
-					} catch (Exception e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+					} catch (IndexOutOfBoundsException | InputMismatchException e) {
+						System.out.println("Invalid input. Try again.");
 					}
                 	} while (loop1);
                 	
@@ -116,8 +115,7 @@ public class UserSearchApp {
 	                    selected_st = copyOfShowTime.get(sel-1);
 	                    loop3 = false;
 					} catch (Exception e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
+						System.out.println("Selection error. Try again.");
 					}
                     } while (loop3);
                     page_choice = 99; //exit app
