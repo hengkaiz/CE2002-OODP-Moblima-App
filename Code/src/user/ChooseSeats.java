@@ -1,26 +1,35 @@
 package user;
 
 import Cinema.ShowTime;
+import Database.DataBase;
 
+import javax.xml.crypto.Data;
 import java.util.Scanner;
 
 public class ChooseSeats{
-	private ShowTime st;
+	private int st_no;
+	private DataBase copyOfdb;
 
-	public ChooseSeats(ShowTime st){
-		this.st = st;
+	public ChooseSeats(ShowTime st, DataBase db){
+		this.copyOfdb = db;
+		int n =0;
+		for (ShowTime s: db.getShowTimes()){
+			if (s == st) break;
+			n++;
+		}
+		st_no = n;
 	}
 
 	private void printSeats(){
-		st.getSeatplan().printSeats();
+		copyOfdb.getShowTimes().get(st_no).getSeatplan().printSeats();
 	}
 
 	private void selectSeat(int row, int col, String username){
-		if (st.getSeatplan().checkSeat(row, col) == false){// seat taken
+		if (copyOfdb.getShowTimes().get(st_no).getSeatplan().checkSeat(row, col) == false){// seat taken
 			//add exception here if seat is taken
 		}
 		else{
-			st.getSeatplan().assignSeat(row, col, username);
+			copyOfdb.getShowTimes().get(st_no).getSeatplan().assignSeat(row, col, username);
 		}
 	}
 
