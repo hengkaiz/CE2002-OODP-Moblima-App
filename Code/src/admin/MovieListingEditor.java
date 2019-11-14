@@ -59,6 +59,7 @@ public class MovieListingEditor {
 				System.out.println(selectedMovie.toStringMovieCast()); //prints the current cast list
 				System.out.println("1. Add Cast Member");
 				System.out.println("2. Remove Cast Member");
+				System.out.println("3. Exit");
 				
 				castChoice = sc.nextInt();
 				switch(castChoice) {
