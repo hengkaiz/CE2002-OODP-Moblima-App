@@ -166,8 +166,12 @@ public class MovieListingEditor {
 				System.out.println((i+1) + ". " + mtdb.get(i));
 			}
 			int updateMovieChoice = sc.nextInt();
-			String title = mtdb
-			selectedMovie = mdb.get(updateMovieChoice-1);
+			String title = mtdb.get(updateMovieChoice-1);
+			for(i=0; i<mdb.size(); i++) {
+				if(title.equals(mdb.get(i).getMovieTitle())) {
+					selectedMovie = mdb.get(i);
+				}
+			}
 			
 			//set status of selectedMovie to "END_OF_SHOWING"
 			selectedMovie.setStatus(MovieStatus.END_OF_SHOWING);
