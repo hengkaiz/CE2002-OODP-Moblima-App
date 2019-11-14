@@ -7,6 +7,7 @@ public class Cineplex {
     private ArrayList<Cinema> cinemas;
     private String cineplexName;
     private String cineplexCode;
+    private int cineplexNumber;
     private ShowTimeDatabase showTimeDataBase;
     
     public Cineplex() {
@@ -17,6 +18,7 @@ public class Cineplex {
     	
     	System.out.println("Enter 2 digit cineplex code");
     	this.cineplexCode=sc.nextLine();
+    	this.cineplexNumber=Integer.parseInt(this.cineplexCode);
     	
     	this.cinemas = new ArrayList<Cinema>();
     	
