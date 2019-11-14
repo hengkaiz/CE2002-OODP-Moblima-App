@@ -80,4 +80,8 @@ public class UserDatabase{
             System.out.println(u.getName());
         }
     }
+    
+    public ArrayList<User> getUserList() {
+    	return this.userlist;
+    }
 }
