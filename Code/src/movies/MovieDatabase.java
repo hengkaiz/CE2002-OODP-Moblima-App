@@ -84,13 +84,6 @@ public class MovieDatabase implements Serializable{
 		}
 		return titlesOnly;
 	}
-<<<<<<< HEAD
-=======
-
-	public ArrayList<Movie> getMovies(){
-		return movieList;
-	}
->>>>>>> branch 'Master' of https://github.com/hengkaiz/moblima.git
 	
 	public void printTop5() {
 		Scanner sc = new Scanner(System.in);
