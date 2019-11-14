@@ -31,6 +31,7 @@ public class UserMainMenu extends MenuTemplate {
         nextMenu = this;
         switch (sel) {
             case 1: //login menu
+                nextMenu = new UserLoginMenu(this);
                 break;
             case 2: //create account menu
                 break;

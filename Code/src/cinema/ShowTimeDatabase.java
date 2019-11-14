@@ -139,6 +139,7 @@ public class ShowTimeDatabase extends MovieDatabase implements Serializable{
     public void addSTToDB(ShowTime st) {
     	showtimelist.add(st);
     }
+
     public void removeSTToDB(ShowTime st) {
     	if(showtimelist.remove(st)) {
     		st = null;			
