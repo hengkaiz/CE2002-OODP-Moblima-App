@@ -137,7 +137,7 @@ public class Movie implements Serializable{
 		}
 	}
 	public String toStringMovieDirector() {
-		if (this.movieCast.isEmpty())
+		if (this.movieDirector.isEmpty())
 			return "No Director";
 		else {
 			String directorString = String.join(", ", this.movieDirector);
