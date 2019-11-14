@@ -8,17 +8,31 @@ public class Review {
 	//date
 	private String reviewContent;
 	
-	public Review() {
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Enter your name: ");
-		String reviewer = sc.nextLine();
-		
-		System.out.println("Enter a rating out of 5: ");
-		double rating = sc.nextDouble();
-		
-		System.out.println("Enter your review: ");
-		String reviewContent = sc.nextLine();
-		reviewContent = sc.nextLine();
+	public Review() throws Exception {
+		String reviewer = null;
+		double rating = 0;
+		String reviewContent = null;
+		boolean loop = true;
+		do {
+		try {
+			Scanner sc = new Scanner(System.in);
+			System.out.println("Enter your name: ");
+			reviewer = sc.nextLine();
+			
+			System.out.println("Enter a rating out of 5: ");
+			rating = sc.nextDouble();
+			if (rating <0 | rating>5) {
+				throw new Exception();
+			}
+			
+			System.out.println("Enter your review: ");
+			reviewContent = sc.nextLine();
+			reviewContent = sc.nextLine();
+			loop = false;
+		} catch (Exception e) {
+			System.out.println("Error in input. Try again.");
+		}
+		} while (loop);
 		
 		this.reviewer = reviewer;
 		this.rating = rating;

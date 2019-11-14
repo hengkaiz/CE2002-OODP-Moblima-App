@@ -3,6 +3,7 @@ package user;
 import cinema.ShowTime;
 import cinema.ShowTimeDatabase;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class ChooseSeats{
@@ -49,7 +50,7 @@ public class ChooseSeats{
 			col = sc.nextInt();
 			selectSeat(row, col, ID);
 			loop = false;
-		} catch (IndexOutOfBoundsException e) {
+		} catch (IndexOutOfBoundsException | InputMismatchException e) {
 			System.out.println("Selected seat invalid. Try Again.");
 		} 
 		} while (loop);
