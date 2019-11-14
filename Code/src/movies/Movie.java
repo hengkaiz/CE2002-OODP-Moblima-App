@@ -75,18 +75,20 @@ public class Movie implements Serializable{
 			}
 		}
 		
-		System.out.println("Movie created.");
+		System.out.println("Created movie: " +this.movieTitle);
 		
 	}
 	
     public Movie(String movieTitle, String movieSynopsis, MovieStatus movieStatus) {
 		this.movieTitle = movieTitle;
 		this.movieSynopsis = movieSynopsis;
-		this.movieCast = null;
-		this.movieDirector = null;
+		this.movieCast = new ArrayList<String>();
+		this.movieDirector = new ArrayList<String>();
 		this.movieOverallRating = -1;
-		this.reviewList = null;
+		this.reviewList = new ArrayList<Review>();
 		this.movieStatus = movieStatus;
+		this.totalSales = 0;
+		this.ageRating = ageRating.GENERAL;
 	}
     
 	public String getMovieTitle() {

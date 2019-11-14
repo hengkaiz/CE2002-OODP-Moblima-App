@@ -15,14 +15,16 @@ public class UserLoginMenu extends MenuTemplate {
     public MenuTemplate run(){
         Scanner sc = new Scanner(System.in);
         UserLoginApp userLoginApp = new UserLoginApp();
+        String ID = null;
+        String Password = null;
         boolean loop = true;
         while (loop)
 	        try {
 		        System.out.print("Enter ID: ");
-		        String ID = sc.nextLine();
+		        ID = sc.nextLine();
 		        
 		        System.out.print("Enter password: ");
-		        String Password = sc.nextLine();
+		        Password = sc.nextLine();
 		        loop = false;
 	        }
 	        catch (InputMismatchException e) {

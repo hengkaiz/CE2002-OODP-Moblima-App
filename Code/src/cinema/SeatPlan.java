@@ -3,8 +3,9 @@ package cinema;
 //import booking.BookingDetails;
 
 import java.util.ArrayList;
+import java.io.Serializable;
 
-public class SeatPlan {
+public class SeatPlan implements Serializable{
     public static int rows = 8;
     public static int columns = 10;
     private int numEmptySeat = rows*columns;
