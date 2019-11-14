@@ -1,5 +1,4 @@
 package Moblima;
-import Booking.Booking;
 import Booking.BookingDatabase;
 import Database.*;
 import movies.*;

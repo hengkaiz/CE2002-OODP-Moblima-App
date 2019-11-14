@@ -1,10 +1,11 @@
 package Booking;
 import Cinema.*;
 import user.*;
+import movies.*;
 
 import java.util.ArrayList;
 
-public class BookingDatabase {
+public class BookingDatabase extends UserDatabase{
 	 private ArrayList<BookingDetails> BookingDetailsList = new ArrayList<BookingDetails>();
 	 private ArrayList<BookingDetails> copybook;
 	 
@@ -39,26 +40,29 @@ public class BookingDatabase {
 	 public void addNewBooking(String name, ShowTime st, int row, int col){
 		 String email = null;
 		 int mobile = 0;
-		 double price = 7.00;//hardcoded		 
+		 double price = 0;	 
 		 
 		 ArrayList<User> userlist = new ArrayList<User>();
 		 BookingDetails deets = new BookingDetails(name, mobile, email, st, row, col, price);
-		 	 
+		 TicketPriceCalculator calc = new TicketPriceCalculator();
+		 Holiday hols = new Holiday();
+		 
 		 for (User usr: userlist) {
 			 if (usr.getName().equals(name)) {
 				 email = usr.getEmail();
 				 mobile = usr.getMobile();
+				 price = calc.calculatePrice(usr, st, hols);
 			 }	 
 		 }
 		 
 		 deets.setmoviegoerName(name); 
 		 deets.setshowtime(st);
 		 deets.setemailAddress(email);
-		 deets.settmobileNumber(mobile);
+		 deets.setmobileNumber(mobile);
 		 deets.setshowtime(st);
 		 deets.setseatRow(row);
 		 deets.setseatCol(col);
-		 deets.setticketPrice(7.00);
+		 deets.setticketPrice(price);
 		 
 		 BookingDetailsList.add(deets);
 	 }

@@ -57,7 +57,7 @@ public class BookingDetails {
 		this.moviegoerName = moviegoerName;
 	}
 	
-	public void settmobileNumber(int mobileNumber) {
+	public void setmobileNumber(int mobileNumber) {
 		this.mobileNumber = mobileNumber;
 	}
 	
