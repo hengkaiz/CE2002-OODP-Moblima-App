@@ -55,7 +55,7 @@ public class MovieDatabase {
 		System.out.println("Age Rating: "	+ chosenMovie.getAgeRating().getName());
 		System.out.print("Overall Rating: " );
 		chosenMovie.printMovieOverallRating();
-		System.out.print("Reviews: " );
+		System.out.println("Reviews: " );
 		chosenMovie.printReviewList(3);
 	}
 	
@@ -79,6 +79,11 @@ public class MovieDatabase {
 		System.out.println("1. By Overall Rating");
 		System.out.println("2. By Ticket Sales");
 		int choice = sc.nextInt();
+		if (movieList.isEmpty()) {
+			System.out.println("There are no movies in the system yet.");
+			return;
+		}
+		
 		if (choice==1) {
 			int i=1;
 			for (Movie movie : topByOverallRating(5)) {
@@ -98,25 +103,51 @@ public class MovieDatabase {
 	
 	public List<Movie> topByOverallRating(int num){
 		movieList.sort(new OverallRatingSorter());
-		return movieList.subList(0, num);
+		if (num>movieList.size())
+			return movieList.subList(0, movieList.size());
+		else
+			return movieList.subList(0, num);
 	}
 	
 	public List<Movie> topByTotalSales(int num){
 		movieList.sort(new TotalSalesSorter());
-		return movieList.subList(0, num);
+		if (num>movieList.size())
+			return movieList.subList(0, movieList.size());
+		else
+			return movieList.subList(0, num);
 	}
 	//comment
 	
 //	public static void main(String[] args) {
 //		MovieDatabase mdb = new MovieDatabase();
+//		mdb.printTop5();
+//		mdb.printTop5();
 //		mdb.addMovieToDB();
+//		mdb.movieList.get(0).addReview();
+//		mdb.movieList.get(0).addReview();
+//		//mdb.movieList.get(0).addReview();
 //		mdb.printMovieDetails();
 //		System.out.println(mdb.getMovieTitlesList());
+//		//mdb.printTop5();
+//		//mdb.printTop5();
+//		
 //		mdb.addMovieToDB();
+//		mdb.movieList.get(1).addReview();
+//		mdb.movieList.get(1).addReview();
+//		//mdb.movieList.get(1).addReview();
 //		mdb.printMovieDetails();
 //		System.out.println(mdb.getMovieTitlesList());
-//		mdb.removeMovieFromDB();
+//		mdb.printTop5();
+//		mdb.printTop5();
+//		
+//		mdb.addMovieToDB();
+//		mdb.movieList.get(2).addReview();
+//		mdb.movieList.get(2).addReview();
+//		mdb.movieList.get(2).addReview();
 //		mdb.printMovieDetails();
 //		System.out.println(mdb.getMovieTitlesList());
+//		
+//		mdb.printTop5();
+//		mdb.printTop5();
 //	}
 }
