@@ -45,10 +45,9 @@ public class UserMainMenu extends MenuTemplate {
                 nextMenu = new UserLoginMenu(this);
                 break;
             case 2: //create account menu
+                nextMenu = new UserCreateMenu(this);
                 break;
             case 3: //user leave reviews
-            	Movie mt = UserSearchByMovie.returnMovie(mdb/*main database*/);
-            	mt.addReview();
 
                 break;
             case 4: //return
