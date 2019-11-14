@@ -3,23 +3,22 @@ package Cinema;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-
 public class Cinema extends Cineplex{
-    private String type;
+    private CinemaType type;
     private int code;
     private ArrayList<ShowTime> showtime;
 
-    public Cinema(String type, int code){
+    public Cinema(CinemaType type, int code){
         this.type = type;
         this.code = code;
         this.showtime = new ArrayList<ShowTime>();
     }
 
     public String getType(){
-        return type;
+        return type.getName();
     }
 
-    public void setType(String type) {
+    public void setType(CinemaType type) {
         this.type = type;
     }
 
