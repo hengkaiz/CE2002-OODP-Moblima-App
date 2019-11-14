@@ -64,7 +64,7 @@ public class Movie {
 		System.out.println("Choose age rating: ");
 		int j = 1;
 		for(AgeRating ageRating : AgeRating.values()) {
-			System.out.println(j + ". " + ageRating + " " +ageRating.getName());
+			System.out.println(j + ". " +ageRating.getName());
 			j++;
 		}
 		int ratingChoice = sc.nextInt();
