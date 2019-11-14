@@ -1,9 +1,9 @@
 package movies;
-
+import java.io.*;
 import java.util.Scanner;
 import java.util.ArrayList;
 
-public class Movie {
+public class Movie implements Serializable{
 	private String movieTitle; 
 	private String movieSynopsis;
 	private ArrayList<String> movieCast;
