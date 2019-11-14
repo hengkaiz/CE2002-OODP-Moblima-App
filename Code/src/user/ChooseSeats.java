@@ -50,7 +50,7 @@ public class ChooseSeats{
 			col = sc.nextInt();
 			selectSeat(row, col, ID);
 			loop = false;
-		} catch (IndexOutOfBoundsException || InputMismatchException e) {
+		} catch (IndexOutOfBoundsException | InputMismatchException e) {
 			System.out.println("Selected seat invalid. Try Again.");
 		} 
 		} while (loop);
