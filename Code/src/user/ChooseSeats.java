@@ -1,16 +1,16 @@
 package user;
 
 import Cinema.ShowTime;
-import Database.DataBase;
+import Database.ShowTimeDatabase;
 
 import javax.xml.crypto.Data;
 import java.util.Scanner;
 
 public class ChooseSeats{
 	private int st_no;
-	private DataBase copyOfdb;
+	private ShowTimeDatabase copyOfdb;
 
-	public ChooseSeats(ShowTime st, DataBase db){
+	public ChooseSeats(ShowTime st, ShowTimeDatabase db){
 		this.copyOfdb = db;
 		int n =0;
 		for (ShowTime s: copyOfdb.getShowTimes()){

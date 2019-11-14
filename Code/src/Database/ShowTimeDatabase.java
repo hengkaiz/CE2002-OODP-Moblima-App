@@ -8,16 +8,11 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class DataBase extends MovieDatabase{
+public class ShowTimeDatabase extends MovieDatabase{
     private ArrayList<ShowTime> showtimelist = new ArrayList<ShowTime>();
     private ArrayList<ShowTime> copylist;
 
-    public DataBase(){
-        showtimelist.add(new ShowTime(1200, super.getMovies().get(0), 0, 6, MovieFormat.TWO_DIMENSION));
-        showtimelist.add(new ShowTime(1500, super.getMovies().get(0), 0, 5, MovieFormat.TWO_DIMENSION));
-        showtimelist.add(new ShowTime(1800, super.getMovies().get(0), 0, 3, MovieFormat.THREE_DIMENSION));
-        showtimelist.add(new ShowTime(1200, super.getMovies().get(1), 0, 2, MovieFormat.TWO_DIMENSION));
-        showtimelist.add(new ShowTime(1800, super.getMovies().get(1), 0, 4, MovieFormat.TWO_DIMENSION));
+    public ShowTimeDatabase(){
         showtimelist.add(new ShowTime(1200, super.getMovies().get(0), 1, 6, MovieFormat.TWO_DIMENSION));
         showtimelist.add(new ShowTime(1500, super.getMovies().get(0), 1, 5, MovieFormat.TWO_DIMENSION));
         showtimelist.add(new ShowTime(1800, super.getMovies().get(0), 1, 3, MovieFormat.THREE_DIMENSION));

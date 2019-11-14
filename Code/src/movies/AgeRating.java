@@ -9,10 +9,13 @@ public enum AgeRating {
 
     private String name;
 
-	AgeRating(String name) {	//constructor
+	AgeRating(String name) {
         this.name = name;
     }
     public String getName() {
 		return name;
 	}
 }
+//comment
+//comment	//comment
+//comment

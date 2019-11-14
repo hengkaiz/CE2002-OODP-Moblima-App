@@ -10,7 +10,7 @@ public class CinemaShowtimesAndMovieEditor {
 
 	Scanner sc = new Scanner(System.in);
 	ShowTime s = null;
-	DataBase db = new DataBase();
+	ShowTimeDatabase db = new ShowTimeDatabase();
 	ArrayList<ShowTime> stdb = db.getShowTimes();
 	MovieDatabase mdb = new MovieDatabase();
 	ArrayList<Movie> msdb = mdb.getMovies();

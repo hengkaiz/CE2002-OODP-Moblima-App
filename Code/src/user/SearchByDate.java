@@ -8,7 +8,7 @@ import Cinema.ShowTime;
 import Database.*;
 import movies.MovieDatabase;
 
-public class SearchByDate extends DataBase implements SearchFunction {
+public class SearchByDate extends ShowTimeDatabase implements SearchFunction {
 	private Calendar date;
 	private Calendar copydate;
 	private ArrayList<ShowTime> showtimes = null;

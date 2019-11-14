@@ -14,4 +14,5 @@ public enum MovieStatus {
     public String getName() {
 		return name;
 	}
-}//comment
+}//comment	//comment
+//comment
