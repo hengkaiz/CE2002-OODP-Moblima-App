@@ -1,18 +1,18 @@
 package movies;
 import java.time.LocalDate;
 
-import Cinema.MovieFormat;
-import Cinema.ShowTime;
+import Cinema.*;
 import user.User;
 
 public class TicketPriceCalculator {
 	enum AgeGroup {
 		SENIOR, CHILD, ADULT;
 	}
-	private static double basePrice;
+	private double basePrice;
 	private double weekendOrPHSurcharge;
 	private double ageDiscount;
-	private double cinemaTypeSurcharge;
+	private double platinumSurcharge;
+	private double goldClassSurcharge;
 	private double threeDimensionMovieSurcharge;
 	private double blockbusterMovieSurcharge;
 	
@@ -46,7 +46,10 @@ public class TicketPriceCalculator {
 			price+=weekendOrPHSurcharge;
 			
 		if (showtime.getCinemaType() == "Platinum")
-			price+= cinemaTypeSurcharge;
+			price+= platinumSurcharge;
+		
+		if (showtime.getCinemaType() == "Gold Class")
+			price+= goldClassSurcharge;
 		
 		if (showtime.getMovieformat() == MovieFormat.BLOCKBUSTER)
 			price+= blockbusterMovieSurcharge;
@@ -57,12 +60,12 @@ public class TicketPriceCalculator {
 		return price;
 	}
 
-	public static double getBasePrice() {
+	public double getBasePrice() {
 		return basePrice;
 	}
 
-	public static void setBasePrice(double basePrice) {
-		TicketPriceCalculator.basePrice = basePrice;
+	public void setBasePrice(double basePrice) {
+		this.basePrice = basePrice;
 	}
 
 	public double getWeekendOrPHSurcharge() {
@@ -81,12 +84,20 @@ public class TicketPriceCalculator {
 		this.ageDiscount = ageDiscount;
 	}
 
-	public double getCinemaTypeSurcharge() {
-		return cinemaTypeSurcharge;
+	public double getPlatinumSurcharge() {
+		return platinumSurcharge;
 	}
 
-	public void setCinemaTypeSurcharge(double cinemaTypeSurcharge) {
-		this.cinemaTypeSurcharge = cinemaTypeSurcharge;
+	public void setPlatinumSurcharge(double platinumSurcharge) {
+		this.platinumSurcharge = platinumSurcharge;
+	}
+
+	public double getGoldClassSurcharge() {
+		return goldClassSurcharge;
+	}
+
+	public void setGoldClassSurcharge(double goldClassSurcharge) {
+		this.goldClassSurcharge = goldClassSurcharge;
 	}
 
 	public double getThreeDimensionMovieSurcharge() {
