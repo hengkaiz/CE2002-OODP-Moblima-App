@@ -26,12 +26,11 @@ public class SearchByMovie extends DataBase implements SearchFunction{
 		// prints out movie list
 		System.out.println("Currently Showing:");
 		for (int i=0; i<movieList.size();i++){
-
-			System.out.printf("%d: %s", i+1, movieList.get(i));
+			System.out.printf("%d: %s\n", i+1, movieList.get(i));
 		}
 
         //set selMovie as the input user selected
-        System.out.println("Please select movie");
+        System.out.print("Please select movie: ");
 		selMovie = sc.nextInt();
         movietitle = movieList.get(selMovie-1);
 

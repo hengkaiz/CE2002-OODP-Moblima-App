@@ -2,7 +2,8 @@ package Cinema;
 
 public enum CinemaType {
 	PLATINUM("Platinum"),
-	GOLD_CLASS("Gold Class");
+	GOLD_CLASS("Gold Class"),
+	NORMAL("Normal");
 
     private String name;
 

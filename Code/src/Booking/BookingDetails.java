@@ -11,9 +11,11 @@ public class BookingDetails {
 	private int seatRow;
 	private int seatCol;
 	private double ticketPrice;
+	private String username;
 
 	 //name, mobile, email, ID, showtime, seatno, price	
-	public BookingDetails(String name, int mobile, String email, ShowTime st, int r, int c, double price) {
+	public BookingDetails(String user, String name, int mobile, String email, ShowTime st, int r, int c, double price) {
+		username = user;
 		moviegoerName = name;
 		mobileNumber = mobile;
 		emailAddress = email;
@@ -24,6 +26,10 @@ public class BookingDetails {
 	}
 	
 	//getting functions
+	public String getuserName() {
+		return username;
+	}
+	
 	public String getmoviegoerName() {
 		return moviegoerName;
 	}
@@ -53,11 +59,15 @@ public class BookingDetails {
 	}
 
 	//setting functions
+	public void setuserName(String username) { 
+		this.username = username;
+	}
+	
 	public void setmoviegoerName(String moviegoerName) {
 		this.moviegoerName = moviegoerName;
 	}
 	
-	public void settmobileNumber(int mobileNumber) {
+	public void setmobileNumber(int mobileNumber) {
 		this.mobileNumber = mobileNumber;
 	}
 	

@@ -18,7 +18,7 @@ public class UserSearchApp {
         System.out.println("---Search Show times---");
         System.out.println("1. By Movie");
         System.out.println("2. By Date");
-        //System.out.println("3. Return");
+        System.out.println("3. Return");
         System.out.print("Please enter your choice: ");
         sel = sc.nextInt();
         System.out.println();
@@ -30,9 +30,9 @@ public class UserSearchApp {
                 copyOfShowTime = searchByMovie.searchApp(mdb);
 
                 //print out show times for selected movie
-                System.out.printf("\nShow times for %s", copyOfShowTime.get(0).getMovie());
+                System.out.printf("\nShow times for %s\n", copyOfShowTime.get(0).getMovie());
                 for (int i=0; i<copyOfShowTime.size();i++){
-                    System.out.printf("%d. %d", i+1, copyOfShowTime.get(i).getTiming());
+                    System.out.printf("%d. %d\n", i+1, copyOfShowTime.get(i).getTiming());
                 }
 
                 System.out.print("Please enter your choice: ");
@@ -60,11 +60,11 @@ public class UserSearchApp {
 
                 selected_st = copyOfShowTime.get(sel);
                 break;
-            //exception error to return to previous menu
+
+            case 3:
+                selected_st = null;
+                break;
         }
-        //}
-
-
         return selected_st;
     }
 }
