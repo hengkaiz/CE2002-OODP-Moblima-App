@@ -2,10 +2,9 @@ package admin;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-//import java.lang.Enum;
 import Cinema.*;
 import Database.*;
-import Movies.*;
+import movies.*;
 
 public class CinemaShowtimesAndMovieEditor {
 
@@ -22,10 +21,6 @@ public class CinemaShowtimesAndMovieEditor {
 		System.out.println("Enter Timing:");
 		s.setTiming(sc.nextInt());
 		
-		//System.out.println("Enter Movie Title: ");
-		//s.setMovie(sc.nextLine());
-		//System.out.println(date.);.
-		
 		System.out.println("Enter Cinema Number: ");
 		s.setCinemaNum(sc.nextInt());
 		
@@ -33,22 +28,17 @@ public class CinemaShowtimesAndMovieEditor {
 		int i = 1;
 		for(MovieFormat mf : MovieFormat.values()) {
 			System.out.println(i + ". " + mf.name());
-			//System.out.println(i + ". " + status);
 			i++;
 		}
 		int movieFormatChoice = sc.nextInt();
 		MovieFormat movieFormat=null;
-		for(MovieFormat mf : MovieFormat.values()) {				//go through array until find the one equal to user input
+		for(MovieFormat mf : MovieFormat.values()) { //go through array until find the one equal to user input
 			if(mf.ordinal() == movieFormatChoice-1){
 				movieFormat = mf;
 			}
 		}
 		s.setMovieformat(movieFormat);
-		/*System.out.println("Enter Cinema Type: ");
-		s.setCinemaType(sc.nextLine());*/
-		
-		//should just enter an empty Seat plan for the booking class to update whenever
-		//s.setSeatPlan();
+
 		db.addSTToDB(s);
 	}
 	public void updateCinemaShowtimesAndMovie() {
@@ -63,19 +53,20 @@ public class CinemaShowtimesAndMovieEditor {
 			selectChoice = sc.nextInt();
 			switch(selectChoice) {
 			case 1: //select by movie
-				
-				//print all the movie for the admin to choose to update
+				//print all the movies for the admin to choose to update
 				ArrayList<String> movieTitles = mdb.getMovieTitlesList();
-;				for(i=0;i<movieTitles.size();i++);{
-					System.out.println(movieTitles.get(i));
+				for(i=0;i<movieTitles.size();i++);{
+					System.out.println((i+1) + ". " + movieTitles.get(i));
 				}
+				System.out.println("Choose movie to update");
 				updateByMovie(movieTitles.get(sc.nextInt()-1));
 				break;
-			case 2: //select be timing
-				updateByDate();
+			case 2: //select by date
+				System.out.println("Enter date (dd/mm): ");
+				updateByDate(sc.nextLine());
 				break;
 			case 3: //exit
-				return;
+				break;
 			default:
 				break;
 			}
@@ -84,171 +75,147 @@ public class CinemaShowtimesAndMovieEditor {
 	private void updateByMovie(String movieTitle) {
 		int i=0;
 		ArrayList<ShowTime> stByMovie = db.searchByMovie(movieTitle);
-		
-		/*//get the movie chosen
-		for(i=0; i<stdb.size(); i++) {
-			System.out.println((i+1) + ". " + stdb.get(i).getMovie());
-		}
-		int movieUpdateChoice = sc.nextInt();
-		s = stdb.get(movieUpdateChoice-1);
-		
-		//get ST for the movie chosen
-		stByMovie = db.searchByMovie(s.getMovie());*/
-		
+
 		//update
+		int chooseST = 0;
 		do {
 			//print current showtimes for movie selected
 			System.out.println("Current showtimes for " + movieTitle);
 			for(i=0;i<stByMovie.size();i++) {
 				s = stByMovie.get(i);
-				System.out.println((i+1) + ". " + "Showing at " + s.getTiming() + " on " + s.getDate());
+				System.out.println((i+1) + ". Showing at " + s.getTiming() + " on " + s.getDate());
 			}
-			System.out.println("Choose showtime to update:");
-			s = stByMovie.get(sc.nextInt());
+			System.out.println("Choose showtime to update: (enter -1 to exit)");
+			chooseST = sc.nextInt();
+			if(chooseST == -1) {
+				break;
+			}
+			s = stByMovie.get(chooseST-1);
 			
+			int updateChoice = 0;
 			do {
 				System.out.println("1. Change Timing"); //same date new timing
 				System.out.println("2. Change Cinema Number");
 				System.out.println("3. Change Movie Format");
 				System.out.println("4. Exit");
-				int updateChoice = 0;
+				updateChoice = 0;
 				switch(updateChoice) {
 				case 1: //change timing
 					System.out.println("Enter new timing");
-					//int newTiming = sc.nextInt();
 					//no error checking if another st have the same timing as newtiming
 					s.setTiming(sc.nextInt());
-					/*for(i=0;i<stdb.size();i++) {
-						if(newTiming == stdb.get(i).getTiming() && s.)
-					}*/
 					System.out.println("Timing changed for " + s.getMovie());
 					break;
 				case 2: //change cinema number
-					
+					System.out.println("Enter new Cinema Number");
+					s.setCinemaNum(sc.nextInt());
+					System.out.println(s.getMovie() + " now showing at Cinema Number " + s.getCinemaNum());
 					break;
 				case 3: //change movie format
-					break;
-				case 4: //exit
-					return;
-				default:
-					break;
-				}
-			}while();
-			
-			/*System.out.println("What would you like to update for " + movieTitle + "?");
-			System.out.println("1. Timing of " + movieTitle); //change timing of that movie
-			System.out.println("3. Cinema Number of " + movieTitle + " shown at " + s.getTiming()); //change cinemaNum
-			System.out.println("4. Movie Format of " + s.getMovie() + " shown at " + s.getTiming());  //change movieFormat for that movie
-			System.out.println("5. Exit");
-			int updateChoice = sc.nextInt();
-			switch(updateChoice) {
-			case 1: //update timing for that movie
-				System.out.println("Current showtimes for " + s.getMovie());
-				for(i=0;i<stByMovie.size();i++) {
-					System.out.println((i+1) + ". " + "Showing at " + s.getTiming() + " on " + s.getDate());
-				}
-				System.out.println("Choose showtime to update:");
-				i = sc.nextInt();
-				
-				System.out.println("Enter new timing for showing of " + s.getMovie() + " on " + s.getDate());
-				int newTiming = sc.nextInt();
-				for(i=0;i<stdb.size();i++) {
-					if(newTiming == stdb.get(i).getTiming() && )
-				}
-				System.out.println("Timing changed for " + s.getMovie());
-				break;
-			case 2: //update cinema number for that movie
-				break;
-			case 3: //update movie format shown for that movie
-				break;
-			case 4: //exit
-				return;
-			default:
-				break;
-			}*/
-		} while();
-		
-		
-
-		
-	}
-	private void updateByDate()
-
-		
-		//select by movie
-		
-		if(checkShowtimes(s)) { //valid showtime
-			int showtimeChoice = 0;
-			do {
-				System.out.println("What would you like to update?");
-				System.out.println("1. Timing of " + s.getMovie()); //change timing of that movie
-				System.out.println("2. Movie shown at " + s.getTiming()); //change movie shown at that timing
-				System.out.println("3. Cinema Number of " + s.getMovie() + " shown at " + s.getTiming()); //change cinemaNum
-				//System.out.println("4. Cinema Type of " + s.getMovie() + " shown at " + s.getTiming()); //change cinemaType
-				System.out.println("4. Movie Format of " + s.getMovie() + " shown at " + s.getTiming());
-				System.out.println("5. Exit");
-				
-				showtimeChoice = sc.nextInt();
-				switch(showtimeChoice) {
-				case 1: //change timing
-					System.out.println("Enter new timing for showing of " + s.getMovie());
-					s.setTiming(sc.nextInt());
-					System.out.println("Timing changed for " + s.getMovie());
-					break;
-				case 2: //change movie
-					int i=0;
-					//give list of movies currently showing/preview
-					System.out.println("Movies currently available for showing: ");
-					for(i=0; i < msdb.size(); i++) {
-						if(msdb.get(i).getStatus()==MovieStatus.NOW_SHOWING || msdb.get(i).getStatus()==MovieStatus.PREVIEW) {
-							System.out.println((i+1) + ". " + msdb.get(i).getMovieTitle());
-						}
-						//System.out.println((i+1) + ". " + msdb.get(i));
-					}
-					System.out.println("Enter choice for new movie showing at " + s.getTiming());
-					//no error checking for user input of choice of movie
-					//int newMovieChoice = sc.nextInt();
-					s.setMovie(msdb.get(sc.nextInt()-1));
-					System.out.println(s.getMovie() + " now showing at " + s.getTiming());
-					break;
-				case 3: //change cinema num
-					System.out.println("Enter new cinema number to show " + s.getMovie() + " at " + s.getTiming());
-					//check if cinema is available at that time
-					//if free,
-					s.setCinemaNum(sc.nextInt());
-					System.out.println(s.getMovie() + " now showing at " + s.getTiming() + " in cinema number " + s.getCinemaNum());
-					break;
-				/*case 4: //change cinema type
-					System.out.println("Enter new cinema type to show " + s.getMovie() + " at " + s.getTiming());
-					s.setCinemaType(sc.nextLine());
-					System.out.println(s.getMovie() + " now showing at " + s.getTiming() + " in " + s.getCinemaType());
-					break;*/
-				case 4: //change movie format
-					System.out.println("Change movie format of " + s.getMovie() + " to:");
-					i = 1;
+					System.out.println("Choose new Movie Format: ");
+					i=1;
 					for(MovieFormat mf : MovieFormat.values()) {
 						System.out.println(i + ". " + mf.name());
-						//System.out.println(i + ". " + status);
 						i++;
 					}
 					int movieFormatChoice = sc.nextInt();
 					MovieFormat movieFormat=null;
-					for(MovieFormat mf : MovieFormat.values()) {				//go through array until find the one equal to user input
+					for(MovieFormat mf : MovieFormat.values()) {//go through array until find the one equal to user input
 						if(mf.ordinal() == movieFormatChoice-1){
 							movieFormat = mf;
 						}
 					}
 					s.setMovieformat(movieFormat);
-					System.out.println(s.getMovie() + " is now showing in " + s.getMovieformat());
+					System.out.println(s.getMovie() + " now showing in " + s.getMovieformat());
 					break;
-				case 5: //exit
-					return;
-				default: 
+				case 4: //exit
+					break;
+				default:
 					break;
 				}
-			} while(showtimeChoice != 5);
-		}
-		//db.updateDB(s);
+			}while(updateChoice != 4);
+		} while(chooseST != -1);
+	}
+	private void updateByDate(String date) {
+		int i=0;
+		ArrayList<ShowTime> stByDate = db.searchByDate(date); //get list of all the ST at that date
+		
+		//update
+		int chooseST = 0;
+		do {
+			//print current showtimes for movie selected
+			System.out.println("Current showtimes showing on " + date);
+			for(i=0;i<stByDate.size();i++) {
+				s = stByDate.get(i);
+				System.out.println((i+1) + ". " + s.getMovie() + "Showing at " + s.getTiming());
+			}
+			System.out.println("Choose showtime to update: (enter -1 to exit)");
+			chooseST = sc.nextInt();
+			if(chooseST == -1) {
+				break;
+			}
+			s = stByDate.get(chooseST-1);
+			
+			int updateChoice = 0;
+			do {
+				System.out.println("1. Change Timing"); //same date new timing
+				System.out.println("2. Change Movie"); //same timing new movie
+				System.out.println("3. Change Cinema Number");
+				System.out.println("4. Change Movie Format");
+				System.out.println("5. Exit");
+				updateChoice = 0;
+				switch(updateChoice) {
+				case 1: //change timing
+					System.out.println("Enter new timing");
+					//no error checking if another st have the same timing as newtiming
+					s.setTiming(sc.nextInt());
+					System.out.println("Timing changed for " + s.getMovie());
+					break;
+				case 2: //change movie
+					ArrayList<String> movieTitles = mdb.getMovieTitlesList();
+					for(i=0;i<movieTitles.size();i++);{
+						System.out.println(movieTitles.get(i));
+					}
+					System.out.println("Enter choice for new movie showing at " + s.getTiming());
+					//no error checking for user input of choice of movie
+					int newMovieChoice = sc.nextInt();
+					String newMovieTitle = movieTitles.get(newMovieChoice -1);
+					for(i=0; i<msdb.size(); i++) {
+						if(newMovieTitle.equals(msdb.get(i).getMovieTitle())) {
+							s.setMovie(msdb.get(i));
+						}
+					}
+					System.out.println(s.getMovie() + " now showing at " + s.getTiming());
+					break;
+				case 3: //change cinema number
+					System.out.println("Enter new Cinema Number");
+					s.setCinemaNum(sc.nextInt());
+					System.out.println(s.getMovie() + " now showing at Cinema Number " + s.getCinemaNum());
+					break;
+				case 4: //change movie format
+					System.out.println("Choose new Movie Format: ");
+					i=1;
+					for(MovieFormat mf : MovieFormat.values()) {
+						System.out.println(i + ". " + mf.name());
+						i++;
+					}
+					int movieFormatChoice = sc.nextInt();
+					MovieFormat movieFormat=null;
+					for(MovieFormat mf : MovieFormat.values()) {//go through array until find the one equal to user input
+						if(mf.ordinal() == movieFormatChoice-1){
+							movieFormat = mf;
+						}
+					}
+					s.setMovieformat(movieFormat);
+					System.out.println(s.getMovie() + " now showing in " + s.getMovieformat());
+					break;
+				case 5: //exit
+					break;
+				default:
+					break;
+				}
+			}while(updateChoice != 5);
+		}while(chooseST != -1);
 	}
 	public void removeCinemaShowtimesAndMovie(ShowTime s) {
 		if(checkShowtimes(s)) { //valid showtime
@@ -270,18 +237,5 @@ public class CinemaShowtimesAndMovieEditor {
 		}
 		//no match found
 		return false;
-		
-		/*for(int i=0; i<stdb.size(); i++) {
-			if(s.getTiming() == stdb.get(i).getTiming() && s.getMovie() == stdb.get(i).getMovie() && s.getCinemaNum() == stdb.get(i).getCinemaNum() && s.getCinemaType() == ShowtimeDatabase.getShowtimes()[i].getCinemaType()) {// && s.getSeatPlan() == ShowtimeDatabase.getShowtimes()[i].getSeatPlan()) {
-		}
-		
-		for(int i=0; i < len(ShowtimeDatabase.getShowtimes()); i++) {
-			if(s.getTiming() == ShowtimeDatabase.getShowtimes()[i].getTiming() && s.getMovie() == ShowtimeDatabase.getShowtimes()[i].getMovie() && s.getCinemaNum() == ShowtimeDatabase.getShowtimes()[i].getCinemaNum() && s.getCinemaType() == ShowtimeDatabase.getShowtimes()[i].getCinemaType()) {// && s.getSeatPlan() == ShowtimeDatabase.getShowtimes()[i].getSeatPlan()) {
-				//found showtime match
-				return true;
-			}
-		}
-		//no match found
-		return false;*/
 	}
 }

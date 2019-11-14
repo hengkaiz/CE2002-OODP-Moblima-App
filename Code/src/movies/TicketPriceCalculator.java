@@ -12,7 +12,7 @@ public class TicketPriceCalculator {
 	private static double basePrice;
 	private double weekendOrPHSurcharge;
 	private double ageDiscount;
-	private double cinemaSurcharge;
+	private double cinemaTypeSurcharge;
 	private double threeDimensionMovieSurcharge;
 	private double blockbusterMovieSurcharge;
 	
@@ -46,7 +46,7 @@ public class TicketPriceCalculator {
 			price+=weekendOrPHSurcharge;
 			
 		if (showtime.getCinemaType() == "Platinum")
-			price+= cinemaSurcharge;
+			price+= cinemaTypeSurcharge;
 		
 		if (showtime.getMovieformat() == MovieFormat.BLOCKBUSTER)
 			price+= blockbusterMovieSurcharge;
@@ -55,5 +55,53 @@ public class TicketPriceCalculator {
 			price+= threeDimensionMovieSurcharge;
 		
 		return price;
+	}
+
+	public static double getBasePrice() {
+		return basePrice;
+	}
+
+	public static void setBasePrice(double basePrice) {
+		TicketPriceCalculator.basePrice = basePrice;
+	}
+
+	public double getWeekendOrPHSurcharge() {
+		return weekendOrPHSurcharge;
+	}
+
+	public void setWeekendOrPHSurcharge(double weekendOrPHSurcharge) {
+		this.weekendOrPHSurcharge = weekendOrPHSurcharge;
+	}
+
+	public double getAgeDiscount() {
+		return ageDiscount;
+	}
+
+	public void setAgeDiscount(double ageDiscount) {
+		this.ageDiscount = ageDiscount;
+	}
+
+	public double getCinemaTypeSurcharge() {
+		return cinemaTypeSurcharge;
+	}
+
+	public void setCinemaTypeSurcharge(double cinemaTypeSurcharge) {
+		this.cinemaTypeSurcharge = cinemaTypeSurcharge;
+	}
+
+	public double getThreeDimensionMovieSurcharge() {
+		return threeDimensionMovieSurcharge;
+	}
+
+	public void setThreeDimensionMovieSurcharge(double threeDimensionMovieSurcharge) {
+		this.threeDimensionMovieSurcharge = threeDimensionMovieSurcharge;
+	}
+
+	public double getBlockbusterMovieSurcharge() {
+		return blockbusterMovieSurcharge;
+	}
+
+	public void setBlockbusterMovieSurcharge(double blockbusterMovieSurcharge) {
+		this.blockbusterMovieSurcharge = blockbusterMovieSurcharge;
 	}
 }//comment
