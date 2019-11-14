@@ -2,7 +2,6 @@ package user;
 
 import java.util.ArrayList;
 import java.io.Serializable;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class UserDatabase implements Serializable{
@@ -58,7 +57,7 @@ public class UserDatabase implements Serializable{
 			userlist.add(new User(un, pw, fn, age, em ,mn));
 			System.out.println("\nAccount added! ");
 			loop = false;
-		} catch (InputMismatchException e) {
+		} catch (Exception e) {
 			System.out.println("Error in input. Try again.");
 		}
         } while (loop);
@@ -76,7 +75,7 @@ public class UserDatabase implements Serializable{
 			System.out.print("Enter Password: ");
 			pw = sc.nextLine();
 			loop1 = false;
-		} catch (InputMismatchException e) {
+		} catch (Exception e) {
 			System.out.println("Error in input. Try again.");
 		}
 		} while (loop1);
