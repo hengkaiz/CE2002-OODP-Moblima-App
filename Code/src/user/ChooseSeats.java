@@ -38,8 +38,8 @@ public class ChooseSeats{
 		System.out.println("---Choosing Seat---");
 		Scanner sc = new Scanner(System.in);
 		//BookingDatabase bk = new BookingDatabase();
-		int row;
-		int col;
+		int row = 0;
+		int col = 0;
 		boolean loop = true;
 		do {
 		try {

@@ -31,15 +31,20 @@ public class MovieDatabase {
 	}
 
 	public void removeMovieFromDB(){
-		System.out.println("Which movie do you want to remove?");
-		int i=1;
-		for (Movie movie : movieList) {
-			System.out.println(i + ". " + movie.getMovieTitle());
-			i++;
-		}
-		int choice = sc.nextInt();
 		
-		movieList.remove(choice-1);
+		try {
+			System.out.println("Which movie do you want to remove?");
+			int i=1;
+			for (Movie movie : movieList) {
+				System.out.println(i + ". " + movie.getMovieTitle());
+				i++;
+			}
+			int choice = sc.nextInt();
+			
+			movieList.remove(choice-1);
+		} catch (Exception e) {
+			
+		}
 	}
 	
 	public void printMovieDetails(){
