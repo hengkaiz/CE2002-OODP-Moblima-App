@@ -8,3 +8,5 @@ public class TotalSalesSorter implements Comparator<Movie>{
         return Integer.compare(o2.getTotalSales(), o1.getTotalSales());	//descending order
     }
 }
+//comment
+//comment
