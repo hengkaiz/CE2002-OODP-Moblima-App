@@ -6,7 +6,7 @@ public class UserLoginApp extends UserDatabase{
 	private User login_user;
 
 	//checking username and password entered
-	private boolean loginCheck(String name, String password){
+	public boolean loginCheck(String name, String password){
 		login_user = super.searchByName(name);
 		//code in exception here if username not found
 
