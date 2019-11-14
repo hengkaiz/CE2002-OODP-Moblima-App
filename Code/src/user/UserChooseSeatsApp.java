@@ -2,35 +2,39 @@ package user;
 
 import cinema.ShowTime;
 import cinema.ShowTimeDatabase;
+import moblima.SaveAndLoadDB;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class ChooseSeats{
+public class UserChooseSeatsApp {
 	private int st_no;
-	private ShowTimeDatabase copyOfdb;
+	private ShowTimeDatabase stdb;
+	private SaveAndLoadDB saveAndLoadDB = new SaveAndLoadDB();
 
-	public ChooseSeats(ShowTime st, ShowTimeDatabase db){
-		this.copyOfdb = db;
+	public UserChooseSeatsApp(ShowTime st){
+		this.stdb = saveAndLoadDB.loadShowTimeDB();
 		int n =0;
-		for (ShowTime s: copyOfdb.getShowTimes()){
-			if (true) break;
+		for (ShowTime s: stdb.getShowTimes()){
+			if (s.getCinemaNum() == st.getCinemaNum()
+			&& s.toStringGetDate().contentEquals(st.toStringGetDate())
+			&& s.getTiming() == st.getTiming()) break;
 			n++;
 		}
 		st_no = n;
 	}
 
-	private void printSeats(){
-		copyOfdb.getShowTimes().get(st_no).getSeatplan().printSeats();
+	public void printSeats(){
+		stdb.getShowTimes().get(st_no).getSeatplan().printSeats();
 	}
 
 	private void selectSeat(int row, int col, String username) throws IndexOutOfBoundsException {
-		if (copyOfdb.getShowTimes().get(st_no).getSeatplan().checkSeat(row, col) == false){// seat taken
+		if (stdb.getShowTimes().get(st_no).getSeatplan().checkSeat(row, col) == false){// seat taken
 			//add exception here if seat is taken
 			throw new IndexOutOfBoundsException();
 		}
 		else{
-			copyOfdb.getShowTimes().get(st_no).getSeatplan().assignSeat(row, col, username);
+			stdb.getShowTimes().get(st_no).getSeatplan().assignSeat(row, col, username);
 		}
 	}
 

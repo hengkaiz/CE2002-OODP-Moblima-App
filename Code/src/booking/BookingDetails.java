@@ -13,6 +13,7 @@ public class BookingDetails {
 	private double ticketPrice;
 	private String username;
 	private int[] Seat;
+	private String TID;
 
 	 //name, mobile, email, ID, showtime, seatno, price	
 	public BookingDetails(String username, ShowTime st, int[] seat, TicketPriceCalculator calculator) {
@@ -52,7 +53,10 @@ public class BookingDetails {
 	public int[] getSeat(int[] seat) {
 		return seat;
 	}
-
+	
+	public String getTID() {
+		return TID;
+	}
 	//setting functions
 	public void setuserName(String username) { 
 		this.username = username;
@@ -80,6 +84,9 @@ public class BookingDetails {
 	
 	public void setSeat(int[] seat) {
 		this.Seat = seat; 
-		
+	}
+	
+	public void setTID(String TID) {
+		this.TID = TID;
 	}
 }

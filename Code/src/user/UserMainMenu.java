@@ -1,7 +1,6 @@
 package user;
 
 import moblima.MenuTemplate;
-import user.SearchByMovie;
 import java.util.Scanner;
 import movies.*;
 
@@ -31,12 +30,14 @@ public class UserMainMenu extends MenuTemplate {
         nextMenu = this;
         switch (sel) {
             case 1: //login menu
+                nextMenu = new UserLoginMenu(this);
                 break;
             case 2: //create account menu
+                nextMenu = new UserCreateMenu(this);
                 break;
             case 3: //user leave reviews
-            	Movie mt = SearchByMovie.returnMovie(mdb/*main database*/);
-            	mt.addReview();
+            	//Movie mt = UserSearchByMovie.returnMovie(mdb/*main database*/);
+            	//mt.addReview();
 
                 break;
             case 4: //return

@@ -19,7 +19,7 @@ public class CinemaShowtimesAndMovieEditor {
 		int i = 0;
 		Movie m = null;
 		
-		System.out.println("Enter Timing:");
+		System.out.println("Enter Timing (hhhh format):");
 		int timing = sc.nextInt();
 		
 		ArrayList<String> movieTitles = mdb.getMovieTitlesList();
@@ -45,7 +45,7 @@ public class CinemaShowtimesAndMovieEditor {
 		System.out.println("Enter number of days from current: ");
 		int numOfDaysFromCurrent = sc.nextInt();
 		
-		System.out.println("Enter cinema Number: ");
+		System.out.println("Enter Cinema Number: ");
 		int cinemaNum = sc.nextInt();
 		
 		System.out.println("Choose Movie Format: ");
@@ -109,6 +109,10 @@ public class CinemaShowtimesAndMovieEditor {
 		//update
 		int chooseST = 0;
 		do {
+			if(stByMovie.size() == 0) {
+				System.out.println("No showtimes available for " + movieTitle);
+				break;
+			}
 			//print current showtimes for movie selected
 			System.out.println("Current showtimes for " + movieTitle);
 			for(i=0;i<stByMovie.size();i++) {

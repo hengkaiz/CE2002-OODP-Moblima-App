@@ -17,6 +17,7 @@ public class UserLoginMenu extends MenuTemplate {
         UserLoginApp userLoginApp = new UserLoginApp();
         String ID = null;
         String Password = null;
+        String username;
         boolean loop = true;
         while (loop)
 	        try {
@@ -33,9 +34,11 @@ public class UserLoginMenu extends MenuTemplate {
         
         nextMenu = this;
 
-        if (userLoginApp.loginCheck(ID, Password)) {
+        username = userLoginApp.loginCheck(ID, Password);
+        if (!username.contentEquals("")) { //login successful
+            super.setUsername(username);
             System.out.println("Welcome, " + ID + "\n");
-            //nextMenu =
+            nextMenu = new UserSearchMenu(this);
         }
 
         return nextMenu.run();

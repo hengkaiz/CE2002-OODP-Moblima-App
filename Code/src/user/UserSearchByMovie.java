@@ -8,7 +8,7 @@ import movies.*;
 import cinema.*;
 
 
-public class SearchByMovie extends ShowTimeDatabase implements SearchFunction{
+public class UserSearchByMovie extends ShowTimeDatabase implements UserSearchFunction {
 	private ArrayList<String> movieList = new ArrayList<String>();
 	private ArrayList<ShowTime> showtimes = null;
 	private MovieDatabase mb;

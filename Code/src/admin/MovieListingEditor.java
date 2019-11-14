@@ -33,6 +33,7 @@ public class MovieListingEditor {
 		//selection of update
 		//if(checkMovie(selectedMovie)) { //valid movie entry
 		int updateChoice = 0;
+		String exit = "-1";
 		do {
 			//updating of movie title not allowed
 			System.out.println("What would you like to update for " + selectedMovie.getMovieTitle());
@@ -64,21 +65,28 @@ public class MovieListingEditor {
 				castChoice = sc.nextInt();
 				switch(castChoice) {
 				case 1: //add cast member
+					sc.nextLine(); //dummy
 					do {
-						sc.nextLine(); //dummy
 						System.out.println("Enter Cast Member to add: (-1 to exit)");
 						cast = sc.nextLine();
+						if(cast.contentEquals(exit)) {
+							break;
+						}
 						selectedMovie.addMovieCast(cast);
-					} while(cast != "-1");
-					System.out.println("Cast added");
+						System.out.println("Current cast list: " + selectedMovie.toStringMovieCast());
+					} while(!cast.contentEquals(exit));
 					break;
 				case 2: //remove cast member
+					sc.nextLine(); //dummy
 					do {
-						sc.nextLine(); //dummy
 						System.out.println("Enter Cast Member to remove: (-1 to exit)");
 						cast = sc.nextLine();
+						if(cast.contentEquals(exit)){
+							break;
+						}
 						selectedMovie.removeMovieCast(cast);
-					} while(cast != "-1");
+						System.out.println("Current cast list: " + selectedMovie.toStringMovieCast());
+					} while(!cast.contentEquals(exit));
 					break;
 				default:
 					break;
@@ -96,21 +104,28 @@ public class MovieListingEditor {
 				directorChoice = sc.nextInt();
 				switch(directorChoice) {
 				case 1: //add director
+					sc.nextLine(); //dummy
 					do {
-						sc.nextLine(); //dummy
 						System.out.println("Enter Director to add: (-1 to exit)");
 						director = sc.nextLine();
+						if(director.contentEquals(exit)) {
+							break;
+						}
 						selectedMovie.addMovieDirector(director);
-					} while(director != "-1");
-					System.out.println("Director added");
+						System.out.println("Current director list: " + selectedMovie.toStringMovieDirector());
+					} while(!director.contentEquals(exit));
 					break;
 				case 2: //remove director
+					sc.nextLine(); //dummy
 					do {
-						sc.nextLine(); //dummy
 						System.out.println("Enter Director to remove: (-1 to exit)");
 						director = sc.nextLine();
+						if(director.contentEquals(exit)) {
+							break;
+						}
 						selectedMovie.removeMovieDirector(director);
-					} while(director != "-1");
+						System.out.println("Current director list: " + selectedMovie.toStringMovieDirector());
+					} while(!director.contentEquals(exit));
 					break;
 				default:
 					break;
