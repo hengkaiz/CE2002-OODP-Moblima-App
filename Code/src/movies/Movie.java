@@ -117,8 +117,12 @@ public class Movie implements Serializable{
 		}
 	}
 	public String toStringMovieCast() {
-		String castString = String.join(", ", this.movieCast);
-		return castString;
+		if (this.movieCast.isEmpty())
+			return "No cast";
+		else {
+			String castString = String.join(", ", this.movieCast);
+			return castString;
+		}
 	}
 
 	public void addMovieDirector(String movieDirector) {
@@ -133,8 +137,12 @@ public class Movie implements Serializable{
 		}
 	}
 	public String toStringMovieDirector() {
-		String directorString = String.join(", ", this.movieDirector);
-		return directorString;
+		if (this.movieCast.isEmpty())
+			return "No Director";
+		else {
+			String directorString = String.join(", ", this.movieDirector);
+			return directorString;
+		}
 	}
 	
 	public float getMovieOverallRating() {
