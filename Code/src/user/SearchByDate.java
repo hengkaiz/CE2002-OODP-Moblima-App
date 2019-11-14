@@ -4,8 +4,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Scanner;
-import Cinema.ShowTime;
-import Database.*;
+import cinema.ShowTime;
+import database.*;
 import movies.MovieDatabase;
 
 public class SearchByDate extends ShowTimeDatabase implements SearchFunction {

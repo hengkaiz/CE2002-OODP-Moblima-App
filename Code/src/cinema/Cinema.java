@@ -1,4 +1,4 @@
-package Cinema;
+package cinema;
 
 import java.util.ArrayList;
 import java.util.Scanner;

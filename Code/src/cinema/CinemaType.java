@@ -1,4 +1,4 @@
-package Cinema;
+package cinema;
 
 public enum CinemaType {
 	PLATINUM("Platinum"),

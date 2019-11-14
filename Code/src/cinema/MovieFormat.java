@@ -1,4 +1,4 @@
-package Cinema;
+package cinema;
 
 public enum MovieFormat {
     TWO_DIMENSION("2D"),

@@ -2,8 +2,8 @@ package admin;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-import Cinema.*;
-import Database.*;
+import cinema.*;
+import database.*;
 import movies.*;
 
 public class CinemaShowtimesAndMovieEditor {
@@ -21,7 +21,7 @@ public class CinemaShowtimesAndMovieEditor {
 		System.out.println("Enter Timing:");
 		s.setTiming(sc.nextInt());
 		
-		System.out.println("Enter Cinema Number: ");
+		System.out.println("Enter cinema Number: ");
 		s.setCinemaNum(sc.nextInt());
 		
 		System.out.println("Choose Movie Format: ");
@@ -95,7 +95,7 @@ public class CinemaShowtimesAndMovieEditor {
 			int updateChoice = 0;
 			do {
 				System.out.println("1. Change Timing"); //same date new timing
-				System.out.println("2. Change Cinema Number");
+				System.out.println("2. Change cinema Number");
 				System.out.println("3. Change Movie Format");
 				System.out.println("4. Exit");
 				updateChoice = 0;
@@ -107,9 +107,9 @@ public class CinemaShowtimesAndMovieEditor {
 					System.out.println("Timing changed for " + s.getMovie());
 					break;
 				case 2: //change cinema number
-					System.out.println("Enter new Cinema Number");
+					System.out.println("Enter new cinema Number");
 					s.setCinemaNum(sc.nextInt());
-					System.out.println(s.getMovie() + " now showing at Cinema Number " + s.getCinemaNum());
+					System.out.println(s.getMovie() + " now showing at cinema Number " + s.getCinemaNum());
 					break;
 				case 3: //change movie format
 					System.out.println("Choose new Movie Format: ");
@@ -160,7 +160,7 @@ public class CinemaShowtimesAndMovieEditor {
 			do {
 				System.out.println("1. Change Timing"); //same date new timing
 				System.out.println("2. Change Movie"); //same timing new movie
-				System.out.println("3. Change Cinema Number");
+				System.out.println("3. Change cinema Number");
 				System.out.println("4. Change Movie Format");
 				System.out.println("5. Exit");
 				updateChoice = 0;
@@ -188,9 +188,9 @@ public class CinemaShowtimesAndMovieEditor {
 					System.out.println(s.getMovie() + " now showing at " + s.getTiming());
 					break;
 				case 3: //change cinema number
-					System.out.println("Enter new Cinema Number");
+					System.out.println("Enter new cinema Number");
 					s.setCinemaNum(sc.nextInt());
-					System.out.println(s.getMovie() + " now showing at Cinema Number " + s.getCinemaNum());
+					System.out.println(s.getMovie() + " now showing at cinema Number " + s.getCinemaNum());
 					break;
 				case 4: //change movie format
 					System.out.println("Choose new Movie Format: ");

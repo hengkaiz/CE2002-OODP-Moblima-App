@@ -1,7 +1,6 @@
-package Booking;
+package booking;
 
-import java.util.ArrayList;
-import Cinema.*;
+import cinema.*;
 
 public class BookingDetails {
 	private String moviegoerName; 

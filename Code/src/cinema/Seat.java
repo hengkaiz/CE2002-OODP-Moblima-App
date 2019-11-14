@@ -1,4 +1,4 @@
-package Cinema;
+package cinema;
 
 public class Seat {
     private boolean assigned = false;

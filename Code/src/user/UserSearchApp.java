@@ -1,6 +1,6 @@
 package user;
 
-import Cinema.ShowTime;
+import cinema.ShowTime;
 import movies.MovieDatabase;
 
 import java.util.ArrayList;

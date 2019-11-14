@@ -1,12 +1,10 @@
-package Database;
+package database;
 
-import Cinema.MovieFormat;
-import Cinema.ShowTime;
+import cinema.MovieFormat;
+import cinema.ShowTime;
 import movies.*;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class ShowTimeDatabase extends MovieDatabase{
     private ArrayList<ShowTime> showtimelist = new ArrayList<ShowTime>();

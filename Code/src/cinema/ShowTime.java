@@ -1,4 +1,4 @@
-package Cinema;
+package cinema;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 

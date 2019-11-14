@@ -1,7 +1,7 @@
 package movies;
 import java.time.LocalDate;
 
-import Cinema.*;
+import cinema.*;
 import user.User;
 
 public class TicketPriceCalculator {

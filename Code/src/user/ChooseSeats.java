@@ -1,9 +1,8 @@
 package user;
 
-import Cinema.ShowTime;
-import Database.ShowTimeDatabase;
+import cinema.ShowTime;
+import database.ShowTimeDatabase;
 
-import javax.xml.crypto.Data;
 import java.util.Scanner;
 
 public class ChooseSeats{
@@ -14,7 +13,7 @@ public class ChooseSeats{
 		this.copyOfdb = db;
 		int n =0;
 		for (ShowTime s: copyOfdb.getShowTimes()){
-			if (s.getDate() == st.getDate() && s.getMovie() == st.getMovie() && s.getTiming() == st.getTiming() && s.) break;
+			if (true) break;
 			n++;
 		}
 		st_no = n;

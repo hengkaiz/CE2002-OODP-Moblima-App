@@ -1,6 +1,6 @@
-package Cinema;
+package cinema;
 
-//import Booking.BookingDetails;
+//import booking.BookingDetails;
 
 import java.util.ArrayList;
 

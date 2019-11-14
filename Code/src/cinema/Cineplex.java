@@ -1,4 +1,4 @@
-package Cinema;
+package cinema;
 
 public class Cineplex {
     private Cinema[] cinema;

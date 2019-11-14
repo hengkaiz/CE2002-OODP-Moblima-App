@@ -1,8 +1,6 @@
 package admin;
 
-import java.util.ArrayList;
 import java.util.Scanner;
-import Database.*;
 
 public class AdminApp {
 

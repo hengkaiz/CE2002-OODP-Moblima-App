@@ -1,13 +1,11 @@
 package user;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
-import java.util.ArrayList;
 import java.util.Scanner;
-import Database.*;
+import database.*;
 import movies.*;
-import Cinema.*;
+import cinema.*;
 
 
 public class SearchByMovie extends ShowTimeDatabase implements SearchFunction{

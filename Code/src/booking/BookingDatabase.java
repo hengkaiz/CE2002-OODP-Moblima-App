@@ -1,5 +1,5 @@
-package Booking;
-import Cinema.*;
+package booking;
+import cinema.*;
 import user.*;
 import movies.*;
 

@@ -1,11 +1,10 @@
-package Moblima;
-import Booking.BookingDatabase;
-import Database.*;
+package moblima;
+import booking.BookingDatabase;
+import database.*;
 import movies.*;
 import user.*;
-import Cinema.*;
+import cinema.*;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class MainApp {
