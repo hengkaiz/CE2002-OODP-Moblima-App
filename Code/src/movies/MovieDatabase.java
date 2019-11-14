@@ -35,8 +35,7 @@ public class MovieDatabase implements Serializable{
 	}
 
 	public void removeMovieFromDB(){
-<<<<<<< HEAD
-=======
+
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Which movie do you want to remove?");
 		int i=1;
@@ -44,10 +43,8 @@ public class MovieDatabase implements Serializable{
 			System.out.println(i + ". " + movie.getMovieTitle());
 			i++;
 		}
-		int choice = sc.nextInt();
->>>>>>> branch 'Master' of https://github.com/hengkaiz/moblima.git
-		
 		try {
+			int choice = sc.nextInt();
 			System.out.println("Which movie do you want to remove?");
 			int i=1;
 			for (Movie movie : movieList) {
@@ -58,6 +55,7 @@ public class MovieDatabase implements Serializable{
 			
 			movieList.remove(choice-1);
 		} catch (Exception e) {
+			System.out.println("Error in input. Try again.");
 			
 		}
 	}

@@ -12,29 +12,22 @@ public class Review {
 		String reviewer = null;
 		double rating = 0;
 		String reviewContent = null;
-		boolean loop = true;
-		do {
-		try {
-			Scanner sc = new Scanner(System.in);
-			System.out.println("Enter your name: ");
-			reviewer = sc.nextLine();
+
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter your name: ");
+		reviewer = sc.nextLine();
 			
+		System.out.println("Enter a rating out of 5: ");
+		rating = sc.nextDouble();
+		while (rating <0 | rating>5) {
+			System.out.println("Error in input. Try again.");
 			System.out.println("Enter a rating out of 5: ");
 			rating = sc.nextDouble();
-			while (rating <0 | rating>5) {
-				System.out.println("Error in input. Try again.");
-				System.out.println("Enter a rating out of 5: ");
-				rating = sc.nextDouble();
-			}
-			
-			System.out.println("Enter your review: ");
-			reviewContent = sc.nextLine();
-			reviewContent = sc.nextLine();
-			loop = false;
-		} catch (Exception e) {
-			System.out.println("Error in input. Try again.");
 		}
-		} while (loop);
+			
+		System.out.println("Enter your review: ");
+		reviewContent = sc.nextLine();
+
 		
 		this.reviewer = reviewer;
 		this.rating = rating;
