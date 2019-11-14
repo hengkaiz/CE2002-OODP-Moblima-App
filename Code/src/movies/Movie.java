@@ -162,7 +162,6 @@ public class Movie {
 		}
 	}
 	
-	
 	public void addReview() {
 		Review r = new Review();
 		this.reviewList.add(r);

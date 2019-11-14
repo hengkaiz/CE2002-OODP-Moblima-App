@@ -38,7 +38,7 @@ public class UserDatabase{
 
     public void addUser(String un, String pw){
         Scanner sc = new Scanner(System.in);
-        System.out.println("\n--Update personal information---");
+        System.out.println("\n---Update personal information---");
         System.out.print("Enter Full Name: ");
         String fn = sc.nextLine();
         System.out.print("Enter Age: ");
@@ -50,7 +50,7 @@ public class UserDatabase{
         int mn = sc.nextInt();
 
         userlist.add(new User(un, pw, fn, age, em ,mn));
-        System.out.println("\nAccount added!\n");
+        System.out.println("\nAccount added! ");
     }
 
     public boolean delUser(){
@@ -68,7 +68,7 @@ public class UserDatabase{
         for (int i=0;i<userlist.size();i++){
             if (del_acc.getUsername() == userlist.get(i).getUsername()){
                 userlist.remove(i);
-                System.out.println("bitch is removed yo");
+                System.out.println("Account is remove!");
                 break;
             }
         }
