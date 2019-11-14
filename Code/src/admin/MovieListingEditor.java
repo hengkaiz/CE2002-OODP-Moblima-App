@@ -123,7 +123,7 @@ public class MovieListingEditor {
 							selectedMovie.setStatus(status);
 						}
 					}
-					System.out.println("Movie Status updsted");
+					System.out.println("Movie Status updated");
 					break;
 				case 6: //exit out of function
 					System.out.println("Exiting");
@@ -138,8 +138,18 @@ public class MovieListingEditor {
 			return;
 		}
 	}
-	public void removeMovieListing() {
-		movieDatabase.removeMovieFromDB();
+	public void removeMovieListing() { //remove by setting status to "END_OFSHOWING"		
+		//choosing movie to remove
+		System.out.println("Which Movie do you want to remove?");
+		int i=0;
+		for(i=0; i<mdb.size(); i++) {
+			System.out.println((i+1) + ". " + mdb.get(i).getMovieTitle());
+		}
+		int updateMovieChoice = sc.nextInt();
+		selectedMovie = mdb.get(updateMovieChoice-1);
+		
+		//set status of selectedMovie to "END_OF_SHOWING"
+		selectedMovie.setStatus(MovieStatus.END_OF_SHOWING);
 	}
 	public boolean checkMovie(Movie m) {
 		for(int i=0; i < mdb.size(); i++) {
