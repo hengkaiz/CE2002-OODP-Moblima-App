@@ -79,8 +79,7 @@ public class MainApp {
                     seat = chooseSeats.chooseSeats(username);
 
                     //add to booking database
-               	    //user database, username, user, tpc, st, holiday, seat
-                    bdb.addNewBooking(udb, username, user, tpc, copyOfSelShowTime, hdb, seat);
+                    bdb.addNewBooking(udb, username, tpc, copyOfSelShowTime, hdb, seat);
 
                     break;
                 case 5:
