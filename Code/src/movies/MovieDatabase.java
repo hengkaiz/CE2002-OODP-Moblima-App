@@ -1,5 +1,6 @@
 package movies;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class MovieDatabase {
@@ -70,6 +71,40 @@ public class MovieDatabase {
 	public ArrayList<Movie> getMovies(){
 		return movieList;
 	}
+	
+	public void printTop5() {
+		System.out.println("Print top 5 movies by?");
+		System.out.println("1. By Overall Rating");
+		System.out.println("2. By Ticket Sales");
+		int choice = sc.nextInt();
+		if (choice==1) {
+			int i=1;
+			for (Movie movie : topByOverallRating(5)) {
+				System.out.println(i + ". " + movie.getMovieTitle());
+				i++;
+			}
+		}
+		
+		else if (choice==2) {
+			int i=1;
+			for (Movie movie : topByTotalSales(5)) {
+				System.out.println(i + ". " + movie.getMovieTitle());
+				i++;
+			}
+		}
+	}
+	
+	public List<Movie> topByOverallRating(int num){
+		movieList.sort(new OverallRatingSorter());
+		return movieList.subList(0, num);
+	}
+	
+	public List<Movie> topByTotalSales(int num){
+		movieList.sort(new TotalSalesSorter());
+		return movieList.subList(0, num);
+	}
+	
+	
 //	public static void main(String[] args) {
 //		MovieDatabase mdb = new MovieDatabase();
 //		mdb.addMovieToDB();
