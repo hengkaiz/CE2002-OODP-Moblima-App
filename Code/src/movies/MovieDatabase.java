@@ -85,7 +85,7 @@ public class MovieDatabase implements Serializable{
 		return titlesOnly;
 	}
 	
-	public void printTop5() {
+	/*public void printTop5() {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Print top 5 movies by?");
 		System.out.println("1. By Overall Rating");
@@ -111,7 +111,7 @@ public class MovieDatabase implements Serializable{
 				i++;
 			}
 		}
-	}
+	}*/
 	
 	public List<Movie> topByOverallRating(int num){
 		movieList.sort(new OverallRatingSorter());

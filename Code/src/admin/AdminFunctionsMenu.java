@@ -2,6 +2,7 @@ package admin;
 
 import java.util.Scanner;
 import moblima.MenuTemplate;
+import movies.ListTopFiveMenu;
 
 public class AdminFunctionsMenu extends MenuTemplate{
 	private MenuTemplate nextMenu;
@@ -38,16 +39,16 @@ public class AdminFunctionsMenu extends MenuTemplate{
       
         switch(sel) {
         case 1: //edit showtimes
-        	nextMenu = new ShowtimeEditorMenu(this);
+        	nextMenu = new AdminShowtimeEditorMenu(this);
 			break;
 		case 2: //edit movies
-			//nextMenu = new MovieEditorMenu(this);
+			nextMenu = new AdminMovieEditorMenu(this);
 			break;
 		case 3: //configure system settings
-			//nextMenu = new ConfigureMenu(this);
+			nextMenu = new AdminConfigureMenu(this);
 			break;
 		case 4: //list top 5
-			//nextMenu = new ListTopFiveMenu(this);
+			nextMenu = new ListTopFiveMenu(this);
 			break;
 		case 5: //return
 			super.returnPrevious();

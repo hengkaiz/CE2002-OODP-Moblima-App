@@ -47,7 +47,6 @@ public class AdminMovieEditorMenu extends MenuTemplate{
 		case 4: //return
 			super.returnPrevious();
 			break;
-			
 		}
 		return nextMenu.run();
 	}
