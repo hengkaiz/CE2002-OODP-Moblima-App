@@ -3,7 +3,7 @@ package admin;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.text.SimpleDateFormat;
-//import java.util.Calendar;
+import java.util.Calendar;
 
 import moblima.SaveAndLoadDB;
 import cinema.*;
@@ -24,15 +24,9 @@ public class CinemaShowtimesAndMovieEditor {
 		this.cineplex = saveAndLoadDB.loadCineplex(this.cineplexNumber);
 	}
 	
-	/*ShowTime s = null;
-	ShowTimeDatabase db = new ShowTimeDatabase();
-	ArrayList<ShowTime> stdb = db.getShowTimes();
-	MovieDatabase mdb = new MovieDatabase();
-	ArrayList<Movie> msdb = mdb.getMovies();*/
-	
 	public void createCinemaShowtimesAndMovie(int cinemaNum) {
 		Scanner sc = new Scanner(System.in);
-		//SimpleDateFormat sdf = new SimpleDateFormat("dd/mm");
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM");
 		int sel=0, i=1;
 		Movie m = null;
 		ArrayList<String> movieTitles = mdb.getMovieTitlesList(); //only gets 'now showing' and 'preview' movies
@@ -60,12 +54,11 @@ public class CinemaShowtimesAndMovieEditor {
 			}
 			loop = false;
 		} catch (Exception e) {
-			System.out.printf("No such movie. Try Again.");
+			System.out.printf("Invalid movie. Try Again.");
 		}
         } while (loop);
 		
 		String movieTitle = movieTitles.get(sel-1);
-		i=0;
 		for(Movie movie : movieList){
 			if(movieTitle.equals(movie.getMovieTitle())) {
 				m = movie;
@@ -74,43 +67,36 @@ public class CinemaShowtimesAndMovieEditor {
 		}
 		
 		//get number of days from current
-		/*sc.nextLine(); //clear buffer
-		System.out.println("Enter date of new Showtime (dd/mm): ");
-		String dateInString = sc.nextLine();
-		Calendar dateST = sdf.parse(dateInString);*/
-		System.out.println("Enter number of days from current: ");
-		int numOfDaysFromCurrent = sc.nextInt();
-		
-		//get movie format
-		System.out.println("Choose Movie Format: ");
-		i = 1;
-		for(MovieFormat mf : MovieFormat.values()) {
-			System.out.println(i + ". " + mf.getName());
-			i++;
+		int numOfDaysFromCurrent=0;
+		Calendar date = Calendar.getInstance();
+		//prints out dates of next 5 days
+		System.out.println("Select Date:");
+		for(i=0; i<5; i++) {
+			String output = sdf.format(date.getTime()); //converts it to dd/MM format
+			System.out.printf("%d. %s\n", i+1, output);
+			date.add(Calendar.DAY_OF_MONTH, 1);
 		}
 		loop = true;
-        do {
-        try {
-    		System.out.println("Select movie format:"); 
-    		//need exception in case they enter the movie string instead?
-    		sel = sc.nextInt();
-			if (sel<1 || sel>i) { //check exceptions?
+		do {
+		try {
+			System.out.print("Please select Date (-1 to return): ");
+			numOfDaysFromCurrent = sc.nextInt();
+			if (numOfDaysFromCurrent == -1) {
+				return;
+			}
+			if(numOfDaysFromCurrent<1 || numOfDaysFromCurrent>6) {
 				throw new Exception();
 			}
 			loop = false;
 		} catch (Exception e) {
-			System.out.printf("No such format. Try Again.");
+			System.out.println("Invalid Date. Try Again.");
 		}
-        } while (loop);
+		} while (loop);
 		
-        MovieFormat movieFormat = null;
-		for(MovieFormat mf : MovieFormat.values()) { //go through array until find the one equal to user input
-			if(mf.ordinal() == sel-1){
-				movieFormat = mf;
-				break;
-			}
-		}
+		//get movie format
+		MovieFormat movieFormat = movieFormatSelection();
 		
+		//create new ST object
 		this.sT = new ShowTime(timing, m, numOfDaysFromCurrent, this.cineplexNumber, cinemaNum, movieFormat);
 		stdb.addSTToDB(this.sT);
 		
@@ -141,7 +127,7 @@ public class CinemaShowtimesAndMovieEditor {
 			}
 			loop = false;
 		} catch (Exception e) {
-			System.out.printf("No such movie. Try Again.");
+			System.out.printf("Invalid movie. Try Again.");
 		}
         } while (loop);
 		
@@ -178,7 +164,7 @@ public class CinemaShowtimesAndMovieEditor {
 				}
 				loop = false;
 			} catch (Exception e) {
-				System.out.printf("No such showtime. Try Again.");
+				System.out.printf("Invalid showtime. Try Again.");
 			}
 	        } while (loop);
 
@@ -271,7 +257,7 @@ public class CinemaShowtimesAndMovieEditor {
 				}
 				loop = false;
 			} catch (Exception e) {
-				System.out.printf("No such showtime. Try Again.");
+				System.out.printf("Invalid showtime. Try Again.");
 			}
 	        } while (loop);
 			
@@ -326,7 +312,7 @@ public class CinemaShowtimesAndMovieEditor {
 						}
 						loop = false;
 					} catch (Exception e) {
-						System.out.printf("No such movie. Try Again.");
+						System.out.printf("Invalid movie. Try Again.");
 					}
 			        } while (loop);
 
@@ -382,7 +368,7 @@ public class CinemaShowtimesAndMovieEditor {
 			}
 			loop = false;
 		} catch (Exception e) {
-			System.out.printf("No such showtime. Try Again.");
+			System.out.printf("Invalid showtime. Try Again.");
 		}
         } while (loop);
 
@@ -415,7 +401,7 @@ public class CinemaShowtimesAndMovieEditor {
 			}
 			loop =false;
 		} catch (Exception e) {
-			System.out.println("No such cinema number. Try Again.");
+			System.out.println("Invalid cinema number. Try Again.");
 		}
         } while (loop);
 		
@@ -443,7 +429,7 @@ public class CinemaShowtimesAndMovieEditor {
 			}
 			loop = false;
 		} catch (Exception e) {
-			System.out.printf("No such format. Try Again.");
+			System.out.printf("Invalid format. Try Again.");
 		}
         } while (loop);
 		
