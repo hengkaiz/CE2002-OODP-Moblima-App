@@ -5,7 +5,7 @@ import cinema.*;
 import java.time.LocalDateTime;
 import java.text.SimpleDateFormat;
 
-//format: XXXXYYYYMMDDhhmm, X:cinema code
+//format: XXXYYYYMMDDhhmm, X:cinema code
 public class Transaction {
 	
 	public String yearToString() {
