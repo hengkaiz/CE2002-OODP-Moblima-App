@@ -19,7 +19,7 @@ public class UserChooseSeatsMenu extends MenuTemplate{
     }
 
     public MenuTemplate run(){
-        UserChooseSeatsApp userChooseSeatsApp = new UserChooseSeatsApp(selST);
+        UserChooseSeatsApp userChooseSeatsApp = new UserChooseSeatsApp(selST, super.getCineplexNum());
         Scanner sc = new Scanner(System.in);
         int sel = 0;
 

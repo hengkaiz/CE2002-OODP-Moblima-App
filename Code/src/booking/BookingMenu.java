@@ -14,7 +14,7 @@ public class BookingMenu extends MenuTemplate {
 
     public MenuTemplate run(){
         nextMenu = this;
-        //your booking code here
+
 
         return nextMenu.run();
     }
