@@ -374,6 +374,16 @@ public class SaveAndLoadDB {
 //		fff2.saveMovieDB(mdb);
 //		mdbcopy = fff2.loadMovieDB();
 //		mdbcopy.printMovieDetails();
+//		mdbcopy.printMovieDetails();
+//		mdbcopy.printMovieDetails();
+//		mdbcopy.printMovieDetails();
+//		mdbcopy.printMovieDetails();
+//		mdbcopy.printMovieDetails();
+//		mdbcopy.printMovieDetails();
+//		mdbcopy.printMovieDetails();
+//		mdbcopy.printMovieDetails();
+//		mdbcopy.printMovieDetails();
+//		mdbcopy.printMovieDetails();
 //		System.out.println(mdbcopy.getMovieTitlesList());
 		
 //		ShowTimeDatabase stdb = new ShowTimeDatabase();
