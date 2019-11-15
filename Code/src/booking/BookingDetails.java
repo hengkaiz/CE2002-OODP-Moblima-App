@@ -12,6 +12,7 @@ public class BookingDetails implements Serializable {
     private String cineplexName;
     private int cinemaNum;
     private String movieTitle;
+    private String date;
     private int showTime;
     private int[] seat;
     private double price;
@@ -26,11 +27,36 @@ public class BookingDetails implements Serializable {
         else if (cineplexNum == 2) cineplexName = "Bishan";
         else this.cineplexName = "Nex";
 
+        this.date = st.toStringGetDate();
         this.cinemaNum = st.getCinemaNum();
         this.movieTitle = st.getMovie();
         this.showTime = st.getTiming();
         this.seat = seat;
         this.price = price;
+        this.TID = TID;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public String getTID() {
+        return TID;
+    }
+
+    public void setTID(String TID) {
         this.TID = TID;
     }
 
