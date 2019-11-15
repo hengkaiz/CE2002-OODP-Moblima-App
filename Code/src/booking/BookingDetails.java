@@ -15,7 +15,9 @@ public class BookingDetails implements Serializable{
 	private double ticketPrice;
 	private String username;
 	private int[] Seat;
-	private String TID;
+	private String TID;                                                           
+	private int cineplexNum;
+	private int cinemaNum;
 
 	 //name, mobile, email, ID, showtime, seatno, price	
 	public BookingDetails(String username, ShowTime st, int[] seat, TicketPriceCalculator calculator) {
@@ -26,69 +28,86 @@ public class BookingDetails implements Serializable{
 		//showtime = st;
 		//ticketPrice = price;
 	}
-	
-	//getting functions
-	public String getuserName() {
-		return this.username;
+
+	public String getCineplexNum() {
+		if(this.cineplexNum == 1) return "Jurong Point";
+		else if(this.cineplexNum == 2) return "Bishan";
+		else return "Nex";
 	}
-	
-	public String getmoviegoerName() {
-		return this.moviegoerName;
+
+	public void setCineplexNum(int cineplexNum) {
+		this.cineplexNum = cineplexNum;
 	}
-	
-	public int getmobileNumber() {
-		return this.mobileNumber;
+
+	public String getMoviegoerName() {
+		return moviegoerName;
 	}
-	
-	public String getemailAddress() {
-		return this.emailAddress;
-	}
-	
-	public ShowTime getshowtime(ShowTime st) {
-		return st;
-	}
-	
-	public double getticketPrice() {
-		return ticketPrice;
-	}
-	
-	public int[] getSeat(int[] seat) {
-		return seat;
-	}
-	
-	public String getTID() {
-		return TID;
-	}
-	//setting functions
-	public void setuserName(String username) { 
-		this.username = username;
-	}
-	
-	public void setmoviegoerName(String moviegoerName) {
+
+	public void setMoviegoerName(String moviegoerName) {
 		this.moviegoerName = moviegoerName;
 	}
-	
-	public void setmobileNumber(int mobileNumber) {
+
+	public int getMobileNumber() {
+		return mobileNumber;
+	}
+
+	public void setMobileNumber(int mobileNumber) {
 		this.mobileNumber = mobileNumber;
 	}
-	
-	public void setemailAddress(String emailAddress) {
+
+	public String getEmailAddress() {
+		return emailAddress;
+	}
+
+	public void setEmailAddress(String emailAddress) {
 		this.emailAddress = emailAddress;
 	}
 
-	public void setshowtime(ShowTime st) {
-		this.showtime = st;
+	public ShowTime getShowtime() {
+		return showtime;
 	}
-	
-	public void setticketPrice(double ticketPrice) {
+
+	public void setShowtime(ShowTime showtime) {
+		this.showtime = showtime;
+	}
+
+	public double getTicketPrice() {
+		return ticketPrice;
+	}
+
+	public void setTicketPrice(double ticketPrice) {
 		this.ticketPrice = ticketPrice;
 	}
-	
-	public void setSeat(int[] seat) {
-		this.Seat = seat; 
+
+	public String getUsername() {
+		return username;
 	}
-	
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public int[] getSeat() {
+		return Seat;
+	}
+
+	public void setSeat(int[] seat) {
+		Seat = seat;
+	}
+
+	public String getTID() {
+		return TID;
+	}
+
 	public void setTID(String TID) {
 		this.TID = TID;
+	}
+
+	public int getCinemaNum() {
+		return cinemaNum;
+	}
+
+	public void setCinemaNum(int cinemaNum) {
+		this.cinemaNum = cinemaNum;
 	}
 }
