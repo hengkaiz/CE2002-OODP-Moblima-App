@@ -14,10 +14,12 @@ public class UserSearchApp {
     private SaveAndLoadDB saveAndLoadDB = new SaveAndLoadDB();
     private ShowTime selST;
     private ArrayList<ShowTime> copyOfShowTime;
+    private int cineplexNumber;
 
-    public UserSearchApp(){
+    public UserSearchApp(int cineplexNumber){
+        this.cineplexNumber = cineplexNumber;
         mdb = saveAndLoadDB.loadMovieDB();
-        stdb = saveAndLoadDB.loadShowTimeDB();
+        stdb = saveAndLoadDB.loadShowTimeDB(this.cineplexNumber);
     }
 
     public ShowTime SearchByMovie() {

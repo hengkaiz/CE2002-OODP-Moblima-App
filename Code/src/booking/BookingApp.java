@@ -1,30 +1,34 @@
 package booking;
 
-import cinema.*;
-import movies.*;
-import user.*;
+import cinema.ShowTime;
+import moblima.SaveAndLoadDB;
 
-import java.util.Scanner;
+import java.util.ArrayList;
 
-public class BookingApp{
-	public static void main(String[] args) {
-		BookingDatabase bd = new BookingDatabase();
-		UserDatabase udb = new UserDatabase();
-		TicketPriceCalculator tpc = new TicketPriceCalculator();
-		HolidayDatabase hols = new HolidayDatabase();
-		User user; 
-		ShowTime st;
-		int[] seat;
-		
-		
-		Scanner sc = new Scanner(System.in);
-		
-		System.out.println("Enter username: ");
-		String username = sc.nextLine();
-		
-		//user database, username, user, tpc, st, holiday, seat
-		//bd.addNewBooking(udb, username, user, tpc, st, hols, seat);
-		
-	}
+public class BookingApp {
+    private SaveAndLoadDB saveAndLoadDB;
+    private BookingDatabase bdb;
+    private String username;
+    private ShowTime st;
+    private int[] seat;
+    private ArrayList<BookingDetails>  bookinglist;
 
+    public BookingApp(String username, ShowTime st,int[] seat){
+        bdb = saveAndLoadDB.loadBookingDB();
+        this.username = username;
+        this.st = st;
+        this.seat = seat;
+    }
+
+    public void getBooking(){
+        bookinglist = bdb.getBookingDetails(username, st, seat);
+
+        for (int i = 0; i < bookinglist.size(); i++) {
+            System.out.println("Hello " + username + ", here are your current bookings.");
+            System.out.println(bookinglist.get(i).getCineplexNum() + " - " + bookinglist.get(i).getCinemaNum());
+            System.out.println("Movie: " + bookinglist.get(i).getShowtime().getMovie());
+            System.out.println("Showtime: " + bookinglist.get(i).getShowtime().getTiming());
+            System.out.println("Seats chosen: " + bookinglist.get(i).getSeat()+ "\n");
+        }
+    }
 }
