@@ -54,12 +54,11 @@ public class BookingDatabase extends UserDatabase implements Serializable{
 		}
 
 		details.setmoviegoerName(name);
-		details.setshowtime(st);
-		details.setemailAddress(email);
-		details.setmobileNumber(mobile);
-		details.setshowtime(st);
+		details.setShowtime(st);
+		details.setEmailAddress(email);
+		details.setMobileNumber(mobile);
 		details.setSeat(seat);
-		details.setticketPrice(price);
+		details.setTicketPrice(price);
 		details.setTID(TID.makeTID(username, cinema));
 
 		BookingDetailsList.add(details);
