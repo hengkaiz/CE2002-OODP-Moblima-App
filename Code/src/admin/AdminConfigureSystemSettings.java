@@ -1,21 +1,24 @@
 package admin;
 
 import java.util.Scanner;
+import moblima.SaveAndLoadDB;
 import movies.*;
 
-public class ConfigureSystemSettings {
+public class AdminConfigureSystemSettings {
+	private SaveAndLoadDB saveAndLoadDB = new SaveAndLoadDB();
+	private HolidayDatabase hdb;
+	//private TicketPriceDB tpdb;
+	private TicketPriceCalculator ticketPrice;
+	
 
-	/*public ConfigureSystemSettings() {
-		// TODO Auto-generated constructor stub
+	public AdminConfigureSystemSettings() {
+		this.hdb = saveAndLoadDB.loadHolidayDB();
+		//this.tpdb = saveAndLoadDBTick.loadTicketPrice();
 	}
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-	}*/
 	
-	Scanner sc = new Scanner(System.in);
-	
-	public void updateTicketPrice(TicketPriceCalculator ticketPrice) {
+	public void updateTicketPrice() {
+		Scanner sc = new Scanner(System.in);
+		
 		int updateChoice=0;
 		do {
 			//print current prices
@@ -39,9 +42,21 @@ public class ConfigureSystemSettings {
 			System.out.println("5. Change Gold Class Surcharge");
 			System.out.println("6. Change 3D Surcharge");
 			System.out.println("7. Change Blockbuster Surcharge");
-			System.out.println("8. Exit");
-			
-			updateChoice = sc.nextInt();
+			System.out.println("8. Return");
+			boolean loop = true;
+	        do {
+	        try {
+	    		System.out.println("Please enter your choice: ");
+	    		updateChoice = sc.nextInt();
+	    		if (updateChoice<1 || updateChoice>8) { //check exceptions?
+					throw new Exception();
+				}
+				loop = false;
+			} catch (Exception e) {
+				System.out.printf("Invalid choice. Try Again.");
+			}
+	        } while (loop);
+
 			switch(updateChoice) {
 			case 1: //change base price
 				System.out.println("Enter new Base Price: ");
@@ -91,10 +106,14 @@ public class ConfigureSystemSettings {
 				break;
 			}
 		}while(updateChoice != 8);
+		//update ticketpriceDB
+		//saveAndLoadDB.saveTicketPrice(tpdb);
 	}
 	
-	public void updateHolidays(HolidayDatabase holidayDB) {
-		holidayDB.printHolidays();
+	public void updateHolidays() {
+		Scanner sc = new Scanner(System.in);
+		
+		hdb.printHolidays();
 		
 		int updateChoice = 0;
 		do {
@@ -102,15 +121,27 @@ public class ConfigureSystemSettings {
 			System.out.println("What would you like to do?");
 			System.out.println("1. Add Holiday");
 			System.out.println("2. Remove Holiday");
-			System.out.println("3. Exit");
+			System.out.println("3. Return");
+			boolean loop = true;
+	        do {
+	        try {
+	    		System.out.println("Please enter your choice: ");
+	    		updateChoice = sc.nextInt();
+	    		if (updateChoice<1 || updateChoice>3) { //check exceptions?
+					throw new Exception();
+				}
+				loop = false;
+			} catch (Exception e) {
+				System.out.printf("Invalid choice. Try Again.");
+			}
+	        } while (loop);
 			
-			updateChoice = sc.nextInt();
 			switch(updateChoice) {
 			case 1: //add holiday
-				holidayDB.addHoliday();
+				hdb.addHoliday();
 				break;
 			case 2: //remove holiday
-				holidayDB.removeHoliday();
+				hdb.removeHoliday();
 				break;
 			case 3: //exit
 				break;
@@ -118,10 +149,18 @@ public class ConfigureSystemSettings {
 				break;
 			}
 		}while(updateChoice != 3);
+		saveAndLoadDB.saveHolidayDB(hdb);
 	}
 	
-	public void resetSettings(SystemSettings ss, TicketPriceCalculator ticketPrice) {
-		ss.initTicketPrice(ticketPrice);
-		System.out.println("resetted");
+	public void resetSettings() {
+		ticketPrice.setBasePrice(8.00);
+		ticketPrice.setWeekendOrPHSurcharge(2.00);
+		ticketPrice.setAgeDiscount(2.00);
+		ticketPrice.setPlatinumSurcharge(5.00);
+		ticketPrice.setGoldClassSurcharge(4.00);
+		ticketPrice.setThreeDimensionMovieSurcharge(3.00);
+		ticketPrice.setBlockbusterMovieSurcharge(2.00);
+		System.out.println("System Settings Resetted");
+		//saveAndLoadDB.saveTicketPrice(tpdb);
 	}
 }
