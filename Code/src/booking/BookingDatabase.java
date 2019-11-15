@@ -3,9 +3,10 @@ import cinema.*;
 import movies.*;
 import user.*;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class BookingDatabase extends UserDatabase{
+public class BookingDatabase extends UserDatabase implements Serializable{
 	 private ArrayList<BookingDetails> BookingDetailsList = new ArrayList<BookingDetails>();
 	 private ArrayList<BookingDetails> copybook;
 	 

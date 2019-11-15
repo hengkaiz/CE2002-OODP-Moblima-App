@@ -1,9 +1,10 @@
 package cinema;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Cineplex {
+public class Cineplex implements Serializable{
     private ArrayList<Cinema> cinemas;
     private String cineplexName;
     private String cineplexCode;

@@ -1,15 +1,17 @@
 package booking;
 
+import java.io.Serializable;
+
 import cinema.*;
 import user.*;
 import movies.*;
 
 
-public class BookingDetails {
+public class BookingDetails implements Serializable{
 	private String moviegoerName; 
 	private int mobileNumber;
 	private String emailAddress;
-	ShowTime showtime;
+	private ShowTime showtime;
 	private double ticketPrice;
 	private String username;
 	private int[] Seat;

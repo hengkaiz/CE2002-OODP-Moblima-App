@@ -1,20 +1,20 @@
 package movies;
-//comment
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.YearMonth;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class HolidayDatabase {
+public class HolidayDatabase implements Serializable{
 	private ArrayList<LocalDate> holidays = new ArrayList<LocalDate>();
 	
 	public ArrayList<LocalDate> getHolidays() {
 		return holidays;
 	}
 	
-	Scanner sc = new Scanner(System.in);
-	
 	public LocalDate createDate() {
+		Scanner sc = new Scanner(System.in);
+		
 		System.out.print("Enter year: ");
 		int yearChosen = sc.nextInt();
 		
@@ -49,6 +49,7 @@ public class HolidayDatabase {
 	}
 	
 	public void removeHoliday() {
+		Scanner sc = new Scanner(System.in);
 		System.out.println("Choose the holiday to remove: ");
 		int i=1;
 		for(LocalDate date : holidays) {
