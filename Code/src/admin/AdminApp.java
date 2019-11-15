@@ -10,7 +10,7 @@ public class AdminApp {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		AdminDatabase db = new AdminDatabase();
-		AdminLogin adminLogin = new AdminLogin();
+		AdminLoginApp adminLogin = new AdminLoginApp();
 		CinemaShowtimesAndMovieEditor csme = new CinemaShowtimesAndMovieEditor();
 		MovieListingEditor mle = new MovieListingEditor();
 		ConfigureSystemSettings css = new ConfigureSystemSettings();

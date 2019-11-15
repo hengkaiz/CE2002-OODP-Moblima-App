@@ -4,9 +4,14 @@ import java.util.Scanner;
 import java.lang.Object;
 
 public class ShowtimeEditorApp {
+	private SaveAndLoadDB saveAndLoadDB = new SaveAndLoadDB();
+	private int cineplexNum;
+	
+	
 
-	/*public ShowtimeEditorApp() {
-		// TODO Auto-generated constructor stub
+	public ShowtimeEditorApp(int cineplexNum) {
+		this.cineplexNum = cineplexNum;
+		
 	}
 
 	public static void main(String[] args) {
@@ -16,7 +21,6 @@ public class ShowtimeEditorApp {
 	Scanner sc = new Scanner(System.in);
 	
 	public void edit(CinemaShowtimesAndMovieEditor csme) {
-		//CinemaShowtimesAndMovieEditor csme = new CinemaShowtimesAndMovieEditor();
 		int editChoice = 0;
 		do {
 			System.out.println("1. Create");
