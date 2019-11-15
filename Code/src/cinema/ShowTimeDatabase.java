@@ -10,6 +10,7 @@ import java.util.ArrayList;
 public class ShowTimeDatabase extends MovieDatabase implements Serializable{
     private ArrayList<ShowTime> showtimelist = new ArrayList<ShowTime>();
     private ArrayList<ShowTime> copylist;
+    private int forCinemaNumber;
 
     public ShowTimeDatabase(){
         showtimelist.add(new ShowTime(1200, super.getMovies().get(0), 1, 6, MovieFormat.TWO_DIMENSION));

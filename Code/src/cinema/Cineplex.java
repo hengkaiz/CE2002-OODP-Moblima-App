@@ -8,9 +8,12 @@ public class Cineplex {
     private String cineplexName;
     private String cineplexCode;
     private int cineplexNumber;
-    private ShowTimeDatabase showTimeDataBase;
+
     
-    public Cineplex() {
+    public int getCineplexNumber() {
+		return cineplexNumber;
+	}
+	public Cineplex() {
     	Scanner sc = new Scanner(System.in);
     	
     	System.out.println("Enter cineplex name");
@@ -21,8 +24,6 @@ public class Cineplex {
     	this.cineplexNumber=Integer.parseInt(this.cineplexCode);
     	
     	this.cinemas = new ArrayList<Cinema>();
-    	
-    	this.showTimeDataBase = new ShowTimeDatabase();
     }
     public void addCinemasToCineplex() {
     	Scanner sc = new Scanner(System.in);
@@ -47,9 +48,6 @@ public class Cineplex {
 	}
 	public String getCineplexCode() {
 		return cineplexCode;
-	}
-	public ShowTimeDatabase getShowTimeDataBase() {
-		return showTimeDataBase;
 	}
 	
 //	public static void main(String[] args) {
