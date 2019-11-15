@@ -252,7 +252,7 @@ public class SaveAndLoadDB {
         return null;
 	}
 	
-	public void saveCineplexDB(Cineplex cdb) {
+	public void saveCineplex(Cineplex cdb) {
 		try {
 			switch (cdb.getCineplexNumber()){
 			case 1: 
@@ -366,15 +366,15 @@ public class SaveAndLoadDB {
 	
 	
 	
-//	public static void main(String[] args) {
+	public static void main(String[] args) {
+		SaveAndLoadDB fff2 = new SaveAndLoadDB();
+		
 //		MovieDatabase mdb = new MovieDatabase();
 //		MovieDatabase mdbcopy = null;
-//		SaveAndLoadDB fff2 = new SaveAndLoadDB();
 //		fff2.saveMovieDB(mdb);
 //		mdbcopy = fff2.loadMovieDB();
 //		mdbcopy.printMovieDetails();
 //		System.out.println(mdbcopy.getMovieTitlesList());
-//	}
 		
 //		ShowTimeDatabase stdb = new ShowTimeDatabase();
 //		ShowTimeDatabase stdbcopy = null;
@@ -389,11 +389,31 @@ public class SaveAndLoadDB {
 //		System.out.println(adbcopy.getAdminList());
 		
 //		UserDatabase udb = new UserDatabase();
-//		UserDatabase udbcopy = new UserDatabase();
+//		UserDatabase udbcopy = null;
 //		fff2.saveUserDB(udb);
 //		udbcopy = fff2.loadUserDB();
 //		System.out.println(udbcopy.getUserList());
+	
+//		HolidayDatabase hdb = new HolidayDatabase();
+//		hdb.addHoliday();
+//		hdb.addHoliday();
+//		hdb.addHoliday();
+//		HolidayDatabase hdbcopy = null;
+//		fff2.saveHolidayDB(hdb);
+//		hdbcopy = fff2.loadHolidayDB();
+//		hdbcopy.printHolidays();
 		
+//		Cineplex c= new Cineplex();
+//		Cineplex ccopy = null;
+//		c.addCinemasToCineplex();
+//		fff2.saveCineplex(c);
+//		ccopy = fff2.loadCineplex(1);
+//		for (int i=0; i<ccopy.getCinemas().size();i++)
+//			System.out.println(ccopy.getCinemas().get(i).getCinemaNumber() + "..." + ccopy.getCinemas().get(i).getCode()+ "..." + ccopy.getCinemas().get(i).getType());
+//		
 		
-//	}
+//		BookingDatabase bdb = new BookingDatabase();
+//		BookingDatabase bdbcopy = null;
+		
+	}
 }
