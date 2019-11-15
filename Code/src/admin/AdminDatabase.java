@@ -32,10 +32,4 @@ public class AdminDatabase implements Serializable{
 	public ArrayList<AdminAccount> getAdminList(){
 		return this.adminList;
 	}
-
-	/*public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-	}*/
-
 }

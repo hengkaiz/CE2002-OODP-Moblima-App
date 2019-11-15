@@ -13,6 +13,7 @@ public class AdminLoginMenu extends MenuTemplate{
 	public MenuTemplate run() {
 		Scanner sc = new Scanner(System.in);
 		AdminLoginApp adminLoginApp = new AdminLoginApp();
+		
 		System.out.println("Enter ID");
 		String ID = sc.nextLine();
 		System.out.println("Enter Password");

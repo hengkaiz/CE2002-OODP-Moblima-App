@@ -68,7 +68,7 @@ public class AdminMovieEditor {
 			loop = true;
 	        do {
 	        try {
-	    		System.out.println("Please enter selection:"); 
+	    		System.out.println("Please enter your choice:"); 
 	    		//need exception in case they enter the movie string instead?
 	    		updateChoice = sc.nextInt();
 				if (updateChoice<1 || updateChoice>6) { //check exceptions?
@@ -99,7 +99,7 @@ public class AdminMovieEditor {
 				loop = true;
 		        do {
 		        try {
-		    		System.out.println("Please enter selection:"); 
+		    		System.out.println("Please enter your choice:"); 
 		    		//need exception in case they enter the movie string instead?
 		    		castChoice = sc.nextInt();
 					if (castChoice<1 || castChoice>3) { //check exceptions?
@@ -152,7 +152,7 @@ public class AdminMovieEditor {
 				loop = true;
 		        do {
 		        try {
-		    		System.out.println("Please enter selection:"); 
+		    		System.out.println("Please enter your choice:"); 
 		    		//need exception in case they enter the movie string instead?
 		    		directorChoice = sc.nextInt();
 					if (directorChoice<1 || directorChoice>3) { //check exceptions?
@@ -199,13 +199,28 @@ public class AdminMovieEditor {
 				System.out.println(selectedMovie.getMovieTitle() + " Overall Rating updated");
 				break;
 			case 5: //update movie status
+				int statusChoice=0;
 				System.out.println("Choose new status for " + selectedMovie.getMovieTitle() + " :");
 				i=1;
 				for(MovieStatus status : MovieStatus.values()) {
 					System.out.println(i + ". " + status.getName());
 					i++;
 				}
-				int statusChoice = sc.nextInt();
+				loop = true;
+		        do {
+		        try {
+		    		System.out.println("Please enter your choice:"); 
+		    		//need exception in case they enter the movie string instead?
+		    		statusChoice = sc.nextInt();
+					if (statusChoice<1 || statusChoice>i) { //check exceptions?
+						throw new Exception();
+					}
+					loop = false;
+				} catch (Exception e) {
+					System.out.printf("Invalid choice. Try Again.");
+				}
+		        } while (loop);
+
 				for(MovieStatus status : MovieStatus.values()) {				//go through array until find the one equal to user input
 					if(status.ordinal()==statusChoice-1){
 						selectedMovie.setStatus(status);
@@ -221,7 +236,7 @@ public class AdminMovieEditor {
 		} while(updateChoice != 6);
 		saveAndLoadDB.saveMovieDB(mdb);
 	}
-	public void removeMovieListing() { //remove by setting status to "END_OFSHOWING"		
+	public void removeMovieListing() { 		
 		Scanner sc = new Scanner(System.in);
 		int i=0;
 		
@@ -236,7 +251,7 @@ public class AdminMovieEditor {
 		boolean loop = true;
         do {
         try {
-    		System.out.println("Please enter selection:"); 
+    		System.out.println("Please enter your choice:"); 
     		//need exception in case they enter the movie string instead?
     		choice = sc.nextInt();
 			if (choice<1 || choice>3) { //check exceptions?
@@ -265,7 +280,7 @@ public class AdminMovieEditor {
 			loop = true;
 	        do {
 	        try {
-	    		System.out.println("Please enter selection:"); 
+	    		System.out.println("Please enter your choice:"); 
 	    		//need exception in case they enter the movie string instead?
 	    		updateMovieChoice = sc.nextInt();
 				if (updateMovieChoice<1 || updateMovieChoice>i) { //check exceptions?

@@ -13,8 +13,8 @@ public class AdminLoginApp {
 
 	public boolean loginCheck(String id, String password) {
 		ArrayList<AdminAccount> adminList = adb.getAdminList();
-		for(int i=0; i < adminList.size(); i++) {
-			if(id.equals(adminList.get(i).getID()) && password.equals(adminList.get(i).getPassword())){ 
+		for(AdminAccount admin : adminList) {
+			if(id.equals(admin.getID()) && password.equals(admin.getPassword())){ 
 				//account exists
 				return true;
 			}

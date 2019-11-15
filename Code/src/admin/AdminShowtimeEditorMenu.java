@@ -22,8 +22,9 @@ public class AdminShowtimeEditorMenu extends MenuTemplate{
 		boolean loop = true;
 		do {
 			try {
+				System.out.println("Please enter your choice:");
 				sel = sc.nextInt();
-				if (sel < 0 || sel > 4) { //check exceptions?
+				if (sel < 1 || sel > 4) { //check exceptions?
 					throw new Exception();
 				}
 				loop = false;

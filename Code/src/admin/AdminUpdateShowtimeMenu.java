@@ -24,7 +24,7 @@ public class AdminUpdateShowtimeMenu extends MenuTemplate{
         	System.out.println("Please enter your choice:");
 			sel = sc.nextInt();
 			if (sel<1 || sel>3) {
-				throw new Exception("Error, Input Choice Only From 1-3");
+				throw new Exception("");
 			}
 			loop=false;
 		} catch (Exception e) {

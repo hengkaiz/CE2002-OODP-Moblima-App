@@ -19,13 +19,13 @@ public class AdminCineplexMenu extends MenuTemplate{
         System.out.println("2. Bishan");
         System.out.println("3. Nex");
         System.out.println("4. Return");
-        System.out.print("Please enter your choice: ");
         boolean loop = true;
         do {
             try {
+                System.out.print("Please enter your choice: ");
                 sel = sc.nextInt();
-                if (sel<0 || sel>4) { //check exceptions?
-                    throw new Exception("Error, Input Choice Only From 1-4");
+                if (sel<1 || sel>4) { //check exceptions?
+                    throw new Exception();
                 }
                 loop =false;
             } catch (Exception e) {

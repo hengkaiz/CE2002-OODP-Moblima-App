@@ -21,13 +21,13 @@ public class AdminFunctionsMenu extends MenuTemplate{
 		System.out.println("3. Configure System Settings");
 		System.out.println("4. List Top 5 Movies");
 		System.out.println("5. Return");
-		System.out.println("Please enter your choice: ");
         boolean loop = true;
         do {
         try {
+    		System.out.println("Please enter your choice: ");
 			sel = sc.nextInt();
 			if (sel<1 || sel>5) { //check exceptions?
-				throw new Exception("Error, Input Choice Only From 1-5");
+				throw new Exception();
 			}
 			loop =false;
 		} catch (Exception e) {

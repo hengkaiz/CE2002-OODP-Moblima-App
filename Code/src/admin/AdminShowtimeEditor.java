@@ -46,7 +46,7 @@ public class AdminShowtimeEditor {
         boolean loop = true;
         do {
         try {
-    		System.out.println("Select movie (enter movie number):"); 
+    		System.out.println("Please enter your choice:"); 
     		//need exception in case they enter the movie string instead?
 			sel = sc.nextInt();
 			if (sel<1 || sel>i) { //check exceptions?
@@ -79,7 +79,7 @@ public class AdminShowtimeEditor {
 		loop = true;
 		do {
 		try {
-			System.out.print("Please select Date (-1 to return): ");
+			System.out.print("Please enter your choice (-1 to return): ");
 			numOfDaysFromCurrent = sc.nextInt();
 			if (numOfDaysFromCurrent == -1) {
 				return;
@@ -119,7 +119,7 @@ public class AdminShowtimeEditor {
         boolean loop = true;
         do {
         try {
-    		System.out.println("Select movie (enter movie number):"); 
+    		System.out.println("Please enter your choice:"); 
     		//need exception in case they enter the movie string instead?
 			sel = sc.nextInt();
 			if (sel<1 || sel>i) { //check exceptions?
@@ -154,7 +154,7 @@ public class AdminShowtimeEditor {
 			loop = true;
 	        do {
 	        try {
-	        	System.out.println("Choose showtime to update: (enter -1 to exit)"); 
+	        	System.out.println("Please enter your choice (enter -1 to return):"); 
 				chooseST = sc.nextInt();
 				if(chooseST == -1) {
 					break;
@@ -182,7 +182,7 @@ public class AdminShowtimeEditor {
 				loop = true;
 		        do {
 		        try {
-		        	System.out.println("Please enter selection: "); 
+		        	System.out.println("Please enter your choice:"); 
 		        	updateChoice = sc.nextInt();
 					if (updateChoice<1 || updateChoice>4) { //check exceptions?
 						throw new Exception();
@@ -209,7 +209,7 @@ public class AdminShowtimeEditor {
 					sT.setMovieformat(movieFormatSelection());
 					System.out.println(sT.getMovie() + " now showing in " + sT.getMovieformat().getName());
 					break;
-				case 4: //exit
+				case 4: //return
 					break;
 				default:
 					break;
@@ -247,7 +247,7 @@ public class AdminShowtimeEditor {
 			boolean loop = true;
 	        do {
 	        try {
-	        	System.out.println("Choose showtime to update: (enter -1 to exit)"); 
+	        	System.out.println("Please enter your choice (enter -1 to return):"); 
 				chooseST = sc.nextInt();
 				if(chooseST == -1) {
 					break;
@@ -304,7 +304,7 @@ public class AdminShowtimeEditor {
 					loop = true;
 			        do {
 			        try {
-						System.out.println("Enter choice for new movie showing at " + sT.timeToString());
+						System.out.println("Please enter your choice: ");
 			    		//need exception in case they enter the movie string instead?
 						newMovieChoice = sc.nextInt();
 						if (newMovieChoice<1 || newMovieChoice>i) { //check exceptions?
@@ -332,7 +332,7 @@ public class AdminShowtimeEditor {
 					sT.setMovieformat(movieFormatSelection());
 					System.out.println(sT.getMovie() + " now showing in " + sT.getMovieformat().getName());
 					break;
-				case 5: //exit
+				case 5: //return
 					break;
 				default:
 					break;
@@ -357,7 +357,7 @@ public class AdminShowtimeEditor {
 		boolean loop = true;
         do {
         try {
-        	System.out.println("Which Showtime do you want to remove? (-1 to exit)");
+        	System.out.println("Please enter your choice (-1 to return):");
     		//need exception in case they enter the movie string instead?
         	stChoice = sc.nextInt();
     		if(stChoice == -1) {
@@ -394,7 +394,7 @@ public class AdminShowtimeEditor {
         boolean loop = true;
         do {
         try {
-        	System.out.println("Please enter Cinema number: ");
+        	System.out.println("Please enter your choice:");
 			sel = sc.nextInt();
 			if (sel<1 || sel>i) { //check exceptions?
 				throw new Exception();
@@ -421,7 +421,7 @@ public class AdminShowtimeEditor {
 		boolean loop = true;
         do {
         try {
-    		System.out.println("Select movie format:"); 
+    		System.out.println("Please enter your choice:"); 
     		//need exception in case they enter the movie string instead?
     		sel = sc.nextInt();
 			if (sel<1 || sel>i) { //check exceptions?

@@ -14,20 +14,20 @@ public class AdminMainMenu extends MenuTemplate{
 		Scanner sc = new Scanner(System.in);
 		int sel=0;
 		
-		System.out.println("---Admin Menu---");
+		System.out.println("---Admin Main Menu---");
 		System.out.println("1. Login");
 		System.out.println("2. Return");
-		System.out.println("Please enter your choice: ");
         boolean loop = true;
         do {
         try {
+    		System.out.println("Please enter your choice: ");
 			sel = sc.nextInt();
 			if (sel<1 || sel>2) { //check exceptions?
 				throw new Exception();
 			}
 			loop = false;
 		} catch (Exception e) {
-			System.out.println("Selection Invalid. Try Again.");
+			System.out.println("Invalid choice. Try Again.");
 		}
         } while (loop);
         System.out.println();
