@@ -15,7 +15,6 @@ public class BookingDetails {
 	private int[] Seat;
 	private String TID;
 
-	 //name, mobile, email, ID, showtime, seatno, price	
 	public BookingDetails(String username, ShowTime st, int[] seat, TicketPriceCalculator calculator) {
 		//username = user;
 		//moviegoerName = name;
@@ -57,6 +56,7 @@ public class BookingDetails {
 	public String getTID() {
 		return TID;
 	}
+	
 	//setting functions
 	public void setuserName(String username) { 
 		this.username = username;
