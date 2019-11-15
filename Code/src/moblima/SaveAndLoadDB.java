@@ -399,11 +399,16 @@ public class SaveAndLoadDB {
 //		System.out.println(adbcopy.getAdminList());
 		
 //		UserDatabase udb = new UserDatabase();
+//		udb.addUser("hk" , "123");
+//		udb.addUser("yxing" , "password");
+//		udb.addUser("munnie" , "mokmok");
+//		udb.addUser("hopet" , "ricky");
+//		udb.addUser("jor" , "nadroj");
 //		UserDatabase udbcopy = null;
 //		fff2.saveUserDB(udb);
 //		udbcopy = fff2.loadUserDB();
 //		System.out.println(udbcopy.getUserList());
-	
+//	
 //		HolidayDatabase hdb = new HolidayDatabase();
 //		hdb.addHoliday();
 //		hdb.addHoliday();
