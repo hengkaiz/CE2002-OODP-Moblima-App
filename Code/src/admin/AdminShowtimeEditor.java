@@ -9,7 +9,7 @@ import moblima.SaveAndLoadDB;
 import cinema.*;
 import movies.*;
 
-public class CinemaShowtimesAndMovieEditor {
+public class AdminShowtimeEditor {
 	private SaveAndLoadDB saveAndLoadDB = new SaveAndLoadDB();
 	private int cineplexNumber;
 	private MovieDatabase mdb;
@@ -17,14 +17,14 @@ public class CinemaShowtimesAndMovieEditor {
 	private Cineplex cineplex;
 	private ShowTime sT;
 	
-	CinemaShowtimesAndMovieEditor(int cineplexNumber){
+	public AdminShowtimeEditor(int cineplexNumber){
 		this.cineplexNumber = cineplexNumber;
 		this.mdb = saveAndLoadDB.loadMovieDB();
 		this.stdb = saveAndLoadDB.loadShowTimeDB(this.cineplexNumber);
 		this.cineplex = saveAndLoadDB.loadCineplex(this.cineplexNumber);
 	}
 	
-	public void createCinemaShowtimesAndMovie(int cinemaNum) {
+	public void createShowtimes(int cinemaNum) {
 		Scanner sc = new Scanner(System.in);
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM");
 		int sel=0, i=1;
@@ -104,7 +104,7 @@ public class CinemaShowtimesAndMovieEditor {
 		saveAndLoadDB.saveShowTimeDB(stdb, cineplexNumber);
 	}
 
-	private void updateByMovie() {
+	public void updateByMovie() {
 		Scanner sc = new Scanner(System.in);
 		int i=0, sel=0;
 		ArrayList<String> movieTitles = mdb.getMovieTitlesList();
@@ -219,7 +219,7 @@ public class CinemaShowtimesAndMovieEditor {
 		//update showtime database
 		saveAndLoadDB.saveShowTimeDB(stdb, cineplexNumber);
 	}
-	private void updateByDate() {
+	public void updateByDate() {
 		Scanner sc = new Scanner(System.in);
 		int i=0;
 		ArrayList<String> movieTitles = mdb.getMovieTitlesList();
@@ -343,7 +343,7 @@ public class CinemaShowtimesAndMovieEditor {
 		//update showtime database
 		saveAndLoadDB.saveShowTimeDB(stdb, cineplexNumber);
 	}
-	public void removeCinemaShowtimesAndMovie() {
+	public void removeShowtimes() {
 		Scanner sc = new Scanner(System.in);
 		int i=0;
 		ArrayList<ShowTime> stList = stdb.getShowTimes();

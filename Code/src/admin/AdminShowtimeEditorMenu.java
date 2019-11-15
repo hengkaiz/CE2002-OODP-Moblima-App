@@ -3,10 +3,10 @@ package admin;
 import java.util.Scanner;
 import moblima.MenuTemplate;
 
-public class ShowtimeEditorMenu extends MenuTemplate{
+public class AdminShowtimeEditorMenu extends MenuTemplate{
 	private MenuTemplate nextMenu;
 	
-	public ShowtimeEditorMenu(MenuTemplate previousMenu) {
+	public AdminShowtimeEditorMenu(MenuTemplate previousMenu) {
 		super(previousMenu);
 	}
 	
@@ -24,7 +24,7 @@ public class ShowtimeEditorMenu extends MenuTemplate{
 			try {
 				sel = sc.nextInt();
 				if (sel < 0 || sel > 4) { //check exceptions?
-					throw new Exception("Error, Input Choice Only From 1-4");
+					throw new Exception();
 				}
 				loop = false;
 			} catch (Exception e) {
@@ -32,17 +32,18 @@ public class ShowtimeEditorMenu extends MenuTemplate{
 			}
 		} while (loop);
 		nextMenu = this;
-		//ShowtimeEditorApp showtimeEditorApp = new ShowtimeEditorApp(super.getCineplexNum());
-		CinemaShowtimesAndMovieEditor csme = new CinemaShowtimesAndMovieEditor();
+		AdminShowtimeEditor stEditor = new AdminShowtimeEditor(super.getCineplexNum());
 
 		switch (sel) {
 			case 1: //create showtime
-				nextMenu = new CinemaSelectionMenu(super.getCineplexNum());
-				//csme.createCinemaShowtimesAndMovie(super.getCineplexNum());
+				int cinemaNum = stEditor.cinemaSelection();
+				stEditor.createShowtimes(cinemaNum);
 				break;
 			case 2: //update showtime
+				nextMenu = new AdminUpdateShowtimeMenu(this);
 				break;
 			case 3: //remove showtime
+				stEditor.removeShowtimes();
 				break;
 			case 4: //return
 				super.returnPrevious();
