@@ -37,7 +37,8 @@ public class ShowtimeEditorMenu extends MenuTemplate{
 
 		switch (sel) {
 			case 1: //create showtime
-				csme.createCinemaShowtimesAndMovie(super.getCineplexNum());
+				nextMenu = new CinemaSelectionMenu(super.getCineplexNum());
+				//csme.createCinemaShowtimesAndMovie(super.getCineplexNum());
 				break;
 			case 2: //update showtime
 				break;
