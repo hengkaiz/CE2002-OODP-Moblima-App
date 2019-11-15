@@ -5,7 +5,7 @@ import cinema.*;
 import java.time.LocalDateTime;
 import java.text.SimpleDateFormat;
 
-//format: XXXXYYYYMMDDhhmm, X:cinema code
+//format: XXXYYYYMMDDhhmm, X:cinema code
 public class Transaction {
 	
 	public String yearToString() {
@@ -54,10 +54,9 @@ public class Transaction {
 	}
 	
 	public String makeTID(String username, Cinema cinema) {
-		String code = Integer.toString(cinema.getCode());
 		String TID = null;
 		
-		TID.concat(code);
+		TID.concat(cinema.getCode());
 		TID.concat(yearToString());
 		TID.concat(monthToString());
 		TID.concat(dayToString());

@@ -19,7 +19,6 @@ public class BookingDetails implements Serializable{
 	private int cineplexNum;
 	private int cinemaNum;
 
-	 //name, mobile, email, ID, showtime, seatno, price	
 	public BookingDetails(String username, ShowTime st, int[] seat, TicketPriceCalculator calculator) {
 		//username = user;
 		//moviegoerName = name;
@@ -42,8 +41,33 @@ public class BookingDetails implements Serializable{
 	public String getMoviegoerName() {
 		return moviegoerName;
 	}
-
-	public void setMoviegoerName(String moviegoerName) {
+	
+	public String getemailAddress() {
+		return this.emailAddress;
+	}
+	
+	public ShowTime getshowtime(ShowTime st) {
+		return st;
+	}
+	
+	public double getticketPrice() {
+		return ticketPrice;
+	}
+	
+	public int[] getSeat(int[] seat) {
+		return seat;
+	}
+	
+	public String getTID() {
+		return TID;
+	}
+	
+	//setting functions
+	public void setuserName(String username) { 
+		this.username = username;
+	}
+	
+	public void setmoviegoerName(String moviegoerName) {
 		this.moviegoerName = moviegoerName;
 	}
 
@@ -93,10 +117,6 @@ public class BookingDetails implements Serializable{
 
 	public void setSeat(int[] seat) {
 		Seat = seat;
-	}
-
-	public String getTID() {
-		return TID;
 	}
 
 	public void setTID(String TID) {

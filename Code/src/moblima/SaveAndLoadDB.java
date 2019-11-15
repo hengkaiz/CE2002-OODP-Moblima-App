@@ -366,9 +366,9 @@ public class SaveAndLoadDB {
 	
 	
 	
-	public static void main(String[] args) {
-		SaveAndLoadDB fff2 = new SaveAndLoadDB();
-		
+//	public static void main(String[] args) {
+//		SaveAndLoadDB fff2 = new SaveAndLoadDB();
+//		
 //		MovieDatabase mdb = new MovieDatabase();
 //		MovieDatabase mdbcopy = null;
 //		fff2.saveMovieDB(mdb);
@@ -415,5 +415,5 @@ public class SaveAndLoadDB {
 //		BookingDatabase bdb = new BookingDatabase();
 //		BookingDatabase bdbcopy = null;
 		
-	}
+//	}
 }
