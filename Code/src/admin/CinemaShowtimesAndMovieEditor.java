@@ -2,21 +2,34 @@ package admin;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.lang.Object;
+import moblima.SaveAndLoadDB;
 import cinema.*;
 import movies.*;
 
 public class CinemaShowtimesAndMovieEditor {
-
-	Scanner sc = new Scanner(System.in);
-	ShowTime s = null;
+	private SaveAndLoadDB saveAndLoadDB = new SaveAndLoadDB();
+	private int cineplexNumber;
+	private MovieDatabase mdb;
+	private ShowTimeDatabase stdb;
+	private Cineplex cineplex;
+	
+	CinemaShowtimesAndMovieEditor(int cineplexNumber){
+		this.cineplexNumber = cineplexNumber;
+		this.mdb = saveAndLoadDB.loadMovieDB();
+		this.stdb = saveAndLoadDB.loadShowTimeDB(this.cineplexNumber);
+		this.cineplex = saveAndLoadDB.loadCineplex(this.cineplexNumber);
+	}
+	
+	/*ShowTime s = null;
 	ShowTimeDatabase db = new ShowTimeDatabase();
 	ArrayList<ShowTime> stdb = db.getShowTimes();
 	MovieDatabase mdb = new MovieDatabase();
-	ArrayList<Movie> msdb = mdb.getMovies();
+	ArrayList<Movie> msdb = mdb.getMovies();*/
 	
-	public void createCinemaShowtimesAndMovie(int cineplexNum) {
-		int i = 0;
+	public void createCinemaShowtimesAndMovie() {
+		
+		Scanner sc = new Scanner(System.in);
+		int i=0;
 		Movie m = null;
 		
 		System.out.println("Enter Timing (hhhh format):");
@@ -66,6 +79,7 @@ public class CinemaShowtimesAndMovieEditor {
 		db.addSTToDB(s);
 	}
 	public void updateCinemaShowtimesAndMovie() {
+		Scanner sc = new Scanner(System.in);
 		int i=0;
 		int selectChoice=0;
 		do {
@@ -103,6 +117,7 @@ public class CinemaShowtimesAndMovieEditor {
 		}while(selectChoice != 3);
 	}
 	private void updateByMovie(String movieTitle) {
+		Scanner sc = new Scanner(System.in);
 		int i=0;
 		ArrayList<ShowTime> stByMovie = db.searchByMovie(movieTitle);
 
@@ -172,6 +187,7 @@ public class CinemaShowtimesAndMovieEditor {
 		} while(chooseST != -1);
 	}
 	private void updateByDate(String date) {
+		Scanner sc = new Scanner(System.in);
 		int i=0;
 		ArrayList<ShowTime> stByDate = db.searchByDate(date); //get list of all the ST at that date
 		
@@ -258,6 +274,7 @@ public class CinemaShowtimesAndMovieEditor {
 		}while(chooseST != -1);
 	}
 	public void removeCinemaShowtimesAndMovie() {
+		Scanner sc = new Scanner(System.in);
 		int i=0;
 		ArrayList<ShowTime> stList = db.getShowTimes();
 		
@@ -295,5 +312,32 @@ public class CinemaShowtimesAndMovieEditor {
 		}
 		//no match found
 		return false;
+	}
+	
+	public int cinemaSelection() {
+		Scanner sc = new Scanner(System.in);
+		ArrayList<Cinema> cinemaList = cineplex.getCinemas();
+		int sel=0,i=1;
+		
+		System.out.println("---Select Cinema to create Showtime in---");
+		for(Cinema cinema : cinemaList) {
+			System.out.printf("%d. Cinema %d: %s\n", i, cinema.getCinemaNumber(), cinema.getType());
+			i++;
+		}
+        boolean loop = true;
+        do {
+        try {
+        	System.out.println("Please enter Cinema number: ");
+			sel = sc.nextInt();
+			if (sel<1 || sel>i) { //check exceptions?
+				throw new Exception();
+			}
+			loop =false;
+		} catch (Exception e) {
+			System.out.println("No such cinema number. Try Again.");
+		}
+        } while (loop);
+		
+        return (sel-1);
 	}
 }
