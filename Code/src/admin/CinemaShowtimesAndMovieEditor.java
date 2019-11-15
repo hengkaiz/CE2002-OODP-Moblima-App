@@ -15,7 +15,7 @@ public class CinemaShowtimesAndMovieEditor {
 	MovieDatabase mdb = new MovieDatabase();
 	ArrayList<Movie> msdb = mdb.getMovies();
 	
-	public void createCinemaShowtimesAndMovie() {
+	public void createCinemaShowtimesAndMovie(int cineplexNum) {
 		int i = 0;
 		Movie m = null;
 		
@@ -62,7 +62,7 @@ public class CinemaShowtimesAndMovieEditor {
 			}
 		}
 		
-		s = new ShowTime(timing, m, numOfDaysFromCurrent, cinemaNum, movieFormat);
+		s = new ShowTime(timing, m, numOfDaysFromCurrent, cineplexNum, cinemaNum, movieFormat);
 		db.addSTToDB(s);
 	}
 	public void updateCinemaShowtimesAndMovie() {

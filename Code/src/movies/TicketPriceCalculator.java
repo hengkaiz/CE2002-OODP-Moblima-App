@@ -17,7 +17,6 @@ public class TicketPriceCalculator {
 	private double blockbusterMovieSurcharge;
 	
 	public AgeGroup getAgeGroup(int age) {
-		
 		if (age<19 && age>0)
 			return AgeGroup.CHILD;
 		else if (age<66)

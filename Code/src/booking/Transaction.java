@@ -53,10 +53,10 @@ public class Transaction {
 		return minute;
 	}
 	
-	public String makeTID(String username, Cinema cinema) {
+	public String makeTID(String username, ShowTime st) {
 		String TID = null;
 		
-		TID.concat(cinema.getCode());
+		TID.concat(st.getCinemeCode());
 		TID.concat(yearToString());
 		TID.concat(monthToString());
 		TID.concat(dayToString());

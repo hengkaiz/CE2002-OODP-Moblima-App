@@ -38,16 +38,16 @@ public class AdminFunctionsMenu extends MenuTemplate{
       
         switch(sel) {
         case 1: //edit showtimes
-        	nextMenu = ShowtimeEditorMenu(this);
+        	nextMenu = new ShowtimeEditorMenu(this);
 			break;
 		case 2: //edit movies
-			nextMenu = MovieEditorMenu(this);
+			//nextMenu = new MovieEditorMenu(this);
 			break;
 		case 3: //configure system settings
-			nextMenu = ConfigureMenu(this);
+			//nextMenu = new ConfigureMenu(this);
 			break;
 		case 4: //list top 5
-			nextMenu = ListTopFiveMenu(this);
+			//nextMenu = new ListTopFiveMenu(this);
 			break;
 		case 5: //return
 			super.returnPrevious();

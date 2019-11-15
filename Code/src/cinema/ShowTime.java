@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.io.Serializable;
 
+import moblima.SaveAndLoadDB;
 import movies.Movie;
 
 public class ShowTime implements Comparable<ShowTime>, Serializable{
@@ -14,15 +15,32 @@ public class ShowTime implements Comparable<ShowTime>, Serializable{
     private Calendar date;
     private MovieFormat movieformat;
 
-    public ShowTime(int t, Movie m, int noOfDaysFromCurrent, int c, MovieFormat f){
+    public ShowTime(int t, Movie m, int noOfDaysFromCurrent, int cineplexNum, int cinemaNum, MovieFormat f){
         timing = t;
         movie = m;
         date = Calendar.getInstance(); //year, month, date
 		date.add(Calendar.DAY_OF_MONTH, noOfDaysFromCurrent); //add future movies
+
+		SaveAndLoadDB saveAndLoadDB = new SaveAndLoadDB();
+		Cineplex cdb = saveAndLoadDB.loadCineplex(cineplexNum);
+
+		for (Cinema c: cdb.getCinemas()){
+			if (c.getCinemaNumber() == cinemaNum){
+				this.assignedCinema = c;
+				break;
+			}
+		}
+
         seatplan = new SeatPlan();
         movieformat = f;
     }
     public ShowTime(){}
+
+    public void setCinemaNum(int num){
+    	this.assignedCinema.setCinemaNumber(num);
+	}
+
+    public String getCinemeCode(){ return this.assignedCinema.getCode();}
 
     public int getCinemaNum() {
 		return this.assignedCinema.getCinemaNumber();
@@ -32,7 +50,6 @@ public class ShowTime implements Comparable<ShowTime>, Serializable{
 		return this.assignedCinema.getType();
 	}
 
-	
 	public void setSeatplan(SeatPlan seatplan) {
 		this.seatplan = seatplan;
 	}

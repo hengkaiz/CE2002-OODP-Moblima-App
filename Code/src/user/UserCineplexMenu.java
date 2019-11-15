@@ -1,5 +1,6 @@
 package user;
 
+import booking.BookingMenu;
 import moblima.MenuTemplate;
 
 import java.util.Scanner;
@@ -43,7 +44,7 @@ public class UserCineplexMenu extends MenuTemplate {
 
             default:// go to search menu
                 super.setCineplexNum(sel);
-                nextMenu = new UserSearchMenu(this);
+                nextMenu = new BookingMenu(this);
                 break;
         }
         return nextMenu.run();

@@ -53,7 +53,9 @@ public class UserChooseSeatsMenu extends MenuTemplate{
             case 2: //choose seats
                 TicketPriceCalculator tpc = new TicketPriceCalculator();
                 int[] seat = userChooseSeatsApp.chooseSeats(super.getUsername());
-                BookingApp bookingApp = new BookingApp(super.getUsername(), selST, seat);
+                BookingApp bookingApp = new BookingApp(super.getUsername());
+
+                bookingApp.addBooking(super.getCineplexNum(), selST, seat);
 
                 break;
 

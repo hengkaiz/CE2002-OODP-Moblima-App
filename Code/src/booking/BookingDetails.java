@@ -7,127 +7,179 @@ import user.*;
 import movies.*;
 
 
-public class BookingDetails implements Serializable{
-	private String moviegoerName; 
-	private int mobileNumber;
-	private String emailAddress;
-	private ShowTime showtime;
-	private double ticketPrice;
-	private String username;
-	private int[] Seat;
-	private String TID;                                                           
-	private int cineplexNum;
-	private int cinemaNum;
+public class BookingDetails implements Serializable {
+    private String username;
+    private String cineplexName;
+    private int cinemaNum;
+    private String movieTitle;
+    private int showTime;
+    private int[] seat;
+    private double price;
+    private String TID;
 
-	public BookingDetails(String username, ShowTime st, int[] seat, TicketPriceCalculator calculator) {
-		//username = user;
-		//moviegoerName = name;
-		//mobileNumber = mobile;
-		//emailAddress = email;
-		//showtime = st;
-		//ticketPrice = price;
-	}
+    public BookingDetails(String username, int cineplexNum, ShowTime st,
+                          int[] seat, double price, String TID) {
+        this.username = username;
 
-	public String getCineplexNum() {
-		if(this.cineplexNum == 1) return "Jurong Point";
-		else if(this.cineplexNum == 2) return "Bishan";
-		else return "Nex";
-	}
+        //set the cineplex based on its number
+        if (cineplexNum == 1) cineplexName = "Jurong Point";
+        else if (cineplexNum == 2) cineplexName = "Bishan";
+        else this.cineplexName = "Nex";
 
-	public void setCineplexNum(int cineplexNum) {
-		this.cineplexNum = cineplexNum;
-	}
+        this.cinemaNum = st.getCinemaNum();
+        this.movieTitle = st.getMovie();
+        this.showTime = st.getTiming();
+        this.seat = seat;
+        this.price = price;
+        this.TID = TID;
+    }
 
-	public String getMoviegoerName() {
-		return moviegoerName;
-	}
-	
-	public String getemailAddress() {
-		return this.emailAddress;
-	}
-	
-	public ShowTime getshowtime(ShowTime st) {
-		return st;
-	}
-	
-	public double getticketPrice() {
-		return ticketPrice;
-	}
-	
-	public int[] getSeat(int[] seat) {
-		return seat;
-	}
-	
-	public String getTID() {
-		return TID;
-	}
-	
-	//setting functions
-	public void setuserName(String username) { 
-		this.username = username;
-	}
-	
-	public void setmoviegoerName(String moviegoerName) {
-		this.moviegoerName = moviegoerName;
-	}
+    public String getUsername() {
+        return username;
+    }
 
-	public int getMobileNumber() {
-		return mobileNumber;
-	}
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
-	public void setMobileNumber(int mobileNumber) {
-		this.mobileNumber = mobileNumber;
-	}
+    public String getCineplexName() {
+        return cineplexName;
+    }
 
-	public String getEmailAddress() {
-		return emailAddress;
-	}
+    public void setCineplexName(String cineplexName) {
+        this.cineplexName = cineplexName;
+    }
 
-	public void setEmailAddress(String emailAddress) {
-		this.emailAddress = emailAddress;
-	}
+    public int getCinemaNum() {
+        return cinemaNum;
+    }
 
-	public ShowTime getShowtime() {
-		return showtime;
-	}
+    public void setCinemaNum(int cinemaNum) {
+        this.cinemaNum = cinemaNum;
+    }
 
-	public void setShowtime(ShowTime showtime) {
-		this.showtime = showtime;
-	}
+    public String getMovieTitle() {
+        return movieTitle;
+    }
 
-	public double getTicketPrice() {
-		return ticketPrice;
-	}
+    public void setMovieTitle(String movieTitle) {
+        this.movieTitle = movieTitle;
+    }
 
-	public void setTicketPrice(double ticketPrice) {
-		this.ticketPrice = ticketPrice;
-	}
+    public int getShowTime() {
+        return showTime;
+    }
 
-	public String getUsername() {
-		return username;
-	}
+    public void setShowTime(int showTime) {
+        this.showTime = showTime;
+    }
 
-	public void setUsername(String username) {
-		this.username = username;
-	}
+    public int[] getSeat() {
+        return seat;
+    }
 
-	public int[] getSeat() {
-		return Seat;
-	}
-
-	public void setSeat(int[] seat) {
-		Seat = seat;
-	}
-
-	public void setTID(String TID) {
-		this.TID = TID;
-	}
-
-	public int getCinemaNum() {
-		return cinemaNum;
-	}
-
-	public void setCinemaNum(int cinemaNum) {
-		this.cinemaNum = cinemaNum;
-	}
+    public void setSeat(int[] seat) {
+        this.seat = seat;
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

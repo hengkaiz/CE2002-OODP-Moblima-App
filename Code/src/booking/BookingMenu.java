@@ -20,9 +20,9 @@ public class BookingMenu extends MenuTemplate {
         
         System.out.println("---Booking Menu---");
         System.out.println("1. Get booking details");
-        System.out.println("2. Add new booking");
+        System.out.println("2. Search for movies and book");
         System.out.println("3. Return");
-        System.out.println("Please enter your choice: ");
+        System.out.print("Please enter your choice: ");
         boolean loop = true;
         do {
         try {
@@ -38,20 +38,22 @@ public class BookingMenu extends MenuTemplate {
         
         System.out.println();
         sc.nextLine(); //clear the buffer
-        
-        BookingDatabase bdb = new BookingDatabase();
+
+        BookingApp bookingApp = new BookingApp(super.getUsername());
+
         nextMenu = this;
-        
         switch (sel) {
         case 1: //get booking details
-        	
-        	
+        	bookingApp.getBooking();
+        	break;
+
         case 2: //add new booking
-        	
+        	nextMenu = new UserSearchMenu(this);
+        	break;
+
+        case 3: //return
+            super.returnPrevious();
         }
-
-        nextMenu = this;
-
         return nextMenu.run();
     }
 }

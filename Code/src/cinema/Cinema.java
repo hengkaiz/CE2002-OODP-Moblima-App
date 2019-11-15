@@ -60,6 +60,7 @@ public class Cinema implements Serializable{
 	public int getCinemaNumber() {
 		return cinemaNumber;
 	}
+	public void setCinemaNumber(int num){this.cinemaNumber = num;}
 	public String getOfCineplexCode() {
 		return ofCineplexCode;
 	}

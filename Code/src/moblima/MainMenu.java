@@ -33,6 +33,7 @@ public class MainMenu extends MenuTemplate {
                 nextMenu = new UserMainMenu(this);
                 break;
             case 2: //admin login page
+                //nextMenu = new AdminMainMenu(this);
                 break;
             case 3:
                 System.exit(0);

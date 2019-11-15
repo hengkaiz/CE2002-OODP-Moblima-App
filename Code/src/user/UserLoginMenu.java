@@ -37,7 +37,7 @@ public class UserLoginMenu extends MenuTemplate {
         if (!username.contentEquals("")) { //login successful
             super.setUsername(username);
             System.out.println("Welcome, " + ID + "\n");
-            nextMenu = new UserSearchMenu(super.previousMenu);
+            nextMenu = new UserCineplexMenu(super.previousMenu);
         }
 
         return nextMenu.run();
