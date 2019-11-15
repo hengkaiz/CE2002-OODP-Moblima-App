@@ -164,10 +164,10 @@ public class Movie implements Serializable{
 	}
 	public void printMovieOverallRating() {
 		if (this.movieOverallRating==-1) {
-			System.out.println("There are not enough ratings yet.");
+			System.out.println("NA, There are not enough ratings yet.");
 		}
 		else {
-			System.out.printf("%.2f", this.movieOverallRating);
+			System.out.printf("%.1f", this.movieOverallRating);
 			System.out.println();
 		}
 	}
