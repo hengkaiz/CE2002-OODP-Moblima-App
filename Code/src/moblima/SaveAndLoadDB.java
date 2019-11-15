@@ -1,6 +1,6 @@
 package moblima;
 
-import cinema.ShowTimeDatabase;
+import cinema.*;
 import movies.MovieDatabase;
 import user.UserDatabase;
 import admin.AdminDatabase;
@@ -252,21 +252,129 @@ public class SaveAndLoadDB {
         return null;
 	}
 	
+	public void saveCineplex(Cineplex cdb) {
+		try {
+			switch (cdb.getCineplexNumber()){
+			case 1: 
+				FileOutputStream fos = new FileOutputStream("Cineplex1.txt");
+			    ObjectOutputStream oos = new ObjectOutputStream(fos);
+			    oos.writeObject(cdb);
+			    oos.close();
+			    fos.close();
+			    System.out.println("Cineplex1 Serialized and saved");
+			    break;
+			case 2:
+				FileOutputStream fos2 = new FileOutputStream("Cineplex2.txt");
+			    ObjectOutputStream oos2 = new ObjectOutputStream(fos2);
+			    oos2.writeObject(cdb);
+			    oos2.close();
+			    fos2.close();
+			    System.out.println("Cineplex2 Serialized and saved");
+			    break;
+			case 3:
+				FileOutputStream fos3 = new FileOutputStream("Cineplex3.txt");
+			    ObjectOutputStream oos3 = new ObjectOutputStream(fos3);
+			    oos3.writeObject(cdb);
+			    oos3.close();
+			    fos3.close();
+			    System.out.println("Cineplex3 Serialized and saved");
+			    break;
+			}
+		}
+		catch(IOException ie) {
+			System.out.println("Saving error occurred " + ie);
+		}
+	}
+	
+	public Cineplex loadCineplex(int cineplexNum) {
+        try {
+			switch (cineplexNum){
+			case 1: 
+				FileInputStream fis = new FileInputStream("Cineplex1.txt");
+				ObjectInputStream ois = new ObjectInputStream(fis);
+				Cineplex c1 = (Cineplex) ois.readObject();
+				ois.close();
+				fis.close();
+				System.out.println("Cineplex1 Deserialized and loaded");
+		        return c1;
+			case 2:
+				FileInputStream fis2 = new FileInputStream("Cineplex2.txt");
+				ObjectInputStream ois2 = new ObjectInputStream(fis2);
+				Cineplex c2 = (Cineplex) ois2.readObject();
+				ois2.close();
+				fis2.close();
+				System.out.println("Cineplex2 Deserialized and loaded");
+		        return c2;
+			case 3:
+				FileInputStream fis3 = new FileInputStream("Cineplex3.txt");
+				ObjectInputStream ois3 = new ObjectInputStream(fis3);
+				Cineplex c3 = (Cineplex) ois3.readObject();
+				ois3.close();
+				fis3.close();
+				System.out.println("Cineplex3 Deserialized and loaded");
+		        return c3;
+			}
+		} catch (FileNotFoundException e) {
+			System.out.println("File not found");
+			
+		} catch (ClassNotFoundException e) {
+			System.out.println("Class not found");
+			
+		} catch (IOException e) {
+			System.out.println("Loading error occurred");
+		}
+        return null;
+	}
+	
+	public void saveBookingDB(BookingDatabase bdb) {
+		try {
+			FileOutputStream fos = new FileOutputStream("BookingDB.txt");
+		    ObjectOutputStream oos = new ObjectOutputStream(fos);
+		    oos.writeObject(bdb);
+		    oos.close();
+		    fos.close();
+		    System.out.println("BookingDB Serialized and saved");
+		}
+		catch(IOException ie) {
+			System.out.println("Saving error occurred " + ie);
+		}
+	}
+	
+	public BookingDatabase loadBookingDB() {
+        try {
+			FileInputStream fis = new FileInputStream("BookingDB.txt");
+			ObjectInputStream ois = new ObjectInputStream(fis);
+
+			BookingDatabase bdb = (BookingDatabase) ois.readObject();
+			ois.close();
+			fis.close();
+			System.out.println("HolidayDB Deserialized and loaded");
+	        return bdb;
+		} catch (FileNotFoundException e) {
+			System.out.println("File not found");
+			
+		} catch (ClassNotFoundException e) {
+			System.out.println("Class not found");
+			
+		} catch (IOException e) {
+			System.out.println("Loading error occurred");
+		}
+        return null;
+	}
 	
 	
 	
 	
 	
-	
-//	public static void main(String[] args) {
+	public static void main(String[] args) {
+		SaveAndLoadDB fff2 = new SaveAndLoadDB();
+		
 //		MovieDatabase mdb = new MovieDatabase();
 //		MovieDatabase mdbcopy = null;
-//		SaveAndLoadDB fff2 = new SaveAndLoadDB();
 //		fff2.saveMovieDB(mdb);
 //		mdbcopy = fff2.loadMovieDB();
 //		mdbcopy.printMovieDetails();
 //		System.out.println(mdbcopy.getMovieTitlesList());
-//	}
 		
 //		ShowTimeDatabase stdb = new ShowTimeDatabase();
 //		ShowTimeDatabase stdbcopy = null;
@@ -281,11 +389,31 @@ public class SaveAndLoadDB {
 //		System.out.println(adbcopy.getAdminList());
 		
 //		UserDatabase udb = new UserDatabase();
-//		UserDatabase udbcopy = new UserDatabase();
+//		UserDatabase udbcopy = null;
 //		fff2.saveUserDB(udb);
 //		udbcopy = fff2.loadUserDB();
 //		System.out.println(udbcopy.getUserList());
+	
+//		HolidayDatabase hdb = new HolidayDatabase();
+//		hdb.addHoliday();
+//		hdb.addHoliday();
+//		hdb.addHoliday();
+//		HolidayDatabase hdbcopy = null;
+//		fff2.saveHolidayDB(hdb);
+//		hdbcopy = fff2.loadHolidayDB();
+//		hdbcopy.printHolidays();
 		
+//		Cineplex c= new Cineplex();
+//		Cineplex ccopy = null;
+//		c.addCinemasToCineplex();
+//		fff2.saveCineplex(c);
+//		ccopy = fff2.loadCineplex(1);
+//		for (int i=0; i<ccopy.getCinemas().size();i++)
+//			System.out.println(ccopy.getCinemas().get(i).getCinemaNumber() + "..." + ccopy.getCinemas().get(i).getCode()+ "..." + ccopy.getCinemas().get(i).getType());
+//		
 		
-//	}
+//		BookingDatabase bdb = new BookingDatabase();
+//		BookingDatabase bdbcopy = null;
+		
+	}
 }

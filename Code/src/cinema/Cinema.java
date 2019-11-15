@@ -1,9 +1,10 @@
 package cinema;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Cinema {
+public class Cinema implements Serializable{
     private CinemaType type;
     private String code;
     private int cinemaNumber;

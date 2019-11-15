@@ -1,5 +1,6 @@
 package user;
 
+import booking.BookingApp;
 import booking.BookingMenu;
 import cinema.ShowTime;
 import moblima.MainMenu;
@@ -19,7 +20,7 @@ public class UserChooseSeatsMenu extends MenuTemplate{
     }
 
     public MenuTemplate run(){
-        UserChooseSeatsApp userChooseSeatsApp = new UserChooseSeatsApp(selST);
+        UserChooseSeatsApp userChooseSeatsApp = new UserChooseSeatsApp(selST, super.getCineplexNum());
         Scanner sc = new Scanner(System.in);
         int sel = 0;
 
@@ -52,7 +53,8 @@ public class UserChooseSeatsMenu extends MenuTemplate{
             case 2: //choose seats
                 TicketPriceCalculator tpc = new TicketPriceCalculator();
                 int[] seat = userChooseSeatsApp.chooseSeats(super.getUsername());
-                nextMenu = new BookingMenu(this);
+                BookingApp bookingApp = new BookingApp(super.getUsername(), selST, seat);
+
                 break;
 
             case 3:

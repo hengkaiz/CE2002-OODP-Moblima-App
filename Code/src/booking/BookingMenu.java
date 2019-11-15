@@ -49,7 +49,9 @@ public class BookingMenu extends MenuTemplate {
         case 2: //add new booking
         	
         }
-        
+
+        nextMenu = this;
+
         return nextMenu.run();
     }
 }

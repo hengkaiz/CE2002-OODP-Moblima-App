@@ -37,7 +37,7 @@ public class UserSearchMenu extends MenuTemplate {
 			System.out.println("Invalid Choice. Try Again.");
 		}
         } while (loop);
-        UserSearchApp userSearchApp = new UserSearchApp();
+        UserSearchApp userSearchApp = new UserSearchApp(super.getCineplexNum());
 
         nextMenu = this;
         switch(sel){
@@ -51,9 +51,9 @@ public class UserSearchMenu extends MenuTemplate {
                 if (selST2 != null) nextMenu = new UserChooseSeatsMenu(this, selST2);
                 break;
 
-            case 3: //returns
-                MovieDatabase mdb = new MovieDatabase();
-                mdb.printTop5();
+            case 3: //list top 5 movies
+                /*MovieDatabase mdb = new MovieDatabase();
+                mdb.printTop5();*/
                 
             case 4: //returns
                 super.returnPrevious();

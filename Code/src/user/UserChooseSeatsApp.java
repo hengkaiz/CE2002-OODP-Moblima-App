@@ -11,9 +11,11 @@ public class UserChooseSeatsApp {
 	private int st_no;
 	private ShowTimeDatabase stdb;
 	private SaveAndLoadDB saveAndLoadDB = new SaveAndLoadDB();
+	private int cineplexNum;
 
-	public UserChooseSeatsApp(ShowTime st){
-		this.stdb = saveAndLoadDB.loadShowTimeDB();
+	public UserChooseSeatsApp(ShowTime st, int cineplexNum){
+		this.cineplexNum = cineplexNum;
+		this.stdb = saveAndLoadDB.loadShowTimeDB(cineplexNum);
 		int n =0;
 		for (ShowTime s: stdb.getShowTimes()){
 			if (s.getCinemaNum() == st.getCinemaNum()
@@ -62,7 +64,7 @@ public class UserChooseSeatsApp {
 
 		int [] seat = {row, col};
 
-		saveAndLoadDB.saveShowTimeDB(stdb);
+		saveAndLoadDB.saveShowTimeDB(stdb, cineplexNum);
 		return seat;
 	}
 }
