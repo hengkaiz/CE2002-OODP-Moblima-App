@@ -2,6 +2,9 @@ package admin;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.text.SimpleDateFormat;
+//import java.util.Calendar;
+
 import moblima.SaveAndLoadDB;
 import cinema.*;
 import movies.*;
@@ -12,6 +15,7 @@ public class CinemaShowtimesAndMovieEditor {
 	private MovieDatabase mdb;
 	private ShowTimeDatabase stdb;
 	private Cineplex cineplex;
+	private ShowTime sT;
 	
 	CinemaShowtimesAndMovieEditor(int cineplexNumber){
 		this.cineplexNumber = cineplexNumber;
@@ -26,102 +30,128 @@ public class CinemaShowtimesAndMovieEditor {
 	MovieDatabase mdb = new MovieDatabase();
 	ArrayList<Movie> msdb = mdb.getMovies();*/
 	
-	public void createCinemaShowtimesAndMovie() {
-		
+	public void createCinemaShowtimesAndMovie(int cinemaNum) {
 		Scanner sc = new Scanner(System.in);
-		int i=0;
+		//SimpleDateFormat sdf = new SimpleDateFormat("dd/mm");
+		int sel=0, i=1;
 		Movie m = null;
+		ArrayList<String> movieTitles = mdb.getMovieTitlesList(); //only gets 'now showing' and 'preview' movies
+		ArrayList<Movie> movieList = mdb.getMovies();
 		
+		//get timing
 		System.out.println("Enter Timing (hhhh format):");
 		int timing = sc.nextInt();
 		
-		ArrayList<String> movieTitles = mdb.getMovieTitlesList();
+		//get movie
 		System.out.println("Current movies showing: ");
-		System.out.println(movieTitles.size());
-		for(i=0;i<movieTitles.size();i++){
-			System.out.println((i+1) + ". " + movieTitles.get(i));
+		i=1;
+		for(String title : movieTitles){
+			System.out.printf("%d. %s\n", i, title);
+			i++;
 		}
-		System.out.println("Choose movie to add");
-		int movieToAdd = sc.nextInt();
-		if(movieToAdd-1 > movieTitles.size()) {
-			System.out.println("No such movie at index " + movieToAdd + ".");
-			return;
+        boolean loop = true;
+        do {
+        try {
+    		System.out.println("Select movie (enter movie number):"); 
+    		//need exception in case they enter the movie string instead?
+			sel = sc.nextInt();
+			if (sel<1 || sel>i) { //check exceptions?
+				throw new Exception();
+			}
+			loop = false;
+		} catch (Exception e) {
+			System.out.printf("No such movie. Try Again.");
 		}
-		String movieTitle = movieTitles.get(movieToAdd-1);
-		for(i=0;i<msdb.size();i++){
-			if(movieTitle.equals(msdb.get(i).getMovieTitle())) {
-				m = msdb.get(i);
+        } while (loop);
+		
+		String movieTitle = movieTitles.get(sel-1);
+		i=0;
+		for(Movie movie : movieList){
+			if(movieTitle.equals(movie.getMovieTitle())) {
+				m = movie;
 				break;
 			}
 		}
 		
+		//get number of days from current
+		/*sc.nextLine(); //clear buffer
+		System.out.println("Enter date of new Showtime (dd/mm): ");
+		String dateInString = sc.nextLine();
+		Calendar dateST = sdf.parse(dateInString);*/
 		System.out.println("Enter number of days from current: ");
 		int numOfDaysFromCurrent = sc.nextInt();
 		
-		System.out.println("Enter Cinema Number: ");
-		int cinemaNum = sc.nextInt();
-		
+		//get movie format
 		System.out.println("Choose Movie Format: ");
 		i = 1;
 		for(MovieFormat mf : MovieFormat.values()) {
 			System.out.println(i + ". " + mf.getName());
 			i++;
 		}
-		int movieFormatChoice = sc.nextInt();
-		MovieFormat movieFormat=null;
+		loop = true;
+        do {
+        try {
+    		System.out.println("Select movie format:"); 
+    		//need exception in case they enter the movie string instead?
+    		sel = sc.nextInt();
+			if (sel<1 || sel>i) { //check exceptions?
+				throw new Exception();
+			}
+			loop = false;
+		} catch (Exception e) {
+			System.out.printf("No such format. Try Again.");
+		}
+        } while (loop);
+		
+        MovieFormat movieFormat = null;
 		for(MovieFormat mf : MovieFormat.values()) { //go through array until find the one equal to user input
-			if(mf.ordinal() == movieFormatChoice-1){
+			if(mf.ordinal() == sel-1){
 				movieFormat = mf;
+				break;
 			}
 		}
 		
-		s = new ShowTime(timing, m, numOfDaysFromCurrent, cineplexNum, cinemaNum, movieFormat);
-		db.addSTToDB(s);
+		this.sT = new ShowTime(timing, m, numOfDaysFromCurrent, this.cineplexNumber, cinemaNum, movieFormat);
+		stdb.addSTToDB(this.sT);
+		
+		//update showtime database
+		saveAndLoadDB.saveShowTimeDB(stdb, cineplexNumber);
 	}
-	public void updateCinemaShowtimesAndMovie() {
-		Scanner sc = new Scanner(System.in);
-		int i=0;
-		int selectChoice=0;
-		do {
-			System.out.println("Which ShowTime do you want to update?");
-			System.out.println("1. Select by Movie");
-			System.out.println("2. Select by Date");
-			System.out.println("3. Exit");
-			
-			selectChoice = sc.nextInt();
-			switch(selectChoice) {
-			case 1: //select by movie
-				//print all the movies for the admin to choose to update
-				ArrayList<String> movieTitles = mdb.getMovieTitlesList();
-				for(i=0;i<movieTitles.size();i++){
-					System.out.println((i+1) + ". " + movieTitles.get(i));
-				}
-				System.out.println("Choose movie to update");
-				int movieToAdd = sc.nextInt();
-				if(movieToAdd-1 > movieTitles.size()) {
-					System.out.println("No such movie at index " + movieToAdd + ".");
-					return;
-				}
-				updateByMovie(movieTitles.get(movieToAdd-1));
-				break;
-			case 2: //select by date
-				sc.nextLine(); //dummy
-				System.out.println("Enter date (dd/mm): ");
-				updateByDate(sc.nextLine());
-				break;
-			case 3: //exit
-				break;
-			default:
-				break;
-			}
-		}while(selectChoice != 3);
-	}
-	private void updateByMovie(String movieTitle) {
-		Scanner sc = new Scanner(System.in);
-		int i=0;
-		ArrayList<ShowTime> stByMovie = db.searchByMovie(movieTitle);
 
-		//update
+	private void updateByMovie() {
+		Scanner sc = new Scanner(System.in);
+		int i=0, sel=0;
+		ArrayList<String> movieTitles = mdb.getMovieTitlesList();
+		
+		//select movie to show showtimes
+		System.out.println("Current movies showing: ");
+		i=1;
+		for(String title : movieTitles){
+			System.out.printf("%d. %s\n", i, title);
+			i++;
+		}
+        boolean loop = true;
+        do {
+        try {
+    		System.out.println("Select movie (enter movie number):"); 
+    		//need exception in case they enter the movie string instead?
+			sel = sc.nextInt();
+			if (sel<1 || sel>i) { //check exceptions?
+				throw new Exception();
+			}
+			loop = false;
+		} catch (Exception e) {
+			System.out.printf("No such movie. Try Again.");
+		}
+        } while (loop);
+		
+        //get selected movie title
+		String movieTitle = movieTitles.get(sel-1);
+		
+		//get list of showtimes for the selected movie
+		ArrayList<ShowTime> stByMovie = stdb.searchByMovie(movieTitle);
+
+		//update main
 		int chooseST = 0;
 		do {
 			if(stByMovie.size() == 0) {
@@ -130,53 +160,68 @@ public class CinemaShowtimesAndMovieEditor {
 			}
 			//print current showtimes for movie selected
 			System.out.println("Current showtimes for " + movieTitle);
-			for(i=0;i<stByMovie.size();i++) {
-				s = stByMovie.get(i);
-				System.out.println((i+1) + ". Showing at " + s.timeToString() + " on " + s.toStringGetDate());
+			i=1;
+			for(ShowTime sT : stByMovie) {
+				System.out.println(i + ". Showing at " + sT.timeToString() + " on " + sT.toStringGetDate());
+				i++;
 			}
-			System.out.println("Choose showtime to update: (enter -1 to exit)");
-			chooseST = sc.nextInt();
-			if(chooseST == -1) {
-				break;
+			loop = true;
+	        do {
+	        try {
+	        	System.out.println("Choose showtime to update: (enter -1 to exit)"); 
+				chooseST = sc.nextInt();
+				if(chooseST == -1) {
+					break;
+				}
+				if (chooseST<1 || chooseST>i) { //check exceptions?
+					throw new Exception();
+				}
+				loop = false;
+			} catch (Exception e) {
+				System.out.printf("No such showtime. Try Again.");
 			}
-			s = stByMovie.get(chooseST-1);
+	        } while (loop);
+
+	        //get ST to update
+			sT = stByMovie.get(sel-1);
 			
+			//choosing what to update
 			int updateChoice = 0;
 			do {
+				System.out.println("---Update Menu---");
 				System.out.println("1. Change Timing"); //same date new timing
 				System.out.println("2. Change Cinema Number");
 				System.out.println("3. Change Movie Format");
-				System.out.println("4. Exit");
-				updateChoice = sc.nextInt();
+				System.out.println("4. Return");
+				loop = true;
+		        do {
+		        try {
+		        	System.out.println("Please enter selection: "); 
+		        	updateChoice = sc.nextInt();
+					if (updateChoice<1 || updateChoice>4) { //check exceptions?
+						throw new Exception();
+					}
+					loop = false;
+				} catch (Exception e) {
+					System.out.printf("Invalid choice. Try Again.");
+				}
+		        } while (loop);
+
 				switch(updateChoice) {
 				case 1: //change timing
-					String oldTiming = s.timeToString();
+					String oldTiming = sT.timeToString();
 					System.out.println("Enter new timing");
 					//no error checking if another st have the same timing as newtiming
-					s.setTiming(sc.nextInt());
-					System.out.println(s.getMovie() + " now showing at "+ s.timeToString() + " instead of " + oldTiming);
+					sT.setTiming(sc.nextInt());
+					System.out.println(sT.getMovie() + " now showing at "+ sT.timeToString() + " instead of " + oldTiming);
 					break;
 				case 2: //change cinema number
-					System.out.println("Enter new cinema Number");
-					s.setCinemaNum(sc.nextInt());
-					System.out.println(s.getMovie() + " now showing at cinema Number " + s.getCinemaNum());
+					sT.setCinemaNum(cinemaSelection());
+					System.out.println(sT.getMovie() + " now showing at cinema Number " + sT.getCinemaNum());
 					break;
 				case 3: //change movie format
-					System.out.println("Choose new Movie Format: ");
-					i=1;
-					for(MovieFormat mf : MovieFormat.values()) {
-						System.out.println(i + ". " + mf.getName());
-						i++;
-					}
-					int movieFormatChoice = sc.nextInt();
-					MovieFormat movieFormat=null;
-					for(MovieFormat mf : MovieFormat.values()) {//go through array until find the one equal to user input
-						if(mf.ordinal() == movieFormatChoice-1){
-							movieFormat = mf;
-						}
-					}
-					s.setMovieformat(movieFormat);
-					System.out.println(s.getMovie() + " now showing in " + s.getMovieformat().getName());
+					sT.setMovieformat(movieFormatSelection());
+					System.out.println(sT.getMovie() + " now showing in " + sT.getMovieformat().getName());
 					break;
 				case 4: //exit
 					break;
@@ -185,13 +230,21 @@ public class CinemaShowtimesAndMovieEditor {
 				}
 			}while(updateChoice != 4);
 		} while(chooseST != -1);
+		//update showtime database
+		saveAndLoadDB.saveShowTimeDB(stdb, cineplexNumber);
 	}
-	private void updateByDate(String date) {
+	private void updateByDate() {
 		Scanner sc = new Scanner(System.in);
 		int i=0;
-		ArrayList<ShowTime> stByDate = db.searchByDate(date); //get list of all the ST at that date
+		ArrayList<String> movieTitles = mdb.getMovieTitlesList();
+		ArrayList<Movie> movieList = mdb.getMovies();
 		
-		//update
+		sc.nextLine(); //dummy
+		System.out.println("Enter date (dd/mm): ");
+		String date = sc.nextLine(); //exception handling?
+		ArrayList<ShowTime> stByDate = stdb.searchByDate(date); //get list of all the ST at that date	
+		
+		//update main
 		int chooseST = 0;
 		do {
 			if(stByDate.size() == 0) {
@@ -200,70 +253,98 @@ public class CinemaShowtimesAndMovieEditor {
 			}
 			//print current showtimes for movie selected
 			System.out.println("Current showtimes showing on " + date);
-			for(i=0;i<stByDate.size();i++){
-				s = stByDate.get(i);
-				System.out.println((i+1) + ". " + s.getMovie() + " showing at " + s.timeToString());
+			i=1;
+			for(ShowTime sT : stByDate){
+				System.out.println(i + ". " + sT.getMovie() + " showing at " + sT.timeToString());
+				i++;
 			}
-			System.out.println("Choose showtime to update: (enter -1 to exit)");
-			chooseST = sc.nextInt();
-			if(chooseST == -1) {
-				break;
+			boolean loop = true;
+	        do {
+	        try {
+	        	System.out.println("Choose showtime to update: (enter -1 to exit)"); 
+				chooseST = sc.nextInt();
+				if(chooseST == -1) {
+					break;
+				}
+				if (chooseST<1 || chooseST>i) { //check exceptions?
+					throw new Exception();
+				}
+				loop = false;
+			} catch (Exception e) {
+				System.out.printf("No such showtime. Try Again.");
 			}
-			s = stByDate.get(chooseST-1);
+	        } while (loop);
 			
+			sT = stByDate.get(chooseST-1);
+			
+			//choosing what to update
 			int updateChoice = 0;
 			do {
+				System.out.println("---Update Menu---");
 				System.out.println("1. Change Timing"); //same date new timing
 				System.out.println("2. Change Movie"); //same timing new movie
 				System.out.println("3. Change Cinema Number");
 				System.out.println("4. Change Movie Format");
-				System.out.println("5. Exit");
-				updateChoice = sc.nextInt();
+				System.out.println("5. Return");
+				loop = true;
+		        do {
+		        try {
+		        	System.out.println("Please enter selection: "); 
+		        	updateChoice = sc.nextInt();
+					if (updateChoice<1 || updateChoice>5) { //check exceptions?
+						throw new Exception();
+					}
+					loop = false;
+				} catch (Exception e) {
+					System.out.printf("Invalid choice. Try Again.");
+				}
+		        } while (loop);
 				switch(updateChoice) {
 				case 1: //change timing
-					String oldTiming = s.timeToString();
-					System.out.println("Enter new timing");
+					String oldTiming = sT.timeToString();
+					System.out.println("Enter new timing (hhhh format):");
 					//no error checking if another st have the same timing as newtiming
-					s.setTiming(sc.nextInt());
-					System.out.println(s.getMovie() + " now showing at "+ s.timeToString() + " instead of " + oldTiming);
+					sT.setTiming(sc.nextInt());
+					System.out.println(sT.getMovie() + " now showing at "+ sT.timeToString() + " instead of " + oldTiming);
 					break;
 				case 2: //change movie
-					ArrayList<String> movieTitles = mdb.getMovieTitlesList();
-					for(i=0;i<movieTitles.size();i++){
-						System.out.println((i+1) + ". " + movieTitles.get(i));
-					}
-					System.out.println("Enter choice for new movie showing at " + s.timeToString());
-					//no error checking for user input of choice of movie
-					int newMovieChoice = sc.nextInt();
-					String newMovieTitle = movieTitles.get(newMovieChoice -1);
-					for(i=0; i<msdb.size(); i++) {
-						if(newMovieTitle.equals(msdb.get(i).getMovieTitle())) {
-							s.setMovie(msdb.get(i));
-						}
-					}
-					System.out.println(s.getMovie() + " now showing at " + s.timeToString());
-					break;
-				case 3: //change cinema number
-					System.out.println("Enter new cinema Number");
-					s.setCinemaNum(sc.nextInt());
-					System.out.println(s.getMovie() + " now showing at cinema Number " + s.getCinemaNum());
-					break;
-				case 4: //change movie format
-					System.out.println("Choose new Movie Format: ");
 					i=1;
-					for(MovieFormat mf : MovieFormat.values()) {
-						System.out.println(i + ". " + mf.getName());
+					int newMovieChoice=0;
+					
+					for(String title : movieTitles){
+						System.out.println(i + ". " + title);
 						i++;
 					}
-					int movieFormatChoice = sc.nextInt();
-					MovieFormat movieFormat=null;
-					for(MovieFormat mf : MovieFormat.values()) {//go through array until find the one equal to user input
-						if(mf.ordinal() == movieFormatChoice-1){
-							movieFormat = mf;
+					loop = true;
+			        do {
+			        try {
+						System.out.println("Enter choice for new movie showing at " + sT.timeToString());
+			    		//need exception in case they enter the movie string instead?
+						newMovieChoice = sc.nextInt();
+						if (newMovieChoice<1 || newMovieChoice>i) { //check exceptions?
+							throw new Exception();
+						}
+						loop = false;
+					} catch (Exception e) {
+						System.out.printf("No such movie. Try Again.");
+					}
+			        } while (loop);
+
+					String newMovieTitle = movieTitles.get(newMovieChoice -1);
+					for(Movie movie : movieList) {
+						if(newMovieTitle.equals(movie.getMovieTitle())) {
+							sT.setMovie(movie);
 						}
 					}
-					s.setMovieformat(movieFormat);
-					System.out.println(s.getMovie() + " now showing in " + s.getMovieformat().getName());
+					System.out.println(sT.getMovie() + " now showing at " + sT.timeToString());
+					break;
+				case 3: //change cinema number
+					sT.setCinemaNum(cinemaSelection());
+					System.out.println(sT.getMovie() + " now showing at Cinema Number " + sT.getCinemaNum());
+					break;
+				case 4: //change movie format
+					sT.setMovieformat(movieFormatSelection());
+					System.out.println(sT.getMovie() + " now showing in " + sT.getMovieformat().getName());
 					break;
 				case 5: //exit
 					break;
@@ -272,46 +353,46 @@ public class CinemaShowtimesAndMovieEditor {
 				}
 			}while(updateChoice != 5);
 		}while(chooseST != -1);
+		
+		//update showtime database
+		saveAndLoadDB.saveShowTimeDB(stdb, cineplexNumber);
 	}
 	public void removeCinemaShowtimesAndMovie() {
 		Scanner sc = new Scanner(System.in);
 		int i=0;
-		ArrayList<ShowTime> stList = db.getShowTimes();
+		ArrayList<ShowTime> stList = stdb.getShowTimes();
 		
 		int stChoice = 0;
-		for(i=0;i<stList.size();i++) {
-			System.out.println((i+1) + ". " + stList.get(i).getMovie() + " showing at " + stList.get(i).timeToString() + " on " + stList.get(i).toStringGetDate());
+		i=1;
+		for(ShowTime st : stList) {
+			System.out.println(i + ". " + st.getMovie() + " showing at " + st.timeToString() + " on " + st.toStringGetDate());
+			i++;
 		}
-		System.out.println("Which Showtime do you want to remove? (-1 to exit)");
-		stChoice = sc.nextInt();
-		if(stChoice == -1) {
-			return;
-		}
-		if(stChoice-1 > stList.size()) {
-			System.out.println("No such ShowTime at index " + stChoice + ".");
-			return;
-		}
-		s = stList.get(stChoice-1);
-		if(checkShowtimes(s)) { //valid showtime
-			String movieTitle = s.getMovie();
-			String timing = s.timeToString();
-			db.removeSTToDB(s);
-			System.out.println(movieTitle + " at " + timing + " removed!");
-		}
-		else {
-			System.out.println("Showtime not available!");
-		}
-
-	}
-	public boolean checkShowtimes(ShowTime s) {
-		for(int i=0; i<stdb.size(); i++) {
-			if(s.equals(stdb.get(i))) {
-				//found showtime match
-				return true;
+		boolean loop = true;
+        do {
+        try {
+        	System.out.println("Which Showtime do you want to remove? (-1 to exit)");
+    		//need exception in case they enter the movie string instead?
+        	stChoice = sc.nextInt();
+    		if(stChoice == -1) {
+    			return;
+    		}
+			if (stChoice<1 || stChoice>i) { //check exceptions?
+				throw new Exception();
 			}
+			loop = false;
+		} catch (Exception e) {
+			System.out.printf("No such showtime. Try Again.");
 		}
-		//no match found
-		return false;
+        } while (loop);
+
+		sT = stList.get(stChoice-1);
+		
+		String movieTitle = sT.getMovie();
+		String timing = sT.timeToString();
+		stdb.removeSTToDB(sT);
+		System.out.println(movieTitle + " at " + timing + " removed!");
+		saveAndLoadDB.saveShowTimeDB(stdb, cineplexNumber);
 	}
 	
 	public int cinemaSelection() {
@@ -319,7 +400,7 @@ public class CinemaShowtimesAndMovieEditor {
 		ArrayList<Cinema> cinemaList = cineplex.getCinemas();
 		int sel=0,i=1;
 		
-		System.out.println("---Select Cinema to create Showtime in---");
+		System.out.println("---Select Cinema---");
 		for(Cinema cinema : cinemaList) {
 			System.out.printf("%d. Cinema %d: %s\n", i, cinema.getCinemaNumber(), cinema.getType());
 			i++;
@@ -339,5 +420,40 @@ public class CinemaShowtimesAndMovieEditor {
         } while (loop);
 		
         return (sel-1);
+	}
+	
+	public MovieFormat movieFormatSelection() {
+		Scanner sc = new Scanner(System.in);
+		int sel=0, i=0;
+		
+		System.out.println("---Choose Movie Format--- ");
+		i=1;
+		for(MovieFormat mf : MovieFormat.values()) {
+			System.out.println(i + ". " + mf.getName());
+			i++;
+		}
+		boolean loop = true;
+        do {
+        try {
+    		System.out.println("Select movie format:"); 
+    		//need exception in case they enter the movie string instead?
+    		sel = sc.nextInt();
+			if (sel<1 || sel>i) { //check exceptions?
+				throw new Exception();
+			}
+			loop = false;
+		} catch (Exception e) {
+			System.out.printf("No such format. Try Again.");
+		}
+        } while (loop);
+		
+        MovieFormat movieFormat = null;
+		for(MovieFormat mf : MovieFormat.values()) { //go through array until find the one equal to user input
+			if(mf.ordinal() == sel-1){
+				movieFormat = mf;
+				break;
+			}
+		}
+		return movieFormat;
 	}
 }
