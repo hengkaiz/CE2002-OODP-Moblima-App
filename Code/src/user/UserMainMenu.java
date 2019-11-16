@@ -48,6 +48,7 @@ public class UserMainMenu extends MenuTemplate {
                 nextMenu = new UserCreateMenu(this);
                 break;
             case 3: //user leave reviews
+            	nextMenu = new UserReviewsMenu(this);
 
                 break;
             case 4: //return
