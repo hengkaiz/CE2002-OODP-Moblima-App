@@ -15,7 +15,7 @@ public class AdminShowtimeEditor {
 	private MovieDatabase mdb;
 	private ShowTimeDatabase stdb;
 	private Cineplex cineplex;
-	private ShowTime sT;
+	private ShowTime st;
 	
 	public AdminShowtimeEditor(int cineplexNumber){
 		this.cineplexNumber = cineplexNumber;
@@ -99,8 +99,8 @@ public class AdminShowtimeEditor {
 		MovieFormat movieFormat = movieFormatSelection();
 		
 		//create new ST object
-		this.sT = new ShowTime(timing, m, numOfDaysFromCurrent, this.cineplexNumber, cinemaNum, movieFormat);
-		stdb.addSTToDB(this.sT);
+		this.st = new ShowTime(timing, m, numOfDaysFromCurrent, this.cineplexNumber, cinemaNum, movieFormat);
+		stdb.addSTToDB(this.st);
 		
 		//update showtime database
 		saveAndLoadDB.saveShowTimeDB(stdb, cineplexNumber);
@@ -173,7 +173,7 @@ public class AdminShowtimeEditor {
 	        System.out.println();
 
 	        //get ST to update
-			sT = stByMovie.get(sel-1);
+			st = stByMovie.get(sel-1);
 			
 			//choosing what to update
 			int updateChoice = 0;
@@ -200,19 +200,19 @@ public class AdminShowtimeEditor {
 
 				switch(updateChoice) {
 				case 1: //change timing
-					String oldTiming = sT.timeToString();
+					String oldTiming = st.timeToString();
 					System.out.println("Enter new timing");
 					//no error checking if another st have the same timing as newtiming
-					sT.setTiming(sc.nextInt());
-					System.out.println(sT.getMovie() + " now showing at "+ sT.timeToString() + " instead of " + oldTiming);
+					st.setTiming(sc.nextInt());
+					System.out.println(st.getMovie() + " now showing at "+ st.timeToString() + " instead of " + oldTiming);
 					break;
 				case 2: //change cinema number
-					sT.setCinemaNum(cinemaSelection());
-					System.out.println(sT.getMovie() + " now showing at cinema Number " + sT.getCinemaNum());
+					st.setCinemaNum(cinemaSelection());
+					System.out.println(st.getMovie() + " now showing at cinema Number " + st.getCinemaNum());
 					break;
 				case 3: //change movie format
-					sT.setMovieformat(movieFormatSelection());
-					System.out.println(sT.getMovie() + " now showing in " + sT.getMovieformat().getName());
+					st.setMovieformat(movieFormatSelection());
+					System.out.println(st.getMovie() + " now showing in " + st.getMovieformat().getName());
 					break;
 				case 4: //return
 					break;
@@ -267,7 +267,7 @@ public class AdminShowtimeEditor {
 	        } while (loop);
 	        System.out.println();
 			
-			sT = stByDate.get(chooseST-1);
+			st = stByDate.get(chooseST-1);
 			
 			//choosing what to update
 			int updateChoice = 0;
@@ -294,11 +294,11 @@ public class AdminShowtimeEditor {
 		        System.out.println();
 				switch(updateChoice) {
 				case 1: //change timing
-					String oldTiming = sT.timeToString();
+					String oldTiming = st.timeToString();
 					System.out.println("Enter new timing (hhhh format):");
 					//no error checking if another st have the same timing as newtiming
-					sT.setTiming(sc.nextInt());
-					System.out.println(sT.getMovie() + " now showing at "+ sT.timeToString() + " instead of " + oldTiming);
+					st.setTiming(sc.nextInt());
+					System.out.println(st.getMovie() + " now showing at "+ st.timeToString() + " instead of " + oldTiming);
 					break;
 				case 2: //change movie
 					i=1;
@@ -327,18 +327,18 @@ public class AdminShowtimeEditor {
 					String newMovieTitle = movieTitles.get(newMovieChoice -1);
 					for(Movie movie : movieList) {
 						if(newMovieTitle.equals(movie.getMovieTitle())) {
-							sT.setMovie(movie);
+							st.setMovie(movie);
 						}
 					}
-					System.out.println(sT.getMovie() + " now showing at " + sT.timeToString());
+					System.out.println(st.getMovie() + " now showing at " + st.timeToString());
 					break;
 				case 3: //change cinema number
-					sT.setCinemaNum(cinemaSelection());
-					System.out.println(sT.getMovie() + " now showing at Cinema Number " + sT.getCinemaNum());
+					st.setCinemaNum(cinemaSelection());
+					System.out.println(st.getMovie() + " now showing at Cinema Number " + st.getCinemaNum());
 					break;
 				case 4: //change movie format
-					sT.setMovieformat(movieFormatSelection());
-					System.out.println(sT.getMovie() + " now showing in " + sT.getMovieformat().getName());
+					st.setMovieformat(movieFormatSelection());
+					System.out.println(st.getMovie() + " now showing in " + st.getMovieformat().getName());
 					break;
 				case 5: //return
 					break;
@@ -381,11 +381,11 @@ public class AdminShowtimeEditor {
         } while (loop);
         System.out.println();
 
-		sT = stList.get(stChoice-1);
+		st = stList.get(stChoice-1);
 		
-		String movieTitle = sT.getMovie();
-		String timing = sT.timeToString();
-		stdb.removeSTToDB(sT);
+		String movieTitle = st.getMovie();
+		String timing = st.timeToString();
+		stdb.removeSTToDB(st);
 		System.out.println(movieTitle + " at " + timing + " removed!");
 		saveAndLoadDB.saveShowTimeDB(stdb, cineplexNumber);
 	}
