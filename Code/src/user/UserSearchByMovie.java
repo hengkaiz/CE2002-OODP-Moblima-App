@@ -82,6 +82,8 @@ public class UserSearchByMovie extends ShowTimeDatabase implements UserSearchFun
 			System.out.println("Invalid Selection. Try Again.");
 		}
         } while (loop2);
+        
+        //gets movie info in Movie format
 		return movieListLong.get(selMovie-1);
 	}
 }
