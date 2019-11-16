@@ -7,6 +7,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class BookingDatabase implements Serializable{
+	private static final long serialVersionUID = 1L;
 	private ArrayList<BookingDetails> BookingDetailsList = new ArrayList<BookingDetails>();
 	private ArrayList<BookingDetails> copybook = null;
 

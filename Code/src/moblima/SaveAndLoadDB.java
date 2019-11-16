@@ -383,7 +383,7 @@ public class SaveAndLoadDB {
 			BookingDatabase bdb = (BookingDatabase) ois.readObject();
 			ois.close();
 			fis.close();
-			System.out.println("BookinDB Deserialized and loaded");
+			System.out.println("BookingDB Deserialized and loaded");
 	        return bdb;
 		} catch (FileNotFoundException e) {
 			System.out.println("File not found");
@@ -960,6 +960,7 @@ public class SaveAndLoadDB {
 		
 //		BookingDatabase bdb = new BookingDatabase();
 //		BookingDatabase bdbcopy = null;
-		
+//		fff2.saveBookingDB(bdb);
+//		bdbcopy=fff2.loadBookingDB();
 //	}
 }

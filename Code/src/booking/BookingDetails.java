@@ -8,7 +8,8 @@ import movies.*;
 
 
 public class BookingDetails implements Serializable {
-    private String username;
+	private static final long serialVersionUID = 1L;
+	private String username;
     private String cineplexName;
     private int cinemaNum;
     private String movieTitle;
