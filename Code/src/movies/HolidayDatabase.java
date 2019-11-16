@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class HolidayDatabase implements Serializable{
+
+	private static final long serialVersionUID = 1L;
 	private ArrayList<LocalDate> holidays = new ArrayList<LocalDate>();
 	
 	public ArrayList<LocalDate> getHolidays() {

@@ -3,7 +3,8 @@ package admin;
 import java.io.Serializable;
 import java.util.ArrayList;
 public class AdminDatabase implements Serializable{
-	
+
+	private static final long serialVersionUID = 1L;
 	//private static ArrayList<AdminAccount> adminList;
 	private ArrayList<AdminAccount> adminList = new ArrayList<AdminAccount>();
 	public AdminDatabase() {

@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class AdminAccount implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 	private String id;
 	private String password;
 	

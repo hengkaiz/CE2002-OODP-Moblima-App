@@ -5,7 +5,8 @@ import java.io.Serializable;
 import java.util.Scanner;
 
 public class UserDatabase implements Serializable{
-    private ArrayList<User> userlist = new ArrayList<User>();
+	private static final long serialVersionUID = 1L;
+	private ArrayList<User> userlist = new ArrayList<User>();
     private ArrayList<User> copylist;
 
     public UserDatabase(){

@@ -3,7 +3,7 @@ package moblima;
 import cinema.*;
 import movies.MovieDatabase;
 import user.UserDatabase;
-import admin.AdminDatabase;
+import admin.*;
 import movies.HolidayDatabase;
 import booking.BookingDatabase;
 
@@ -366,8 +366,8 @@ public class SaveAndLoadDB {
 	
 	
 	
-//	public static void main(String[] args) {
-//		SaveAndLoadDB fff2 = new SaveAndLoadDB();
+	public static void main(String[] args) {
+		SaveAndLoadDB fff2 = new SaveAndLoadDB();
 		
 //		MovieDatabase mdb = new MovieDatabase();
 
@@ -858,6 +858,9 @@ public class SaveAndLoadDB {
 //		System.out.println(stdbcopy.getShowTimes());
 		
 //		AdminDatabase adb = new AdminDatabase();
+//		adb.addAdmin(new AdminAccount("hope", "070999"));
+//		adb.addAdmin(new AdminAccount("jordan", "180998"));
+//		adb.addAdmin(new AdminAccount("xm", "141099"));
 //		AdminDatabase adbcopy = null;
 //		fff2.saveAdminDB(adb);
 //		adbcopy = fff2.loadAdminDB();
@@ -874,14 +877,16 @@ public class SaveAndLoadDB {
 //		udbcopy = fff2.loadUserDB();
 //		System.out.println(udbcopy.getUserList());
 //	
-//		HolidayDatabase hdb = new HolidayDatabase();
-//		hdb.addHoliday();
-//		hdb.addHoliday();
-//		hdb.addHoliday();
-//		HolidayDatabase hdbcopy = null;
-//		fff2.saveHolidayDB(hdb);
-//		hdbcopy = fff2.loadHolidayDB();
-//		hdbcopy.printHolidays();
+		HolidayDatabase hdb = new HolidayDatabase();
+		hdb.addHoliday();
+		hdb.addHoliday();
+		hdb.addHoliday();
+		hdb.addHoliday();
+		hdb.addHoliday();
+		HolidayDatabase hdbcopy = null;
+		fff2.saveHolidayDB(hdb);
+		hdbcopy = fff2.loadHolidayDB();
+		hdbcopy.printHolidays();
 		
 //		Cineplex c= new Cineplex();
 //		Cineplex ccopy = null;
@@ -895,5 +900,5 @@ public class SaveAndLoadDB {
 //		BookingDatabase bdb = new BookingDatabase();
 //		BookingDatabase bdbcopy = null;
 		
-//	}
+	}
 }
