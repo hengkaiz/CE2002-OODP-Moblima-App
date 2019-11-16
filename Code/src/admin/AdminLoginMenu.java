@@ -26,6 +26,7 @@ public class AdminLoginMenu extends MenuTemplate{
 		}
 		else {
 			System.out.println("Invalid Admin. Try Again.");
+			super.returnPrevious();
 		}
 		return nextMenu.run();
 	}

@@ -43,6 +43,8 @@ public class AdminCineplexMenu extends MenuTemplate{
         	nextMenu = new AdminFunctionsMenu(this);
         	break;
         }
+        nextMenu.setCineplexNum(super.getCineplexNum());
+        nextMenu.setUsername(super.getUsername());
         return nextMenu.run();
 	}
 

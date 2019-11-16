@@ -36,7 +36,6 @@ public class AdminFunctionsMenu extends MenuTemplate{
         } while (loop);
         System.out.println();
         nextMenu = this;
-      
         switch(sel) {
         case 1: //edit showtimes
         	nextMenu = new AdminShowtimeEditorMenu(this);
@@ -54,6 +53,8 @@ public class AdminFunctionsMenu extends MenuTemplate{
 			super.returnPrevious();
 			break;
         }
+        nextMenu.setCineplexNum(super.getCineplexNum());
+        nextMenu.setUsername(super.getUsername());
         return nextMenu.run();
 	}
 
