@@ -371,7 +371,7 @@ public class AdminShowtimeEditor {
     		if(stChoice == -1) {
     			return;
     		}
-			if (stChoice<1 || stChoice>i) { //check exceptions?
+			if (stChoice<1 || stChoice>i-1) { //check exceptions?
 				throw new Exception();
 			}
 			loop = false;
