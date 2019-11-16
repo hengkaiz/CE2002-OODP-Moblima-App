@@ -97,8 +97,8 @@ public class ShowTime implements Comparable<ShowTime>, Serializable{
     	return this.movie;
     }
 
-	public void setMovieFormat(MovieFormat movieformat) {
-		this.movieFormat = movieformat;
+	public void setMovieFormat(MovieFormat movieFormat) {
+		this.movieFormat = movieFormat;
 	}
 
 	//compare the different showtimes by timing, need to add function to search in the same cinema
