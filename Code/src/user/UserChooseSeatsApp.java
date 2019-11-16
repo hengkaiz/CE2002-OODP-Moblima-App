@@ -50,9 +50,10 @@ public class UserChooseSeatsApp {
 		do {
 		try {
 			printSeats();
-			System.out.print("Select row: ");
-			row = sc.nextInt();
-			System.out.print("Select column: "); //need to add exception for choosing the wrong seats
+			System.out.print("Select row (A-H): ");
+			row = (int)sc.next().charAt(0);
+
+			System.out.print("Select column (0-9): "); //need to add exception for choosing the wrong seats
 			col = sc.nextInt();
 			selectSeat(row, col, ID);
 			loop = false;

@@ -44,16 +44,56 @@ public class SeatPlan implements Serializable{
     }
 
     public void printSeats(){
+        int printcolumns = (columns*3)+4;
+        int b = 0;
+
+        System.out.print("  ");
+        for(int a=0;a<printcolumns;a++){
+            System.out.print("-");
+            while(a>=(printcolumns/2)-4 && a<(printcolumns/2)+2){
+                System.out.print("SCREEN".charAt(b));
+                b++;
+                a++;
+            }
+        }
+
+        b = 65; //ascii value of 'A'
+        System.out.println();
         for(int i=0;i<rows;i++){
+            System.out.print((char)b + " ");
+            b++;
             for(int j=0;j<columns;j++){
+                if(j==2 || j ==8){
+                    System.out.print("  ");
+                }
                 if(seat.get(i).get(j).isOccupied() == false){
-                    System.out.print("[ ] ");
+                    System.out.print("[ ]");
                 }
                 else{
-                    System.out.print("[X] ");
+                    System.out.print("[X]");
                 }
+
             }
             System.out.print("\n");
         }
+        b = 0;
+        System.out.print("  ");
+        for(int c=0;c<printcolumns;c+=3) {
+            if (c == 6 || c == 27){
+                System.out.printf("  ");
+            }
+            else{
+                System.out.printf(" %d ", b);
+                b++;
+            }
+        }
+        System.out.print("\n");
     }
+
+/*    public static void main(String[] args ){
+        SeatPlan seatPlan = new SeatPlan();
+        //System.out.println("ScREEN".charAt(0));
+        seatPlan.printSeats();
+    }*/
 }
+
