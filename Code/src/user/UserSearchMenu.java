@@ -2,7 +2,8 @@ package user;
 
 import cinema.ShowTime;
 import moblima.MenuTemplate;
-import movies.MovieDatabase;
+import movies.ListTopFiveMenu;
+//import movies.MovieDatabase;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -54,7 +55,8 @@ public class UserSearchMenu extends MenuTemplate {
             case 3: //list top 5 movies
                 /*MovieDatabase mdb = new MovieDatabase();
                 mdb.printTop5();*/
-                
+            	nextMenu = new ListTopFiveMenu(this);
+            	break;
             case 4: //returns
                 super.returnPrevious();
         }
