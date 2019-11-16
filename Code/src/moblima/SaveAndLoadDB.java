@@ -370,7 +370,7 @@ public class SaveAndLoadDB {
 //		SaveAndLoadDB fff2 = new SaveAndLoadDB();
 		
 //		MovieDatabase mdb = new MovieDatabase();
-<<<<<<< HEAD
+
 //		Movie cA = new Movie("Charlie's Angel", 0, AgeRating.PARENTAL_GUIDANCE13, "Charlie's Angels have always provided security and investigative skills to private clients. Now the Townsend Agency has expanded internationally with the smartest and most highly trained women from all over the globe — multiple teams of Angels guided by multiple Bosleys, completing the toughest missions around the world. When a young systems engineer blows the whistle on a dangerous technology, these Angels are called into action, putting their lives on the line to protect people.", MovieStatus.COMING_SOON);
 //		cA.addMovieCast("Jaclyn Smith");
 //		cA.addMovieCast("Kristen Stewart");
