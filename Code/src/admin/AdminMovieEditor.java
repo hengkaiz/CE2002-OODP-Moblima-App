@@ -33,6 +33,7 @@ public class AdminMovieEditor {
 		i=1;
 		for(Movie m : movieList) {
 			System.out.println(i + ". " + m.getMovieTitle());
+			i++;
 		}
 		boolean loop = true;
         do {

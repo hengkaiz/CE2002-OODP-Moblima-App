@@ -5,6 +5,7 @@ import moblima.MenuTemplate;
 
 public class AdminShowtimeEditorMenu extends MenuTemplate{
 	private MenuTemplate nextMenu;
+	private int cineplexNum;
 	
 	public AdminShowtimeEditorMenu(MenuTemplate previousMenu) {
 		super(previousMenu);
@@ -51,7 +52,9 @@ public class AdminShowtimeEditorMenu extends MenuTemplate{
 				super.returnPrevious();
 				break;
 		}
-		return nextMenu.run();
+        nextMenu.setCineplexNum(super.getCineplexNum());
+        nextMenu.setUsername(super.getUsername());
+        return nextMenu.run();
 	}
 
 }
