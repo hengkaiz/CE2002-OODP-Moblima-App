@@ -24,7 +24,7 @@ public class UserSearchApp {
 
     public ShowTime SearchByMovie() {
         Scanner sc = new Scanner(System.in);
-        int sel;
+        int sel=0;
 
         UserSearchByMovie searchByMovie = new UserSearchByMovie();
         copyOfShowTime = searchByMovie.searchApp(mdb, cineplexNumber);
@@ -36,11 +36,17 @@ public class UserSearchApp {
             System.out.printf("%d. %s - %d\n", i + 1, copyOfShowTime.get(i).toStringGetDate(), copyOfShowTime.get(i).getTiming());
         }
         System.out.println("-1 to return");
-        System.out.print("Please enter your choice: ");
+        try {
+            System.out.print("Please enter your choice: ");
 
-        sel = sc.nextInt();
-        System.out.println();
-        sc.nextLine(); //clear the buffer
+            sel = sc.nextInt();
+            System.out.println();
+            sc.nextLine(); //clear the buffer
+        }
+        catch (Exception e) {
+            System.out.println("Invalid option. Try Again.");
+            SearchByMovie();
+        }
 
         if (sel == -1) return null; // return to search menu
 

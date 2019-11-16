@@ -37,6 +37,7 @@ public class UserSearchByMovie {
 			movietitle = movieList.get(selMovie-1);
 		} catch (Exception e) {
 			System.out.println("Invalid Selection. Try Again.");
+			searchResult();
 		}
         
 
@@ -79,6 +80,7 @@ public class UserSearchByMovie {
 
 		} catch (Exception e) {
 			System.out.println("Invalid Selection. Try Again.");
+			returnMovie(mb);
 		}
 
         

@@ -27,6 +27,7 @@ public class UserLoginMenu extends MenuTemplate {
         }
         catch (Exception e) {
         	System.out.println("Invalid ID/Password. Try Again");
+        	run();
         }
         
         nextMenu = this;

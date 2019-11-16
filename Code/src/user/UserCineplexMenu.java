@@ -30,6 +30,7 @@ public class UserCineplexMenu extends MenuTemplate {
             }
         } catch (Exception e) {
             System.out.println("Invalid Choice. Try Again.");
+            run();
         }
 
         nextMenu = this;

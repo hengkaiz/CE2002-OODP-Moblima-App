@@ -72,8 +72,7 @@ public class UserChooseSeatsMenu extends MenuTemplate{
                 }
                 for(int i=0;i<sel;i++) {
                     int[] seat = userChooseSeatsApp.chooseSeats(super.getUsername());
-                    BookingApp bookingApp = new BookingApp(super.getUsername());
-                    bookingApp.addBooking(super.getCineplexNum(), selST, seat);
+                    run();
                 }
                 System.out.println("Thanks for booking!");
                 nextMenu = new UserSearchMenu(new MainMenu());

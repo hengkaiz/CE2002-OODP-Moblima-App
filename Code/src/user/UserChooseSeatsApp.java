@@ -59,7 +59,6 @@ public class UserChooseSeatsApp {
 		} catch (IndexOutOfBoundsException | InputMismatchException e) {
 			System.out.println("Selected seat invalid. Try Again.");
 			chooseSeats(ID);
-
 		}
 		//need to add exception choosing a taken seat
 

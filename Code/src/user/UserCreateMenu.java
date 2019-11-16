@@ -35,6 +35,7 @@ public class UserCreateMenu extends MenuTemplate{
 				}
 			} catch (Exception e) {
 				System.out.println("Input Error. Try Again.");
+				run();
 			}
 
 			nextMenu.setCineplexNum(super.getCineplexNum());

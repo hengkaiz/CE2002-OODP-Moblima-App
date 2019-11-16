@@ -46,6 +46,7 @@ public class UserSearchByDate {
 			showtimes = db.searchByDate(output); //get an array of showtime on that date
 		} catch (Exception e) {
 			System.out.println("Invalid Date. Try Again.");
+			searchResult();
 		}
 	}
 

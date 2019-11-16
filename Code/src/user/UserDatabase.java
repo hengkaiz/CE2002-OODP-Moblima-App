@@ -58,6 +58,7 @@ public class UserDatabase implements Serializable{
 			System.out.println("\nAccount added! ");
 		} catch (Exception e) {
 			System.out.println("Error in input. Try again.");
+			addUser(un, pw);
 		}
 
     }
