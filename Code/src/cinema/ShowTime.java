@@ -92,6 +92,10 @@ public class ShowTime implements Comparable<ShowTime>, Serializable{
     public MovieFormat getMovieformat() {
 		return movieformat;
 	}
+    
+    public Movie getMovieObject() {
+    	return this.movie;
+    }
 
 	public void setMovieformat(MovieFormat movieformat) {
 		this.movieformat = movieformat;
