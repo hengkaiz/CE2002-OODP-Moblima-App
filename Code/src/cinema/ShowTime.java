@@ -50,11 +50,11 @@ public class ShowTime implements Comparable<ShowTime>, Serializable{
 		return this.assignedCinema.getType();
 	}
 
-	public void setSeatplan(SeatPlan seatplan) {
+	public void setSeatPlan(SeatPlan seatplan) {
 		this.seatPlan = seatplan;
 	}
 
-	public SeatPlan getSeatplan() {
+	public SeatPlan getSeatPlan() {
 		return seatPlan;
 	}
 

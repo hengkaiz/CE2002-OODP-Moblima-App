@@ -27,16 +27,16 @@ public class UserChooseSeatsApp {
 	}
 
 	public void printSeats(){
-		stdb.getShowTimes().get(st_no).getSeatplan().printSeats();
+		stdb.getShowTimes().get(st_no).getSeatPlan().printSeats();
 	}
 
 	private void selectSeat(int row, int col, String username) throws IndexOutOfBoundsException {
-		if (stdb.getShowTimes().get(st_no).getSeatplan().checkSeat(row, col) == false){// seat taken
+		if (stdb.getShowTimes().get(st_no).getSeatPlan().checkSeat(row, col) == false){// seat taken
 			//add exception here if seat is taken
 			throw new IndexOutOfBoundsException();
 		}
 		else{
-			stdb.getShowTimes().get(st_no).getSeatplan().assignSeat(row, col, username);
+			stdb.getShowTimes().get(st_no).getSeatPlan().assignSeat(row, col, username);
 		}
 	}
 
