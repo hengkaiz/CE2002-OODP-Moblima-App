@@ -37,7 +37,7 @@ public class AdminMovieEditor {
 		boolean loop = true;
         do {
         try {
-    		System.out.println("Which Movie do you want to update? (-1 to exit)");
+    		System.out.println("Please enter your choice (-1 to exit): ");
     		//need exception in case they enter the movie string instead?
     		updateMovieChoice = sc.nextInt();
     		if(updateMovieChoice == -1) {
@@ -51,7 +51,7 @@ public class AdminMovieEditor {
 			System.out.printf("Invalid movie. Try Again.");
 		}
         } while (loop);
-
+        System.out.println();
 		selectedMovie = movieList.get(updateMovieChoice-1);
 		
 		int updateChoice = 0;
@@ -79,7 +79,7 @@ public class AdminMovieEditor {
 				System.out.printf("Invalid choice. Try Again.");
 			}
 	        } while (loop);
-			
+			System.out.println();
 			switch(updateChoice) {
 			case 1: //update movie synopsis
 				sc.nextLine(); //clear buffer
@@ -110,7 +110,7 @@ public class AdminMovieEditor {
 					System.out.printf("Invalid choice. Try Again.");
 				}
 		        } while (loop);
-				
+				System.out.println();
 				switch(castChoice) {
 				case 1: //add cast member
 					sc.nextLine(); //dummy
@@ -163,7 +163,7 @@ public class AdminMovieEditor {
 					System.out.printf("Invalid choice. Try Again.");
 				}
 		        } while (loop);
-				
+				System.out.println();
 				switch(directorChoice) {
 				case 1: //add director
 					sc.nextLine(); //dummy
@@ -220,7 +220,7 @@ public class AdminMovieEditor {
 					System.out.printf("Invalid choice. Try Again.");
 				}
 		        } while (loop);
-
+		        System.out.println();
 				for(MovieStatus status : MovieStatus.values()) {				//go through array until find the one equal to user input
 					if(status.ordinal()==statusChoice-1){
 						selectedMovie.setStatus(status);
@@ -262,6 +262,7 @@ public class AdminMovieEditor {
 			System.out.printf("Invalid choice. Try Again.");
 		}
         } while (loop);
+        System.out.println();
 		
 		if(choice == 1) { //remove from database
 			mdb.removeMovieFromDB();
@@ -291,6 +292,7 @@ public class AdminMovieEditor {
 				System.out.printf("Invalid choice. Try Again.");
 			}
 	        } while (loop);
+	        System.out.println();
 			
 			String title = movieTitles.get(updateMovieChoice-1);
 			for(Movie m : movieList) {
