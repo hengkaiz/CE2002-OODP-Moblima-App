@@ -89,7 +89,7 @@ public class ShowTime implements Comparable<ShowTime>, Serializable{
 		return date;
 	}
 
-    public MovieFormat getMovieformat() {
+    public MovieFormat getMovieFormat() {
 		return movieFormat;
 	}
     
@@ -97,7 +97,7 @@ public class ShowTime implements Comparable<ShowTime>, Serializable{
     	return this.movie;
     }
 
-	public void setMovieformat(MovieFormat movieformat) {
+	public void setMovieFormat(MovieFormat movieformat) {
 		this.movieFormat = movieformat;
 	}
 
