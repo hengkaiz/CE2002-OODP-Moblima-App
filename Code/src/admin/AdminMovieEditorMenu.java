@@ -23,7 +23,7 @@ public class AdminMovieEditorMenu extends MenuTemplate{
 		try {
 			System.out.println("Please enter your choice:");
 			sel = sc.nextInt();
-			if (sel < 1 || sel > 4) { //check exceptions?
+			if (sel < 1 || sel > 4) {
 				throw new Exception();
 			}
 		} catch (Exception e) {

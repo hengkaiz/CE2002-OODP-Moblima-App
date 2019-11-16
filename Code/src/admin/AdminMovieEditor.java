@@ -43,7 +43,7 @@ public class AdminMovieEditor {
     		if(updateMovieChoice == -1) {
     			return;
     		}
-    		if (updateMovieChoice<1 || updateMovieChoice>i) { //check exceptions?
+    		if (updateMovieChoice<1 || updateMovieChoice>i-1) { 
 				throw new Exception();
 			}
 		} catch (Exception e) {
@@ -198,7 +198,7 @@ public class AdminMovieEditor {
 		    		System.out.println("Please enter your choice:"); 
 		    		//need exception in case they enter the movie string instead?
 		    		statusChoice = sc.nextInt();
-					if (statusChoice<1 || statusChoice>i) { //check exceptions?
+					if (statusChoice<1 || statusChoice>i-1) { 
 						throw new Exception();
 					}
 				} catch (Exception e) {
@@ -264,7 +264,7 @@ public class AdminMovieEditor {
 	    		System.out.println("Please enter your choice:"); 
 	    		//need exception in case they enter the movie string instead?
 	    		updateMovieChoice = sc.nextInt();
-				if (updateMovieChoice<1 || updateMovieChoice>i) { //check exceptions?
+				if (updateMovieChoice<1 || updateMovieChoice>i-1) { 
 					throw new Exception();
 				}
 			} catch (Exception e) {

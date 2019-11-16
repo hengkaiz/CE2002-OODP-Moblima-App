@@ -25,7 +25,7 @@ public class AdminFunctionsMenu extends MenuTemplate{
         try {
     		System.out.print("Please enter your choice: ");
 			sel = sc.nextInt();
-			if (sel<1 || sel>5) { //check exceptions?
+			if (sel<1 || sel>5) { 
 				throw new Exception();
 			}
 		} catch (Exception e) {
