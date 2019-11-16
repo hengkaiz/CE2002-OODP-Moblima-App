@@ -17,19 +17,17 @@ public class AdminMainMenu extends MenuTemplate{
 		System.out.println("---Admin Main Menu---");
 		System.out.println("1. Login");
 		System.out.println("2. Return");
-        boolean loop = true;
-        do {
+
         try {
     		System.out.print("Please enter your choice: ");
 			sel = sc.nextInt();
 			if (sel<1 || sel>2) { //check exceptions?
 				throw new Exception();
 			}
-			loop = false;
 		} catch (Exception e) {
 			System.out.println("Invalid choice. Try Again.");
 		}
-        } while (loop);
+
         System.out.println();
         sc.nextLine(); //clear the buffer
         

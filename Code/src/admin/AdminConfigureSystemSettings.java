@@ -42,19 +42,16 @@ public class AdminConfigureSystemSettings {
 			System.out.println("6. Change 3D Surcharge");
 			System.out.println("7. Change Blockbuster Surcharge");
 			System.out.println("8. Return");
-			boolean loop = true;
-	        do {
+
 	        try {
 	    		System.out.println("Please enter your choice: ");
 	    		updateChoice = sc.nextInt();
 	    		if (updateChoice<1 || updateChoice>8) { //check exceptions?
 					throw new Exception();
 				}
-				loop = false;
 			} catch (Exception e) {
 				System.out.printf("Invalid choice. Try Again.");
 			}
-	        } while (loop);
 	        System.out.println();
 
 			switch(updateChoice) {
@@ -121,19 +118,17 @@ public class AdminConfigureSystemSettings {
 			System.out.println("1. Add Holiday");
 			System.out.println("2. Remove Holiday");
 			System.out.println("3. Return");
-			boolean loop = true;
-	        do {
+
 	        try {
 	    		System.out.println("Please enter your choice: ");
 	    		updateChoice = sc.nextInt();
 	    		if (updateChoice<1 || updateChoice>3) { //check exceptions?
 					throw new Exception();
 				}
-				loop = false;
 			} catch (Exception e) {
 				System.out.printf("Invalid choice. Try Again.");
 			}
-	        } while (loop);
+
 	        System.out.println();
 			
 			switch(updateChoice) {
