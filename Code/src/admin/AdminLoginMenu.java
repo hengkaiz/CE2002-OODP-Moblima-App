@@ -14,9 +14,9 @@ public class AdminLoginMenu extends MenuTemplate{
 		Scanner sc = new Scanner(System.in);
 		AdminLoginApp adminLoginApp = new AdminLoginApp();
 		
-		System.out.println("Enter ID:");
+		System.out.print("Enter ID:");
 		String ID = sc.nextLine();
-		System.out.println("Enter Password:");
+		System.out.print("Enter Password:");
 		String password = sc.nextLine();
 		nextMenu = this;
 		if(adminLoginApp.loginCheck(ID, password)) { //login successful

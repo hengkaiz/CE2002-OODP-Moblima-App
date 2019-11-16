@@ -20,7 +20,7 @@ public class AdminMainMenu extends MenuTemplate{
         boolean loop = true;
         do {
         try {
-    		System.out.println("Please enter your choice: ");
+    		System.out.print("Please enter your choice: ");
 			sel = sc.nextInt();
 			if (sel<1 || sel>2) { //check exceptions?
 				throw new Exception();
