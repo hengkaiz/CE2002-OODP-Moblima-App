@@ -20,7 +20,7 @@ public class Cineplex implements Serializable{
     	System.out.println("Enter cineplex name");
     	this.cineplexName=sc.nextLine();
     	
-    	System.out.println("Enter 1 letter cineplex code");
+    	System.out.println("Enter 2 letter cineplex code");
     	this.cineplexCode=sc.nextLine();
     	
     	System.out.println("Enter cineplex number");	
