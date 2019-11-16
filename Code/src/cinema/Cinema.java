@@ -37,7 +37,10 @@ public class Cinema implements Serializable{
     			break;
     		default: break;
     	}
-    	this.code = ofCineplexCode + Integer.toString(this.cinemaNumber);
+    	
+    	System.out.println("Enter cinema letter");
+    	String cinemaLetter=sc.nextLine();
+    	this.code = ofCineplexCode + cinemaLetter;
     	this.ofCineplexCode = ofCineplexCode;
     	this.ofCineplexName = ofCineplexName;
     }
