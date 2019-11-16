@@ -48,7 +48,7 @@ public class UserSearchMenu extends MenuTemplate {
                 break;
 
             case 2: //calls search by date
-                ShowTime selST2 = userSearchApp.SearchByDate();
+j
                 if (selST2 != null) nextMenu = new UserChooseSeatsMenu(this, selST2);
                 break;
 

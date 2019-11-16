@@ -72,7 +72,7 @@ public class MovieDatabase implements Serializable{
 		System.out.print("Overall Rating: " );
 		chosenMovie.printMovieOverallRating();
 		System.out.println("Reviews: " );
-		chosenMovie.printReviewList(3);
+		chosenMovie.printReviewList(7);
 	}
 	
 	public ArrayList<String> getMovieTitlesList(){

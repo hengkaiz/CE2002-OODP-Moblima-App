@@ -8,7 +8,8 @@ import moblima.SaveAndLoadDB;
 import movies.Movie;
 
 public class ShowTime implements Comparable<ShowTime>, Serializable{
-    private int timing;
+	private static final long serialVersionUID = 1L;
+	private int timing;
     private Movie movie;
     private Cinema assignedCinema;
     private SeatPlan seatPlan;
