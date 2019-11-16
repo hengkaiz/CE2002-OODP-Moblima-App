@@ -31,6 +31,7 @@ public class AdminUpdateShowtimeMenu extends MenuTemplate{
 			System.out.println("Invalid Choice. Try Again.");
 		}
         } while (loop);
+        System.out.println();
         nextMenu = this;
         AdminShowtimeEditor stEditor = new AdminShowtimeEditor(super.getCineplexNum());
         

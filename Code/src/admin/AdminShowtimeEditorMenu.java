@@ -33,6 +33,7 @@ public class AdminShowtimeEditorMenu extends MenuTemplate{
 			}
 		} while (loop);
 		nextMenu = this;
+        System.out.println();
 		AdminShowtimeEditor stEditor = new AdminShowtimeEditor(super.getCineplexNum());
 
 		switch (sel) {

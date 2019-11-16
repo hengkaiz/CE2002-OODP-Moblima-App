@@ -32,6 +32,7 @@ public class AdminMovieEditorMenu extends MenuTemplate{
 				System.out.println("Invalid Choice. Try Again.");
 			}
 		} while (loop);
+		System.out.println();
 		nextMenu = this;
 		AdminMovieEditor mEditor = new AdminMovieEditor(super.getCineplexNum());
 				

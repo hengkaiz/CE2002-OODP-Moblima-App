@@ -57,6 +57,7 @@ public class AdminShowtimeEditor {
 			System.out.printf("Invalid movie. Try Again.");
 		}
         } while (loop);
+        System.out.println();
 		
 		String movieTitle = movieTitles.get(sel-1);
 		for(Movie movie : movieList){
@@ -92,6 +93,7 @@ public class AdminShowtimeEditor {
 			System.out.println("Invalid Date. Try Again.");
 		}
 		} while (loop);
+		System.out.println();
 		
 		//get movie format
 		MovieFormat movieFormat = movieFormatSelection();
@@ -130,6 +132,7 @@ public class AdminShowtimeEditor {
 			System.out.printf("Invalid movie. Try Again.");
 		}
         } while (loop);
+        System.out.println();
 		
         //get selected movie title
 		String movieTitle = movieTitles.get(sel-1);
@@ -167,6 +170,7 @@ public class AdminShowtimeEditor {
 				System.out.printf("Invalid showtime. Try Again.");
 			}
 	        } while (loop);
+	        System.out.println();
 
 	        //get ST to update
 			sT = stByMovie.get(sel-1);
@@ -192,6 +196,7 @@ public class AdminShowtimeEditor {
 					System.out.printf("Invalid choice. Try Again.");
 				}
 		        } while (loop);
+		        System.out.println();
 
 				switch(updateChoice) {
 				case 1: //change timing
@@ -260,6 +265,7 @@ public class AdminShowtimeEditor {
 				System.out.printf("Invalid showtime. Try Again.");
 			}
 	        } while (loop);
+	        System.out.println();
 			
 			sT = stByDate.get(chooseST-1);
 			
@@ -285,6 +291,7 @@ public class AdminShowtimeEditor {
 					System.out.printf("Invalid choice. Try Again.");
 				}
 		        } while (loop);
+		        System.out.println();
 				switch(updateChoice) {
 				case 1: //change timing
 					String oldTiming = sT.timeToString();
@@ -315,6 +322,7 @@ public class AdminShowtimeEditor {
 						System.out.printf("Invalid movie. Try Again.");
 					}
 			        } while (loop);
+			        System.out.println();
 
 					String newMovieTitle = movieTitles.get(newMovieChoice -1);
 					for(Movie movie : movieList) {
@@ -371,6 +379,7 @@ public class AdminShowtimeEditor {
 			System.out.printf("Invalid showtime. Try Again.");
 		}
         } while (loop);
+        System.out.println();
 
 		sT = stList.get(stChoice-1);
 		
@@ -404,6 +413,7 @@ public class AdminShowtimeEditor {
 			System.out.println("Invalid cinema number. Try Again.");
 		}
         } while (loop);
+        System.out.println();
 		
         return (sel-1);
 	}
@@ -432,6 +442,7 @@ public class AdminShowtimeEditor {
 			System.out.printf("Invalid format. Try Again.");
 		}
         } while (loop);
+        System.out.println();
 		
         MovieFormat movieFormat = null;
 		for(MovieFormat mf : MovieFormat.values()) { //go through array until find the one equal to user input

@@ -56,6 +56,7 @@ public class AdminConfigureSystemSettings {
 				System.out.printf("Invalid choice. Try Again.");
 			}
 	        } while (loop);
+	        System.out.println();
 
 			switch(updateChoice) {
 			case 1: //change base price
@@ -135,6 +136,7 @@ public class AdminConfigureSystemSettings {
 				System.out.printf("Invalid choice. Try Again.");
 			}
 	        } while (loop);
+	        System.out.println();
 			
 			switch(updateChoice) {
 			case 1: //add holiday
