@@ -4,9 +4,9 @@ import java.io.Serializable;
 import java.util.Scanner;
 
 public class Review implements Serializable{
+	private static final long serialVersionUID = 1L;
 	private String reviewer;
 	private double rating;
-	//date
 	private String reviewContent;
 	
 	public Review() {

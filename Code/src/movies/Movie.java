@@ -4,6 +4,7 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class Movie implements Serializable{
+	private static final long serialVersionUID = 1L;
 	private String movieTitle; 
 	private String movieSynopsis;
 	private ArrayList<String> movieCast;
@@ -78,8 +79,8 @@ public class Movie implements Serializable{
 		System.out.println("Created movie: " +this.movieTitle);
 		
 	}
-	
-    public Movie(String movieTitle, String movieSynopsis, MovieStatus movieStatus) {
+
+	public Movie(String movieTitle, int totalSales, AgeRating rating, String movieSynopsis , MovieStatus movieStatus) {
 		this.movieTitle = movieTitle;
 		this.movieSynopsis = movieSynopsis;
 		this.movieCast = new ArrayList<String>();
@@ -87,8 +88,8 @@ public class Movie implements Serializable{
 		this.movieOverallRating = -1;
 		this.reviewList = new ArrayList<Review>();
 		this.movieStatus = movieStatus;
-		this.totalSales = 0;
-		this.ageRating = ageRating.GENERAL;
+		this.totalSales = totalSales;
+		this.ageRating = rating;
 	}
     
 	public String getMovieTitle() {
@@ -170,6 +171,10 @@ public class Movie implements Serializable{
 			System.out.printf("%.1f", this.movieOverallRating);
 			System.out.println();
 		}
+	}
+	
+    public ArrayList<Review> getReviewList() {
+		return reviewList;
 	}
 	
 	public void addReview() {

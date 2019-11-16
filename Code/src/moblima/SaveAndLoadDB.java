@@ -1,7 +1,7 @@
 package moblima;
-
+import java.util.ArrayList;
 import cinema.*;
-import movies.MovieDatabase;
+import movies.*;
 import user.UserDatabase;
 import admin.AdminDatabase;
 import movies.HolidayDatabase;
@@ -366,25 +366,130 @@ public class SaveAndLoadDB {
 	
 	
 	
-//	public static void main(String[] args) {
-//		SaveAndLoadDB fff2 = new SaveAndLoadDB();
+	public static void main(String[] args) {
+		SaveAndLoadDB fff2 = new SaveAndLoadDB();
 		
-//		MovieDatabase mdb = new MovieDatabase();
-//		MovieDatabase mdbcopy = null;
-//		fff2.saveMovieDB(mdb);
-//		mdbcopy = fff2.loadMovieDB();
-//		mdbcopy.printMovieDetails();
-//		mdbcopy.printMovieDetails();
-//		mdbcopy.printMovieDetails();
-//		mdbcopy.printMovieDetails();
-//		mdbcopy.printMovieDetails();
-//		mdbcopy.printMovieDetails();
-//		mdbcopy.printMovieDetails();
-//		mdbcopy.printMovieDetails();
-//		mdbcopy.printMovieDetails();
-//		mdbcopy.printMovieDetails();
-//		mdbcopy.printMovieDetails();
-//		System.out.println(mdbcopy.getMovieTitlesList());
+		MovieDatabase mdb = new MovieDatabase();
+		Movie cA = new Movie("Charlie's Angel", 0, AgeRating.PARENTAL_GUIDANCE13, "Charlie's Angels have always provided security and investigative skills to private clients. Now the Townsend Agency has expanded internationally with the smartest and most highly trained women from all over the globe — multiple teams of Angels guided by multiple Bosleys, completing the toughest missions around the world. When a young systems engineer blows the whistle on a dangerous technology, these Angels are called into action, putting their lives on the line to protect people.", MovieStatus.COMING_SOON);
+		cA.addMovieCast("Jaclyn Smith");
+		cA.addMovieCast("Kristen Stewart");
+		cA.addMovieCast("Elizabeth Banks");
+		cA.addMovieCast("Naomi Scott");
+		cA.addMovieCast("Drew Barrymore");
+		cA.addMovieDirector("Elizabeth Banks");
+		cA.addMovieDirector("McG");
+		
+		cA.updateOverallRating();
+		mdb.getMovies().add(cA);
+		
+		
+		Movie tDF = new Movie("Terminator: Dark Fate", 1560, AgeRating.NO_CHILDREN_UNDER16, "In Mexico City, a newly modified liquid Terminator -- the Rev-9 model -- arrives from the future to kill a young factory worker named Dani Ramos. Also sent back in time is Grace, a hybrid cyborg human who must protect Ramos from the seemingly indestructible robotic assassin. But the two women soon find some much-needed help from a pair of unexpected allies -- seasoned warrior Sarah Connor and the T-800 Terminator.", MovieStatus.NOW_SHOWING);
+		tDF.addMovieCast("Linda Hamilton");
+		tDF.addMovieCast("Arnold Schwarzenegger");
+		tDF.addMovieCast("Mackenzie Davis");
+		tDF.addMovieCast("Gabriel Luna");
+		tDF.addMovieDirector("Tim Miller");
+		tDF.getReviewList().add(new Review("tommy", 3.4, "I was alternately interested and bored by the repetition... Can you tell that I am not the demographic for this film? But at least it was good to see the talented and gorgeous Mackenzie Davis."));
+		tDF.getReviewList().add(new Review("daniel", 3.2, "If you're able to accept the bold choices the movie is built around, this is a welcome follow up to Terminator 2."));
+		tDF.getReviewList().add(new Review("robert", 3.1,"Part sequel, part reboot, it's a lot of what we've seen before with just enough personality and solid action."));
+		tDF.getReviewList().add(new Review("brian",4.5,"Awesome movie"));
+		tDF.getReviewList().add(new Review("eric",5,"As sequels go, Dark Fate is pretty good, a perfectly fun time at the movies."));
+		
+		tDF.updateOverallRating();
+		mdb.getMovies().add(tDF);
+		
+		Movie gM = new Movie("Gemini Man", 950, AgeRating.PARENTAL_GUIDANCE13, "Henry Brogan is an elite 51-year-old assassin who's ready to call it quits after completing his 72nd job. His plans get turned upside down when he becomes the target of a mysterious operative who can seemingly predict his every move. To his horror, Brogan soon learns that the man who's trying to kill him is a younger, faster, cloned version of himself.", MovieStatus.NOW_SHOWING);
+		gM.addMovieCast("Will Smith");
+		gM.addMovieCast("Mary Elizabeth Winstead");
+		gM.addMovieCast("Benedict Wong");
+		gM.addMovieDirector("Ang Lee");
+		gM.getReviewList().add(new Review("jay",1.5,"The best cloning, however, is in the script, which only has ideas duplicated from other films."));
+		gM.getReviewList().add(new Review("hengkai",2,"A cloned human is created by no god, but a human body needs a soul to animate it. Nature abhors a vacuum. What kinds of entities will creep in and animate that human clone are stories the horror genre will address in the future, but this is a good start."));
+		gM.getReviewList().add(new Review("zhengtian",2.1,"Not so good"));
+		gM.getReviewList().add(new Review("louis",1.6,"It is embarrassing that a movie with this much star power with this much money being poured into the attempts at visual spectacle couldn't spare a pittance for a script doctor to clean up the horrific dialogue."));
+		
+		gM.updateOverallRating();
+		mdb.getMovies().add(gM);
+		
+		Movie tAF = new Movie("The Addams Family", 1000, AgeRating.GENERAL, "Members of the mysterious and spooky Addams family -- Gomez, Morticia, Pugsley, Wednesday, Uncle Fester and Grandma -- are readily preparing for a visit from their even creepier relatives. But trouble soon arises when shady TV personality Margaux Needler realizes that the Addams' eerie hilltop mansion is standing in the way of her dream to sell all the houses in the neighborhood.", MovieStatus.PREVIEW);
+		tAF.addMovieCast("Finn Wolfhard");
+		tAF.addMovieCast("Chloë Grace Moretz");
+		tAF.addMovieCast("Oscar Isaac");
+		tAF.addMovieCast("Charlize Theron");
+		tAF.addMovieCast("Nick Kroll");
+		tAF.addMovieDirector("Conrad Vernon");
+		tAF.addMovieDirector("Greg Tiernan");
+		
+		tAF.updateOverallRating();
+		mdb.getMovies().add(tAF);
+		
+		Movie fT = new Movie("Frozen 2", 2000, AgeRating.GENERAL, "Elsa the Snow Queen and her sister Anna embark on an adventure far away from the kingdom of Arendelle. They are joined by friends, Kristoff, Olaf, and Sven.", MovieStatus.PREVIEW);
+		fT.addMovieCast("Idina Menzel");
+		fT.addMovieCast("Kristen Bell");
+		fT.addMovieCast("Josh Gad");
+		fT.addMovieCast("Evan Rachel Wood");
+		fT.addMovieCast("Jonathan Groff");
+		fT.addMovieDirector("Jennifer Lee");
+		fT.addMovieDirector("Chris Buck");
+		
+		fT.updateOverallRating();
+		mdb.getMovies().add(fT);
+		
+		Movie j =new Movie("Joker", 2900, AgeRating.RESTRICTED21, "Forever alone in a crowd, failed comedian Arthur Fleck seeks connection as he walks the streets of Gotham City. Arthur wears two masks -- the one he paints for his day job as a clown, and the guise he projects in a futile attempt to feel like he's part of the world around him. Isolated, bullied and disregarded by society, Fleck begins a slow descent into madness as he transforms into the criminal mastermind known as the Joker.", MovieStatus.END_OF_SHOWING);
+		j.addMovieCast("Joaquin Phoenix");
+		j.addMovieCast("Zazie Beetz");
+		j.addMovieCast("Robert De Niro");
+		j.addMovieCast("Frances Conroy");
+		j.addMovieDirector("Todd Phillips");
+		
+		j.updateOverallRating();
+		mdb.getMovies().add(j);
+		
+		Movie m = new Movie("Maleficent", 1800, AgeRating.GENERAL, "Maleficent travels to a grand old castle to celebrate young Aurora's upcoming wedding to Prince Phillip. While there, she meets Aurora's future mother-in-law -- a conniving queen who hatches a devious plot to destroy the land's fairies. Hoping to stop her, Maleficent joins forces with a seasoned warrior and a group of outcasts to battle the queen and her powerful army.", MovieStatus.NOW_SHOWING);
+		m.addMovieCast("Angelina Jolie");
+		m.addMovieCast("Michelle Pfeiffer");
+		m.addMovieCast("Harris Dickinson");
+		m.addMovieCast("Elle Fanning");
+		m.addMovieDirector("Joachim Ronning");
+		
+		m.updateOverallRating();
+		mdb.getMovies().add(m);
+		
+		Movie pDP = new Movie("Pokemon Detective Pikachu", 7500, AgeRating.GENERAL, "Ace detective Harry Goodman goes mysteriously missing, prompting his 21-year-old son, Tim, to find out what happened. Aiding in the investigation is Harry's former Pokémon partner, wise-cracking, adorable super-sleuth Detective Pikachu. Finding that they are uniquely equipped to work together, as Tim is the only human who can talk with Pikachu, they join forces to unravel the tangled mystery.", MovieStatus.NOW_SHOWING);
+		pDP.addMovieCast("Ryan Reynolds");
+		pDP.addMovieCast("Justice Smith");
+		pDP.addMovieDirector("Rob Letterman");
+		
+		pDP.updateOverallRating();
+		mdb.getMovies().add(pDP);
+				
+		Movie lC = new Movie("Last Christmas", 0, AgeRating.PARENTAL_GUIDANCE13, "Nothing seems to go right for young Kate, a frustrated Londoner who works as an elf in a year-round Christmas shop. But things soon take a turn for the better when she meets Tom -- a handsome charmer who seems too good to be true. As the city transforms into the most wonderful time of the year, Tom and Kate's growing attraction turns into the best gift of all -- a Yuletide romance.", MovieStatus.COMING_SOON);
+		lC.addMovieCast("Emilia Clarke");
+		lC.addMovieCast("Henry Golding");
+		lC.addMovieDirector("Paul Feig");
+		
+		lC.updateOverallRating();
+		mdb.getMovies().add(lC);
+				
+		Movie iT2 = new Movie("IT 2", 2380, AgeRating.MATURE18, "Defeated by members of the Losers' Club, the evil clown Pennywise returns 27 years later to terrorize the town of Derry, Maine, once again. Now adults, the childhood friends have long since gone their separate ways. But when people start disappearing, Mike Hanlon calls the others home for one final stand. Damaged by scars from the past, the united Losers must conquer their deepest fears to destroy the shape-shifting Pennywise -- now more powerful than ever.", MovieStatus.END_OF_SHOWING);
+		iT2.addMovieCast("Jessica Chastain");
+		iT2.addMovieCast("Bill Skarsgard");
+		iT2.addMovieCast("James McAvoy");
+		iT2.addMovieCast("Isaiah Mustafa");
+		iT2.addMovieCast("James Ransone");
+		
+		iT2.updateOverallRating();
+		mdb.getMovies().add(iT2);
+		
+		MovieDatabase mdbcopy = null;
+		fff2.saveMovieDB(mdb);
+		mdbcopy = fff2.loadMovieDB();
+
+		System.out.println(mdbcopy.getMovieTitlesList());
+		mdbcopy.printMovieDetails();
+		mdbcopy.printMovieDetails();
+		mdbcopy.printMovieDetails();
+		mdbcopy.printMovieDetails();
 		
 //		ShowTimeDatabase stdb = new ShowTimeDatabase();
 //		ShowTimeDatabase stdbcopy = null;
@@ -430,5 +535,5 @@ public class SaveAndLoadDB {
 //		BookingDatabase bdb = new BookingDatabase();
 //		BookingDatabase bdbcopy = null;
 		
-//	}
+	}
 }
