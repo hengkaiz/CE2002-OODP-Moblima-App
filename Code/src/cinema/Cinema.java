@@ -5,7 +5,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Cinema implements Serializable{
-    private CinemaType type;
+	private static final long serialVersionUID = 1L;
+	private CinemaType type;
     private String code;
     private int cinemaNumber;
     private String ofCineplexCode;
@@ -39,6 +40,7 @@ public class Cinema implements Serializable{
     	}
     	
     	System.out.println("Enter cinema letter");
+    	String dummy = sc.nextLine();
     	String cinemaLetter=sc.nextLine();
     	this.code = ofCineplexCode + cinemaLetter;
     	this.ofCineplexCode = ofCineplexCode;

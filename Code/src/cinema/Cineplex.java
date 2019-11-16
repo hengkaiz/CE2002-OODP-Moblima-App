@@ -5,7 +5,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Cineplex implements Serializable{
-    private ArrayList<Cinema> cinemas;
+	private static final long serialVersionUID = 1L;
+	private ArrayList<Cinema> cinemas;
     private String cineplexName;
     private String cineplexCode;
     private int cineplexNumber;
