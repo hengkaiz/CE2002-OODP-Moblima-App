@@ -40,6 +40,8 @@ public class UserMainMenu extends MenuTemplate {
         sc.nextLine(); //clear the buffer
 
         nextMenu = this;
+        UserReviewsApp reviewMovie = new UserReviewsApp();
+        
         switch (sel) {
             case 1: //login menu
                 nextMenu = new UserLoginMenu(this);
@@ -48,8 +50,10 @@ public class UserMainMenu extends MenuTemplate {
                 nextMenu = new UserCreateMenu(this);
                 break;
             case 3: //user leave reviews
-            	nextMenu = new UserReviewsMenu(this);
-
+            	//put in user review app
+            	// reviewMovie.getMovie();
+            	// add reviews
+            	reviewMovie.addReview(reviewMovie.getMovie());
                 break;
             case 4: //return
                 super.returnPrevious();
