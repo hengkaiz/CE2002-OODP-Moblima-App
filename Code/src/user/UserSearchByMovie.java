@@ -47,7 +47,7 @@ public class UserSearchByMovie {
 	public ArrayList<ShowTime> searchApp(MovieDatabase mb, int cineplexNum) {
 		SaveAndLoadDB saveAndLoadDB = new SaveAndLoadDB();
 		this.db = saveAndLoadDB.loadShowTimeDB(cineplexNum);
-		System.out.println("---Search By Movie---");
+		System.out.println("\n---Search By Movie---");
 
 		this.mb = mb;
 		searchResult(); //get show time for the movies

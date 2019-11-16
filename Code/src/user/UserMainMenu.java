@@ -18,7 +18,7 @@ public class UserMainMenu extends MenuTemplate {
         Scanner sc = new Scanner(System.in);
         int sel = 0;
 
-        System.out.println("---User Menu---");
+        System.out.println("\n---User Menu---");
         System.out.println("1. Login");
         System.out.println("2. Create Account");
         System.out.println("3. Leave Reviews");

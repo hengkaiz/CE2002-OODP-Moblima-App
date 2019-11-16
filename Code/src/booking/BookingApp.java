@@ -30,11 +30,12 @@ public class BookingApp {
 
         if (bookinglist == null) return;
         for (int i = 0; i < bookinglist.size(); i++) {
-            System.out.println("Hello " + username + ", here are your current bookings.");
-            System.out.println(bookinglist.get(i).getCineplexName() + " - " + bookinglist.get(i).getCinemaNum());
+            System.out.println("Hello " + username + ", here are your bookings:");
+            System.out.println(bookinglist.get(i).getCineplexName() + " - Cinema " + bookinglist.get(i).getCinemaNum());
             System.out.println("Movie: " + bookinglist.get(i).getMovieTitle());
             System.out.println("Showtime: " + bookinglist.get(i).getShowTime());
-            System.out.println("Seats chosen: " + bookinglist.get(i).getSeat()+ "\n");
+            System.out.println("Seats chosen: " + (char)(bookinglist.get(i).getSeat()[0] + 97) + bookinglist.get(i).getSeat()[1]);
+            System.out.println("Transaction ID: " + bookinglist.get(i).getTID() + "\n");
         }
     }
 
@@ -64,14 +65,15 @@ public class BookingApp {
         else if (cineplexNum == 1) System.out.print("Bishan");
         else System.out.print("Nex");
         System.out.print(" Cineplex - Cinema " + st.getCinemaNum());
-        System.out.println("\nPrice: "+ price);
+        System.out.printf("\nSeat: %s%d\n", (char)(seat[0]+65), seat[1]);
+        System.out.println("Price: "+ price);
 
         System.out.print("Confirm purchase? (y/n): ");
         Character choice = sc.nextLine().charAt(0);
-        if(!choice.equals("y")) return;
-
-        System.out.print("Booking confirmed!");
-        bdb.addNewBooking(username, cineplexNum, st, seat, price);
-        saveAndLoadDB.saveBookingDB(bdb);
+        if(choice.equals('y')) {
+            System.out.print("Booking confirmed!");
+            bdb.addNewBooking(username, cineplexNum, st, seat, price);
+            saveAndLoadDB.saveBookingDB(bdb);
+        }
     }
 }

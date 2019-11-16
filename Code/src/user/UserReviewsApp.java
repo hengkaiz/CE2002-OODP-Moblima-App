@@ -25,6 +25,7 @@ public class UserReviewsApp {
     }
     
     public void addReview(Movie movieToReview) {
+        if (movieToReview == null)return;
     	movieToReview.addReview();
     	saveAndLoadDB.saveMovieDB(mdb);
     }

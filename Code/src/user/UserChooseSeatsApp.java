@@ -41,7 +41,7 @@ public class UserChooseSeatsApp {
 	}
 
 	public int[] chooseSeats(String ID) {
-		System.out.println("---Choosing Seat---");
+		System.out.println("\n---Choosing Seat---");
 		Scanner sc = new Scanner(System.in);
 		//BookingDatabase bk = new BookingDatabase();
 		int row = 0;
@@ -51,7 +51,7 @@ public class UserChooseSeatsApp {
 		try {
 			printSeats();
 			System.out.print("Select row (A-H): ");
-			row = (int) sc.next().charAt(0) - 97;
+			row = (int) (Character.toLowerCase(sc.next().charAt(0))) - 97;
 
 			System.out.print("Select column (0-9): "); //need to add exception for choosing the wrong seats
 			col = sc.nextInt();

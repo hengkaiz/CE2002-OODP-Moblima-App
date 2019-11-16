@@ -9,14 +9,13 @@ import java.util.ArrayList;
 public class BookingDatabase implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private ArrayList<BookingDetails> BookingDetailsList = new ArrayList<BookingDetails>();
-	private ArrayList<BookingDetails> copybook = null;
 
 	public BookingDatabase() {
 
 	}
 
 	public ArrayList<BookingDetails> getBookingDetails(String username) {
-
+		ArrayList<BookingDetails> copybook = new ArrayList<BookingDetails>();
 		if (BookingDetailsList.size() == 0) {
 			System.out.println("Sorry! No booking is done under your name.");
 			return null;
@@ -26,9 +25,8 @@ public class BookingDatabase implements Serializable{
 			if (details.getUsername().equals(username)) {
 				copybook.add(details);
 			}
-			else
-				System.out.println("Sorry! No booking is done under your name.");
 		}
+		if(copybook.size() == 0) System.out.println("Sorry! No booking is done under your name.");
 		return copybook;
 	}
 

@@ -17,8 +17,12 @@ public class BookingMenu extends MenuTemplate {
         //your booking code here
         Scanner sc = new Scanner(System.in);
         int sel = 0;
-        
-        System.out.println("\n---Booking Menu---");
+
+        System.out.print("\n");
+        if(super.getCineplexNum() == 1) System.out.print("---Jurong Point");
+        else if (super.getCineplexNum() == 2) System.out.print("---Bishan");
+        else System.out.print("---Nex");
+        System.out.printf(" Booking Menu---\n");
         System.out.println("1. Get booking details");
         System.out.println("2. Search for movies and book");
         System.out.println("3. Return");

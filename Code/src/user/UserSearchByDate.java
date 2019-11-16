@@ -52,7 +52,7 @@ public class UserSearchByDate {
 	public ArrayList<ShowTime> searchApp(MovieDatabase mb, int cineplexNum) {
 		SaveAndLoadDB saveAndLoadDB = new SaveAndLoadDB();
 		this.db = saveAndLoadDB.loadShowTimeDB(cineplexNum);
-		System.out.println("---Search By Date---");
+		System.out.println("\n---Search By Date---");
 		this.mb = mb;
 		this.cineplexNum = cineplexNum;
 		searchResult(); //get show time for that date

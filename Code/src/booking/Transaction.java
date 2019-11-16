@@ -54,14 +54,14 @@ public class Transaction {
 	}
 	
 	public String makeTID(String username, ShowTime st) {
-		String TID = null;
+		String TID = "";
 		
-		TID.concat(st.getCinemeCode());
-		TID.concat(yearToString());
-		TID.concat(monthToString());
-		TID.concat(dayToString());
-		TID.concat(hourToString());
-		TID.concat(minuteToString());
+		TID = TID.concat(st.getCinemeCode());
+		TID = TID.concat(yearToString());
+		TID = TID.concat(monthToString());
+		TID = TID.concat(dayToString());
+		TID = TID.concat(hourToString());
+		TID = TID.concat(minuteToString());
 		
 		return TID;
 	}

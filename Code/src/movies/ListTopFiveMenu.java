@@ -14,7 +14,7 @@ public class ListTopFiveMenu extends MenuTemplate{
 		Scanner sc = new Scanner(System.in);
 		int sel=0;
 		
-		System.out.println("---List Top 5 Movies---");
+		System.out.println("\n---List Top 5 Movies---");
 		System.out.println("1. By Overall Rating");
 		System.out.println("2. By Ticket Sales");
 		System.out.println("3. Return");

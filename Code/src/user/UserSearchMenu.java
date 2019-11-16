@@ -20,7 +20,7 @@ public class UserSearchMenu extends MenuTemplate {
         ShowTime copyOfSelShowTime;
         int sel = 0;
 
-        System.out.println("---Search Show times---");
+        System.out.println("\n---Search Show times---");
         System.out.println("1. By Movie");
         System.out.println("2. By Date");
         System.out.println("3. Top 5 Movies");

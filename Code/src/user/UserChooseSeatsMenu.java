@@ -24,11 +24,11 @@ public class UserChooseSeatsMenu extends MenuTemplate{
         Scanner sc = new Scanner(System.in);
         int sel = 0;
 
-        System.out.printf("---%s: &d---\n", selST.getMovie(), selST.getTiming());
-        System.out.println("1. View seats available");
-        System.out.println("2. Book tickets");
-        
-        System.out.println("3. Return");
+        System.out.printf("\n---%s: %d---\n", selST.getMovie(), selST.getTiming());
+        System.out.println("1. View movie details");
+        System.out.println("2. View seats available");
+        System.out.println("3. Book tickets");
+        System.out.println("4. Return");
         System.out.print("Please enter your choice: ");
 
         try {
@@ -38,6 +38,7 @@ public class UserChooseSeatsMenu extends MenuTemplate{
 			}
 		} catch (Exception e) {
 			System.out.println("Selection Invalid. Try Again.");
+			run();
 		}
 
         System.out.println();
@@ -45,20 +46,40 @@ public class UserChooseSeatsMenu extends MenuTemplate{
 
         nextMenu = this;
         switch(sel){
-            case 1: //get movie details
+            case 1: //view movie details
+                System.out.printf("---%s---\n", selST.getMovie());
+                System.out.println(selST.getMovieObject().getStatus().getName());
+                System.out.println("Synopsis: "+selST.getMovieObject().getMovieSynopsis());
+                System.out.println("Actors: "+selST.getMovieObject().toStringMovieCast());
+                break;
+
+            case 2: //get movie details
                 userChooseSeatsApp.printSeats();
                 break;
 
-            case 2: //choose seats
-                TicketPriceCalculator tpc = new TicketPriceCalculator();
-                int[] seat = userChooseSeatsApp.chooseSeats(super.getUsername());
-                BookingApp bookingApp = new BookingApp(super.getUsername());
-
-                bookingApp.addBooking(super.getCineplexNum(), selST, seat);
-
+            case 3: //choose seats
+                UserCheckAge userCheckAge = new UserCheckAge(selST, super.getUsername());
+                if(!userCheckAge.checkAge()) super.returnPrevious();
+                System.out.print("How many seats would you like to book? ");
+                try {
+                    sel = sc.nextInt();
+                    if (sel<0 || sel>5) {
+                        throw new Exception("Input only from 1-5");
+                    }
+                } catch (Exception e) {
+                    System.out.println("Selection Invalid. Try Again.");
+                    run();
+                }
+                for(int i=0;i<sel;i++) {
+                    int[] seat = userChooseSeatsApp.chooseSeats(super.getUsername());
+                    BookingApp bookingApp = new BookingApp(super.getUsername());
+                    bookingApp.addBooking(super.getCineplexNum(), selST, seat);
+                }
+                System.out.println("Thanks for booking!");
+                nextMenu = new UserSearchMenu(new MainMenu());
                 break;
 
-            case 3:
+            case 4:
                 super.returnPrevious();
         }
         nextMenu.setCineplexNum(super.getCineplexNum());
