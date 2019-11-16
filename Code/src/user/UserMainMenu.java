@@ -24,18 +24,16 @@ public class UserMainMenu extends MenuTemplate {
         System.out.println("3. Leave Reviews");
         System.out.println("4. Return");
         System.out.print("Please enter your choice: ");
-        boolean loop = true;
-        do {
+
         try {
 			sel = sc.nextInt();
 			if (sel<0 || sel>4) {
 				throw new Exception();
 			}
-			loop = false;
+
 		} catch (Exception e) {
 			System.out.println("Selection Invalid. Try Again.");
 		}
-        } while (loop);
         System.out.println();
         sc.nextLine(); //clear the buffer
 

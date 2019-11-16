@@ -17,8 +17,6 @@ public class UserCreateMenu extends MenuTemplate{
             UserLoginApp userLoginApp = new UserLoginApp();
 
             System.out.print("Enter desired ID: ");
-            boolean loop = true;
-            do {
             try {
 				String dID = sc.nextLine();
 				if(userLoginApp.checkID(dID)){ //username does not exist
@@ -34,13 +32,11 @@ public class UserCreateMenu extends MenuTemplate{
 				    System.out.print("Welcome, " + dID + "\n");
 
 				    nextMenu = new UserCineplexMenu(super.previousMenu);
-				    loop = false;
 				}
 			} catch (Exception e) {
 				System.out.println("Input Error. Try Again.");
 			}
-            } while (loop);
-
+            
             return nextMenu.run();
         }
 }

@@ -40,8 +40,7 @@ public class UserDatabase implements Serializable{
 
     public void addUser(String un, String pw){
         Scanner sc = new Scanner(System.in);
-        boolean loop = true;
-        do {
+
         try {
 			System.out.println("\n---Update personal information---");
 			System.out.print("Enter Full Name: ");
@@ -56,11 +55,10 @@ public class UserDatabase implements Serializable{
 
 			userlist.add(new User(un, pw, fn, age, em ,mn));
 			System.out.println("\nAccount added! ");
-			loop = false;
 		} catch (Exception e) {
 			System.out.println("Error in input. Try again.");
 		}
-        } while (loop);
+
     }
 
     public boolean delUser(){

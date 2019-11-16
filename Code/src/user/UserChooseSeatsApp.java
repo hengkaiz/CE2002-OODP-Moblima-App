@@ -46,8 +46,6 @@ public class UserChooseSeatsApp {
 		//BookingDatabase bk = new BookingDatabase();
 		int row = 0;
 		int col = 0;
-		boolean loop = true;
-		do {
 		try {
 			printSeats();
 			System.out.print("Select row (A-H): ");
@@ -56,11 +54,9 @@ public class UserChooseSeatsApp {
 			System.out.print("Select column (0-9): "); //need to add exception for choosing the wrong seats
 			col = sc.nextInt();
 			selectSeat(row, col, ID);
-			loop = false;
 		} catch (IndexOutOfBoundsException | InputMismatchException e) {
 			System.out.println("Selected seat invalid. Try Again.");
 		} 
-		} while (loop);
 		//need to add exception choosing a taken seat
 
 		int [] seat = {row, col};
