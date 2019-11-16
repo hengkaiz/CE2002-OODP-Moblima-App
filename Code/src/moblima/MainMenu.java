@@ -26,7 +26,7 @@ public class MainMenu extends MenuTemplate {
 
         try {
 			sel = sc.nextInt();
-			if (sel<1 | sel >3) {
+			if (sel<1 || sel >3) {
 				throw new Exception();
 			}
 
