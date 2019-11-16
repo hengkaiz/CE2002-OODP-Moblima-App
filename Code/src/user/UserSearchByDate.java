@@ -6,13 +6,16 @@ import java.util.Calendar;
 import java.util.Scanner;
 import cinema.ShowTime;
 import cinema.ShowTimeDatabase;
+import moblima.SaveAndLoadDB;
 import movies.MovieDatabase;
 
-public class UserSearchByDate extends ShowTimeDatabase implements UserSearchFunction {
+public class UserSearchByDate {
 	private Calendar date;
 	private Calendar copydate;
 	private ArrayList<ShowTime> showtimes = null;
 	private MovieDatabase mb;
+	private int cineplexNum;
+	private ShowTimeDatabase db;
 
 	public void searchResult() {
 		Scanner sc = new Scanner(System.in);
@@ -40,15 +43,18 @@ public class UserSearchByDate extends ShowTimeDatabase implements UserSearchFunc
 			if (choice == -1) return;
 			date.add(Calendar.DAY_OF_MONTH, choice-1);
 			output = sdf.format(date.getTime());
-			showtimes = super.searchByDate(output); //get an array of showtime on that date
+			showtimes = db.searchByDate(output); //get an array of showtime on that date
 		} catch (Exception e) {
 			System.out.println("Invalid Date. Try Again.");
 		}
 	}
 
-	public ArrayList<ShowTime> searchApp(MovieDatabase mb) {
+	public ArrayList<ShowTime> searchApp(MovieDatabase mb, int cineplexNum) {
+		SaveAndLoadDB saveAndLoadDB = new SaveAndLoadDB();
+		this.db = saveAndLoadDB.loadShowTimeDB(cineplexNum);
 		System.out.println("---Search By Date---");
 		this.mb = mb;
+		this.cineplexNum = cineplexNum;
 		searchResult(); //get show time for that date
 
 		return showtimes;

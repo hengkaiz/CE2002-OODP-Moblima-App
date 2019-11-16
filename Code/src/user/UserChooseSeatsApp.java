@@ -46,17 +46,21 @@ public class UserChooseSeatsApp {
 		//BookingDatabase bk = new BookingDatabase();
 		int row = 0;
 		int col = 0;
+		boolean exit = false;
+
 		try {
 			printSeats();
 			System.out.print("Select row (A-H): ");
-			row = (int)sc.next().charAt(0);
+			row = (int) sc.next().charAt(0) - 97;
 
 			System.out.print("Select column (0-9): "); //need to add exception for choosing the wrong seats
 			col = sc.nextInt();
 			selectSeat(row, col, ID);
 		} catch (IndexOutOfBoundsException | InputMismatchException e) {
 			System.out.println("Selected seat invalid. Try Again.");
-		} 
+			chooseSeats(ID);
+
+		}
 		//need to add exception choosing a taken seat
 
 		int [] seat = {row, col};

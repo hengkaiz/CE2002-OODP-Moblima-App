@@ -28,6 +28,7 @@ public class BookingApp {
     public void getBooking(){
         bookinglist = bdb.getBookingDetails(username);
 
+        if (bookinglist == null) return;
         for (int i = 0; i < bookinglist.size(); i++) {
             System.out.println("Hello " + username + ", here are your current bookings.");
             System.out.println(bookinglist.get(i).getCineplexName() + " - " + bookinglist.get(i).getCinemaNum());
@@ -43,7 +44,7 @@ public class BookingApp {
         this.cinplexNum = cineplexNum;
         Scanner sc = new Scanner(System.in);
         HolidayDatabase hdb = saveAndLoadDB.loadHolidayDB();
-        TicketPriceCalculator ticketPriceCalculator = new TicketPriceCalculator();
+        TicketPriceCalculator ticketPriceCalculator = saveAndLoadDB.loadTicketPrice();
         UserDatabase udb = saveAndLoadDB.loadUserDB();
         User user = null;
 
@@ -56,16 +57,20 @@ public class BookingApp {
 
         double price = ticketPriceCalculator.calculatePrice(user, st, hdb);
 
-        System.out.println("---Booking Confirmation---");
+        System.out.println("\n---Booking Confirmation---");
         System.out.println(st.getMovie());
         System.out.println(st.getTiming());
-        System.out.println("Cinema " + st.getCinemaNum());
+        if(cineplexNum == 0) System.out.print("Jurong Point");
+        else if (cineplexNum == 1) System.out.print("Bishan");
+        else System.out.print("Nex");
+        System.out.print(" Cineplex - Cinema " + st.getCinemaNum());
         System.out.println("\nPrice: "+ price);
 
-        System.out.println("Confirm purchase? (y/n)");
+        System.out.print("Confirm purchase? (y/n): ");
         Character choice = sc.nextLine().charAt(0);
         if(!choice.equals("y")) return;
 
+        System.out.print("Booking confirmed!");
         bdb.addNewBooking(username, cineplexNum, st, seat, price);
         saveAndLoadDB.saveBookingDB(bdb);
     }

@@ -24,9 +24,10 @@ public class UserChooseSeatsMenu extends MenuTemplate{
         Scanner sc = new Scanner(System.in);
         int sel = 0;
 
-        System.out.printf("---%s---\n", selST.getMovie());
+        System.out.printf("---%s: &d---\n", selST.getMovie(), selST.getTiming());
         System.out.println("1. View seats available");
         System.out.println("2. Book tickets");
+        
         System.out.println("3. Return");
         System.out.print("Please enter your choice: ");
 
@@ -60,8 +61,8 @@ public class UserChooseSeatsMenu extends MenuTemplate{
             case 3:
                 super.returnPrevious();
         }
-
-
+        nextMenu.setCineplexNum(super.getCineplexNum());
+        nextMenu.setUsername(super.getUsername());
         return nextMenu.run();
     }
 }

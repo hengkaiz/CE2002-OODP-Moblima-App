@@ -18,7 +18,7 @@ public class BookingMenu extends MenuTemplate {
         Scanner sc = new Scanner(System.in);
         int sel = 0;
         
-        System.out.println("---Booking Menu---");
+        System.out.println("\n---Booking Menu---");
         System.out.println("1. Get booking details");
         System.out.println("2. Search for movies and book");
         System.out.println("3. Return");
@@ -54,6 +54,8 @@ public class BookingMenu extends MenuTemplate {
         case 3: //return
             super.returnPrevious();
         }
+        nextMenu.setCineplexNum(super.getCineplexNum());
+        nextMenu.setUsername(super.getUsername());
         return nextMenu.run();
     }
 }

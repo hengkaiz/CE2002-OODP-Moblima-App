@@ -38,6 +38,8 @@ public class UserLoginMenu extends MenuTemplate {
             nextMenu = new UserCineplexMenu(super.previousMenu);
         }
 
+        nextMenu.setCineplexNum(super.getCineplexNum());
+        nextMenu.setUsername(super.getUsername());
         return nextMenu.run();
     }
 }

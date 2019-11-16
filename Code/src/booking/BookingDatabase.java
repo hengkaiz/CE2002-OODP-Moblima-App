@@ -17,8 +17,10 @@ public class BookingDatabase implements Serializable{
 
 	public ArrayList<BookingDetails> getBookingDetails(String username) {
 
-		if (BookingDetailsList.size() == 0)
-			System.out.println("There are no records in the database.");
+		if (BookingDetailsList.size() == 0) {
+			System.out.println("Sorry! No booking is done under your name.");
+			return null;
+		}
 
 		for (BookingDetails details: BookingDetailsList) {
 			if (details.getUsername().equals(username)) {

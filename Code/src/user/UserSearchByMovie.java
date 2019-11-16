@@ -4,11 +4,12 @@ import java.util.ArrayList;
 
 import java.util.Scanner;
 
+import moblima.SaveAndLoadDB;
 import movies.*;
 import cinema.*;
 
 
-public class UserSearchByMovie extends ShowTimeDatabase implements UserSearchFunction {
+public class UserSearchByMovie {
 	private ArrayList<String> movieList = new ArrayList<String>();
 	private ArrayList<ShowTime> showtimes = null;
 	private MovieDatabase mb;
@@ -40,11 +41,14 @@ public class UserSearchByMovie extends ShowTimeDatabase implements UserSearchFun
         
 
         //searches through BookingDatabase, compareTo returns timing
-        showtimes = super.searchByMovie(movietitle);
+        showtimes = db.searchByMovie(movietitle);
        }
 
-	public ArrayList<ShowTime> searchApp(MovieDatabase mb) {
+	public ArrayList<ShowTime> searchApp(MovieDatabase mb, int cineplexNum) {
+		SaveAndLoadDB saveAndLoadDB = new SaveAndLoadDB();
+		this.db = saveAndLoadDB.loadShowTimeDB(cineplexNum);
 		System.out.println("---Search By Movie---");
+
 		this.mb = mb;
 		searchResult(); //get show time for the movies
 

@@ -57,6 +57,9 @@ public class UserSearchMenu extends MenuTemplate {
             case 4: //returns
                 super.returnPrevious();
         }
+
+        nextMenu.setCineplexNum(super.getCineplexNum());
+        nextMenu.setUsername(super.getUsername());
         return nextMenu.run();
     }
 }

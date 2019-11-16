@@ -27,7 +27,7 @@ public class UserSearchApp {
         int sel;
 
         UserSearchByMovie searchByMovie = new UserSearchByMovie();
-        copyOfShowTime = searchByMovie.searchApp(mdb);
+        copyOfShowTime = searchByMovie.searchApp(mdb, cineplexNumber);
 
         if (copyOfShowTime == null) return null;//return to search menu
 
@@ -52,7 +52,7 @@ public class UserSearchApp {
         int sel;
 
         UserSearchByDate searchByDate = new UserSearchByDate();
-        copyOfShowTime = searchByDate.searchApp(mdb);
+        copyOfShowTime = searchByDate.searchApp(mdb, cineplexNumber);
 
         if (copyOfShowTime == null) return null;//return to search menu
 
