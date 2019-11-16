@@ -366,8 +366,8 @@ public class SaveAndLoadDB {
 	
 	
 	
-	public static void main(String[] args) {
-		SaveAndLoadDB fff2 = new SaveAndLoadDB();
+//	public static void main(String[] args) {
+//		SaveAndLoadDB fff2 = new SaveAndLoadDB();
 		
 //		MovieDatabase mdb = new MovieDatabase();
 //		MovieDatabase mdbcopy = null;
@@ -418,17 +418,17 @@ public class SaveAndLoadDB {
 //		hdbcopy = fff2.loadHolidayDB();
 //		hdbcopy.printHolidays();
 		
-		Cineplex c= new Cineplex();
-		Cineplex ccopy = null;
-		c.addCinemasToCineplex();
-		fff2.saveCineplex(c);
-		ccopy = fff2.loadCineplex(1);
-		for (int i=0; i<ccopy.getCinemas().size();i++)
-			System.out.println(ccopy.getCinemas().get(i).getCinemaNumber() + "..." + ccopy.getCinemas().get(i).getCode()+ "..." + ccopy.getCinemas().get(i).getType());
+//		Cineplex c= new Cineplex();
+//		Cineplex ccopy = null;
+//		c.addCinemasToCineplex();
+//		fff2.saveCineplex(c);
+//		ccopy = fff2.loadCineplex(3);
+//		for (int i=0; i<ccopy.getCinemas().size();i++)
+//			System.out.println(ccopy.getCinemas().get(i).getCinemaNumber() + "..." + ccopy.getCinemas().get(i).getCode()+ "..." + ccopy.getCinemas().get(i).getType());
 		
 		
 //		BookingDatabase bdb = new BookingDatabase();
 //		BookingDatabase bdbcopy = null;
 		
-	}
+//	}
 }
