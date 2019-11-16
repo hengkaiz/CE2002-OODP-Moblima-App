@@ -14,10 +14,17 @@ public class AdminLoginMenu extends MenuTemplate{
 		Scanner sc = new Scanner(System.in);
 		AdminLoginApp adminLoginApp = new AdminLoginApp();
 		
-		System.out.println("Enter ID:");
-		String ID = sc.nextLine();
-		System.out.println("Enter Password:");
-		String password = sc.nextLine();
+		String ID = null;
+		String password = null;
+		try {
+			System.out.println("Enter ID:");
+			ID = sc.nextLine();
+			System.out.println("Enter Password:");
+			password = sc.nextLine();
+		} catch (Exception e) {
+			System.out.println("Invalid input for ID/Password. Try Again.");
+		}
+		
 		nextMenu = this;
 		if(adminLoginApp.loginCheck(ID, password)) { //login successful
 			super.setUsername(ID);

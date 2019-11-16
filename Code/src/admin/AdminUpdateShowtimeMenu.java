@@ -18,19 +18,16 @@ public class AdminUpdateShowtimeMenu extends MenuTemplate{
 		System.out.println("1. Select by Movie");
 		System.out.println("2. Select by Date");
 		System.out.println("3. Return");
-		boolean loop = true;
-        do {
+
         try {
         	System.out.println("Please enter your choice:");
 			sel = sc.nextInt();
 			if (sel<1 || sel>3) {
 				throw new Exception("");
 			}
-			loop=false;
 		} catch (Exception e) {
 			System.out.println("Invalid Choice. Try Again.");
 		}
-        } while (loop);
         System.out.println();
         nextMenu = this;
         AdminShowtimeEditor stEditor = new AdminShowtimeEditor(super.getCineplexNum());

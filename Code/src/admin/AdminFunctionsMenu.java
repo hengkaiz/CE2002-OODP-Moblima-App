@@ -21,19 +21,16 @@ public class AdminFunctionsMenu extends MenuTemplate{
 		System.out.println("3. Configure System Settings");
 		System.out.println("4. List Top 5 Movies");
 		System.out.println("5. Return");
-        boolean loop = true;
-        do {
+
         try {
     		System.out.println("Please enter your choice: ");
 			sel = sc.nextInt();
 			if (sel<1 || sel>5) { //check exceptions?
 				throw new Exception();
 			}
-			loop =false;
 		} catch (Exception e) {
 			System.out.println("Invalid Choice. Try Again.");
 		}
-        } while (loop);
         System.out.println();
         nextMenu = this;
         switch(sel) {

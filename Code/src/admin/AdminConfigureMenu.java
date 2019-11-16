@@ -19,19 +19,18 @@ public class AdminConfigureMenu extends MenuTemplate{
 		System.out.println("2. Update Holidays");
 		System.out.println("3. Reset");
 		System.out.println("4. Return");
-		boolean loop = true;
-		do {
-			try {
-				System.out.print("Please enter your choice: ");
-				sel = sc.nextInt();
-				if (sel < 1 || sel > 4) { //check exceptions?
-					throw new Exception();
-				}
-				loop = false;
-			} catch (Exception e) {
-				System.out.println("Invalid Choice. Try Again.");
+
+		try {
+			System.out.print("Please enter your choice: ");
+			sel = sc.nextInt();
+			if (sel < 1 || sel > 4) { //check exceptions?
+				throw new Exception();
 			}
-		} while (loop);
+
+		} catch (Exception e) {
+			System.out.println("Invalid Choice. Try Again.");
+		}
+
 		System.out.println();
 		nextMenu = this;
 		AdminConfigureSystemSettings configureSS = new AdminConfigureSystemSettings();
