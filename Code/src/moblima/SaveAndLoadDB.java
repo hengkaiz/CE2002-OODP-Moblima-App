@@ -1,7 +1,7 @@
 package moblima;
-import java.util.ArrayList;
+
 import cinema.*;
-import movies.*;
+import movies.MovieDatabase;
 import user.UserDatabase;
 import admin.AdminDatabase;
 import movies.HolidayDatabase;
@@ -370,6 +370,7 @@ public class SaveAndLoadDB {
 //		SaveAndLoadDB fff2 = new SaveAndLoadDB();
 		
 //		MovieDatabase mdb = new MovieDatabase();
+<<<<<<< HEAD
 //		Movie cA = new Movie("Charlie's Angel", 0, AgeRating.PARENTAL_GUIDANCE13, "Charlie's Angels have always provided security and investigative skills to private clients. Now the Townsend Agency has expanded internationally with the smartest and most highly trained women from all over the globe — multiple teams of Angels guided by multiple Bosleys, completing the toughest missions around the world. When a young systems engineer blows the whistle on a dangerous technology, these Angels are called into action, putting their lives on the line to protect people.", MovieStatus.COMING_SOON);
 //		cA.addMovieCast("Jaclyn Smith");
 //		cA.addMovieCast("Kristen Stewart");
@@ -833,6 +834,28 @@ public class SaveAndLoadDB {
 //		fff2.saveShowTimeDB(stdb3, 3);
 //		stdb3copy = fff2.loadShowTimeDB(3);
 //		System.out.println(stdb3copy.getShowTimes());
+
+//		MovieDatabase mdbcopy = null;
+//		fff2.saveMovieDB(mdb);
+//		mdbcopy = fff2.loadMovieDB();
+//		mdbcopy.printMovieDetails();
+//		mdbcopy.printMovieDetails();
+//		mdbcopy.printMovieDetails();
+//		mdbcopy.printMovieDetails();
+//		mdbcopy.printMovieDetails();
+//		mdbcopy.printMovieDetails();
+//		mdbcopy.printMovieDetails();
+//		mdbcopy.printMovieDetails();
+//		mdbcopy.printMovieDetails();
+//		mdbcopy.printMovieDetails();
+//		mdbcopy.printMovieDetails();
+//		System.out.println(mdbcopy.getMovieTitlesList());
+		
+//		ShowTimeDatabase stdb = new ShowTimeDatabase();
+//		ShowTimeDatabase stdbcopy = null;
+//		fff2.saveShowTimeDB(stdb);
+//		stdbcopy = fff2.loadShowTimeDB();
+//		System.out.println(stdbcopy.getShowTimes());
 		
 //		AdminDatabase adb = new AdminDatabase();
 //		AdminDatabase adbcopy = null;

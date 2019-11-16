@@ -33,8 +33,7 @@ public class UserSearchByDate extends ShowTimeDatabase implements UserSearchFunc
 		}
 		System.out.println("-1 to return");
 		System.out.print("Please select Date: ");
-		boolean loop = true;
-		do {
+
 		try {
 			choice = sc.nextInt();
 
@@ -42,11 +41,9 @@ public class UserSearchByDate extends ShowTimeDatabase implements UserSearchFunc
 			date.add(Calendar.DAY_OF_MONTH, choice-1);
 			output = sdf.format(date.getTime());
 			showtimes = super.searchByDate(output); //get an array of showtime on that date
-			loop = false;
 		} catch (Exception e) {
 			System.out.println("Invalid Date. Try Again.");
 		}
-		} while (loop);
 	}
 
 	public ArrayList<ShowTime> searchApp(MovieDatabase mb) {

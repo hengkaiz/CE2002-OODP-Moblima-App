@@ -51,11 +51,11 @@ public class ShowTime implements Comparable<ShowTime>, Serializable{
 		return this.assignedCinema.getType();
 	}
 
-	public void setSeatplan(SeatPlan seatplan) {
-		this.seatPlan = seatplan;
+	public void setSeatPlan(SeatPlan seatPlan) {
+		this.seatPlan = seatPlan;
 	}
 
-	public SeatPlan getSeatplan() {
+	public SeatPlan getSeatPlan() {
 		return seatPlan;
 	}
 
@@ -90,7 +90,7 @@ public class ShowTime implements Comparable<ShowTime>, Serializable{
 		return date;
 	}
 
-    public MovieFormat getMovieformat() {
+    public MovieFormat getMovieFormat() {
 		return movieFormat;
 	}
     
@@ -98,8 +98,8 @@ public class ShowTime implements Comparable<ShowTime>, Serializable{
     	return this.movie;
     }
 
-	public void setMovieformat(MovieFormat movieformat) {
-		this.movieFormat = movieformat;
+	public void setMovieFormat(MovieFormat movieFormat) {
+		this.movieFormat = movieFormat;
 	}
 
 	//compare the different showtimes by timing, need to add function to search in the same cinema

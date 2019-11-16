@@ -211,8 +211,8 @@ public class AdminShowtimeEditor {
 					System.out.println(st.getMovie() + " now showing at cinema Number " + st.getCinemaNum());
 					break;
 				case 3: //change movie format
-					st.setMovieformat(movieFormatSelection());
-					System.out.println(st.getMovie() + " now showing in " + st.getMovieformat().getName());
+					st.setMovieFormat(movieFormatSelection());
+					System.out.println(st.getMovie() + " now showing in " + st.getMovieFormat().getName());
 					break;
 				case 4: //return
 					break;
@@ -337,8 +337,8 @@ public class AdminShowtimeEditor {
 					System.out.println(st.getMovie() + " now showing at Cinema Number " + st.getCinemaNum());
 					break;
 				case 4: //change movie format
-					st.setMovieformat(movieFormatSelection());
-					System.out.println(st.getMovie() + " now showing in " + st.getMovieformat().getName());
+					st.setMovieFormat(movieFormatSelection());
+					System.out.println(st.getMovie() + " now showing in " + st.getMovieFormat().getName());
 					break;
 				case 5: //return
 					break;

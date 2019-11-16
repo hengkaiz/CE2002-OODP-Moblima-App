@@ -51,10 +51,10 @@ public class TicketPriceCalculator {
 		if (showtime.getCinemaType().equals("Gold Class"))
 			price+= goldClassSurcharge;
 
-		if (showtime.getMovieformat() == MovieFormat.BLOCKBUSTER)
+		if (showtime.getMovieFormat() == MovieFormat.BLOCKBUSTER)
 			price+= blockbusterMovieSurcharge;
 		
-		if (showtime.getMovieformat() == MovieFormat.THREE_DIMENSION)
+		if (showtime.getMovieFormat() == MovieFormat.THREE_DIMENSION)
 			price+= threeDimensionMovieSurcharge;
 		
 		return price;

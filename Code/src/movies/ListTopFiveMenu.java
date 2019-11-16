@@ -18,18 +18,17 @@ public class ListTopFiveMenu extends MenuTemplate{
 		System.out.println("1. By Overall Rating");
 		System.out.println("2. By Ticket Sales");
 		System.out.println("3. Return");
-		boolean loop = true;
-		do {
-			try {
-				sel = sc.nextInt();
-				if (sel < 0 || sel > 4) { //check exceptions?
-					throw new Exception();
-				}
-				loop = false;
-			} catch (Exception e) {
-				System.out.println("Invalid Choice. Try Again.");
+
+		try {
+			sel = sc.nextInt();
+			if (sel < 0 || sel > 4) { //check exceptions?
+				throw new Exception();
 			}
-		} while (loop);
+
+		} catch (Exception e) {
+			System.out.println("Invalid Choice. Try Again.");
+		}
+
 		nextMenu = this;
 		ListTopFiveApp listTop = new ListTopFiveApp();
 		

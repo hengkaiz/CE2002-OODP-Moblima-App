@@ -17,20 +17,18 @@ public class UserLoginMenu extends MenuTemplate {
         String ID = null;
         String Password = null;
         String username;
-        boolean loop = true;
-        while (loop) {
-	        try {
-		        System.out.print("Enter ID: ");
-		        ID = sc.nextLine();
-		        
-		        System.out.print("Enter password: ");
-		        Password = sc.nextLine();
-		        loop = false;
-	        }
-	        catch (Exception e) {
-	        	System.out.println("Invalid ID/Password. Try Again");
-	        }
+
+        try {
+	        System.out.print("Enter ID: ");
+	        ID = sc.nextLine();
+	        
+	        System.out.print("Enter password: ");
+	        Password = sc.nextLine();
         }
+        catch (Exception e) {
+        	System.out.println("Invalid ID/Password. Try Again");
+        }
+        
         nextMenu = this;
 
         username = userLoginApp.loginCheck(ID, Password);
