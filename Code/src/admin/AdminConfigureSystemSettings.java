@@ -12,7 +12,7 @@ public class AdminConfigureSystemSettings {
 
 	public AdminConfigureSystemSettings() {
 		this.hdb = saveAndLoadDB.loadHolidayDB();
-		//this.ticketPriceCalculator = saveAndLoadDBTick.loadTicketPrice();
+		this.ticketPriceCalculator = saveAndLoadDB.loadTicketPrice();
 	}
 	
 	public void updateTicketPrice() {
@@ -161,6 +161,6 @@ public class AdminConfigureSystemSettings {
 		ticketPriceCalculator.setThreeDimensionMovieSurcharge(3.00);
 		ticketPriceCalculator.setBlockbusterMovieSurcharge(2.00);
 		System.out.println("System Settings Resetted");
-		//saveAndLoadDB.saveTicketPrice(ticketPriceCalculator);
+		saveAndLoadDB.saveTicketPrice(ticketPriceCalculator);
 	}
 }
