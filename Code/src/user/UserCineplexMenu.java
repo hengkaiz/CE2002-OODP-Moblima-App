@@ -22,18 +22,16 @@ public class UserCineplexMenu extends MenuTemplate {
         System.out.println("3. Nex");
         System.out.println("4. Return");
         System.out.print("Please enter your choice: ");
-        boolean loop = true;
-        do {
-            try {
-                sel = sc.nextInt();
-                if (sel<0 || sel>4) {
-                    throw new Exception("Error, Input Choice Only From 1-4");
-                }
-                loop =false;
-            } catch (Exception e) {
-                System.out.println("Invalid Choice. Try Again.");
+
+        try {
+            sel = sc.nextInt();
+            if (sel<0 || sel>4) {
+                throw new Exception("Error, Input Choice Only From 1-4");
             }
-        } while (loop);
+        } catch (Exception e) {
+            System.out.println("Invalid Choice. Try Again.");
+        }
+
         UserSearchApp userSearchApp = new UserSearchApp(super.getCineplexNum());
 
         nextMenu = this;

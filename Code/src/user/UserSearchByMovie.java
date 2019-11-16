@@ -29,17 +29,15 @@ public class UserSearchByMovie extends ShowTimeDatabase implements UserSearchFun
 		System.out.println("-1 to return");
         //set selMovie as the input user selected
         System.out.print("Please select movie: ");
-        boolean loop = true;
-        do {
+
 		try {
 			selMovie = sc.nextInt();
 			if (selMovie == -1) return;
 			movietitle = movieList.get(selMovie-1);
-			loop = false;
 		} catch (Exception e) {
 			System.out.println("Invalid Selection. Try Again.");
 		}
-        } while(loop);
+        
 
         //searches through BookingDatabase, compareTo returns timing
         showtimes = super.searchByMovie(movietitle);
@@ -68,20 +66,17 @@ public class UserSearchByMovie extends ShowTimeDatabase implements UserSearchFun
 		System.out.println("-1 to return");
         //set selMovie as the input user selected
         System.out.print("Please select movie: ");
-        boolean loop2 = true;
-        do {
 		try {
 			selMovie = sc.nextInt();
 			if (selMovie == -1) {
 				return null;
 			}
 			movieListLong = mb.getMovies();
-			loop2 = false;
 
 		} catch (Exception e) {
 			System.out.println("Invalid Selection. Try Again.");
 		}
-        } while (loop2);
+
         
         //gets movie info in Movie format
 		return movieListLong.get(selMovie-1);

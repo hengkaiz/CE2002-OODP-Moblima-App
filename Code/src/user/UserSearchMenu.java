@@ -26,18 +26,15 @@ public class UserSearchMenu extends MenuTemplate {
         System.out.println("3. Top 5 Movies");
         System.out.println("4. Return");
         System.out.print("Please enter your choice: ");
-        boolean loop = true;
-        do {
         try {
 			sel = sc.nextInt();
 			if (sel<0 || sel>4) {
 				throw new Exception("Error, Input Choice Only From 1-4");
 			}
-			loop =false;
 		} catch (Exception e) {
 			System.out.println("Invalid Choice. Try Again.");
 		}
-        } while (loop);
+        
         UserSearchApp userSearchApp = new UserSearchApp(super.getCineplexNum());
 
         nextMenu = this;
@@ -48,7 +45,7 @@ public class UserSearchMenu extends MenuTemplate {
                 break;
 
             case 2: //calls search by date
-                ShowTime selST2 = userSearchApp.SearchByDate();
+j
                 if (selST2 != null) nextMenu = new UserChooseSeatsMenu(this, selST2);
                 break;
 

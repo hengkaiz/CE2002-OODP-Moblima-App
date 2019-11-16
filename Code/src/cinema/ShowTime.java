@@ -8,12 +8,13 @@ import moblima.SaveAndLoadDB;
 import movies.Movie;
 
 public class ShowTime implements Comparable<ShowTime>, Serializable{
-    private int timing;
+	private static final long serialVersionUID = 1L;
+	private int timing;
     private Movie movie;
     private Cinema assignedCinema;
-    private SeatPlan seatplan;
+    private SeatPlan seatPlan;
     private Calendar date;
-    private MovieFormat movieformat;
+    private MovieFormat movieFormat;
 
     public ShowTime(int t, Movie m, int noOfDaysFromCurrent, int cineplexNum, int cinemaNum, MovieFormat f){
         timing = t;
@@ -31,8 +32,8 @@ public class ShowTime implements Comparable<ShowTime>, Serializable{
 			}
 		}
 
-        seatplan = new SeatPlan();
-        movieformat = f;
+        seatPlan = new SeatPlan();
+        movieFormat = f;
     }
     public ShowTime(){}
 
@@ -50,12 +51,12 @@ public class ShowTime implements Comparable<ShowTime>, Serializable{
 		return this.assignedCinema.getType();
 	}
 
-	public void setSeatplan(SeatPlan seatplan) {
-		this.seatplan = seatplan;
+	public void setSeatPlan(SeatPlan seatPlan) {
+		this.seatPlan = seatPlan;
 	}
 
-	public SeatPlan getSeatplan() {
-		return seatplan;
+	public SeatPlan getSeatPlan() {
+		return seatPlan;
 	}
 
 	public void setMovie(Movie movie) {
@@ -89,16 +90,16 @@ public class ShowTime implements Comparable<ShowTime>, Serializable{
 		return date;
 	}
 
-    public MovieFormat getMovieformat() {
-		return movieformat;
+    public MovieFormat getMovieFormat() {
+		return movieFormat;
 	}
     
     public Movie getMovieObject() {
     	return this.movie;
     }
 
-	public void setMovieformat(MovieFormat movieformat) {
-		this.movieformat = movieformat;
+	public void setMovieFormat(MovieFormat movieFormat) {
+		this.movieFormat = movieFormat;
 	}
 
 	//compare the different showtimes by timing, need to add function to search in the same cinema
