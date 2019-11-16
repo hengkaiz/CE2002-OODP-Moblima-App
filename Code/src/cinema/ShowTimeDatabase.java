@@ -108,7 +108,8 @@ public class ShowTimeDatabase extends MovieDatabase implements Serializable{
     private ArrayList<ShowTime> sortMovies(String title){ //return showtimes for chosen movie
         copylist = new ArrayList<ShowTime>();
         for (ShowTime st: showtimelist){
-            if (st.getMovie().contentEquals(title)){
+            if (st.getMovie().contentEquals(title) && (st.getMovieObject().getStatus().getName().equals("Now Showing") || 
+            		st.getMovieObject().getStatus().getName().equals("Preview"))){
                 copylist.add(st);
             }
         }
@@ -118,7 +119,8 @@ public class ShowTimeDatabase extends MovieDatabase implements Serializable{
     private ArrayList<ShowTime> sortDate(String date){ //return showtimes for chosen dates
         copylist = new ArrayList<ShowTime>();
         for (ShowTime st: showtimelist){
-            if (st.toStringGetDate().contentEquals(date)){
+            if (st.toStringGetDate().contentEquals(date) && (st.getMovieObject().getStatus().getName().equals("Now Showing") || 
+            		st.getMovieObject().getStatus().getName().equals("Preview"))){
                 copylist.add(st);
             }
         }
