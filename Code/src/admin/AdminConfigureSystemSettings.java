@@ -7,13 +7,12 @@ import movies.*;
 public class AdminConfigureSystemSettings {
 	private SaveAndLoadDB saveAndLoadDB = new SaveAndLoadDB();
 	private HolidayDatabase hdb;
-	//private TicketPriceDB tpdb;
-	private TicketPriceCalculator ticketPrice;
+	private TicketPriceCalculator ticketPriceCalculator;
 	
 
 	public AdminConfigureSystemSettings() {
 		this.hdb = saveAndLoadDB.loadHolidayDB();
-		//this.tpdb = saveAndLoadDBTick.loadTicketPrice();
+		//this.ticketPriceCalculator = saveAndLoadDBTick.loadTicketPrice();
 	}
 	
 	public void updateTicketPrice() {
@@ -23,14 +22,14 @@ public class AdminConfigureSystemSettings {
 		do {
 			//print current prices
 			System.out.println("-----Current Prices----");
-			System.out.println("Current base price: " + ticketPrice.getBasePrice());
+			System.out.println("Current base price: " + ticketPriceCalculator.getBasePrice());
 			System.out.println("Current price offsets: ");
-			System.out.println("1. Weekend/PH Surcharge: " + ticketPrice.getWeekendOrPHSurcharge());
-			System.out.println("2. Student/Senior Discount: " + ticketPrice.getAgeDiscount());
-			System.out.println("3. Platinum Surcharge: " + ticketPrice.getPlatinumSurcharge());
-			System.out.println("4. Gold Class Surcharge: " + ticketPrice.getGoldClassSurcharge());
-			System.out.println("5. 3D Surcharge: " + ticketPrice.getThreeDimensionMovieSurcharge());
-			System.out.println("6. Blockbuster Surcharge: " + ticketPrice.getBlockbusterMovieSurcharge());
+			System.out.println("1. Weekend/PH Surcharge: " + ticketPriceCalculator.getWeekendOrPHSurcharge());
+			System.out.println("2. Student/Senior Discount: " + ticketPriceCalculator.getAgeDiscount());
+			System.out.println("3. Platinum Surcharge: " + ticketPriceCalculator.getPlatinumSurcharge());
+			System.out.println("4. Gold Class Surcharge: " + ticketPriceCalculator.getGoldClassSurcharge());
+			System.out.println("5. 3D Surcharge: " + ticketPriceCalculator.getThreeDimensionMovieSurcharge());
+			System.out.println("6. Blockbuster Surcharge: " + ticketPriceCalculator.getBlockbusterMovieSurcharge());
 			
 			//choose which to update
 			System.out.println();
@@ -62,44 +61,44 @@ public class AdminConfigureSystemSettings {
 			case 1: //change base price
 				System.out.println("Enter new Base Price: ");
 				//no exception handling
-				ticketPrice.setBasePrice((double)sc.nextInt());
-				System.out.println("New Base Price is " + ticketPrice.getBasePrice());
+				ticketPriceCalculator.setBasePrice((double)sc.nextInt());
+				System.out.println("New Base Price is " + ticketPriceCalculator.getBasePrice());
 				break;
 			case 2: //change weekend/ph surcharge
 				System.out.println("Enter new Weekend/PH Surcharge: ");
 				//no exception handling
-				ticketPrice.setWeekendOrPHSurcharge((double)sc.nextInt());
-				System.out.println("New Weekend/PH Surcharge is " + ticketPrice.getWeekendOrPHSurcharge());
+				ticketPriceCalculator.setWeekendOrPHSurcharge((double)sc.nextInt());
+				System.out.println("New Weekend/PH Surcharge is " + ticketPriceCalculator.getWeekendOrPHSurcharge());
 				break;
 			case 3: //change student/senior discount
 				System.out.println("Enter new Student/Senior Discount: ");
 				//no exception handling
-				ticketPrice.setAgeDiscount((double)sc.nextInt());
-				System.out.println("New Student/Senior Discount is " + ticketPrice.getAgeDiscount());
+				ticketPriceCalculator.setAgeDiscount((double)sc.nextInt());
+				System.out.println("New Student/Senior Discount is " + ticketPriceCalculator.getAgeDiscount());
 				break;
 			case 4: //change platinum surcharge
 				System.out.println("Enter new Platinum Surcharge: ");
 				//no exception handling
-				ticketPrice.setPlatinumSurcharge((double)sc.nextInt());
-				System.out.println("New Platinum Surcharge is " + ticketPrice.getPlatinumSurcharge());
+				ticketPriceCalculator.setPlatinumSurcharge((double)sc.nextInt());
+				System.out.println("New Platinum Surcharge is " + ticketPriceCalculator.getPlatinumSurcharge());
 				break;
 			case 5: //change gold class surcharge
 				System.out.println("Enter new Gold Class Surcharge: ");
 				//no exception handling
-				ticketPrice.setGoldClassSurcharge((double)sc.nextInt());
-				System.out.println("New Gold Class Surcharge is " + ticketPrice.getGoldClassSurcharge());
+				ticketPriceCalculator.setGoldClassSurcharge((double)sc.nextInt());
+				System.out.println("New Gold Class Surcharge is " + ticketPriceCalculator.getGoldClassSurcharge());
 				break;
 			case 6: //change 3D surcharge
 				System.out.println("Enter new 3D Surcharge: ");
 				//no exception handling
-				ticketPrice.setThreeDimensionMovieSurcharge((double)sc.nextInt());
-				System.out.println("New 3D Surcharge is " + ticketPrice.getThreeDimensionMovieSurcharge());
+				ticketPriceCalculator.setThreeDimensionMovieSurcharge((double)sc.nextInt());
+				System.out.println("New 3D Surcharge is " + ticketPriceCalculator.getThreeDimensionMovieSurcharge());
 				break;
 			case 7: //change blockbuster surcharge
 				System.out.println("Enter new Blockbuster Surcharge: ");
 				//no exception handling
-				ticketPrice.setBlockbusterMovieSurcharge((double)sc.nextInt());
-				System.out.println("New Blockbuster Surcharge is " + ticketPrice.getBlockbusterMovieSurcharge());
+				ticketPriceCalculator.setBlockbusterMovieSurcharge((double)sc.nextInt());
+				System.out.println("New Blockbuster Surcharge is " + ticketPriceCalculator.getBlockbusterMovieSurcharge());
 				break;
 			case 8: //exit
 				break;
@@ -107,8 +106,7 @@ public class AdminConfigureSystemSettings {
 				break;
 			}
 		}while(updateChoice != 8);
-		//update ticketpriceDB
-		//saveAndLoadDB.saveTicketPrice(tpdb);
+		//saveAndLoadDB.saveTicketPrice(ticketPriceCalculator);
 	}
 	
 	public void updateHolidays() {
@@ -155,14 +153,14 @@ public class AdminConfigureSystemSettings {
 	}
 	
 	public void resetSettings() {
-		ticketPrice.setBasePrice(8.00);
-		ticketPrice.setWeekendOrPHSurcharge(2.00);
-		ticketPrice.setAgeDiscount(2.00);
-		ticketPrice.setPlatinumSurcharge(5.00);
-		ticketPrice.setGoldClassSurcharge(4.00);
-		ticketPrice.setThreeDimensionMovieSurcharge(3.00);
-		ticketPrice.setBlockbusterMovieSurcharge(2.00);
+		ticketPriceCalculator.setBasePrice(8.00);
+		ticketPriceCalculator.setWeekendOrPHSurcharge(2.00);
+		ticketPriceCalculator.setAgeDiscount(2.00);
+		ticketPriceCalculator.setPlatinumSurcharge(5.00);
+		ticketPriceCalculator.setGoldClassSurcharge(4.00);
+		ticketPriceCalculator.setThreeDimensionMovieSurcharge(3.00);
+		ticketPriceCalculator.setBlockbusterMovieSurcharge(2.00);
 		System.out.println("System Settings Resetted");
-		//saveAndLoadDB.saveTicketPrice(tpdb);
+		//saveAndLoadDB.saveTicketPrice(ticketPriceCalculator);
 	}
 }
