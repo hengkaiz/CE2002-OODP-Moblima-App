@@ -13,7 +13,8 @@ public class ListTopFiveApp {
 	public void printTopByOverallRating() {
 		int i=1;
 		for (Movie movie : mdb.topByOverallRating(5)) {
-			System.out.println(i + ". " + movie.getMovieTitle());
+			System.out.print(i + ". " + movie.getMovieTitle() + ": ");
+			movie.printMovieOverallRating();
 			i++;
 		}
 	}
@@ -21,7 +22,7 @@ public class ListTopFiveApp {
 	public void printTopByTotalSales() {
 		int i=1;
 		for (Movie movie : mdb.topByTotalSales(5)) {
-			System.out.println(i + ". " + movie.getMovieTitle());
+			System.out.println(i + ". " + movie.getMovieTitle() + ": " + movie.getTotalSales());
 			i++;
 		}
 	}
