@@ -16,14 +16,25 @@ public class MainMenu extends MenuTemplate {
 
     public MenuTemplate run(){
         Scanner sc = new Scanner(System.in);
-        int sel;
+        int sel = 0;
 
         System.out.println("---MOBLMIA---");
         System.out.println("1. User");
         System.out.println("2. Admin");
         System.out.println("3. Exit");
         System.out.print("Please enter your choice: ");
-        sel = sc.nextInt();
+        boolean loop = true;
+        do {
+        try {
+			sel = sc.nextInt();
+			if (sel<1 | sel >3) {
+				throw new Exception();
+			}
+			loop = false;
+		} catch (Exception e) {
+			System.out.println("Invalid Selection. Try again.");
+		}
+        } while (loop);
         System.out.println();
         sc.nextLine(); //clear the buffer
 
