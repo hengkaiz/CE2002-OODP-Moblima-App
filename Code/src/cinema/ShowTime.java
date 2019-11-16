@@ -11,9 +11,9 @@ public class ShowTime implements Comparable<ShowTime>, Serializable{
     private int timing;
     private Movie movie;
     private Cinema assignedCinema;
-    private SeatPlan seatplan;
+    private SeatPlan seatPlan;
     private Calendar date;
-    private MovieFormat movieformat;
+    private MovieFormat movieFormat;
 
     public ShowTime(int t, Movie m, int noOfDaysFromCurrent, int cineplexNum, int cinemaNum, MovieFormat f){
         timing = t;
@@ -31,8 +31,8 @@ public class ShowTime implements Comparable<ShowTime>, Serializable{
 			}
 		}
 
-        seatplan = new SeatPlan();
-        movieformat = f;
+        seatPlan = new SeatPlan();
+        movieFormat = f;
     }
     public ShowTime(){}
 
@@ -51,11 +51,11 @@ public class ShowTime implements Comparable<ShowTime>, Serializable{
 	}
 
 	public void setSeatplan(SeatPlan seatplan) {
-		this.seatplan = seatplan;
+		this.seatPlan = seatplan;
 	}
 
 	public SeatPlan getSeatplan() {
-		return seatplan;
+		return seatPlan;
 	}
 
 	public void setMovie(Movie movie) {
@@ -90,7 +90,7 @@ public class ShowTime implements Comparable<ShowTime>, Serializable{
 	}
 
     public MovieFormat getMovieformat() {
-		return movieformat;
+		return movieFormat;
 	}
     
     public Movie getMovieObject() {
@@ -98,7 +98,7 @@ public class ShowTime implements Comparable<ShowTime>, Serializable{
     }
 
 	public void setMovieformat(MovieFormat movieformat) {
-		this.movieformat = movieformat;
+		this.movieFormat = movieformat;
 	}
 
 	//compare the different showtimes by timing, need to add function to search in the same cinema
