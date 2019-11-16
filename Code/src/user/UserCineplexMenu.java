@@ -32,8 +32,6 @@ public class UserCineplexMenu extends MenuTemplate {
             System.out.println("Invalid Choice. Try Again.");
         }
 
-        UserSearchApp userSearchApp = new UserSearchApp(super.getCineplexNum());
-
         nextMenu = this;
         switch(sel){
             case 4: //returns
