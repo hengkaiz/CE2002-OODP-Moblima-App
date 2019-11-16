@@ -40,10 +40,11 @@ public class AdminCineplexMenu extends MenuTemplate{
         	break;
         default: //go straight to AdminFunctions
         	super.setCineplexNum(sel);
-        	System.out.println(super.getCineplexNum());
         	nextMenu = new AdminFunctionsMenu(this);
         	break;
         }
+        nextMenu.setCineplexNum(super.getCineplexNum());
+        nextMenu.setUsername(super.getUsername());
         return nextMenu.run();
 	}
 
