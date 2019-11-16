@@ -1,10 +1,13 @@
 package movies;
+import java.io.Serializable;
 import java.time.LocalDate;
 
 import cinema.*;
 import user.User;
 
-public class TicketPriceCalculator {
+public class TicketPriceCalculator implements Serializable{
+	private static final long serialVersionUID = 1L;
+
 	enum AgeGroup {
 		SENIOR, CHILD, ADULT;
 	}

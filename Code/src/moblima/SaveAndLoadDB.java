@@ -1,10 +1,9 @@
 package moblima;
 
 import cinema.*;
-import movies.MovieDatabase;
+import movies.*;
 import user.UserDatabase;
 import admin.*;
-import movies.HolidayDatabase;
 import booking.BookingDatabase;
 
 import java.io.FileInputStream;
@@ -326,6 +325,42 @@ public class SaveAndLoadDB {
         return null;
 	}
 	
+	public void saveTicketPrice(TicketPriceCalculator tpc) {
+		try {
+			FileOutputStream fos = new FileOutputStream("TicketPrices.txt");
+		    ObjectOutputStream oos = new ObjectOutputStream(fos);
+		    oos.writeObject(tpc);
+		    oos.close();
+		    fos.close();
+		    System.out.println("TicketPrices Serialized and saved");
+		}
+		catch(IOException ie) {
+			System.out.println("Saving error occurred " + ie);
+		}
+	}
+	
+	public TicketPriceCalculator loadTicketPrice() {
+        try {
+			FileInputStream fis = new FileInputStream("TicketPrices.txt");
+			ObjectInputStream ois = new ObjectInputStream(fis);
+
+			TicketPriceCalculator tpc = (TicketPriceCalculator) ois.readObject();
+			ois.close();
+			fis.close();
+			System.out.println("TicketPrices Deserialized and loaded");
+	        return tpc;
+		} catch (FileNotFoundException e) {
+			System.out.println("File not found");
+			
+		} catch (ClassNotFoundException e) {
+			System.out.println("Class not found");
+			
+		} catch (IOException e) {
+			System.out.println("Loading error occurred");
+		}
+        return null;
+	}
+	
 	public void saveBookingDB(BookingDatabase bdb) {
 		try {
 			FileOutputStream fos = new FileOutputStream("BookingDB.txt");
@@ -348,7 +383,7 @@ public class SaveAndLoadDB {
 			BookingDatabase bdb = (BookingDatabase) ois.readObject();
 			ois.close();
 			fis.close();
-			System.out.println("HolidayDB Deserialized and loaded");
+			System.out.println("BookinDB Deserialized and loaded");
 	        return bdb;
 		} catch (FileNotFoundException e) {
 			System.out.println("File not found");
@@ -366,8 +401,8 @@ public class SaveAndLoadDB {
 	
 	
 	
-	public static void main(String[] args) {
-		SaveAndLoadDB fff2 = new SaveAndLoadDB();
+//	public static void main(String[] args) {
+//		SaveAndLoadDB fff2 = new SaveAndLoadDB();
 		
 //		MovieDatabase mdb = new MovieDatabase();
 
@@ -877,16 +912,42 @@ public class SaveAndLoadDB {
 //		udbcopy = fff2.loadUserDB();
 //		System.out.println(udbcopy.getUserList());
 //	
-		HolidayDatabase hdb = new HolidayDatabase();
-		hdb.addHoliday();
-		hdb.addHoliday();
-		hdb.addHoliday();
-		hdb.addHoliday();
-		hdb.addHoliday();
-		HolidayDatabase hdbcopy = null;
-		fff2.saveHolidayDB(hdb);
-		hdbcopy = fff2.loadHolidayDB();
-		hdbcopy.printHolidays();
+//		HolidayDatabase hdb = new HolidayDatabase();
+//		hdb.addHoliday();
+//		hdb.addHoliday();
+//		hdb.addHoliday();
+//		hdb.addHoliday();
+//		hdb.addHoliday();
+//		HolidayDatabase hdbcopy = null;
+//		fff2.saveHolidayDB(hdb);
+//		hdbcopy = fff2.loadHolidayDB();
+//		hdbcopy.printHolidays();
+		
+//		TicketPriceCalculator ticketPriceCalculator = new TicketPriceCalculator();
+//		TicketPriceCalculator tpcCopy = null;
+//		ticketPriceCalculator.setBasePrice(8.00);
+//		ticketPriceCalculator.setWeekendOrPHSurcharge(2.00);
+//		ticketPriceCalculator.setAgeDiscount(2.00);
+//		ticketPriceCalculator.setPlatinumSurcharge(5.00);
+//		ticketPriceCalculator.setGoldClassSurcharge(4.00);
+//		ticketPriceCalculator.setThreeDimensionMovieSurcharge(3.00);
+//		ticketPriceCalculator.setBlockbusterMovieSurcharge(2.00);
+//		fff2.saveTicketPrice(ticketPriceCalculator);
+//		tpcCopy=fff2.loadTicketPrice();
+//		
+//		
+//		System.out.println("-----Current Prices----");
+//		System.out.println("Current base price: " + tpcCopy.getBasePrice());
+//		System.out.println("Current price offsets: ");
+//		System.out.println("1. Weekend/PH Surcharge: " + tpcCopy.getWeekendOrPHSurcharge());
+//		System.out.println("2. Student/Senior Discount: " + tpcCopy.getAgeDiscount());
+//		System.out.println("3. Platinum Surcharge: " + tpcCopy.getPlatinumSurcharge());
+//		System.out.println("4. Gold Class Surcharge: " + tpcCopy.getGoldClassSurcharge());
+//		System.out.println("5. 3D Surcharge: " + tpcCopy.getThreeDimensionMovieSurcharge());
+//		System.out.println("6. Blockbuster Surcharge: " + tpcCopy.getBlockbusterMovieSurcharge());
+		
+		
+		
 		
 //		Cineplex c= new Cineplex();
 //		Cineplex ccopy = null;
@@ -900,5 +961,5 @@ public class SaveAndLoadDB {
 //		BookingDatabase bdb = new BookingDatabase();
 //		BookingDatabase bdbcopy = null;
 		
-	}
+//	}
 }
