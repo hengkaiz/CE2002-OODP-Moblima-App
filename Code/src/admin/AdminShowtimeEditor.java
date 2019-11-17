@@ -414,7 +414,7 @@ public class AdminShowtimeEditor {
 		}
         System.out.println();
 		
-        return (sel-1);
+        return (sel);
 	}
 	
 	public MovieFormat movieFormatSelection() {
