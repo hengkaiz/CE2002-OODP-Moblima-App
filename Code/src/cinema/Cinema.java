@@ -3,13 +3,34 @@ package cinema;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Scanner;
-
+/**
+ * represents the cinemas 
+ *
+ */
 public class Cinema implements Serializable{
+	/**
+	 * To identify the version of the class used in Serialization 
+	 */
 	private static final long serialVersionUID = 1L;
+	/**
+	 * the type of cinema
+	 */
 	private CinemaType type;
+	/**
+	 * the code associated with the cinema
+	 */
     private String code;
+    /**
+     * the cinema number of the cinema
+     */
     private int cinemaNumber;
+    /**
+     * the cineplex's code 
+     */
     private String ofCineplexCode;
+    /**
+     * the cineplex's name
+     */
     private String ofCineplexName;
     
     /**

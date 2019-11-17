@@ -4,17 +4,42 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * represents the cineplexes 
+ *
+ */
 public class Cineplex implements Serializable{
+	/**
+	 * To identify the version of the class used in Serialization 
+	 */
 	private static final long serialVersionUID = 1L;
+	/**
+	 * A list of cinemas
+	 */
 	private ArrayList<Cinema> cinemas;
+	/**
+	 * The name of cineplex
+	 */
     private String cineplexName;
+    /**
+     * The code of the cineplex
+     */
     private String cineplexCode;
+    /**
+     * The number of the cineplex
+     */
     private int cineplexNumber;
 
-    
+    /**
+     * 
+     * @return current cineplex number
+     */
     public int getCineplexNumber() {
 		return cineplexNumber;
 	}
+    /**
+     * construct a cineplex object for the cineplex class
+     */
 	public Cineplex() {
     	Scanner sc = new Scanner(System.in);
     	
@@ -29,6 +54,9 @@ public class Cineplex implements Serializable{
     	
     	this.cinemas = new ArrayList<Cinema>();
     }
+	/**
+	 * creates a cinema object and adds it to to the cinema database
+	 */
     public void addCinemasToCineplex() {
     	Scanner sc = new Scanner(System.in);
     	boolean loop=true;
@@ -43,13 +71,24 @@ public class Cineplex implements Serializable{
     	}
     }
     
-    
+    /**
+     * 
+     * @return current list of cinemas
+     */
 	public ArrayList<Cinema> getCinemas() {
 		return cinemas;
 	}
+	/**
+	 * 
+	 * @return current cineplex's name
+	 */
 	public String getCineplexName() {
 		return cineplexName;
 	}
+	/**
+	 * 
+	 * @return current cineplex's code
+	 */
 	public String getCineplexCode() {
 		return cineplexCode;
 	}

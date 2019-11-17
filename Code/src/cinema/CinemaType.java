@@ -1,10 +1,15 @@
 package cinema;
-
+/**
+ * 
+ *Enumerates the types of cinemas
+ */
 public enum CinemaType {
 	PLATINUM("Platinum"),
 	GOLD_CLASS("Gold Class"),
 	NORMAL("Normal");
-
+	/**
+	 * this is the name of the cinema type in a proper format
+	 */
     private String name;
     
     /**
