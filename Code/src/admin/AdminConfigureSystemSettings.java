@@ -50,7 +50,8 @@ public class AdminConfigureSystemSettings {
 					throw new Exception();
 				}
 			} catch (Exception e) {
-				System.out.printf("Invalid choice. Try Again.");
+				System.out.println("Invalid choice. Try Again.");
+				return;
 			}
 	        System.out.println();
 
@@ -126,7 +127,8 @@ public class AdminConfigureSystemSettings {
 					throw new Exception();
 				}
 			} catch (Exception e) {
-				System.out.printf("Invalid choice. Try Again.");
+				System.out.println("Invalid choice. Try Again.");
+				return;
 			}
 
 	        System.out.println();

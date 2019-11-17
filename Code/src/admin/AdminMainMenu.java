@@ -21,7 +21,7 @@ public class AdminMainMenu extends MenuTemplate{
         try {
     		System.out.print("Please enter your choice: ");
 			sel = sc.nextInt();
-			if (sel<1 || sel>2) { //check exceptions?
+			if (sel<1 || sel>2) { 
 				throw new Exception();
 			}
 		} catch (Exception e) {
@@ -38,6 +38,8 @@ public class AdminMainMenu extends MenuTemplate{
         	break;
         case 2: //return
         	super.returnPrevious();
+		default:
+			break;
         }
         return nextMenu.run();
 	}

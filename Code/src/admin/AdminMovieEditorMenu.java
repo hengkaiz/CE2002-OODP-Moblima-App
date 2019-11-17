@@ -23,7 +23,7 @@ public class AdminMovieEditorMenu extends MenuTemplate{
 		try {
 			System.out.println("Please enter your choice:");
 			sel = sc.nextInt();
-			if (sel < 1 || sel > 4) { //check exceptions?
+			if (sel < 1 || sel > 4) {
 				throw new Exception();
 			}
 		} catch (Exception e) {
@@ -46,7 +46,11 @@ public class AdminMovieEditorMenu extends MenuTemplate{
 		case 4: //return
 			super.returnPrevious();
 			break;
+		default:
+			break;
 		}
-		return nextMenu.run();
+        nextMenu.setCineplexNum(super.getCineplexNum());
+        nextMenu.setUsername(super.getUsername());
+        return nextMenu.run();
 	}
 }

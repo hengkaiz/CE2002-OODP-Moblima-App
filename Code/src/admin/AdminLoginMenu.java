@@ -35,7 +35,9 @@ public class AdminLoginMenu extends MenuTemplate{
 			System.out.println("Invalid Admin. Try Again.");
 			super.returnPrevious();
 		}
-		return nextMenu.run();
+        nextMenu.setCineplexNum(super.getCineplexNum());
+        nextMenu.setUsername(super.getUsername());
+        return nextMenu.run();
 	}
 
 }

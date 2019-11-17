@@ -33,8 +33,8 @@ public class UserChooseSeatsMenu extends MenuTemplate{
 
         try {
 			sel = sc.nextInt();
-			if (sel<0 || sel>3) {
-				throw new Exception("Input only from 1-3");
+			if (sel<0 || sel>4) {
+				throw new Exception("Input only from 1-4");
 			}
 		} catch (Exception e) {
 			System.out.println("Selection Invalid. Try Again.");
@@ -50,6 +50,10 @@ public class UserChooseSeatsMenu extends MenuTemplate{
                 System.out.println(selST.getMovieObject().getStatus().getName());
                 System.out.println("Synopsis: "+selST.getMovieObject().getMovieSynopsis());
                 System.out.println("Actors: "+selST.getMovieObject().toStringMovieCast());
+                System.out.printf("Ratings: ");
+                selST.getMovieObject().printMovieOverallRating();
+                System.out.println("Reviews: ");
+                selST.getMovieObject().printReviewList(5); //show 5 reviews
                 break;
 
             case 2: //get movie details

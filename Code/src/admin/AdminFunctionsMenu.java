@@ -14,8 +14,11 @@ public class AdminFunctionsMenu extends MenuTemplate{
 	public MenuTemplate run() {
 		Scanner sc = new Scanner(System.in);
 		int sel = 0;
-		
-		System.out.println("---Admin Functions---");
+	
+		System.out.print("---Admin Functions for ");
+        if(super.getCineplexNum() == 1) System.out.printf("Jurong Point Cineplex---\n");
+        else if (super.getCineplexNum() == 2) System.out.printf("Bishan Cineplex---\n");
+        else System.out.printf("Nex Cineplex---\n");
 		System.out.println("1. Edit Showtimes");
 		System.out.println("2. Edit Movies");
 		System.out.println("3. Configure System Settings");
@@ -25,7 +28,7 @@ public class AdminFunctionsMenu extends MenuTemplate{
         try {
     		System.out.print("Please enter your choice: ");
 			sel = sc.nextInt();
-			if (sel<1 || sel>5) { //check exceptions?
+			if (sel<1 || sel>5) { 
 				throw new Exception();
 			}
 		} catch (Exception e) {
@@ -48,6 +51,8 @@ public class AdminFunctionsMenu extends MenuTemplate{
 			break;
 		case 5: //return
 			super.returnPrevious();
+			break;
+		default:
 			break;
         }
         nextMenu.setCineplexNum(super.getCineplexNum());

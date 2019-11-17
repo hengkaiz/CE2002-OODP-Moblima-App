@@ -48,11 +48,12 @@ public class AdminShowtimeEditor {
     		System.out.println("Please enter your choice:"); 
     		//need exception in case they enter the movie string instead?
 			sel = sc.nextInt();
-			if (sel<1 || sel>i) { //check exceptions?
+			if (sel<1 || sel>i-1) { 
 				throw new Exception();
 			}
 		} catch (Exception e) {
-			System.out.printf("Invalid movie. Try Again.");
+			System.out.println("Invalid movie. Try Again.");
+			return;
 		}
         System.out.println();
 		
@@ -81,19 +82,23 @@ public class AdminShowtimeEditor {
 			if (numOfDaysFromCurrent == -1) {
 				return;
 			}
-			if(numOfDaysFromCurrent<1 || numOfDaysFromCurrent>6) {
+			if(numOfDaysFromCurrent<1 || numOfDaysFromCurrent>5) {
 				throw new Exception();
 			}
 		} catch (Exception e) {
 			System.out.println("Invalid Date. Try Again.");
+			return;
 		}
 		System.out.println();
 		
 		//get movie format
 		MovieFormat movieFormat = movieFormatSelection();
+		if(movieFormat==null) {
+			return;
+		}
 		
 		//create new ST object
-		this.st = new ShowTime(timing, m, numOfDaysFromCurrent, this.cineplexNumber, cinemaNum, movieFormat);
+		this.st = new ShowTime(timing, m, numOfDaysFromCurrent-1, this.cineplexNumber, cinemaNum, movieFormat);
 		stdb.addSTToDB(this.st);
 		
 		//update showtime database
@@ -117,11 +122,12 @@ public class AdminShowtimeEditor {
     		System.out.println("Please enter your choice:"); 
     		//need exception in case they enter the movie string instead?
 			sel = sc.nextInt();
-			if (sel<1 || sel>i) { //check exceptions?
+			if (sel<1 || sel>i-1) { 
 				throw new Exception();
 			}
 		} catch (Exception e) {
-			System.out.printf("Invalid movie. Try Again.");
+			System.out.println("Invalid movie. Try Again.");
+			return;
 		}
         System.out.println();
 		
@@ -152,11 +158,12 @@ public class AdminShowtimeEditor {
 				if(chooseST == -1) {
 					break;
 				}
-				if (chooseST<1 || chooseST>i) { //check exceptions?
+				if (chooseST<1 || chooseST>i-1) {
 					throw new Exception();
 				}
 			} catch (Exception e) {
-				System.out.printf("Invalid showtime. Try Again.");
+				System.out.println("Invalid showtime. Try Again.");
+				return;
 			}
 	        System.out.println();
 
@@ -179,7 +186,8 @@ public class AdminShowtimeEditor {
 						throw new Exception();
 					}
 				} catch (Exception e) {
-					System.out.printf("Invalid choice. Try Again.");
+					System.out.println("Invalid choice. Try Again.");
+					return;
 				}
 		        System.out.println();
 
@@ -192,11 +200,19 @@ public class AdminShowtimeEditor {
 					System.out.println(st.getMovie() + " now showing at "+ st.timeToString() + " instead of " + oldTiming);
 					break;
 				case 2: //change cinema number
-					st.setCinemaNum(cinemaSelection());
+					int cinemaNum = cinemaSelection();
+					if(cinemaNum==-1) {
+						return;
+					}
+					st.setCinemaNum(cinemaNum);
 					System.out.println(st.getMovie() + " now showing at cinema Number " + st.getCinemaNum());
 					break;
 				case 3: //change movie format
-					st.setMovieFormat(movieFormatSelection());
+					MovieFormat movieFormat = movieFormatSelection();
+					if(movieFormat==null) {
+						return;
+					}
+					st.setMovieFormat(movieFormat);
 					System.out.println(st.getMovie() + " now showing in " + st.getMovieFormat().getName());
 					break;
 				case 4: //return
@@ -215,7 +231,6 @@ public class AdminShowtimeEditor {
 		ArrayList<String> movieTitles = mdb.getMovieTitlesList();
 		ArrayList<Movie> movieList = mdb.getMovies();
 		
-		sc.nextLine(); //dummy
 		System.out.println("Enter date (dd/mm): ");
 		String date = sc.nextLine(); //exception handling?
 		ArrayList<ShowTime> stByDate = stdb.searchByDate(date); //get list of all the ST at that date	
@@ -241,11 +256,12 @@ public class AdminShowtimeEditor {
 				if(chooseST == -1) {
 					break;
 				}
-				if (chooseST<1 || chooseST>i) { //check exceptions?
+				if (chooseST<1 || chooseST>i-1) { 
 					throw new Exception();
 				}
 			} catch (Exception e) {
-				System.out.printf("Invalid showtime. Try Again.");
+				System.out.println("Invalid showtime. Try Again.");
+				return;
 			}
 	        System.out.println();
 			
@@ -268,7 +284,8 @@ public class AdminShowtimeEditor {
 						throw new Exception();
 					}
 				} catch (Exception e) {
-					System.out.printf("Invalid choice. Try Again.");
+					System.out.println("Invalid choice. Try Again.");
+					return;
 				}
 		        System.out.println();
 				switch(updateChoice) {
@@ -282,7 +299,7 @@ public class AdminShowtimeEditor {
 				case 2: //change movie
 					i=1;
 					int newMovieChoice=0;
-					
+					i=1;
 					for(String title : movieTitles){
 						System.out.println(i + ". " + title);
 						i++;
@@ -292,11 +309,12 @@ public class AdminShowtimeEditor {
 						System.out.println("Please enter your choice: ");
 			    		//need exception in case they enter the movie string instead?
 						newMovieChoice = sc.nextInt();
-						if (newMovieChoice<1 || newMovieChoice>i) { //check exceptions?
+						if (newMovieChoice<1 || newMovieChoice>i-1) {
 							throw new Exception();
 						}
 					} catch (Exception e) {
-						System.out.printf("Invalid movie. Try Again.");
+						System.out.println("Invalid movie. Try Again.");
+						return;
 					}
 			        System.out.println();
 
@@ -309,11 +327,19 @@ public class AdminShowtimeEditor {
 					System.out.println(st.getMovie() + " now showing at " + st.timeToString());
 					break;
 				case 3: //change cinema number
-					st.setCinemaNum(cinemaSelection());
+					int cinemaNum = cinemaSelection();
+					if(cinemaNum==-1) {
+						return;
+					}
+					st.setCinemaNum(cinemaNum);
 					System.out.println(st.getMovie() + " now showing at Cinema Number " + st.getCinemaNum());
 					break;
 				case 4: //change movie format
-					st.setMovieFormat(movieFormatSelection());
+					MovieFormat movieFormat = movieFormatSelection();
+					if(movieFormat==null) {
+						return;
+					}
+					st.setMovieFormat(movieFormat);
 					System.out.println(st.getMovie() + " now showing in " + st.getMovieFormat().getName());
 					break;
 				case 5: //return
@@ -346,11 +372,12 @@ public class AdminShowtimeEditor {
     		if(stChoice == -1) {
     			return;
     		}
-			if (stChoice<1 || stChoice>i-1) { //check exceptions?
+			if (stChoice<1 || stChoice>i-1) { 
 				throw new Exception();
 			}
 		} catch (Exception e) {
-			System.out.printf("Invalid showtime. Try Again.");
+			System.out.println("Invalid showtime. Try Again.");
+			return;
 		}
         System.out.println();
 
@@ -369,6 +396,7 @@ public class AdminShowtimeEditor {
 		int sel=0,i=1;
 		
 		System.out.println("---Select Cinema---");
+		i=1;
 		for(Cinema cinema : cinemaList) {
 			System.out.printf("%d. Cinema %d: %s\n", i, cinema.getCinemaNumber(), cinema.getType());
 			i++;
@@ -377,11 +405,12 @@ public class AdminShowtimeEditor {
         try {
         	System.out.println("Please enter your choice:");
 			sel = sc.nextInt();
-			if (sel<1 || sel>i) { //check exceptions?
+			if (sel<1 || sel>i-1) {
 				throw new Exception();
 			}
 		} catch (Exception e) {
 			System.out.println("Invalid cinema number. Try Again.");
+			return -1;
 		}
         System.out.println();
 		
@@ -403,11 +432,12 @@ public class AdminShowtimeEditor {
     		System.out.println("Please enter your choice:"); 
     		//need exception in case they enter the movie string instead?
     		sel = sc.nextInt();
-			if (sel<1 || sel>i) { //check exceptions?
+			if (sel<1 || sel>i-1) {
 				throw new Exception();
 			}
 		} catch (Exception e) {
-			System.out.printf("Invalid format. Try Again.");
+			System.out.println("Invalid format. Try Again.");
+			return null;
 		}
         System.out.println();
 		

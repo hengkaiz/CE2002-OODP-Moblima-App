@@ -24,7 +24,7 @@ public class AdminShowtimeEditorMenu extends MenuTemplate{
 		try {
 			System.out.println("Please enter your choice:");
 			sel = sc.nextInt();
-			if (sel < 1 || sel > 4) { //check exceptions?
+			if (sel < 1 || sel > 4) { 
 				throw new Exception();
 			}
 		} catch (Exception e) {
@@ -37,6 +37,9 @@ public class AdminShowtimeEditorMenu extends MenuTemplate{
 		switch (sel) {
 			case 1: //create showtime
 				int cinemaNum = stEditor.cinemaSelection();
+				if(cinemaNum==-1) {
+					break;
+				}
 				stEditor.createShowtimes(cinemaNum);
 				break;
 			case 2: //update showtime
@@ -47,6 +50,8 @@ public class AdminShowtimeEditorMenu extends MenuTemplate{
 				break;
 			case 4: //return
 				super.returnPrevious();
+				break;
+			default:
 				break;
 		}
         nextMenu.setCineplexNum(super.getCineplexNum());
