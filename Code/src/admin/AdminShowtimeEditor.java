@@ -148,7 +148,7 @@ public class AdminShowtimeEditor {
 			System.out.println("Current showtimes for " + movieTitle);
 			i=1;
 			for(ShowTime sT : stByMovie) {
-				System.out.println(i + ". Showing at " + sT.timeToString() + " on " + sT.toStringGetDate() + " in " + sT.getMovieFormat() + ". " + sT.getCinemaType());
+				System.out.println(i + ". Showing at " + sT.timeToString() + " on " + sT.toStringGetDate() + " in " + sT.getMovieFormat().getName() + ". " + sT.getCinemaType());
 				i++;
 			}
 
@@ -246,7 +246,7 @@ public class AdminShowtimeEditor {
 			System.out.println("Current showtimes showing on " + date);
 			i=1;
 			for(ShowTime sT : stByDate){
-				System.out.println(i + ". " + sT.getMovie() + " showing at " + sT.timeToString() + " in " + sT.getMovieFormat() + ". " + sT.getCinemaType());
+				System.out.println(i + ". " + sT.getMovie() + " showing at " + sT.timeToString());
 				i++;
 			}
 
@@ -361,7 +361,7 @@ public class AdminShowtimeEditor {
 		int stChoice = 0;
 		i=1;
 		for(ShowTime st : stList) {
-			System.out.println(i + ". " + st.getMovie() + " showing at " + st.timeToString() + " on " + st.toStringGetDate() + " in " + st.getMovieFormat() + ". " + st.getCinemaType());
+			System.out.println(i + ". " + st.getMovie() + " showing at " + st.timeToString() + " on " + st.toStringGetDate());
 			i++;
 		}
 
