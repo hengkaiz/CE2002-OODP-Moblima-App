@@ -2,16 +2,29 @@ package user;
 
 import cinema.ShowTime;
 import moblima.SaveAndLoadDB;
-
+/**
+ * check if user is old enough to watch the movie
+ */
 public class UserCheckAge {
+    /**
+     * ShowTime of the movie user selected
+     */
     private ShowTime st;
+    /**
+     * User's username
+     */
     private String username;
-
+    /**
+     * loads the movie database on to mdb object reference
+     */
     public UserCheckAge(ShowTime st, String username){
         this.st = st;
         this.username = username;
     }
-
+    /**
+     * compares the user's age against the Movie's age rating
+     * @return boolean true = user is old enough to watch the movie, false = not old enough
+     */
     public boolean checkAge(){
         SaveAndLoadDB saveAndLoadDB = new SaveAndLoadDB();
         UserDatabase udb = saveAndLoadDB.loadUserDB();
