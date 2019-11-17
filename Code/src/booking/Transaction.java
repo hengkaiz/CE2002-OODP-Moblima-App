@@ -6,14 +6,24 @@ import java.time.LocalDateTime;
 import java.text.SimpleDateFormat;
 
 //format: XXXYYYYMMDDhhmm, X:cinema code
+/**
+ * 
+ * This represents the transaction
+ */
 public class Transaction {
-	
+	/**
+	 * changes current year to string
+	 * @return year in string format
+	 */
 	public String yearToString() {
 		LocalDateTime now = LocalDateTime.now();
 		String year = Integer.toString(now.getYear());
 		return year;	
 	}
-	
+	/**
+	 * changes current month to string
+	 * @return year in month format
+	 */
 	public String monthToString() {
 		LocalDateTime now = LocalDateTime.now();
 		String month = Integer.toString(now.getMonthValue());
@@ -22,7 +32,10 @@ public class Transaction {
 			month = ("0" + month);
 		return month;
 	}
-	
+	/**
+	 * changes current day to string
+	 * @return day in string format
+	 */
 	public String dayToString() {
 		LocalDateTime now = LocalDateTime.now();
 		int intday = now.getDayOfMonth();
@@ -32,7 +45,10 @@ public class Transaction {
 			day = ("0" + day);
 		return day;
 	}
-	
+	/**
+	 * changes current hour to string
+	 * @return hour in string format
+	 */
 	public String hourToString() {
 		LocalDateTime now = LocalDateTime.now();
 		String hour = Integer.toString(now.getHour());
@@ -42,7 +58,10 @@ public class Transaction {
 		
 		return hour;
 	}
-	
+	/**
+	 * changes current minute to string
+	 * @return minute in string format
+	 */
 	public String minuteToString() {
 		LocalDateTime now = LocalDateTime.now();
 		String minute = Integer.toString(now.getMinute());
@@ -52,7 +71,12 @@ public class Transaction {
 		
 		return minute;
 	}
-	
+	/**
+	 * creates a transaction ID, using the date of booking, username and showtime as it parameters
+	 * @param username input for user's username
+	 * @param st input for showtime
+	 * @return transaction ID 
+	 */
 	public String makeTID(String username, ShowTime st) {
 		String TID = "";
 		
