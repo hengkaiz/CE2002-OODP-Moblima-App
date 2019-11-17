@@ -16,15 +16,20 @@ public class ShowTimeDatabase extends MovieDatabase implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	/**
-	 * 
+	 * Instantiation of the showtimeList object
 	 */
 	private ArrayList<ShowTime> showtimeList = new ArrayList<ShowTime>();
 	/**
 	 * a copy list of the showtime list in list form
 	 */
     private ArrayList<ShowTime> copyList;
+    /**
+     * a integer variable for cinema number
+     */
     private int forCinemaNumber;
-
+    /**
+     * this constructs a ShowTimeDatabase object for the ShowTimeDatabase class
+     */
     public ShowTimeDatabase(){
 //        showtimeList.add(new ShowTime(1200, super.getMovies().get(0), 1, 2, 6, MovieFormat.TWO_DIMENSION));
 //        showtimeList.add(new ShowTime(1500, super.getMovies().get(0), 1, 3, 5, MovieFormat.TWO_DIMENSION));
@@ -117,8 +122,12 @@ public class ShowTimeDatabase extends MovieDatabase implements Serializable{
 //        showtimeList.add(new ShowTime(2200, super.getMovies().get(7), 5, 2, 2, MovieFormat.TWO_DIMENSION));
 //        showtimeList.add(new ShowTime(2200, super.getMovies().get(7), 5, 2, 2, MovieFormat.TWO_DIMENSION));
     }
-
-    private ArrayList<ShowTime> sortMovies(String title){ //return showtimes for chosen movie
+    /**
+     * returns the showtimes for the chosen movie
+     * @param title input for the title of movie
+     * @return showtimes of chosen movie
+     */
+    private ArrayList<ShowTime> sortMovies(String title){ 
         copyList = new ArrayList<ShowTime>();
         for (ShowTime st: showtimeList){
             if (st.getMovie().contentEquals(title) && (st.getMovieObject().getStatus().getName().equals("Now Showing") || 
@@ -128,8 +137,13 @@ public class ShowTimeDatabase extends MovieDatabase implements Serializable{
         }
         return copyList;
     }
+    /**
+     * return showtimes for the chosen dates
+     * @param date input for the date of the movie
+     * @return showtimes of the chosen dates
+     */
 
-    private ArrayList<ShowTime> sortDate(String date){ //return showtimes for chosen dates
+    private ArrayList<ShowTime> sortDate(String date){ 
         copyList = new ArrayList<ShowTime>();
         for (ShowTime st: showtimeList){
             if (st.toStringGetDate().contentEquals(date) && (st.getMovieObject().getStatus().getName().equals("Now Showing") || 
@@ -139,22 +153,42 @@ public class ShowTimeDatabase extends MovieDatabase implements Serializable{
         }
         return copyList;
     }
+    /**
+     * search movie by title
+     * @param title input for the title of the movie
+     * @return a list of showtimes for that particular movie tittle
+     */
 
-    public ArrayList<ShowTime> searchByMovie(String title){ //search movie by title
+    public ArrayList<ShowTime> searchByMovie(String title){ 
         return sortMovies(title);
     }
 
-    public ArrayList<ShowTime> searchByDate(String date){//search movie by date in format dd/MM
+    /**
+     * search movie by date in format dd/MM
+     * @param date input for the desired date
+     * @return a list of showtimes information for that particular date
+     */
+    public ArrayList<ShowTime> searchByDate(String date){
         return sortDate(date);
     }
-
+    /**
+     * 
+     * @return current showtimeList
+     */
     public ArrayList<ShowTime> getShowTimes(){
     	return showtimeList;
     }
-    
+    /**
+     * adds showtime to the showtime database
+     * @param st input for the showtime to be added in
+     */
     public void addSTToDB(ShowTime st) {
     	showtimeList.add(st);
     }
+    /**
+     * removes showtime from the showtime database
+     * @param st input for the showtime to be removed
+     */
 
     public void removeSTToDB(ShowTime st) {
     	if(showtimeList.remove(st)) {
