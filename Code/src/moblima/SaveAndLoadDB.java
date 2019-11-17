@@ -13,9 +13,17 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
-//initialize the databases here
+/**
+ * represents the database initialisation
+ * initialize the databases here
+ *
+ */
 public class SaveAndLoadDB {
-
+	/**
+	 * saves the showtime database into bytes form and export as txt file, using show time database and cineplex number as its paramenters
+	 * @param stdb input for showtime database
+	 * @param cineplexNumber input for cineplex's number
+	 */
     public void saveShowTimeDB(ShowTimeDatabase stdb, int cineplexNumber) {
 		try {
 			switch (cineplexNumber){
@@ -55,7 +63,11 @@ public class SaveAndLoadDB {
 			System.out.println("Saving error occurred " + ie);
 		}
     }
-    
+    /**
+     * loads the showtime database, using cineplex number as its parameters
+     * @param cineplexNum input for cineplex's number
+     * @return the showtime database
+     */
     public ShowTimeDatabase loadShowTimeDB(int cineplexNum) {
         try {
 			switch (cineplexNum){
@@ -105,7 +117,10 @@ public class SaveAndLoadDB {
 		}
         return null;
     }
-    
+	/**
+	 * saves the movie database into bytes form and export as txt file, using movie database as its parameter
+	 * @param mdb input for movie database
+	 */
 	public void saveMovieDB(MovieDatabase mdb) {
 		try {
 			FileOutputStream fos = new FileOutputStream("MovieDB.txt");
@@ -119,7 +134,10 @@ public class SaveAndLoadDB {
 			System.out.println("Saving error occurred " + ie);
 		}
 	}
-	
+    /**
+     * loads the movie database
+     * @return movie database
+     */
 	public MovieDatabase loadMovieDB() {
         try {
 			FileInputStream fis = new FileInputStream("MovieDB.txt");
@@ -142,7 +160,10 @@ public class SaveAndLoadDB {
         return null;
 	}
 	
-	
+	/**
+	 * saves the user database into bytes form and export as txt file, using user database as its parameter
+	 * @param udb input for user database
+	 */
 	public void saveUserDB(UserDatabase udb) {
 		try {
 			FileOutputStream fos = new FileOutputStream("UserDB.txt");
@@ -156,7 +177,10 @@ public class SaveAndLoadDB {
 			System.out.println("Saving error occurred " + ie);
 		}
 	}
-	
+	/**
+	 * loads user database
+	 * @return user database
+	 */
 	public UserDatabase loadUserDB() {
         try {
 			FileInputStream fis = new FileInputStream("UserDB.txt");
@@ -178,7 +202,10 @@ public class SaveAndLoadDB {
 		}
         return null;
 	}
-    
+	/**
+	 * saves the admin database into bytes form and export as txt file, using admin database as its parameter
+	 * @param adb input for admin database
+	 */
 	public void saveAdminDB(AdminDatabase adb) {
 		try {
 			FileOutputStream fos = new FileOutputStream("AdminDB.txt");
@@ -192,7 +219,10 @@ public class SaveAndLoadDB {
 			System.out.println("Saving error occurred " + ie);
 		}
 	}
-	
+	/**
+	 * loads admin database
+	 * @return admin database
+	 */
 	public AdminDatabase loadAdminDB() {
         try {
 			FileInputStream fis = new FileInputStream("AdminDB.txt");
@@ -214,7 +244,10 @@ public class SaveAndLoadDB {
 		}
         return null;
 	}
-	
+	/**
+	 * saves the holiday database into bytes form and export as txt file, using holiday database as its parameter
+	 * @param hdb input for holiday database
+	 */
 	public void saveHolidayDB(HolidayDatabase hdb) {
 		try {
 			FileOutputStream fos = new FileOutputStream("HolidayDB.txt");
@@ -228,7 +261,10 @@ public class SaveAndLoadDB {
 			System.out.println("Saving error occurred " + ie);
 		}
 	}
-	
+	/**
+	 * loads holiday database
+	 * @return holiday database
+	 */
 	public HolidayDatabase loadHolidayDB() {
         try {
 			FileInputStream fis = new FileInputStream("HolidayDB.txt");
@@ -250,7 +286,10 @@ public class SaveAndLoadDB {
 		}
         return null;
 	}
-	
+	/**
+	 * saves the cineplex database into bytes form and export as txt file, using cineplex database as its parameter
+	 * @param cbd input for cineplex database
+	 */
 	public void saveCineplex(Cineplex cdb) {
 		try {
 			switch (cdb.getCineplexNumber()){
@@ -284,7 +323,10 @@ public class SaveAndLoadDB {
 			System.out.println("Saving error occurred " + ie);
 		}
 	}
-	
+	/**
+	 * loads cineplex database
+	 * @return cineplex database
+	 */
 	public Cineplex loadCineplex(int cineplexNum) {
         try {
 			switch (cineplexNum){
@@ -324,7 +366,10 @@ public class SaveAndLoadDB {
 		}
         return null;
 	}
-	
+	/**
+	 * saves the ticketprice database into bytes form and export as txt file, using ticketprice database as its parameter
+	 * @param tpc input for ticketprice database
+	 */
 	public void saveTicketPrice(TicketPriceCalculator tpc) {
 		try {
 			FileOutputStream fos = new FileOutputStream("TicketPrices.txt");
@@ -338,7 +383,10 @@ public class SaveAndLoadDB {
 			System.out.println("Saving error occurred " + ie);
 		}
 	}
-	
+	/**
+	 * loads ticketprice database
+	 * @return ticketprice database
+	 */
 	public TicketPriceCalculator loadTicketPrice() {
         try {
 			FileInputStream fis = new FileInputStream("TicketPrices.txt");
@@ -360,7 +408,10 @@ public class SaveAndLoadDB {
 		}
         return null;
 	}
-	
+	/**
+	 * saves the booking database into bytes form and export as txt file, using booking database as its parameter
+	 * @param bdb input for booking database
+	 */
 	public void saveBookingDB(BookingDatabase bdb) {
 		try {
 			FileOutputStream fos = new FileOutputStream("BookingDB.txt");
@@ -374,7 +425,10 @@ public class SaveAndLoadDB {
 			System.out.println("Saving error occurred " + ie);
 		}
 	}
-	
+	/**
+	 * loads booking database
+	 * @return booking database
+	 */
 	public BookingDatabase loadBookingDB() {
         try {
 			FileInputStream fis = new FileInputStream("BookingDB.txt");
