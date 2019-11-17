@@ -76,7 +76,8 @@ public class UserSearchApp {
 
         System.out.printf("\nMovies on %s:\n", copyOfShowTime.get(0).toStringGetDate());
         for (int i = 0; i < copyOfShowTime.size(); i++) {
-        	System.out.printf("%d. %s - %d - %s - %s\n", i + 1, copyOfShowTime.get(i).toStringGetDate(), copyOfShowTime.get(i).getTiming()
+        	System.out.printf("%d. %s - %d - %s - %s\n", i + 1, copyOfShowTime.get(i).getMovie(),
+                    copyOfShowTime.get(i).getTiming()
             		, copyOfShowTime.get(i).getCinemaType(), copyOfShowTime.get(i).getMovieFormat().getName());
         }
 
