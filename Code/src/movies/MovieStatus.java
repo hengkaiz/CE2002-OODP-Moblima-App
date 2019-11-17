@@ -1,6 +1,6 @@
 package movies;
 /**
- * enumerates all the possible movie statuses
+ * enumerations of all the possible movie status
  */
 public enum MovieStatus {
     COMING_SOON("Coming Soon"),

@@ -1,6 +1,6 @@
 package movies;
 /**
- * enumerates all the months
+ * enumerations of all the months
  */
 public enum Month {
 	

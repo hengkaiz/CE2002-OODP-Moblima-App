@@ -1,6 +1,6 @@
 package movies;
 /**
- * Enumerates the different age ratings for movies
+ * Enumerations of the different age ratings for movies
  */
 public enum AgeRating {
     GENERAL("G"),

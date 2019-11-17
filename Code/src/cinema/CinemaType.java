@@ -1,7 +1,7 @@
 package cinema;
 /**
  * 
- *Enumerates the types of cinemas
+ *Enumerations of the types of cinemas
  */
 public enum CinemaType {
 	PLATINUM("Platinum"),

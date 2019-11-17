@@ -31,6 +31,9 @@ public class BookingApp {
      */
     private ShowTime st;
 
+    /**
+     * array that represents seats
+     */
     private int[] seat;
     /**
      * the cineplex's number
@@ -41,16 +44,17 @@ public class BookingApp {
      * a list of bookings and details
      */
     private ArrayList<BookingDetails>  bookinglist;
+    
     /**
      * booking app that retrieves that booking database 
      * Allows saving and loading of the actual database to and from a local copy
      * @param username input for user's username
      */
-
     public BookingApp(String username){
         bdb = saveAndLoadDB.loadBookingDB();
         this.username = username;
     }
+    
     /**
      * retrieves booking details from the booking database and prints out the booking history 
      */
@@ -68,6 +72,7 @@ public class BookingApp {
             System.out.println("Transaction ID: " + bookinglist.get(i).getTID() + "\n");
         }
     }
+    
     /**
      * searches username against user database, calculates ticket prices adds a booking to the booking database, using cineplex number, showtime and seats selected as its parameters
      * prints out booking details
@@ -75,7 +80,6 @@ public class BookingApp {
      * @param st input for the showtime
      * @param seat input for the seat selected
      */
-
     public void addBooking(int cineplexNum, ShowTime st,int[] seat){
         this.st = st;
         this.seat = seat;

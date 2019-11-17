@@ -10,9 +10,21 @@ import java.util.Scanner;
  * print the seating layout of the cinema and allow user to choose a seat to book
  */
 public class UserChooseSeatsApp {
+	/**
+	 * seat number
+	 */
 	private int st_no;
+	/**
+	 * Object reference to store local copy of ShowTimeDatabase
+	 */
 	private ShowTimeDatabase stdb;
+	/**
+	 * Allows saving and loading of the actual database to and from a local copy.
+	 */
 	private SaveAndLoadDB saveAndLoadDB = new SaveAndLoadDB();
+	/**
+	 * cineplex number
+	 */
 	private int cineplexNum;
 	/**
 	 * UserChooseSeatsApp constructor

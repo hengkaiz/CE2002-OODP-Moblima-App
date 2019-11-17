@@ -1,6 +1,6 @@
 package cinema;
 /**
- *enumerated the format of the movies 
+ *enumerations of the format of the movies 
  *
  */
 public enum MovieFormat {

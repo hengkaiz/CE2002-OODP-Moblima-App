@@ -14,7 +14,7 @@ public class TicketPriceCalculator implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	/**
-	 * enumerates all the age groups possible
+	 * enumerations of all the age groups possible
 	 */
 	enum AgeGroup {
 		SENIOR, CHILD, ADULT;
