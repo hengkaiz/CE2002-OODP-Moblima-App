@@ -28,7 +28,8 @@ public class AdminCineplexMenu extends MenuTemplate{
             }
         } catch (Exception e) {
             System.out.println("Invalid Choice. Try Again.");
-        }
+            return this.run();
+            }
 
         System.out.println();
         nextMenu = this;

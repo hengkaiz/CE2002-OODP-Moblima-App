@@ -42,6 +42,8 @@ public class AdminUpdateShowtimeMenu extends MenuTemplate{
         case 3: //return
         	super.returnPrevious();
         	break;
+		default:
+			break;
         }
         return nextMenu.run();
 	}

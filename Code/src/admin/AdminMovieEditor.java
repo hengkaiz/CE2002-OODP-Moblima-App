@@ -47,7 +47,8 @@ public class AdminMovieEditor {
 				throw new Exception();
 			}
 		} catch (Exception e) {
-			System.out.printf("Invalid movie. Try Again.");
+			System.out.println("Invalid movie. Try Again.");
+			return;
 		}
         System.out.println();
 		selectedMovie = movieList.get(updateMovieChoice-1);
@@ -72,7 +73,8 @@ public class AdminMovieEditor {
 					throw new Exception();
 				}
 			} catch (Exception e) {
-				System.out.printf("Invalid choice. Try Again.");
+				System.out.println("Invalid choice. Try Again.");
+				return;
 			}
 			System.out.println();
 			switch(updateChoice) {
@@ -100,7 +102,8 @@ public class AdminMovieEditor {
 						throw new Exception();
 					}
 				} catch (Exception e) {
-					System.out.printf("Invalid choice. Try Again.");
+					System.out.println("Invalid choice. Try Again.");
+					return;
 				}
 				System.out.println();
 				switch(castChoice) {
@@ -149,7 +152,8 @@ public class AdminMovieEditor {
 						throw new Exception();
 					}
 				} catch (Exception e) {
-					System.out.printf("Invalid choice. Try Again.");
+					System.out.println("Invalid choice. Try Again.");
+					return;
 				}
 				System.out.println();
 				switch(directorChoice) {
@@ -202,7 +206,8 @@ public class AdminMovieEditor {
 						throw new Exception();
 					}
 				} catch (Exception e) {
-					System.out.printf("Invalid choice. Try Again.");
+					System.out.println("Invalid choice. Try Again.");
+					return;
 				}
 		        System.out.println();
 				for(MovieStatus status : MovieStatus.values()) {				//go through array until find the one equal to user input
@@ -241,7 +246,8 @@ public class AdminMovieEditor {
 				throw new Exception();
 			}
 		} catch (Exception e) {
-			System.out.printf("Invalid choice. Try Again.");
+			System.out.println("Invalid choice. Try Again.");
+			return;
 		}
         System.out.println();
 		
@@ -268,7 +274,8 @@ public class AdminMovieEditor {
 					throw new Exception();
 				}
 			} catch (Exception e) {
-				System.out.printf("Invalid choice. Try Again.");
+				System.out.println("Invalid choice. Try Again.");
+				return;
 			}
 	        System.out.println();
 			
