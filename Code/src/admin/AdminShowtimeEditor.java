@@ -168,7 +168,7 @@ public class AdminShowtimeEditor {
 	        System.out.println();
 
 	        //get ST to update
-			st = stByMovie.get(sel-1);
+			st = stByMovie.get(chooseST-1);
 			
 			//choosing what to update
 			int updateChoice = 0;
@@ -221,6 +221,7 @@ public class AdminShowtimeEditor {
 					break;
 				}
 			}while(updateChoice != 4);
+			
 		} while(chooseST != -1);
 		//update showtime database
 		saveAndLoadDB.saveShowTimeDB(stdb, cineplexNumber);
@@ -430,7 +431,6 @@ public class AdminShowtimeEditor {
 
         try {
     		System.out.println("Please enter your choice:"); 
-    		//need exception in case they enter the movie string instead?
     		sel = sc.nextInt();
 			if (sel<1 || sel>i-1) {
 				throw new Exception();
