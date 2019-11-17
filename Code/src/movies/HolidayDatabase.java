@@ -5,7 +5,7 @@ import java.time.YearMonth;
 import java.util.ArrayList;
 import java.util.Scanner;
 /**
- * a database to that records all holidays
+ * a database that records all holidays
  */
 public class HolidayDatabase implements Serializable{
 	/**

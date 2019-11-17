@@ -4,13 +4,30 @@ package cinema;
 
 import java.util.ArrayList;
 import java.io.Serializable;
-
+/**
+ * represents the seatplan inside a cinema
+ *
+ */
 public class SeatPlan implements Serializable{
+	/**
+	 * sets the number of rows as 8
+	 */
     public static int rows = 8;
+    /**
+     * sets the number of columns as 10
+     */
     public static int columns = 10;
+    /**
+     * sets the number of empty seats to rows x columns
+     */
     private int numEmptySeat = rows*columns;
+    /**
+     * a lists of seats in array list form
+     */
     private ArrayList<ArrayList<Seat>> seat;
-
+    /**
+     * construct a object SeatPlan for SeatPlan class
+     */
     public SeatPlan(){
         seat = new ArrayList<ArrayList<Seat>>();
         for(int i = 0; i < rows; i++)  {
@@ -22,7 +39,12 @@ public class SeatPlan implements Serializable{
             }
         }
     }
-
+    /**
+     * checks the seat to see if it is occupied or not
+     * @param r input for the row of seat being checked
+     * @param c input for the column of seat being checked
+     * @return whether the checked seat is occupied or not
+     */
     public boolean checkSeat(int r, int c){
         if(seat.get(r).get(c).isOccupied() == true){
             System.out.println("Seat already assigned to a customer.");
@@ -30,18 +52,34 @@ public class SeatPlan implements Serializable{
         }
         return true;
     }
+    /**
+     * assigns a seat to a customer
+     * @param r input for the row of the chosen seat 
+     * @param c input for the column of the chosen seat
+     * @param name input for the customer's name
+     */
 
     public void assignSeat(int r, int c, String name){
         seat.get(r).get(c).assign(name);
         numEmptySeat--;
         System.out.println("Seat Assigned!");
     }
+    
+    /**
+     * unassigns a seat
+     * @param r input for the row of the chosen seat to be unassigned
+     * @param c input for the column of the chosen seat to be unassigned
+     */
 
     public void unAssignSeat(int r, int c){
         seat.get(r).get(c).unAssign();
         numEmptySeat++;
         System.out.println("Seat unassigned!");
     }
+    
+    /**
+     * prints out the seats, showing which seats are taken and which seats are available
+     */
 
     public void printSeats(){
         int printcolumns = (columns*3)+4;

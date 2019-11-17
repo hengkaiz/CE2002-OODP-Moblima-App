@@ -6,10 +6,22 @@ import cinema.ShowTime;
 import movies.*;
 
 import java.util.ArrayList;
-
+/**
+ *represents the show time database 
+ *
+ */
 public class ShowTimeDatabase extends MovieDatabase implements Serializable{
+	/**
+	 * To identify the version of the class used in Serialization
+	 */
 	private static final long serialVersionUID = 1L;
+	/**
+	 * 
+	 */
 	private ArrayList<ShowTime> showtimeList = new ArrayList<ShowTime>();
+	/**
+	 * a copy list of the showtime list in list form
+	 */
     private ArrayList<ShowTime> copyList;
     private int forCinemaNumber;
 
