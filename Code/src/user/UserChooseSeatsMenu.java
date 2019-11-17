@@ -33,8 +33,8 @@ public class UserChooseSeatsMenu extends MenuTemplate{
 
         try {
 			sel = sc.nextInt();
-			if (sel<0 || sel>3) {
-				throw new Exception("Input only from 1-3");
+			if (sel<0 || sel>4) {
+				throw new Exception("Input only from 1-4");
 			}
 		} catch (Exception e) {
 			System.out.println("Selection Invalid. Try Again.");
