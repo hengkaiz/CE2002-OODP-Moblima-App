@@ -1,4 +1,6 @@
 package movies;
+import moblima.SaveAndLoadDB;
+
 import java.io.*;
 import java.util.Scanner;
 import java.util.ArrayList;
@@ -250,11 +252,21 @@ public class Movie implements Serializable{
 	 * if there are less than 2 ratings, NA is printed
 	 */
 	public void printMovieOverallRating() {
-		if (this.movieOverallRating==-1) {
+		SaveAndLoadDB saveAndLoadDB = new SaveAndLoadDB();
+		MovieDatabase mdb = saveAndLoadDB.loadMovieDB();
+		int i = 0;
+
+		for (Movie m: mdb.getMovies()){
+			if(m.getMovieTitle().contentEquals(this.movieTitle)){
+				i++;
+				break;
+			}
+		}
+		if (mdb.getMovies().get(i).movieOverallRating==-1) {
 			System.out.println("NA, There are not enough ratings yet.");
 		}
 		else {
-			System.out.printf("%.1f", this.movieOverallRating);
+			System.out.printf("%.1f", mdb.getMovies().get(i).movieOverallRating);
 			System.out.println();
 		}
 	}
@@ -267,18 +279,31 @@ public class Movie implements Serializable{
 		this.reviewList.add(r);
 		updateOverallRating();
 	}
+
+	public ArrayList<Review> getReviewList(){
+		return reviewList;
+	}
 	/**
 	 * this prints the reviews and reviewer ratings in proper format
 	 * if there are no reviews yet, it will print there are no reviews yet
 	 * @param numberOfReviews number of reviews to be printed
 	 */
 	public void printReviewList(int numberOfReviews) {
-		if (reviewList.size()==0) {
+		SaveAndLoadDB saveAndLoadDB = new SaveAndLoadDB();
+		MovieDatabase mdb = saveAndLoadDB.loadMovieDB();
+		int i = 0;
+
+		for (Movie m: mdb.getMovies()){
+			if(m.getMovieTitle().contentEquals(this.movieTitle)){
+				i++;
+				break;
+			}
+		}
+		if (mdb.getMovies().get(i).reviewList.size()==0) {
 			System.out.println("There are no reviews yet.");
 			return;
 		}
-		int i=0;
-		for (Review review : reviewList) {
+		for (Review review : mdb.getMovies().get(i).getReviewList()) {
 			if (review==null)
 				return;
 			System.out.println(review.toStringRating());
