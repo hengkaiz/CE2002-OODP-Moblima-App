@@ -178,7 +178,12 @@ public class AdminConfigureSystemSettings {
 				}
 				break;
 			case 2: //remove holiday
+				try {
 				hdb.removeHoliday();
+				} catch (Exception e) {
+					System.out.println("Invalid Choice. Try Again.");
+					return;
+				}
 				break;
 			case 3: //exit
 				break;

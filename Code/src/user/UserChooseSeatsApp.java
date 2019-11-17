@@ -59,7 +59,6 @@ public class UserChooseSeatsApp {
 	*/
 
 	public int[] chooseSeats(String ID) {
-		System.out.println("\n---Choosing Seat---");
 		Scanner sc = new Scanner(System.in);
 		//BookingDatabase bk = new BookingDatabase();
 		int row = 0;

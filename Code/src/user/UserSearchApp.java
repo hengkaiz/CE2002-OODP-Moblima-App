@@ -112,14 +112,18 @@ public class UserSearchApp {
 
         System.out.println("-1 to return");
         System.out.print("Please enter your choice: ");
-
+        
+        try {
         sel = sc.nextInt();
         System.out.println();
         sc.nextLine(); //clear the buffer
 
         if(sel == -1) return null; //return to search menu
-
         return copyOfShowTime.get(sel-1);
+        }
+        catch (Exception e) {
+        	return null;
+        }
     }
 
 }

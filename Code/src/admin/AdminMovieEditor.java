@@ -295,6 +295,11 @@ public class AdminMovieEditor {
 		saveAndLoadDB.saveMovieDB(mdb);
 	}
 	public void seeMovie() {
-		mdb.printMovieDetails();
+		try {
+			mdb.printMovieDetails();
+		} catch (Exception e) {
+			System.out.println("Invalid Choice. Try Again.");
+			return;
+		}
 	}
 }
