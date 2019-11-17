@@ -2,17 +2,49 @@ package movies;
 import java.io.*;
 import java.util.Scanner;
 import java.util.ArrayList;
-
+/**
+ * represents a movie with all its details
+ */
 public class Movie implements Serializable{
+	/**
+	 * To identify the version of the class used in Serialization.
+	 */
 	private static final long serialVersionUID = 1L;
+	/**
+	 * movie title
+	 */
 	private String movieTitle; 
+	/**
+	 * movie synopsis
+	 */
 	private String movieSynopsis;
+	/**
+	 * array list of cast members
+	 */
 	private ArrayList<String> movieCast;
+	/**
+	 * array list of directors
+	 */
 	private ArrayList<String> movieDirector;
+	/**
+	 * overall rating for the movie based on reviews on the system
+	 */
 	private float movieOverallRating;
+	/**
+	 * array list of review objects
+	 */
 	private ArrayList<Review> reviewList;
+	/**
+	 * status of the movie
+	 */
 	private MovieStatus movieStatus;
+	/**
+	 * total sales of the movie
+	 */
 	private int totalSales;
+	/**
+	 * age rating for the movie
+	 */
 	private AgeRating ageRating;
 	
 	/**

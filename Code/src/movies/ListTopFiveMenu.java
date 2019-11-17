@@ -2,14 +2,27 @@ package movies;
 
 import java.util.Scanner;
 import moblima.MenuTemplate;
-
+/**
+ * a menu that lets user pick a category to list the top 5 movies
+ */
 public class ListTopFiveMenu extends MenuTemplate{
+	/**
+	 * the next menu to run
+	 */
 	private MenuTemplate nextMenu;
 	
+	/**
+	 * menu constructor
+	 * @param previousMenu points to the previous menu
+	 */
 	public ListTopFiveMenu(MenuTemplate previousMenu) {
 		super(previousMenu);
 	}
-	
+	/**
+	 * asks user to pick a category to list top 5 movies
+	 * user can also choose to return to the previous menu
+	 * @return the next menu will be run based on user input
+	 */
 	public MenuTemplate run() {
 		Scanner sc = new Scanner(System.in);
 		int sel=0;

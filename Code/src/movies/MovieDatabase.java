@@ -3,9 +3,17 @@ import java.util.ArrayList;
 import java.io.*;
 import java.util.List;
 import java.util.Scanner;
-
+/**
+ *represents the database containing all movies
+ */
 public class MovieDatabase implements Serializable{
+	/**
+	 * To identify the version of the class used in Serialization.
+	 */
 	private static final long serialVersionUID = 1L;
+	/**
+	 * array list of movie objects
+	 */
 	private ArrayList<Movie> movieList;
 	
 //	public MovieDatabase(){ //existing movie list
@@ -22,19 +30,30 @@ public class MovieDatabase implements Serializable{
 //		movieList.add(new Movie("IT 2", "Sypnosis: Defeated by members of the Losers' Club, the evil clown Pennywise returns 27 years later to terrorize the town of Derry, Maine, once again. Now adults, the childhood friends have long since gone their separate ways. But when people start disappearing, Mike Hanlon calls the others home for one final stand. Damaged by scars from the past, the united Losers must conquer their deepest fears to destroy the shape-shifting Pennywise -- now more powerful than ever.", MovieStatus.END_OF_SHOWING));
 //	}
 	
+	/**
+	 * constructs movie database with a new empty array list of movies
+	 */
 	public MovieDatabase(){
 		this.movieList = new ArrayList<Movie>();
 	}
-
+	
+	/**
+	 * @return the array list of movies
+	 */
 	public ArrayList<Movie> getMovies() {
 		return movieList;
 	}
-
+	/**
+	 * creates a new movie and adds it to the movie database
+	 */
 	public void addMovieToDB(){
 		Movie m = new Movie();
 		this.movieList.add(m);
 	}
-
+	
+	/**
+	 * displays all the movies and asks user to pick one to be removed
+	 */
 	public void removeMovieFromDB(){
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Which movie do you want to remove?");
@@ -48,8 +67,9 @@ public class MovieDatabase implements Serializable{
 		movieList.remove(choice-1);
 	}
 	
-	
-	
+	/**
+	 * asks user to choose a movie then the details for that movie is printed
+	 */
 	public void printMovieDetails(){
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Which movie do you want to know more about?");
@@ -74,7 +94,10 @@ public class MovieDatabase implements Serializable{
 		System.out.println("Reviews: " );
 		chosenMovie.printReviewList(7);
 	}
-	
+	/**
+	 * @return array list of movie titles for movies that have status of:
+	 * Now Showing or Preview
+	 */
 	public ArrayList<String> getMovieTitlesList(){
 		ArrayList <String> titlesOnly = new ArrayList<String>();
 		
@@ -113,7 +136,10 @@ public class MovieDatabase implements Serializable{
 			}
 		}
 	}*/
-	
+	/**
+	 * @param num number of movies to be listed in order of overall rating
+	 * @return list of movies in descending order of rating
+	 */
 	public List<Movie> topByOverallRating(int num){
 		movieList.sort(new OverallRatingSorter());
 		if (num>movieList.size())
@@ -121,7 +147,10 @@ public class MovieDatabase implements Serializable{
 		else
 			return movieList.subList(0, num);
 	}
-	
+	/**
+	 * @param num number of movies to be listed in order of total sales
+	 * @return list of movies in descending order of total sales
+	 */
 	public List<Movie> topByTotalSales(int num){
 		movieList.sort(new TotalSalesSorter());
 		if (num>movieList.size())
@@ -129,7 +158,6 @@ public class MovieDatabase implements Serializable{
 		else
 			return movieList.subList(0, num);
 	}
-	//comment
 	
 //	public static void main(String[] args) {
 //		MovieDatabase mdb = new MovieDatabase();

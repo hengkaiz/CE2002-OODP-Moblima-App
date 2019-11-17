@@ -4,12 +4,22 @@ import java.time.LocalDate;
 import java.time.YearMonth;
 import java.util.ArrayList;
 import java.util.Scanner;
-
+/**
+ * a database to that records all holidays
+ */
 public class HolidayDatabase implements Serializable{
-
+	/**
+	 * To identify the version of the class used in Serialization.
+	 */
 	private static final long serialVersionUID = 1L;
+	/**
+	 * list of holidays as LocalDate objects
+	 */
 	private ArrayList<LocalDate> holidays = new ArrayList<LocalDate>();
 	
+	/**
+	 * @return the list of holidays
+	 */
 	public ArrayList<LocalDate> getHolidays() {
 		return holidays;
 	}
