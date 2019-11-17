@@ -23,8 +23,8 @@ public class AdminCineplexMenu extends MenuTemplate{
 	}
 	
 	/**
-	 * Prints cineplex options and asks for user input.
-	 * User can also choose to return to previous menu.
+	 * Prints cineplex options and asks for admin input.
+	 * Admin can also choose to return to previous menu.
 	 * @return The next menu will be run based on user input.
 	 */
 	public MenuTemplate run() {

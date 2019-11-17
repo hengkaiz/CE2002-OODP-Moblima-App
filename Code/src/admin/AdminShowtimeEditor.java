@@ -205,7 +205,7 @@ public class AdminShowtimeEditor {
 						return;
 					}
 					st.setCinemaNum(cinemaNum);
-					System.out.println(st.getMovie() + " now showing at cinema Number " + st.getCinemaNum());
+					System.out.println(st.getMovie() + " now showing at Cinema Number " + st.getCinemaNum() + st.getCinemaType());
 					break;
 				case 3: //change movie format
 					MovieFormat movieFormat = movieFormatSelection();
