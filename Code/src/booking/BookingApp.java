@@ -33,8 +33,8 @@ public class BookingApp {
             System.out.printf("\n---%s booking history---\n", username);
             System.out.println(bookinglist.get(i).getCineplexName() + " - Cinema " + bookinglist.get(i).getCinemaNum());
             System.out.println("Movie: " + bookinglist.get(i).getMovieTitle());
-            System.out.println("Showtime: " + bookinglist.get(i).getShowTime());
-            System.out.println("Seats chosen: " + (char)(bookinglist.get(i).getSeat()[0] + 97) + bookinglist.get(i).getSeat()[1]);
+            System.out.println("Showtime: " + bookinglist.get(i).getDate() + " - " + bookinglist.get(i).getShowTime());
+            System.out.println("Seats chosen: " + (char)(bookinglist.get(i).getSeat()[0] + 65) + bookinglist.get(i).getSeat()[1]);
             System.out.println("Transaction ID: " + bookinglist.get(i).getTID() + "\n");
         }
     }
@@ -64,7 +64,7 @@ public class BookingApp {
         if(cineplexNum == 0) System.out.print("Jurong Point");
         else if (cineplexNum == 1) System.out.print("Bishan");
         else System.out.print("Nex");
-        System.out.print(" Cineplex - Cinema " + st.getCinemaNum());
+        System.out.println(" Cineplex - Cinema " + st.getCinemaNum() + " - " + st.getCinemaType());
         System.out.printf("\nSeat: %s%d\n", (char)(seat[0]+65), seat[1]);
         System.out.println("Price: "+ price);
 
