@@ -33,9 +33,7 @@ public class UserMainMenu extends MenuTemplate {
 
 		} catch (Exception e) {
 			System.out.println("Selection Invalid. Try Again.");
-			run();
 		}
-        System.out.println();
         sc.nextLine(); //clear the buffer
 
         nextMenu = this;
@@ -52,7 +50,9 @@ public class UserMainMenu extends MenuTemplate {
             	//put in user review app
             	// reviewMovie.getMovie();
             	// add reviews
-            	reviewMovie.addReview(reviewMovie.getMovie());
+                Movie m = reviewMovie.getMovie();
+                if(m == null) break;
+            	reviewMovie.addReview(m);
                 break;
             case 4: //return
                 super.returnPrevious();

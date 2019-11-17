@@ -17,6 +17,8 @@ public class UserLoginApp{
 	public String loginCheck(String ID, String password){
 		login_user = udb.searchByName(ID);
 
+		if(login_user == null)return"";
+
 		if (!login_user.getPassword().contentEquals(password)){
 			return "";
 		}

@@ -9,13 +9,13 @@ import movies.*;
 import cinema.*;
 
 
-public class UserSearchByMovie {
+public class UserSearchByMovie{
 	private ArrayList<String> movieList = new ArrayList<String>();
 	private ArrayList<ShowTime> showtimes = null;
 	private MovieDatabase mb;
 	private ShowTimeDatabase db;
 
-	public void searchResult() {
+	public void searchResult() throws NullPointerException{
 		//gets an array of movie titles from movie database
 		int selMovie;
 		String movietitle = null;
@@ -31,14 +31,10 @@ public class UserSearchByMovie {
         //set selMovie as the input user selected
         System.out.print("Please select movie: ");
 
-		try {
-			selMovie = sc.nextInt();
-			if (selMovie == -1) return;
-			movietitle = movieList.get(selMovie-1);
-		} catch (Exception e) {
-			System.out.println("Invalid Selection. Try Again.");
-			searchResult();
-		}
+
+		selMovie = sc.nextInt();
+		if (selMovie == -1) return;
+		movietitle = movieList.get(selMovie-1);
         
 
         //searches through BookingDatabase, compareTo returns timing
@@ -64,7 +60,7 @@ public class UserSearchByMovie {
 		movieList = mb.getMovieTitlesList();
 
 		// prints out movie list
-		System.out.println("Currently Showing:");
+		System.out.println("\nCurrently Showing:");
 		for (int i=0; i<movieList.size();i++){
 			System.out.printf("%d: %s\n", i+1, movieList.get(i));
 		}
@@ -76,11 +72,12 @@ public class UserSearchByMovie {
 			if (selMovie == -1) {
 				return null;
 			}
+			else if(selMovie < 1 || selMovie > movieList.size()) throw new Exception("too big");
 			movieListLong = mb.getMovies();
 
 		} catch (Exception e) {
 			System.out.println("Invalid Selection. Try Again.");
-			returnMovie(mb);
+			return null;
 		}
 
         

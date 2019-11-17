@@ -16,16 +16,22 @@ public class Review implements Serializable{
 		String reviewContent = null;
 
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Enter your name: ");
+		System.out.print("\nEnter your name: ");
 		reviewer = sc.nextLine();
-			
-		System.out.println("Enter a rating out of 5: ");
-		rating = sc.nextDouble();
-		while (rating <0 || rating>5) {
-			System.out.println("Error in input. Try again.");
-			System.out.println("Enter a rating out of 5: ");
+
+		try {
+			System.out.print("Enter a rating out of 5: ");
 			rating = sc.nextDouble();
+
+			if (rating <= 0 || rating > 5) {
+				throw new Exception("Enter a rating between 1 - 5!");
+			}
 		}
+		catch (Exception e){
+				System.out.println("Enter a rating between 1 - 5!");
+				return;
+			}
+
 			
 		System.out.println("Enter your review: ");
 		reviewContent = sc.nextLine();

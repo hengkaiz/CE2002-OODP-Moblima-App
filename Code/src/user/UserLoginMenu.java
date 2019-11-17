@@ -18,26 +18,24 @@ public class UserLoginMenu extends MenuTemplate {
         String Password = null;
         String username;
 
-        try {
-	        System.out.print("Enter ID: ");
-	        ID = sc.nextLine();
-	        
-	        System.out.print("Enter password: ");
-	        Password = sc.nextLine();
-        }
-        catch (Exception e) {
-        	System.out.println("Invalid ID/Password. Try Again");
-        	run();
-        }
-        
+
+        System.out.print("\nEnter ID: ");
+        ID = sc.nextLine();
+
+        System.out.print("Enter password: ");
+        Password = sc.nextLine();
+
         nextMenu = this;
 
         username = userLoginApp.loginCheck(ID, Password);
-        if (!username.contentEquals("")) { //login successful
-            super.setUsername(username);
-            System.out.println("Welcome, " + ID + "\n");
-            nextMenu = new UserCineplexMenu(super.previousMenu);
+        if(username.contentEquals("")) {
+            System.out.println("\nInvalid ID/Password!");
+            super.returnPrevious();
         }
+        //login successful
+        super.setUsername(username);
+        System.out.println("Welcome, " + ID + "\n");
+        nextMenu = new UserCineplexMenu(super.previousMenu);
 
         nextMenu.setCineplexNum(super.getCineplexNum());
         nextMenu.setUsername(super.getUsername());

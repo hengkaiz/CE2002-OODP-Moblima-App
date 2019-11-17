@@ -2,6 +2,7 @@ package user;
 
 import moblima.MenuTemplate;
 
+import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class UserCreateMenu extends MenuTemplate{
@@ -16,8 +17,8 @@ public class UserCreateMenu extends MenuTemplate{
             Scanner sc = new Scanner(System.in);
             UserLoginApp userLoginApp = new UserLoginApp();
 
-            System.out.print("Enter desired ID: ");
-            try {
+            System.out.print("\nEnter desired ID: ");
+            try{
 				String dID = sc.nextLine();
 				if(userLoginApp.checkID(dID)){ //username does not exist
 				    System.out.print("Enter desired Password: ");
@@ -25,7 +26,7 @@ public class UserCreateMenu extends MenuTemplate{
 				    System.out.print("Please retype your Password: ");
 				    String dPassword2 = sc.nextLine();
 				    if (!dPassword.contentEquals(dPassword2)) {
-				        throw new Exception("The passwords do not match, please try again!");
+				        throw new Exception("\nThe passwords do not match, please try again!");
 				    }
 
 				    userLoginApp.addUser(dID, dPassword2);
@@ -33,9 +34,13 @@ public class UserCreateMenu extends MenuTemplate{
 					super.setUsername(dID);
 				    nextMenu = new UserCineplexMenu(super.previousMenu);
 				}
+				else{
+					System.out.println("\nID already exist!");
+					super.returnPrevious();
+				}
 			} catch (Exception e) {
-				System.out.println("Input Error. Try Again.");
-				run();
+				System.out.println(e.getMessage());
+				super.returnPrevious();
 			}
 
 			nextMenu.setCineplexNum(super.getCineplexNum());
