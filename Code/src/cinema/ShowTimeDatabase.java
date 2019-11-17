@@ -24,7 +24,7 @@ public class ShowTimeDatabase extends MovieDatabase implements Serializable{
 	 */
     private ArrayList<ShowTime> copyList;
     /**
-     * a integer variable for cinema number
+     * a integer variable for cinema number 
      */
     private int forCinemaNumber;
     /**
