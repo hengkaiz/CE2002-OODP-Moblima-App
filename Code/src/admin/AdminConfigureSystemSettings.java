@@ -135,7 +135,12 @@ public class AdminConfigureSystemSettings {
 			
 			switch(updateChoice) {
 			case 1: //add holiday
-				hdb.addHoliday();
+				try {
+					hdb.addHoliday();
+				} catch (Exception e) {
+					System.out.println("Invalid Choice. Try Again.");
+					return;
+				}
 				break;
 			case 2: //remove holiday
 				hdb.removeHoliday();
