@@ -9,16 +9,31 @@ import movies.TicketPriceCalculator;
 
 import java.awt.print.Book;
 import java.util.Scanner;
-
+/**
+ * a menu that lets user view movie details, view seats or book seats
+ */
 public class UserChooseSeatsMenu extends MenuTemplate{
+    /**
+     * the next menu to run
+     */
     private MenuTemplate nextMenu;
+    /**
+     * selected showtime
+     */
     private ShowTime selST;
-
+    /**
+     * menu constructor
+     * @param previousMenu points to the previous menu
+     * @param selST is the user's selected showtime
+     */
     public UserChooseSeatsMenu(MenuTemplate previousMenu, ShowTime selST) {
         super(previousMenu);
         this.selST = selST;
     }
-
+    /**
+     * prints menu options and asks user to pick an option
+     * the next menu will be run based on user input
+     */
     public MenuTemplate run(){
         UserChooseSeatsApp userChooseSeatsApp = new UserChooseSeatsApp(selST, super.getCineplexNum());
         Scanner sc = new Scanner(System.in);
@@ -77,12 +92,17 @@ public class UserChooseSeatsMenu extends MenuTemplate{
                     System.out.println(e.getMessage());
                     break;
                 }
+                int[] seat = null;
                 for(int i=0;i<sel;i++) {
-                    int[] seat = userChooseSeatsApp.chooseSeats(super.getUsername());
-                    bookingApp.addBooking(super.getCineplexNum(), selST, seat);
+                	while(seat == null) {
+                    	System.out.println("\n---Choose seat for ticket " + (i+1) + " ---");
+                		seat = userChooseSeatsApp.chooseSeats(super.getUsername());
+                    	if(seat!= null)bookingApp.addBooking(super.getCineplexNum(), selST, seat);
+                	}
+                    seat = null;
                 }
                 System.out.println("Thanks for booking!");
-                nextMenu = new UserSearchMenu(new MainMenu());
+                nextMenu = new BookingMenu(new MainMenu());
                 break;
 
             case 4:

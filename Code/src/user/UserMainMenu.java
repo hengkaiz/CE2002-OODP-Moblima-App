@@ -6,14 +6,25 @@ import java.util.Scanner;
 import movies.*;
 
 import cinema.ShowTime;
-
+/**
+ * a menu that lets user login or create new account
+ */
 public class UserMainMenu extends MenuTemplate {
+    /**
+     * the next menu to run
+     */
     private MenuTemplate nextMenu;
-
+    /**
+     * menu constructor
+     * @param previousMenu points to the previous menu
+     */
     public UserMainMenu(MenuTemplate previousMenu) {
         super(previousMenu);
     }
-
+    /**
+     * prints menu options and asks user to pick an option
+     * the next menu will be run based on user input
+     */
     public MenuTemplate run() {
         Scanner sc = new Scanner(System.in);
         int sel = 0;

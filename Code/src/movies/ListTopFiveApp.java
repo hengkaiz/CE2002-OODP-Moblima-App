@@ -10,10 +10,10 @@ public class ListTopFiveApp {
 	 */
 	private SaveAndLoadDB saveAndLoadDB = new SaveAndLoadDB();
 	/**
-	 * object reference to load the actual movie database on to
+	 * object reference to load the actual movie database on to mdb
 	 */
 	private MovieDatabase mdb;
-	
+
 	/**
 	 * loads the movie database on to mdb object reference
 	 */
