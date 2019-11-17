@@ -24,7 +24,7 @@ public class ShowTime implements Comparable<ShowTime>, Serializable{
 	 */
     private Movie movie;
     /**
-     * the assigned cinema in the Cinema object form
+     * the assigned cinema in the Cinema object form 
      */
     private Cinema assignedCinema;
     /**
