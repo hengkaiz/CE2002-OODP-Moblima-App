@@ -3,13 +3,30 @@ package admin;
 import java.util.Scanner;
 import moblima.MenuTemplate;
 
+/**
+ * Menu to choose Cineplex number.
+ * Provides Cineplex options available.
+ */
 public class AdminCineplexMenu extends MenuTemplate{
+	
+	/**
+	 * The next menu to run.
+	 */
 	private MenuTemplate nextMenu;
 
+	/**
+	 * Menu constructor.
+	 * @param previousMenu Points to the previous menu
+	 */
 	public AdminCineplexMenu(MenuTemplate previousMenu) {
 		super(previousMenu);
 	}
 	
+	/**
+	 * Prints cineplex options and asks for user input.
+	 * User can also choose to return to previous menu.
+	 * @return The next menu will be run based on user input.
+	 */
 	public MenuTemplate run() {
 		Scanner sc = new Scanner(System.in);
 		int sel = 0;
@@ -37,7 +54,7 @@ public class AdminCineplexMenu extends MenuTemplate{
         case 4: //return
         	super.returnPrevious();
         	break;
-        default: //go straight to AdminFunctions
+        default: //go straight to AdminFunctionsMenu
         	super.setCineplexNum(sel);
         	nextMenu = new AdminFunctionsMenu(this);
         	break;

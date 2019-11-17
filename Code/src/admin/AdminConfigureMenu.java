@@ -3,13 +3,30 @@ package admin;
 import java.util.Scanner;
 import moblima.MenuTemplate;
 
+/**
+ * Menu to choose which system setting to configure.
+ * Provides which system settings are available for configuration.
+ */
 public class AdminConfigureMenu extends MenuTemplate{
+	
+	/**
+	 * The next menu to run.
+	 */
 	private MenuTemplate nextMenu;
 	
+	/**
+	 * Menu constructor.
+	 * @param previousMenu Points to the previous menu
+	 */
 	public AdminConfigureMenu(MenuTemplate previousMenu) {
 		super(previousMenu);
 	}
 	
+	/**
+	 * Prints system settings available for configuration and asks for user input.
+	 * User can also choose to return to previous menu.
+	 * @return The next menu will be run based on user input.
+	 */
 	public MenuTemplate run() {
 		Scanner sc = new Scanner(System.in);
 		int sel=0;
@@ -23,7 +40,7 @@ public class AdminConfigureMenu extends MenuTemplate{
 		try {
 			System.out.print("Please enter your choice: ");
 			sel = sc.nextInt();
-			if (sel < 1 || sel > 4) { //check exceptions?
+			if (sel < 1 || sel > 4) { //check exceptions
 				throw new Exception();
 			}
 

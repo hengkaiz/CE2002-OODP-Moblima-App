@@ -4,17 +4,46 @@ import java.util.Scanner;
 import moblima.SaveAndLoadDB;
 import movies.*;
 
+/**
+ * Contains the functions to configure system settings.
+ * System settings available for configurations: update ticket base price and price offsets,
+ *                                               update holiday dates,
+ *                                               reset system settings.
+ */
 public class AdminConfigureSystemSettings {
+	
+	/**
+	 * Allows saving and loading of the actual database to and from a local copy.
+	 */
 	private SaveAndLoadDB saveAndLoadDB = new SaveAndLoadDB();
+	
+	/**
+	 * Object reference to store local copy of HolidayDatabase.
+	 */
 	private HolidayDatabase hdb;
+	
+	/**
+	 * Object reference to store local copy of TicketPriceCalculator.
+	 */
 	private TicketPriceCalculator ticketPriceCalculator;
 	
-
+	/**
+	 * Constructs AdminConfigureSystemSettings object.
+	 * Relevant databases are loaded and stored into local copies for method use.
+	 * Relevant databases needed: Holiday Database (hdb)
+	 * 							  TicketPriceCalculator (ticketPriceCalculator)
+	 */
 	public AdminConfigureSystemSettings() {
 		this.hdb = saveAndLoadDB.loadHolidayDB();
 		this.ticketPriceCalculator = saveAndLoadDB.loadTicketPrice();
 	}
 	
+	/**
+	 * Prints current base price and price offsets.
+	 * Prints options for the admin to choose which price to update and asks for admin input.
+	 * Allows admin to enter new price depending on which option they choose.
+	 * Saves updated local copy to actual TicketPriceCalculator.
+	 */
 	public void updateTicketPrice() {
 		Scanner sc = new Scanner(System.in);
 		
@@ -104,9 +133,15 @@ public class AdminConfigureSystemSettings {
 				break;
 			}
 		}while(updateChoice != 8);
-		//saveAndLoadDB.saveTicketPrice(ticketPriceCalculator);
+		saveAndLoadDB.saveTicketPrice(ticketPriceCalculator);
 	}
 	
+	/**
+	 * Prints current holidays.
+	 * Prints options for the admin to choose to update holiday dates.
+	 * Allows admin to enter add or remove holidays from the database based on the option chosen.
+	 * Saves updated local copy to actual HolidayDatabase.
+	 */
 	public void updateHolidays() {
 		Scanner sc = new Scanner(System.in);
 		
@@ -154,6 +189,10 @@ public class AdminConfigureSystemSettings {
 		saveAndLoadDB.saveHolidayDB(hdb);
 	}
 	
+	/**
+	 * Resets the ticket base price and price offsets to initial values.
+	 * Saves updated local copy to actual TicketPriceCalculator.
+	 */
 	public void resetSettings() {
 		ticketPriceCalculator.setBasePrice(8.00);
 		ticketPriceCalculator.setWeekendOrPHSurcharge(2.00);
