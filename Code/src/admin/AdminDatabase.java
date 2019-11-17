@@ -57,7 +57,7 @@ public class AdminDatabase implements Serializable{
 	
 	/**
 	 * 
-	 * @return ArrayList of all the 
+	 * @return ArrayList of all the AdminAccounts in the database
 	 */
 	public ArrayList<AdminAccount> getAdminList(){
 		return this.adminList;
