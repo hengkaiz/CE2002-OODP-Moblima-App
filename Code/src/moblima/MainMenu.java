@@ -4,15 +4,31 @@ import user.UserMainMenu;
 import admin.AdminMainMenu;
 
 import java.util.Scanner;
-
+/**
+ * represents the main menu 
+ *
+ */
 public class MainMenu extends MenuTemplate {
+	/**
+	 * The next menu to run
+	 */
     private MenuTemplate nextMenu;
-
+    
+    /**
+     * menu constructor
+     * @param previousMenu points to the previous menu
+     */
     public MainMenu(MenuTemplate previousMenu) {
         super(previousMenu);
     }
-
+    /**
+     * constructor for main menu
+     */
     public MainMenu(){}
+    /**
+     * prints menu options and asks user to pick an option
+	 * the next menu will be run based on user input
+     */
 
     public MenuTemplate run(){
         Scanner sc = new Scanner(System.in);
