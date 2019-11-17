@@ -77,12 +77,17 @@ public class UserChooseSeatsMenu extends MenuTemplate{
                     System.out.println(e.getMessage());
                     break;
                 }
+                int[] seat = null;
                 for(int i=0;i<sel;i++) {
-                    int[] seat = userChooseSeatsApp.chooseSeats(super.getUsername());
-                    bookingApp.addBooking(super.getCineplexNum(), selST, seat);
+                	while(seat == null) {
+                    	System.out.println("\n---Choose seat for ticket " + (i+1) + " ---");
+                		seat = userChooseSeatsApp.chooseSeats(super.getUsername());
+                    	if(seat!= null)bookingApp.addBooking(super.getCineplexNum(), selST, seat);
+                	}
+                    seat = null;
                 }
                 System.out.println("Thanks for booking!");
-                nextMenu = new UserSearchMenu(new MainMenu());
+                nextMenu = new BookingMenu(new MainMenu());
                 break;
 
             case 4:

@@ -18,7 +18,7 @@ public class MainMenu extends MenuTemplate {
         Scanner sc = new Scanner(System.in);
         int sel = 0;
 
-        System.out.println("---MOBLMIA---");
+        System.out.println("\n---MOBLMIA---");
         System.out.println("1. User");
         System.out.println("2. Admin");
         System.out.println("3. Exit");
