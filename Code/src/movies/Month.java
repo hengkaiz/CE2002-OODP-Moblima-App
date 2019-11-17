@@ -12,10 +12,11 @@ public enum Month {
 		this.name=name;
 	}
 
+	/**
+	 * returns name of month for example "January"
+	 * @return String name of month
+	 */
 	public String getName() {
 		return name;
 	}
-	//comment
 }
-//comment
-//comment

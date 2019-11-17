@@ -12,10 +12,11 @@ public enum AgeRating {
 	AgeRating(String name) {
         this.name = name;
     }
+	/**
+	 * returns name of age rating for example "PG13"
+	 * @return String name of age rating
+	 */
     public String getName() {
 		return name;
 	}
 }
-//comment
-//comment	//comment
-//comment

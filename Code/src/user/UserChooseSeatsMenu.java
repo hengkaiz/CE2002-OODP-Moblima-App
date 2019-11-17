@@ -51,7 +51,9 @@ public class UserChooseSeatsMenu extends MenuTemplate{
                 System.out.println(selST.getMovieObject().getStatus().getName());
                 System.out.println("Synopsis: "+selST.getMovieObject().getMovieSynopsis());
                 System.out.println("Actors: "+selST.getMovieObject().toStringMovieCast());
-                System.out.printf("Ratings: ");
+                System.out.println("Total Sales: "	+ selST.getMovieObject().getTotalSales());
+        		System.out.println("Age Rating: "	+ selST.getMovieObject().getAgeRating().getName());
+                System.out.printf("Overall rating: ");
                 selST.getMovieObject().printMovieOverallRating();
                 System.out.println("Reviews: ");
                 selST.getMovieObject().printReviewList(5); //show 5 reviews

@@ -14,6 +14,10 @@ public class HolidayDatabase implements Serializable{
 		return holidays;
 	}
 	
+	/**
+	 * This method asks staff to input a year, month and day to create a LocalDate object
+	 * @return LocalDate
+	 */
 	public LocalDate createDate() {
 		Scanner sc = new Scanner(System.in);
 		
@@ -37,11 +41,19 @@ public class HolidayDatabase implements Serializable{
 		return LocalDate.of(yearChosen, monthChosen, dayChosen);
 	}
 	
+	/**
+	 * Takes in LocalDate object and prints it in a proper format
+	 * @param date
+	 */
 	public void printDate(LocalDate date) {
 		System.out.println(Month.values()[date.getMonthValue()-1].getName() +
 				" " + date.getDayOfMonth() + ", " + date.getYear());
 	}
 	
+	/**
+	 * This calls createDate and adds the date to the ArrayList of holidays.
+	 * Then it calls printDate to print the date that was added to holidays.
+	 */
 	public void addHoliday() {
 		System.out.println("Creating a holiday...");
 		LocalDate date = createDate();
@@ -49,7 +61,10 @@ public class HolidayDatabase implements Serializable{
 		System.out.print("Holiday added on: ");
 		printDate(date);
 	}
-	
+	/**
+	 * This prints out the list of existing holidays and asks user to pick one.
+	 * The date picked is removed from the list of holidays.
+	 */
 	public void removeHoliday() {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Choose the holiday to remove: ");
@@ -66,7 +81,10 @@ public class HolidayDatabase implements Serializable{
 		
 		holidays.remove(chosenDate-1);
 	}
-	
+	/**
+	 * This calls printDate to print all existing holidays in the database.
+	 * If there are no holidays currently, it will print that there are no current holidays in the system.
+	 */
 	public void printHolidays() {
 		if(holidays.size() == 0) {
 			System.out.println("There are no current holidays in the system");
@@ -80,6 +98,11 @@ public class HolidayDatabase implements Serializable{
 			i++;
 		}
 	}
+	/**
+	 * This checks whether the input LocalDate object is on the list of holidays.
+	 * @param date this is the date to be checked
+	 * @return boolean This returns true if date is a holiday; false if it is not
+	 */
 	public boolean isHoliday(LocalDate date) {
 		for (LocalDate holiday : holidays)
 			if (date==holiday)
@@ -96,5 +119,4 @@ public class HolidayDatabase implements Serializable{
 //		holiday.removeHoliday();
 //		holiday.printHolidays();
 //	}
-}	//comment
-//comment
+}
