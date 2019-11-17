@@ -7,14 +7,25 @@ import movies.ListTopFiveMenu;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
-
+/**
+ * a menu that lets user choose to search by movie title, date or view top movies
+ */
 public class UserSearchMenu extends MenuTemplate {
+    /**
+     * the next menu to run
+     */
     private MenuTemplate nextMenu;
-
+    /**
+     * menu constructor
+     * @param previousMenu points to the previous menu
+     */
     public UserSearchMenu(MenuTemplate previousMenu) {
         super(previousMenu);
     }
-
+    /**
+     * prints menu options and asks user to pick an option
+     * the next menu will be run based on user input
+     */
     public MenuTemplate run() {
         Scanner sc = new Scanner(System.in);
         ShowTime copyOfSelShowTime;

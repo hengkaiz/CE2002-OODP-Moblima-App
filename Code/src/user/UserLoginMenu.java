@@ -3,14 +3,25 @@ package user;
 import moblima.MenuTemplate;
 
 import java.util.Scanner;
-
+/**
+ * a menu that lets user choose enter login information
+ */
 public class UserLoginMenu extends MenuTemplate {
+    /**
+     * the next menu to run
+     */
     private MenuTemplate nextMenu;
-
+    /**
+     * menu constructor
+     * @param previousMenu points to the previous menu
+     */
     public UserLoginMenu(MenuTemplate previousMenu) {
         super(previousMenu);
     }
-
+    /**
+     * gets user's username and password
+     * the next menu will be run based on user input
+     */
     public MenuTemplate run(){
         Scanner sc = new Scanner(System.in);
         UserLoginApp userLoginApp = new UserLoginApp();

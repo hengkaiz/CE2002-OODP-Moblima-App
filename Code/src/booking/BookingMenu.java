@@ -5,14 +5,27 @@ import user.*;
 import cinema.*;
 
 import java.util.Scanner;
-
+/**
+ * represents the booking menu 
+ *
+ */
 public class BookingMenu extends MenuTemplate {
+	/**
+	 * The next menu to run
+	 */
     private MenuTemplate nextMenu;
+    /**
+     * menu constructor
+     * @param previousMenu points to previous menu
+     */
 
     public BookingMenu(MenuTemplate previousMenu) {
         super(previousMenu);
     }
-
+    /**
+     * prints menu options and asks user to pick an option
+	 * the next menu will be run based on user input
+     */
     public MenuTemplate run(){
         //your booking code here
         Scanner sc = new Scanner(System.in);

@@ -114,9 +114,15 @@ public class HolidayDatabase implements Serializable{
 	 * @return boolean This returns true if date is a holiday; false if it is not
 	 */
 	public boolean isHoliday(LocalDate date) {
-		for (LocalDate holiday : holidays)
-			if (date==holiday)
+		for (LocalDate holiday : holidays) {
+			//System.out.println(holiday);
+			//System.out.println(date);
+			if (date.equals(holiday)) {
+				//System.out.println("YES HOLIDAY");
 				return true;
+			}
+
+		}
 		return false;
 	}
 	
