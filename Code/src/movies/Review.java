@@ -52,6 +52,7 @@ public class Review implements Serializable{
 
 			
 		System.out.println("Enter your review: ");
+		String dummy = sc.nextLine();
 		reviewContent = sc.nextLine();
 
 		
