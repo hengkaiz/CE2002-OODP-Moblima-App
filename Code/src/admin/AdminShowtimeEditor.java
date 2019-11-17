@@ -204,8 +204,8 @@ public class AdminShowtimeEditor {
 					if(cinemaNum==-1) {
 						return;
 					}
-					st.setCinemaNum(cinemaNum);
-					System.out.println(st.getMovie() + " now showing at Cinema Number " + st.getCinemaNum() + st.getCinemaType());
+					st.setAssignedCinema(cineplex.getCinemas().get(cinemaNum-1));
+					System.out.println(st.getMovie() + " now showing at cinema Number " + st.getCinemaNum());
 					break;
 				case 3: //change movie format
 					MovieFormat movieFormat = movieFormatSelection();
