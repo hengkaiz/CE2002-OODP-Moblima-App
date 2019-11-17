@@ -18,12 +18,13 @@ public class AdminMovieEditorMenu extends MenuTemplate{
 		System.out.println("1. Create Movies");
 		System.out.println("2. Update Movies");
 		System.out.println("3. Remove Movies");
-		System.out.println("4. Return");
+		System.out.println("4. See Current Movie Details");
+		System.out.println("5. Return");
 
 		try {
 			System.out.println("Please enter your choice:");
 			sel = sc.nextInt();
-			if (sel < 1 || sel > 4) {
+			if (sel < 1 || sel > 5) {
 				throw new Exception();
 			}
 		} catch (Exception e) {
@@ -43,7 +44,9 @@ public class AdminMovieEditorMenu extends MenuTemplate{
 		case 3: //remove
 			mEditor.removeMovieListing();
 			break;
-		case 4: //return
+		case 4: //see movies
+			mEditor.seeMovie();
+		case 5: //return
 			super.returnPrevious();
 			break;
 		default:
