@@ -294,4 +294,7 @@ public class AdminMovieEditor {
 		}
 		saveAndLoadDB.saveMovieDB(mdb);
 	}
+	public void seeMovie() {
+		mdb.printMovieDetails();
+	}
 }
