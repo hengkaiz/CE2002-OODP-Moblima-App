@@ -50,7 +50,8 @@ public class AdminConfigureSystemSettings {
 					throw new Exception();
 				}
 			} catch (Exception e) {
-				System.out.printf("Invalid choice. Try Again.");
+				System.out.println("Invalid choice. Try Again.");
+				return;
 			}
 	        System.out.println();
 
@@ -126,14 +127,20 @@ public class AdminConfigureSystemSettings {
 					throw new Exception();
 				}
 			} catch (Exception e) {
-				System.out.printf("Invalid choice. Try Again.");
+				System.out.println("Invalid choice. Try Again.");
+				return;
 			}
 
 	        System.out.println();
 			
 			switch(updateChoice) {
 			case 1: //add holiday
-				hdb.addHoliday();
+				try {
+					hdb.addHoliday();
+				} catch (Exception e) {
+					System.out.println("Invalid Choice. Try Again.");
+					return;
+				}
 				break;
 			case 2: //remove holiday
 				hdb.removeHoliday();

@@ -52,6 +52,8 @@ public class AdminFunctionsMenu extends MenuTemplate{
 		case 5: //return
 			super.returnPrevious();
 			break;
+		default:
+			break;
         }
         nextMenu.setCineplexNum(super.getCineplexNum());
         nextMenu.setUsername(super.getUsername());

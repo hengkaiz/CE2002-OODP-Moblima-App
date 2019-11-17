@@ -37,6 +37,9 @@ public class AdminShowtimeEditorMenu extends MenuTemplate{
 		switch (sel) {
 			case 1: //create showtime
 				int cinemaNum = stEditor.cinemaSelection();
+				if(cinemaNum==-1) {
+					break;
+				}
 				stEditor.createShowtimes(cinemaNum);
 				break;
 			case 2: //update showtime
@@ -47,6 +50,8 @@ public class AdminShowtimeEditorMenu extends MenuTemplate{
 				break;
 			case 4: //return
 				super.returnPrevious();
+				break;
+			default:
 				break;
 		}
         nextMenu.setCineplexNum(super.getCineplexNum());

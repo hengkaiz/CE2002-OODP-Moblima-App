@@ -38,6 +38,8 @@ public class AdminMainMenu extends MenuTemplate{
         	break;
         case 2: //return
         	super.returnPrevious();
+		default:
+			break;
         }
         return nextMenu.run();
 	}

@@ -30,7 +30,7 @@ public class BookingApp {
 
         if (bookinglist == null) return;
         for (int i = 0; i < bookinglist.size(); i++) {
-            System.out.println("Hello " + username + ", here are your bookings:");
+            System.out.printf("\n---%s booking history---\n", username);
             System.out.println(bookinglist.get(i).getCineplexName() + " - Cinema " + bookinglist.get(i).getCinemaNum());
             System.out.println("Movie: " + bookinglist.get(i).getMovieTitle());
             System.out.println("Showtime: " + bookinglist.get(i).getShowTime());

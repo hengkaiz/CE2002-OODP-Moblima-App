@@ -30,7 +30,6 @@ public class UserCineplexMenu extends MenuTemplate {
             }
         } catch (Exception e) {
             System.out.println("Invalid Choice. Try Again.");
-            run();
         }
 
         nextMenu = this;
@@ -39,7 +38,7 @@ public class UserCineplexMenu extends MenuTemplate {
                 super.returnPrevious();
                 break;
 
-            default:// go to search menu
+            case 1: case 2: case 3:// go to search menu
                 super.setCineplexNum(sel);
                 nextMenu = new BookingMenu(this);
                 break;

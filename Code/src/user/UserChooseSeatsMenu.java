@@ -38,7 +38,6 @@ public class UserChooseSeatsMenu extends MenuTemplate{
 			}
 		} catch (Exception e) {
 			System.out.println("Selection Invalid. Try Again.");
-			run();
 		}
 
         System.out.println();
@@ -64,21 +63,22 @@ public class UserChooseSeatsMenu extends MenuTemplate{
                 break;
 
             case 3: //choose seats
+                BookingApp bookingApp = new BookingApp(super.getUsername());
                 UserCheckAge userCheckAge = new UserCheckAge(selST, super.getUsername());
                 if(!userCheckAge.checkAge()) super.returnPrevious();
                 System.out.print("How many seats would you like to book? ");
                 try {
                     sel = sc.nextInt();
                     if (sel<0 || sel>5) {
-                        throw new Exception("Input only from 1-5");
+                        throw new Exception("Input only from 1-5!");
                     }
                 } catch (Exception e) {
-                    System.out.println("Selection Invalid. Try Again.");
-                    run();
+                    System.out.println(e.getMessage());
+                    break;
                 }
                 for(int i=0;i<sel;i++) {
                     int[] seat = userChooseSeatsApp.chooseSeats(super.getUsername());
-                    run();
+                    bookingApp.addBooking(super.getCineplexNum(), selST, seat);
                 }
                 System.out.println("Thanks for booking!");
                 nextMenu = new UserSearchMenu(new MainMenu());
