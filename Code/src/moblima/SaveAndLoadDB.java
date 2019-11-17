@@ -25,7 +25,7 @@ public class SaveAndLoadDB {
 				    oos.writeObject(stdb);
 				    oos.close();
 				    fos.close();
-				    System.out.println("ShowTime DB Serialized and saved");
+				    //System.out.println("ShowTime DB Serialized and saved");
 				    break;
 				case 2:
 					FileOutputStream fos2 = new FileOutputStream("ShowTimeDB2.txt");
@@ -33,7 +33,7 @@ public class SaveAndLoadDB {
 				    oos2.writeObject(stdb);
 				    oos2.close();
 				    fos2.close();
-				    System.out.println("ShowTime DB Serialized and saved");
+				    //System.out.println("ShowTime DB Serialized and saved");
 				    break;
 				case 3:
 					FileOutputStream fos3 = new FileOutputStream("ShowTimeDB3.txt");
@@ -41,7 +41,7 @@ public class SaveAndLoadDB {
 				    oos3.writeObject(stdb);
 				    oos3.close();
 				    fos3.close();
-				    System.out.println("ShowTime DB Serialized and saved");
+				    //System.out.println("ShowTime DB Serialized and saved");
 				    break;
 			}
 //			FileOutputStream fos = new FileOutputStream("ShowTimeDB.txt");
@@ -65,7 +65,7 @@ public class SaveAndLoadDB {
 				ShowTimeDatabase stdb = (ShowTimeDatabase) ois.readObject();
 				ois.close();
 				fis.close();
-				System.out.println("ShowTime DB Deserialized and loaded");
+				//System.out.println("ShowTime DB Deserialized and loaded");
 		        return stdb;
 			case 2:
 				FileInputStream fis2 = new FileInputStream("ShowTimeDB2.txt");
@@ -73,7 +73,7 @@ public class SaveAndLoadDB {
 				ShowTimeDatabase stdb2 = (ShowTimeDatabase) ois2.readObject();
 				ois2.close();
 				fis2.close();
-				System.out.println("ShowTime DB Deserialized and loaded");
+				//System.out.println("ShowTime DB Deserialized and loaded");
 		        return stdb2;
 			case 3:
 				FileInputStream fis3 = new FileInputStream("ShowTimeDB3.txt");
@@ -81,7 +81,7 @@ public class SaveAndLoadDB {
 				ShowTimeDatabase stdb3 = (ShowTimeDatabase) ois3.readObject();
 				ois3.close();
 				fis3.close();
-				System.out.println("ShowTime DB Deserialized and loaded");
+				//System.out.println("ShowTime DB Deserialized and loaded");
 		        return stdb3;
 			}
 //			FileInputStream fis = new FileInputStream("ShowTimeDB.txt");
@@ -113,7 +113,7 @@ public class SaveAndLoadDB {
 		    oos.writeObject(mdb);
 		    oos.close();
 		    fos.close();
-		    System.out.println("MovieDB Serialized and saved");
+		    //System.out.println("MovieDB Serialized and saved");
 		}
 		catch(IOException ie) {
 			System.out.println("Saving error occurred " + ie);
@@ -128,7 +128,7 @@ public class SaveAndLoadDB {
 			MovieDatabase mdb = (MovieDatabase) ois.readObject();
 			ois.close();
 			fis.close();
-			System.out.println("MovieDB Deserialized and loaded");
+			//System.out.println("MovieDB Deserialized and loaded");
 	        return mdb;
 		} catch (FileNotFoundException e) {
 			System.out.println("File not found");
@@ -150,7 +150,7 @@ public class SaveAndLoadDB {
 		    oos.writeObject(udb);
 		    oos.close();
 		    fos.close();
-		    System.out.println("UserDB Serialized and saved");
+		    //System.out.println("UserDB Serialized and saved");
 		}
 		catch(IOException ie) {
 			System.out.println("Saving error occurred " + ie);
@@ -165,7 +165,7 @@ public class SaveAndLoadDB {
 			UserDatabase udb = (UserDatabase) ois.readObject();
 			ois.close();
 			fis.close();
-			System.out.println("UserDB Deserialized and loaded");
+			//System.out.println("UserDB Deserialized and loaded");
 	        return udb;
 		} catch (FileNotFoundException e) {
 			System.out.println("File not found");
@@ -186,7 +186,7 @@ public class SaveAndLoadDB {
 		    oos.writeObject(adb);
 		    oos.close();
 		    fos.close();
-		    System.out.println("AdminDB Serialized and saved");
+		    //System.out.println("AdminDB Serialized and saved");
 		}
 		catch(IOException ie) {
 			System.out.println("Saving error occurred " + ie);
@@ -201,7 +201,7 @@ public class SaveAndLoadDB {
 			AdminDatabase adb = (AdminDatabase) ois.readObject();
 			ois.close();
 			fis.close();
-			System.out.println("UserDB Deserialized and loaded");
+			//System.out.println("UserDB Deserialized and loaded");
 	        return adb;
 		} catch (FileNotFoundException e) {
 			System.out.println("File not found");
@@ -222,7 +222,7 @@ public class SaveAndLoadDB {
 		    oos.writeObject(hdb);
 		    oos.close();
 		    fos.close();
-		    System.out.println("HolidayDB Serialized and saved");
+		    //System.out.println("HolidayDB Serialized and saved");
 		}
 		catch(IOException ie) {
 			System.out.println("Saving error occurred " + ie);
@@ -237,7 +237,7 @@ public class SaveAndLoadDB {
 			HolidayDatabase hdb = (HolidayDatabase) ois.readObject();
 			ois.close();
 			fis.close();
-			System.out.println("HolidayDB Deserialized and loaded");
+			//System.out.println("HolidayDB Deserialized and loaded");
 	        return hdb;
 		} catch (FileNotFoundException e) {
 			System.out.println("File not found");
@@ -260,7 +260,7 @@ public class SaveAndLoadDB {
 			    oos.writeObject(cdb);
 			    oos.close();
 			    fos.close();
-			    System.out.println("Cineplex1 Serialized and saved");
+			    //System.out.println("Cineplex1 Serialized and saved");
 			    break;
 			case 2:
 				FileOutputStream fos2 = new FileOutputStream("Cineplex2.txt");
@@ -268,7 +268,7 @@ public class SaveAndLoadDB {
 			    oos2.writeObject(cdb);
 			    oos2.close();
 			    fos2.close();
-			    System.out.println("Cineplex2 Serialized and saved");
+			    //System.out.println("Cineplex2 Serialized and saved");
 			    break;
 			case 3:
 				FileOutputStream fos3 = new FileOutputStream("Cineplex3.txt");
@@ -276,7 +276,7 @@ public class SaveAndLoadDB {
 			    oos3.writeObject(cdb);
 			    oos3.close();
 			    fos3.close();
-			    System.out.println("Cineplex3 Serialized and saved");
+			    //System.out.println("Cineplex3 Serialized and saved");
 			    break;
 			}
 		}
@@ -294,7 +294,7 @@ public class SaveAndLoadDB {
 				Cineplex c1 = (Cineplex) ois.readObject();
 				ois.close();
 				fis.close();
-				System.out.println("Cineplex1 Deserialized and loaded");
+				//System.out.println("Cineplex1 Deserialized and loaded");
 		        return c1;
 			case 2:
 				FileInputStream fis2 = new FileInputStream("Cineplex2.txt");
@@ -302,7 +302,7 @@ public class SaveAndLoadDB {
 				Cineplex c2 = (Cineplex) ois2.readObject();
 				ois2.close();
 				fis2.close();
-				System.out.println("Cineplex2 Deserialized and loaded");
+				//System.out.println("Cineplex2 Deserialized and loaded");
 		        return c2;
 			case 3:
 				FileInputStream fis3 = new FileInputStream("Cineplex3.txt");
@@ -310,7 +310,7 @@ public class SaveAndLoadDB {
 				Cineplex c3 = (Cineplex) ois3.readObject();
 				ois3.close();
 				fis3.close();
-				System.out.println("Cineplex3 Deserialized and loaded");
+				//System.out.println("Cineplex3 Deserialized and loaded");
 		        return c3;
 			}
 		} catch (FileNotFoundException e) {
@@ -332,7 +332,7 @@ public class SaveAndLoadDB {
 		    oos.writeObject(tpc);
 		    oos.close();
 		    fos.close();
-		    System.out.println("TicketPrices Serialized and saved");
+		    //System.out.println("TicketPrices Serialized and saved");
 		}
 		catch(IOException ie) {
 			System.out.println("Saving error occurred " + ie);
@@ -347,7 +347,7 @@ public class SaveAndLoadDB {
 			TicketPriceCalculator tpc = (TicketPriceCalculator) ois.readObject();
 			ois.close();
 			fis.close();
-			System.out.println("TicketPrices Deserialized and loaded");
+			//System.out.println("TicketPrices Deserialized and loaded");
 	        return tpc;
 		} catch (FileNotFoundException e) {
 			System.out.println("File not found");
@@ -368,7 +368,7 @@ public class SaveAndLoadDB {
 		    oos.writeObject(bdb);
 		    oos.close();
 		    fos.close();
-		    System.out.println("BookingDB Serialized and saved");
+		    //System.out.println("BookingDB Serialized and saved");
 		}
 		catch(IOException ie) {
 			System.out.println("Saving error occurred " + ie);
@@ -383,7 +383,7 @@ public class SaveAndLoadDB {
 			BookingDatabase bdb = (BookingDatabase) ois.readObject();
 			ois.close();
 			fis.close();
-			System.out.println("BookingDB Deserialized and loaded");
+			//System.out.println("BookingDB Deserialized and loaded");
 	        return bdb;
 		} catch (FileNotFoundException e) {
 			System.out.println("File not found");
