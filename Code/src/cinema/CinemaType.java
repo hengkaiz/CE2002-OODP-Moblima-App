@@ -14,7 +14,7 @@ public enum CinemaType {
     
     /**
      * construct a CinemaType object for CinemaType class, using name as parameters.
-     * @param name
+     * @param name input for name of cinema type
      */
 
 	CinemaType(String name) {

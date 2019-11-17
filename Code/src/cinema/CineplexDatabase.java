@@ -2,9 +2,18 @@ package cinema;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-
+/**
+ * represents the database of cineplexes 
+ *
+ */
 public class CineplexDatabase {
+	/**
+	 * list of cineplexes
+	 */
 	private ArrayList<Cineplex> cineplexes;
+	/**
+	 * constructs a CineplexDatabase object in the CineplexDatabase class
+	 */
 	
 	public CineplexDatabase() {
 		System.out.println("Creating cineplex DB");
@@ -19,7 +28,10 @@ public class CineplexDatabase {
 		}
 	}
 	
-	
+	/**
+	 * 
+	 * @return current cineplex
+	 */
 	public ArrayList<Cineplex> getCineplexes() {
 		return cineplexes;
 	}
