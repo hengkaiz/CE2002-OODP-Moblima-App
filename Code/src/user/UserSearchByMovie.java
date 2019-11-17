@@ -8,13 +8,29 @@ import moblima.SaveAndLoadDB;
 import movies.*;
 import cinema.*;
 
-
+/**
+ * search movie by title
+ */
 public class UserSearchByMovie{
+	/**
+	 * ArrayList of ShowTime
+	 */
 	private ArrayList<String> movieList = new ArrayList<String>();
+	/**
+	 * copy of ArrayList of ShowTime
+	 */
 	private ArrayList<ShowTime> showtimes = null;
+	/**
+	 * object reference to load the actual movie database on to mb
+	 */
 	private MovieDatabase mb;
+	/**
+	 * object reference to load the actual showtime database on to db
+	 */
 	private ShowTimeDatabase db;
-
+	/**
+	 * search movie by title and add found movies to ShowTimes
+	 */
 	public void searchResult() throws NullPointerException{
 		//gets an array of movie titles from movie database
 		int selMovie;
@@ -40,7 +56,12 @@ public class UserSearchByMovie{
         //searches through BookingDatabase, compareTo returns timing
         showtimes = db.searchByMovie(movietitle);
        }
-
+	/**
+	 * search movie by title
+	 * @param mb is the object reference to load the actual movie database on to mb
+	 * @param cineplexNum is the cinplex the user chose
+	 * @return the ArrayList of showtimes found
+	 */
 	public ArrayList<ShowTime> searchApp(MovieDatabase mb, int cineplexNum) {
 		SaveAndLoadDB saveAndLoadDB = new SaveAndLoadDB();
 		this.db = saveAndLoadDB.loadShowTimeDB(cineplexNum);
@@ -51,7 +72,11 @@ public class UserSearchByMovie{
 
 		return showtimes;
 	}
-	
+	/**
+	 * search movie by title for reviews
+	 * @param mb is the object reference to load the actual movie database on to mb
+	 * @return Movie object found
+	 */
 	public Movie returnMovie(MovieDatabase mb) {
 		//gets an array of movie titles from movie database
 		int selMovie = 0;

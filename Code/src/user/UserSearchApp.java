@@ -7,21 +7,47 @@ import movies.MovieDatabase;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-
+/**
+ * search showtime by title and date
+ */
 public class UserSearchApp {
+    /**
+     * object reference to load the actual movie database on to mdb
+     */
     private MovieDatabase mdb;
+    /**
+     * object reference to load the actual showtime database on to stdb
+     */
     private ShowTimeDatabase stdb;
+    /**
+     * Allows saving and loading of the actual database to and from a local copy
+     */
     private SaveAndLoadDB saveAndLoadDB = new SaveAndLoadDB();
+    /**
+     * ShowTime object
+     */
     private ShowTime selST;
+    /**
+     * ArrayList of ShowTime objects
+     */
     private ArrayList<ShowTime> copyOfShowTime;
+    /**
+     * cineplex number
+     */
     private int cineplexNumber;
-
+    /**
+     * constructs a UserSearchApp object
+     * @param cineplexNumber is the cineplex number
+     */
     public UserSearchApp(int cineplexNumber){
         this.cineplexNumber = cineplexNumber;
         mdb = saveAndLoadDB.loadMovieDB();
         stdb = saveAndLoadDB.loadShowTimeDB(this.cineplexNumber);
     }
-
+    /**
+     * searches for the showtime by title
+     * @return the found ShowTime
+     */
     public ShowTime SearchByMovie() {
         Scanner sc = new Scanner(System.in);
         int sel=0;
@@ -58,7 +84,10 @@ public class UserSearchApp {
 
         return copyOfShowTime.get(sel - 1);
     }
-
+    /**
+     * searches for the showtime by date
+     * @return the found ShowTime
+     */
     public ShowTime SearchByDate(){
         Scanner sc = new Scanner(System.in);
         int sel;

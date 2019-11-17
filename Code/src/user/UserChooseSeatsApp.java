@@ -6,13 +6,19 @@ import moblima.SaveAndLoadDB;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
-
+/**
+ * print the seating layout of the cinema and allow user to choose a seat to book
+ */
 public class UserChooseSeatsApp {
 	private int st_no;
 	private ShowTimeDatabase stdb;
 	private SaveAndLoadDB saveAndLoadDB = new SaveAndLoadDB();
 	private int cineplexNum;
-
+	/**
+	 * UserChooseSeatsApp constructor
+	 * @param st is the user's selected showtime
+	 * @param cineplexNum is the cineplex that the showtime is showing at
+	 */
 	public UserChooseSeatsApp(ShowTime st, int cineplexNum){
 		this.cineplexNum = cineplexNum;
 		this.stdb = saveAndLoadDB.loadShowTimeDB(cineplexNum);
@@ -25,11 +31,18 @@ public class UserChooseSeatsApp {
 		}
 		st_no = n;
 	}
-
+	/**
+	 * calls ShowTimeDatabase to print the seating layout of the selected showtime
+	 */
 	public void printSeats(){
 		stdb.getShowTimes().get(st_no).getSeatPlan().printSeats();
 	}
-
+	/**
+	 * checks if the seat choosen by the user is valid/ available
+	 * @param row is the row number of the seat
+	 * @param col is the column number of the seat
+	 * @param username is the user's username
+	 */
 	private void selectSeat(int row, int col, String username) throws IndexOutOfBoundsException {
 		if (stdb.getShowTimes().get(st_no).getSeatPlan().checkSeat(row, col) == false){// seat taken
 			//add exception here if seat is taken
@@ -39,6 +52,11 @@ public class UserChooseSeatsApp {
 			stdb.getShowTimes().get(st_no).getSeatPlan().assignSeat(row, col, username);
 		}
 	}
+	/**
+	 * allows user to choose the seat for the selected showtime
+	 * @param ID is the user's username
+	 * @return the row and column of the seat selected
+	*/
 
 	public int[] chooseSeats(String ID) {
 		System.out.println("\n---Choosing Seat---");

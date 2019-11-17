@@ -15,7 +15,9 @@ public class UserCheckAge {
      */
     private String username;
     /**
-     * loads the movie database on to mdb object reference
+     * UserCheckAge constructor
+     * @param st is the ShowTime of selected movie
+     * @param username is the user's username
      */
     public UserCheckAge(ShowTime st, String username){
         this.st = st;
