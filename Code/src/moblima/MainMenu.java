@@ -33,8 +33,6 @@ public class MainMenu extends MenuTemplate {
 		} catch (Exception e) {
 			System.out.println("Invalid Selection. Try again.");
 		}
-
-        System.out.println();
         sc.nextLine(); //clear the buffer
 
         nextMenu = this;
