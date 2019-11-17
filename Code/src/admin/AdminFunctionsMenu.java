@@ -4,13 +4,29 @@ import java.util.Scanner;
 import moblima.MenuTemplate;
 import movies.ListTopFiveMenu;
 
+/**
+ * Menu to choose Admin Functions.
+ * Provides Admin Functions available.
+ */
 public class AdminFunctionsMenu extends MenuTemplate{
+	/**
+	 * The next menu to run.
+	 */
 	private MenuTemplate nextMenu;
 	
+	/**
+	 * Menu constructor
+	 * @param previousMenu points to the previous menu
+	 */
 	public AdminFunctionsMenu(MenuTemplate previousMenu) {
 		super(previousMenu);
 	}
 	
+	/**
+	 * Prints admin functions options and asks for admin input.
+	 * Admin can also choose to return to previous menu.
+	 * @return The next menu will be run based on user input.
+	 */
 	public MenuTemplate run() {
 		Scanner sc = new Scanner(System.in);
 		int sel = 0;

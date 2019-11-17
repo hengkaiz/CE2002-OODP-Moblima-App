@@ -23,8 +23,8 @@ public class AdminConfigureMenu extends MenuTemplate{
 	}
 	
 	/**
-	 * Prints system settings available for configuration and asks for user input.
-	 * User can also choose to return to previous menu.
+	 * Prints system settings available for configuration and asks for admin input.
+	 * Admin can also choose to return to previous menu.
 	 * @return The next menu will be run based on user input.
 	 */
 	public MenuTemplate run() {
