@@ -148,7 +148,7 @@ public class ShowTimeDatabase extends MovieDatabase implements Serializable{
         for (ShowTime st: showtimeList){
             if (st.toStringGetDate().contentEquals(date) && (st.getMovieObject().getStatus().getName().equals("Now Showing") || 
             		st.getMovieObject().getStatus().getName().equals("Preview"))){
-                copyList.add(st);
+            	copyList.add(st);
             }
         }
         return copyList;
