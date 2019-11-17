@@ -83,13 +83,19 @@ public class TicketPriceCalculator implements Serializable{
 	public double calculatePrice(User user, ShowTime showtime, HolidayDatabase holiday) {
 		double price=basePrice;
 		
-		if (getAgeGroup(user.getAge()) == AgeGroup.CHILD || getAgeGroup(user.getAge()) == AgeGroup.SENIOR)
+		if (getAgeGroup(user.getAge()) == AgeGroup.CHILD || getAgeGroup(user.getAge()) == AgeGroup.SENIOR) {
+			//System.out.println("old/young");
 			price-=ageDiscount;
+		}
+			
 		
 		LocalDate localDate = LocalDate.ofInstant(showtime.getDate().toInstant(), showtime.getDate().getTimeZone().toZoneId());
 		
-		if (isBookingDateAWeekend(localDate) || holiday.isHoliday(localDate))
+		if (isBookingDateAWeekend(localDate) || holiday.isHoliday(localDate)) {
+			//System.out.println("holiday/weekend");
 			price+=weekendOrPHSurcharge;
+		}
+			
 
 
 		if (showtime.getCinemaType().equals("Platinum") )
