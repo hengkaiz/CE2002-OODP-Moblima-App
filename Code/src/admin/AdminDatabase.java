@@ -34,12 +34,17 @@ public class AdminDatabase implements Serializable{
 	}
 	
 	/**
-	 * Add an AdminAccount to the ArrayList
-	 * @param admin AdminAccount to be added to the database
+	 * Add an AdminAccount to the ArrayList.
+	 * @param admin AdminAccount to be added.
 	 */
 	public void addAdmin(AdminAccount admin) {
 		adminList.add(admin);
 	}
+	
+	/**
+	 * Remove an AdminAccount from the ArrayList.
+	 * @param admin AdminAccount to be removed.
+	 */
 	public void removeAdmin(AdminAccount admin) {
 		if(adminList.remove(admin)) {
 			admin = null;
@@ -49,6 +54,11 @@ public class AdminDatabase implements Serializable{
 			System.out.println("Admin account does not exist");
 		}
 	}
+	
+	/**
+	 * 
+	 * @return ArrayList of all the 
+	 */
 	public ArrayList<AdminAccount> getAdminList(){
 		return this.adminList;
 	}
