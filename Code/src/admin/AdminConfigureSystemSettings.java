@@ -5,7 +5,7 @@ import moblima.SaveAndLoadDB;
 import movies.*;
 
 /**
- * Contains the functions to configure system settings.
+ * Contains the methods to configure system settings.
  * System settings available for configurations: update ticket base price and price offsets,
  *                                               update holiday dates,
  *                                               reset system settings.

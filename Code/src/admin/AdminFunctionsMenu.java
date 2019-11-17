@@ -9,6 +9,7 @@ import movies.ListTopFiveMenu;
  * Provides Admin Functions available.
  */
 public class AdminFunctionsMenu extends MenuTemplate{
+	
 	/**
 	 * The next menu to run.
 	 */

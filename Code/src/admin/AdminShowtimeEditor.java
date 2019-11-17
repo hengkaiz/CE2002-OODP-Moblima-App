@@ -9,14 +9,50 @@ import moblima.SaveAndLoadDB;
 import cinema.*;
 import movies.*;
 
+/**
+ * Contains the methods to edit showtimes in a specified cineplex.
+ * Specific cineplex number is needed load the correct Movies, Cinemas, and ShowTimes for that cineplex.
+ */
 public class AdminShowtimeEditor {
+	
+	/**
+	 * Allows saving and loading of the actual database to and from a local copy.
+	 */
 	private SaveAndLoadDB saveAndLoadDB = new SaveAndLoadDB();
+	
+	/**
+	 * Specified cineplex number
+	 */
 	private int cineplexNumber;
+	
+	/**
+	 * Object reference to store local copy of MovieDatabase.
+	 */
 	private MovieDatabase mdb;
+	
+	/**
+	 * Object reference to store local copy of ShowTimeDatabase.
+	 */
 	private ShowTimeDatabase stdb;
+	
+	/**
+	 * Object reference to store local copy of Cineplex
+	 */
 	private Cineplex cineplex;
+	
+	/**
+	 * Object reference to point to temporary ShowTime object used in methods.
+	 */
 	private ShowTime st;
 	
+	/**
+	 * Constructs AdminShowTimeEditor object.
+	 * Relevant databases are loaded and stored in a local copy for method use.
+	 * Relevant databases needed: Movie Database (mdb)
+	 *                            ShowTime Database (stdb)
+	 *                            Cineplex (cineplex)
+	 * @param cineplexNumber Specified cineplex number.
+	 */
 	public AdminShowtimeEditor(int cineplexNumber){
 		this.cineplexNumber = cineplexNumber;
 		this.mdb = saveAndLoadDB.loadMovieDB();
@@ -24,6 +60,11 @@ public class AdminShowtimeEditor {
 		this.cineplex = saveAndLoadDB.loadCineplex(this.cineplexNumber);
 	}
 	
+	/**
+	 * Creates a new show time available for the specified cinema number
+	 * Saves created show time into the actual show time database.
+	 * @param cinemaNum Specified cinema number.
+	 */
 	public void createShowtimes(int cinemaNum) {
 		Scanner sc = new Scanner(System.in);
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM");
@@ -105,6 +146,13 @@ public class AdminShowtimeEditor {
 		saveAndLoadDB.saveShowTimeDB(stdb, cineplexNumber);
 	}
 
+	/**
+	 * Updates show times of selected movie.
+	 * Allows for modifications of showtime attributes.
+	 * Prints out options of attributes for admin to modify.
+	 * Changes attributes based on admin selection.
+	 * Saves updates into the actual show time database.
+	 */
 	public void updateByMovie() {
 		Scanner sc = new Scanner(System.in);
 		int i=0, sel=0;
@@ -226,6 +274,14 @@ public class AdminShowtimeEditor {
 		//update showtime database
 		saveAndLoadDB.saveShowTimeDB(stdb, cineplexNumber);
 	}
+	
+	/**
+	 * Updates show times of selected date.
+	 * Allows for modifications of showtime attributes.
+	 * Prints out options of attributes for admin to modify.
+	 * Changes attributes based on admin selection.
+	 * Saves updates into the actual show time database.
+	 */
 	public void updateByDate() {
 		Scanner sc = new Scanner(System.in);
 		int i=0;
@@ -354,6 +410,12 @@ public class AdminShowtimeEditor {
 		//update showtime database
 		saveAndLoadDB.saveShowTimeDB(stdb, cineplexNumber);
 	}
+	
+	/**
+	 * Remove a showtime.
+	 * Permanently removes show time from database.
+	 * Saves updated local copy to actual showtime database. 
+	 */
 	public void removeShowtimes() {
 		Scanner sc = new Scanner(System.in);
 		int i=0;
@@ -391,6 +453,12 @@ public class AdminShowtimeEditor {
 		saveAndLoadDB.saveShowTimeDB(stdb, cineplexNumber);
 	}
 	
+	/**
+	 * Selects cinema.
+	 * Prints out all the cinemas in the specified cineplex with the cinema type.
+	 * Allows admin to select cinema.
+	 * @return Specified cinema number
+	 */
 	public int cinemaSelection() {
 		Scanner sc = new Scanner(System.in);
 		ArrayList<Cinema> cinemaList = cineplex.getCinemas();
@@ -418,6 +486,12 @@ public class AdminShowtimeEditor {
         return (sel);
 	}
 	
+	/**
+	 * Selects movie format.
+	 * Prints out all the movie formats.
+	 * Allows admin to select movie format.
+	 * @return Specified movie format
+	 */
 	public MovieFormat movieFormatSelection() {
 		Scanner sc = new Scanner(System.in);
 		int sel=0, i=0;

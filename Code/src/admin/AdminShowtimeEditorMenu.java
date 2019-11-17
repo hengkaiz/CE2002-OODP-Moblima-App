@@ -3,14 +3,35 @@ package admin;
 import java.util.Scanner;
 import moblima.MenuTemplate;
 
+/**
+ * Menu to choose options for editing showtimes.
+ * Provides editing options available.
+ */
 public class AdminShowtimeEditorMenu extends MenuTemplate{
+	
+	/**
+	 * The next menu to run.
+	 */
 	private MenuTemplate nextMenu;
+	
+	/**
+	 * Specified cineplex number.
+	 */
 	private int cineplexNum;
 	
+	/**
+	 * Menu constructor
+	 * @param previousMenu points to the previous menu
+	 */
 	public AdminShowtimeEditorMenu(MenuTemplate previousMenu) {
 		super(previousMenu);
 	}
 	
+	/**
+	 * Prints editing options and asks for admin input.
+	 * Admin can also choose to return to previous menu.
+	 * @return The next menu will be run based on user input.
+	 */
 	public MenuTemplate run() {
 		Scanner sc = new Scanner(System.in);
 		int sel = 0;

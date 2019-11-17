@@ -19,12 +19,20 @@ public class AdminLoginApp {
 	private SaveAndLoadDB saveAndLoadDB = new SaveAndLoadDB();
 	
 	/**
-	 * 
+	 * Constructs AdminLoginApp.
+	 * Relevant databases are loaded and stored in a local copy for method use.
+	 * Relevant databases needed: Admin Database (adb)
 	 */
 	public AdminLoginApp() {
 		this.adb = saveAndLoadDB.loadAdminDB();
 	}
 
+	/**
+	 * Checks if input id and password matches an admin account in the admin database 
+	 * @param id Input id from admin
+	 * @param password Input password from admin
+	 * @return If admin account match found, method returns true. If no match found, return false.
+	 */
 	public boolean loginCheck(String id, String password) {
 		ArrayList<AdminAccount> adminList = adb.getAdminList();
 		for(AdminAccount admin : adminList) {

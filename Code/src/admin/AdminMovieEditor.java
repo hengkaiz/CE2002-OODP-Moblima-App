@@ -6,21 +6,59 @@ import java.util.ArrayList;
 import moblima.SaveAndLoadDB;
 import movies.*;
 
+/**
+ * Contains the methods to edit movie listings in a specified cineplex.
+ * Specific cineplex number is needed load the correct Movies, Cinemas, and ShowTimes for that cineplex.
+ */
 public class AdminMovieEditor {
+	
+	/**
+	 * Allows saving and loading of the actual database to and from a local copy.
+	 */
 	private SaveAndLoadDB saveAndLoadDB = new SaveAndLoadDB();
+	
+	/**
+	 * Specified cineplex number
+	 */
 	private int cineplexNumber;
+	
+	/**
+	 * Object reference to store local copy of MovieDatabase.
+	 */
 	private MovieDatabase mdb;
+	
+	/**
+	 * Object reference to point to temporary Movie object used in methods.
+	 */
 	private Movie selectedMovie;
 	
+	/**
+	 * Constructs AdminMovieEditor object.
+	 * Relevant databases are loaded and stored in a local copy for method use.
+	 * Relevant databases needed: Movie Database (mdb)
+	 * @param cineplexNumber Specified cineplex number.
+	 */
 	public AdminMovieEditor(int cineplexNumber) {
 		this.cineplexNumber = cineplexNumber;
 		this.mdb = saveAndLoadDB.loadMovieDB();
 	}
 	
+	/**
+	 * Creates a new movie listing.
+	 * Saves created movie listing into the actual movie database.
+	 */
 	public void createMovieListing() { //creating a new Movie object
 		mdb.addMovieToDB();
 		saveAndLoadDB.saveMovieDB(mdb);
 	}
+	
+	/**
+	 * Updates movie listings.
+	 * Allows for modifications of attibutes.
+	 * Prints out options of attributes for admin to change.
+	 * Changes attributes based on admin selection.
+	 * Saves updates into the actual movie database.
+	 */
 	public void updateMovieListing() {
 		Scanner sc = new Scanner(System.in);
 		int i=0;
@@ -225,6 +263,12 @@ public class AdminMovieEditor {
 		} while(updateChoice != 6);
 		saveAndLoadDB.saveMovieDB(mdb);
 	}
+	
+	/**
+	 * Remove a movie listing.
+	 * Allow from removing permanently from the database and removing from user view.
+	 * Saves updated local copy to actual movie database.
+	 */
 	public void removeMovieListing() { 		
 		Scanner sc = new Scanner(System.in);
 		int i=0;
@@ -294,6 +338,10 @@ public class AdminMovieEditor {
 		}
 		saveAndLoadDB.saveMovieDB(mdb);
 	}
+	
+	/**
+	 * Shows movie details of all movie listing objects stored in database.
+	 */
 	public void seeMovie() {
 		try {
 			mdb.printMovieDetails();

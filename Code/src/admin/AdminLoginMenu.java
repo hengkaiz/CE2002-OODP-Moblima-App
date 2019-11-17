@@ -3,13 +3,32 @@ package admin;
 import moblima.MenuTemplate;
 import java.util.Scanner;
 
+/**
+ * Menu for admin to enter ID and password.
+ */
 public class AdminLoginMenu extends MenuTemplate{
+	
+	/**
+	 * The next menu to run.
+	 */
 	private MenuTemplate nextMenu;
 	
+	/**
+	 * Menu constructor.
+	 * @param previousMenu Points to the previous menu
+	 */
 	public AdminLoginMenu(MenuTemplate previousMenu) {
 		super(previousMenu);
 	}
 	
+	/**
+	 * Gets admin ID and password from admin trying to log in.
+	 * Passes in the admin ID and password as arguments for login check.
+	 * Stores the return value of login check.
+	 * If true, admin is allowed access to the next menu.
+	 * if false, admin is disallowed access and is brought back to the previous menu.
+	 * @return The next menu will be run based on user input.
+	 */
 	public MenuTemplate run() {
 		Scanner sc = new Scanner(System.in);
 		AdminLoginApp adminLoginApp = new AdminLoginApp();
